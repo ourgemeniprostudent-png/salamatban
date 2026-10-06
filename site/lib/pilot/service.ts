@@ -1,6 +1,7 @@
 import { PilotError, sampleAccounts, phoneNumber, text, asciiDigits, policyText, policyVersion, clinicalConsentText, coordinationConsentText, validateProfile, validateActions, detectedType, canReadClinical, type Role, type Action } from './domain';
 import { cleanLocation } from './location';
 import { cities } from '../data/cities';
+import { assessmentDefinition } from '../assessment-definition';
 import { cleanAnswers, isUrgent } from './intake';
 import { hash, keyedHash, equal, randomToken, randomCode, verifyTotp } from './crypto';
 import { requireLiveReady, type Settings } from './config';
@@ -28,8 +29,8 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
   const run=(sql:string,...args:unknown[])=>q(sql,...args).run();
   const audit=(actor:string,subject:string,action:string,resource='')=>run('INSERT INTO pilot_audit VALUES (?,?,?,?,?,?,?)',id(),actor,subject,action,resource,'success',now());
   const limit=async(key:string,max:number,windowMs:number)=>{
-    const r=await one('INSERT INTO pilot_rate_limits(key,count,expires_at) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=CASE WHEN expires_at<=? THEN 1 ELSE count+1 END, expires_at=CASE WHEN expires_at<=? THEN excluded.expires_at ELSE expires_at END RETURNING count',key,now()+windowMs,now(),now());
-    if(Number(r?.count)>max)throw new PilotError('RATE_LIMITED',429);
+    const r=await one('INSERT INTO pilot_rate_limits(key,count,expires_at) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=CASE WHEN expires_at<=? THEN 1 ELSE count+1 END, expires_at=CASE WHEN expires_at<=? THEN excluded.expires_at ELSE expires_at END RETURNING count,expires_at',key,now()+windowMs,now(),now());
+    if(Number(r?.count)>max)throw new PilotError('RATE_LIMITED',429,{retryAfterSeconds:Math.max(1,Math.ceil((Number(r?.expires_at)-now())/1000))});
   };
   const record=async(uid:string)=>{
     await run('INSERT OR IGNORE INTO pilot_records(user_id,updated_at) VALUES (?,?)',uid,now());
@@ -40,7 +41,7 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
   const teamTasks=(uid:string,pid:string,actions:Action[],city:string)=>actions.filter(a=>a.owner==='team').flatMap(a=>{
     const taskId=`${pid}:${a.id}`;
     return [
-      q("INSERT OR IGNORE INTO pilot_tasks(id,user_id,kind,status,title,preferred,created_at,updated_at) SELECT ?,?,'booking','requested',?,?,?,? WHERE EXISTS(SELECT 1 FROM pilot_plans WHERE id=? AND user_id=?)",taskId,uid,a.title,`${city} · موعد اقدام: ${a.due}`,now(),now(),pid,uid),
+      q("INSERT OR IGNORE INTO pilot_tasks(id,user_id,kind,status,title,preferred,created_at,updated_at) SELECT ?,?,'booking','requested',?,?,?,? WHERE EXISTS(SELECT 1 FROM pilot_plans p JOIN pilot_records r ON r.user_id=p.user_id WHERE p.id=? AND p.user_id=? AND p.version=(SELECT max(version) FROM pilot_plans WHERE user_id=p.user_id) AND r.status='published')",taskId,uid,a.title,`${city} · موعد اقدام: ${a.due}`,now(),now(),pid,uid),
       q('INSERT OR IGNORE INTO pilot_task_actions(task_id,plan_id,action_id) SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM pilot_tasks WHERE id=?)',taskId,pid,a.id,taskId),
     ];
   });
@@ -114,11 +115,12 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     if(path==='auth/logout'&&request.method==='POST') {await run('DELETE FROM pilot_sessions WHERE digest=?',session.digest);return json({ok:true},200,{'Set-Cookie':'pilot_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0'});}
     if(path==='me'&&request.method==='GET')return json({user:publicUser(user),csrf:session.csrf});
     if(path==='record'&&request.method==='GET') {
-      const uid=url.searchParams.get('user')||user.id;await clinical(uid);const r=await record(uid);
+      const uid=url.searchParams.get('user')||user.id;const owner=await clinical(uid);const r=await record(uid);
+      const doctor=await one("SELECT name,phone FROM pilot_users WHERE id=? AND role='clinician'",owner.clinician_id);
       const plans=await all('SELECT p.id,p.version,p.summary,p.actions,p.published_at,u.name AS reviewer FROM pilot_plans p JOIN pilot_users u ON u.id=p.reviewer_id WHERE p.user_id=? ORDER BY p.version DESC',uid);
       const updates=await all('SELECT plan_id,action_id,done,evidence,created_at FROM pilot_action_updates WHERE user_id=? ORDER BY created_at',uid);
       await audit(user.id,uid,'record_read');
-      return json({record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,l.address,l.unit,l.entrance,l.latitude,l.longitude,ta.plan_id,ta.action_id FROM pilot_tasks t LEFT JOIN pilot_task_actions ta ON ta.task_id=t.id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
+      return json({clinician:doctor?{name:doctor.name,...(c.mode==='demo'?{demoPhone:doctor.phone}:{})}:null,record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,l.address,l.unit,l.entrance,l.latitude,l.longitude,ta.plan_id,ta.action_id FROM pilot_tasks t LEFT JOIN pilot_task_actions ta ON ta.task_id=t.id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
     }
     if(path==='record'&&request.method==='PUT') {
       role('member');const r=await record(user.id);
@@ -126,14 +128,17 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       const profile=body.profile&&typeof body.profile==='object'?Object.fromEntries(['firstName','lastName','birthDate','city','cityId','provinceId','goal','insurance'].map(k=>[k,text(body.profile[k],k==='goal'?400:100)])):parse(r.profile);
       if(profile.cityId){const city=cities.find(c=>c.id===profile.cityId&&c.name===profile.city&&c.provinceId===profile.provinceId);if(!city){profile.cityId='';profile.provinceId='';}}
       const answers=cleanAnswers(body.answers??parse(r.answers));
+      const previousAnswers=parse(r.answers)||{};
+      const newAlert=assessmentDefinition.questions.some(question=>question.redFlag&&answers[question.id]==='yes'&&previousAnswers[question.id]!=='yes');
       // A member correction cannot close an unresolved alert that already reached the team.
       const urgent=isUrgent(answers)||(r.urgent&&!r.urgent_resolved_at)?1:0;
+      const urgentResolvedAt=urgent&&!newAlert?r.urgent_resolved_at:null;
       if(body.consent===false||(!r.consent_at&&body.consent!==true))throw new PilotError('CONSENT_REQUIRED',422);
       const accepted=body.consent===true, version=c.consentVersion||policyVersion;
-      const result=await run('UPDATE pilot_records SET profile=?,answers=?,step=?,version=version+1,consent_version=?,consent_hash=?,consent_at=?,coordination_consent=?,urgent=?,urgent_resolved_at=CASE WHEN ?!=urgent THEN NULL ELSE urgent_resolved_at END,updated_at=? WHERE user_id=? AND version=? AND status IN (\'draft\',\'needs_information\')',JSON.stringify(profile),JSON.stringify(answers),Math.max(0,Math.min(5,Number(body.step)||0)),accepted?version:r.consent_version,accepted?await hash((c.consentBody||policyText)+clinicalConsentText):r.consent_hash,accepted?now():r.consent_at,body.coordination===true?1:body.coordination===false?0:r.coordination_consent,urgent,urgent,now(),user.id,Number(body.version));
+      const result=await run('UPDATE pilot_records SET profile=?,answers=?,step=?,version=version+1,consent_version=?,consent_hash=?,consent_at=?,coordination_consent=?,urgent=?,urgent_resolved_at=?,updated_at=? WHERE user_id=? AND version=? AND status IN (\'draft\',\'needs_information\')',JSON.stringify(profile),JSON.stringify(answers),Math.max(0,Math.min(5,Number(body.step)||0)),accepted?version:r.consent_version,accepted?await hash((c.consentBody||policyText)+clinicalConsentText):r.consent_hash,accepted?now():r.consent_at,body.coordination===true?1:body.coordination===false?0:r.coordination_consent,urgent,urgentResolvedAt,now(),user.id,Number(body.version));
       if(!result.meta.changes)throw new PilotError('VERSION_CONFLICT',409);
-      if(urgent)await run("INSERT INTO pilot_tasks(id,user_id,kind,status,title,created_at,updated_at) SELECT ?,?,'urgent','open','تماس فوری توسط پزشک',?,? WHERE NOT EXISTS(SELECT 1 FROM pilot_tasks WHERE user_id=? AND kind='urgent' AND status='open')",id(),user.id,now(),now(),user.id);
-      await audit(user.id,user.id,'draft_saved');return json({version:r.version+1,urgent:!!urgent});
+      if(urgent&&!urgentResolvedAt)await run("INSERT INTO pilot_tasks(id,user_id,kind,status,title,created_at,updated_at) SELECT ?,?,'urgent','open','تماس فوری توسط پزشک',?,? WHERE NOT EXISTS(SELECT 1 FROM pilot_tasks WHERE user_id=? AND kind='urgent' AND status='open')",id(),user.id,now(),now(),user.id);
+      await audit(user.id,user.id,'draft_saved');return json({version:r.version+1,urgent:!!urgent,urgentResolvedAt});
     }
     if(path==='record/submit'&&request.method==='POST') {
       role('member');const r=await record(user.id);validateProfile(parse(r.profile));cleanAnswers(parse(r.answers),true);
@@ -186,6 +191,10 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     if(path==='payment/demo'&&request.method==='POST') {
       role('member');if(c.mode!=='demo')throw new PilotError('NOT_FOUND',404);
       if(!['paid','failed'].includes(body.result))throw new PilotError('INVALID_STATE');
+      const order=await one("SELECT * FROM pilot_orders WHERE id=? AND user_id=? AND mode='demo'",text(body.id,80),user.id);
+      if(!order)throw new PilotError('NOT_FOUND',404);
+      if(order.status===body.result)return json({ok:true});
+      if(order.status!=='pending')throw new PilotError('INVALID_PAYMENT_STATE',409);
       await run("UPDATE pilot_orders SET status=?,reference=?,paid_at=?,updated_at=? WHERE id=? AND user_id=? AND mode='demo' AND status='pending'",body.result,body.result==='paid'?`DEMO-${id()}`:null,body.result==='paid'?now():null,now(),text(body.id,80),user.id);return json({ok:true});
     }
     if(path==='payment/reconcile'&&request.method==='POST') {
@@ -211,8 +220,13 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       if(r.version!==Number(body.version))throw new PilotError('VERSION_CONFLICT',409);
       if(body.action==='resolve_urgent') {
         const note=text(body.note,1000);if(note.length<10)throw new PilotError('REVIEW_NOTE_REQUIRED',422);
-        const changed=await run('UPDATE pilot_records SET urgent_resolved_at=?,version=version+1 WHERE user_id=? AND version=?',now(),uid,r.version);if(!changed.meta.changes)throw new PilotError('VERSION_CONFLICT',409);
-        await run("UPDATE pilot_tasks SET status='resolved',note=?,assigned_to=?,updated_at=? WHERE user_id=? AND kind='urgent' AND status='open'",note,user.id,now(),uid);
+        if(!r.urgent||r.urgent_resolved_at)throw new PilotError('INVALID_STATE',409);
+        const resolvedAt=now();
+        const [changed]=await db.batch([
+          q('UPDATE pilot_records SET urgent_resolved_at=?,version=version+1,updated_at=? WHERE user_id=? AND version=? AND urgent=1 AND urgent_resolved_at IS NULL',resolvedAt,resolvedAt,uid,r.version),
+          q("UPDATE pilot_tasks SET status='resolved',note=?,assigned_to=?,updated_at=? WHERE user_id=? AND kind='urgent' AND status='open' AND EXISTS(SELECT 1 FROM pilot_records WHERE user_id=? AND urgent_resolved_at=? AND version=?)",note,user.id,resolvedAt,uid,uid,resolvedAt,r.version+1),
+        ]);
+        if(!changed.meta.changes)throw new PilotError('VERSION_CONFLICT',409);
       } else if(body.action==='reopen') {
         const note=text(body.note,1000);if(note.length<10)throw new PilotError('REVIEW_NOTE_REQUIRED',422);
         const changed=await run("UPDATE pilot_records SET status='needs_information',information_request=?,version=version+1,updated_at=? WHERE user_id=? AND version=? AND status='published'",note,now(),uid,r.version);
@@ -267,10 +281,13 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     }
     if(path==='staff/feedback'&&request.method==='POST') {
       role('admin');const reply=text(body.reply,1500);if(reply.length<5)throw new PilotError('INVALID_FEEDBACK',422);
+      const feedback=await one('SELECT id,kind FROM pilot_feedback WHERE id=?',text(body.id,80));if(!feedback)throw new PilotError('NOT_FOUND',404);
+      if(body.resolved===true&&!['issue','suggestion'].includes(feedback.kind))throw new PilotError('MANUAL_FULFILLMENT_REQUIRED',409);
       await run('UPDATE pilot_feedback SET reply=?,status=?,updated_at=? WHERE id=?',reply,body.resolved===true?'resolved':'open',now(),text(body.id,80));await audit(user.id,'','support_replied',text(body.id,80));return json({ok:true});
     }
     if(path==='staff/invite'&&request.method==='POST') {
       role('admin');const phone=phoneNumber(body.phone),name=text(body.name,140),doctor=text(body.clinicianId,80);if(!name||!await one("SELECT id FROM pilot_users WHERE id=? AND role='clinician' AND active=1",doctor))throw new PilotError('INVALID_INVITATION',422);
+      if(await one('SELECT id FROM pilot_users WHERE phone=?',phone))throw new PilotError('INVITATION_EXISTS',409);
       const changed=await run("INSERT INTO pilot_users(id,phone,name,role,clinician_id,created_at) SELECT ?,?,?,'member',?,? WHERE (SELECT count(*) FROM pilot_users WHERE role='member' AND active=1)<50",id(),phone,name,doctor,now());
       if(!changed.meta.changes)throw new PilotError('PILOT_FULL',409);await audit(user.id,'','member_invited');return json({ok:true});
     }

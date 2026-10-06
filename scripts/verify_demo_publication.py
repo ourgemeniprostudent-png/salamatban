@@ -12,7 +12,7 @@ for attempt in range(24):
  results=[]
  for name in files:
   try:
-   with urllib.request.urlopen(urllib.request.Request(base+name+'?v=1.6.1-'+commit[:12],headers={'Cache-Control':'no-cache','User-Agent':'Salamatban-Release-Verification/1.6.1'}),timeout=20) as response:
+   with urllib.request.urlopen(urllib.request.Request(base+name+'?v=1.7-'+commit[:12],headers={'Cache-Control':'no-cache','User-Agent':'Salamatban-Release-Verification/1.7'}),timeout=20) as response:
     actual=hashlib.sha256(response.read()).hexdigest()
     expected=hashlib.sha256((build/name).read_bytes()).hexdigest()
     results.append({'file':name,'status':response.status,'sha256':actual,'matches':actual==expected})

@@ -93,6 +93,38 @@ await test('Manual address works without coordinates',async()=>{
 await test('Support response and data-deletion request remain tracked as open',async()=>{assert.equal((await req('feedback','POST',{kind:'deletion',message:'درخواست ساختگی برای آزمون رسیدگی',page:'support'},m)).status,200);const f=(await req('staff/queue','GET',null,admin)).data.feedback[0];assert.equal((await req('staff/feedback','POST',{id:f.id,reply:'درخواست در صف بررسی است.',resolved:false},admin)).status,200);assert.equal((await req('record','GET',null,m)).data.feedback[0].status,'open');});
 await test('Urgent response blocks payment and enters doctor queue',async()=>{const x=(await req('record','GET',null,m2)).data.record;await req('record','PUT',{version:x.version,profile:r.profile,answers:{...r.answers,urgent_chest_pain:'yes'},consent:true},m2);assert.equal((await req('payment','POST',{},m2)).status,409);const members=(await req('staff/queue','GET',null,doctor)).data.members;assert.equal(members.find(x=>x.id===m2.id).urgent,1);});
 await test('Correcting answers cannot close an unresolved urgent alert',async()=>{const x=(await req('record','GET',null,m2)).data.record;assert.equal((await req('record','PUT',{version:x.version,answers:{...x.answers,urgent_chest_pain:'no'}},m2)).status,200);assert.equal((await req('payment','POST',{},m2)).status,409);});
+await test('Urgent review names its owner, requires doctor note, and a fresh red flag reopens the block',async()=>{
+ let d=(await req('record','GET',null,m2)).data;assert.equal(d.clinician.demoPhone,'09000000011');
+ const resolve={userId:m2.id,version:d.record.version,action:'resolve_urgent',note:'بررسی ساختگی هشدار برای آزمون گردش کار'};
+ assert.equal((await req('staff/review','POST',resolve,coord)).status,403);
+ assert.equal((await req('staff/review','POST',{...resolve,note:'کم'},doctor)).status,422);
+ assert.equal((await req('staff/review','POST',resolve,doctor)).status,200);
+ assert.equal((await req('payment','POST',{},m2)).status,200);
+ d=(await req('record','GET',null,m2)).data;
+ const reopen=await req('record','PUT',{version:d.record.version,answers:{...d.record.answers,urgent_dyspnea:'yes'},consent:true},m2);
+ assert.equal(reopen.status,200);assert.equal(reopen.data.urgentResolvedAt,null);assert.equal((await req('payment','POST',{},m2)).status,409);
+ d=(await req('record','GET',null,m2)).data;
+ assert.equal((await req('staff/review','POST',{...resolve,version:d.record.version},doctor)).status,200);
+ d=(await req('record','GET',null,m2)).data;const resolvedAt=d.record.urgent_resolved_at;
+ assert.ok(resolvedAt);const saved=await req('record','PUT',{version:d.record.version,answers:d.record.answers,consent:true},m2);
+ assert.equal(saved.data.urgentResolvedAt,resolvedAt);assert.equal((await req('payment','POST',{},m2)).status,200);
+ assert.equal((await db.prepare("SELECT count(*) n FROM pilot_tasks WHERE user_id=? AND kind='urgent' AND status='open'").bind(m2.id).first()).n,0);
+});
+await test('Demo payment validates ownership/state and never replaces a paid receipt',async()=>{
+ const receipt=(await req('record','GET',null,m)).data.orders.find(o=>o.status==='paid');
+ assert.equal((await req('payment/demo','POST',{id:'missing',result:'paid'},m)).status,404);
+ assert.equal((await req('payment/demo','POST',{id:receipt.id,result:'paid'},m2)).status,404);
+ assert.equal((await req('payment/demo','POST',{id:receipt.id,result:'failed'},m)).status,409);
+ assert.equal((await req('payment/demo','POST',{id:receipt.id,result:'paid'},m)).status,200);
+ assert.equal((await req('record','GET',null,m)).data.orders.find(o=>o.id===receipt.id).reference,receipt.reference);
+});
+await test('Duplicate invitation and unavailable support record return actionable errors',async()=>{
+ const duplicate=await req('staff/invite','POST',{phone:'09000000001',name:'تکراری',clinicianId:doctor.id},admin);assert.equal(duplicate.status,409);assert.equal(duplicate.data.error,'INVITATION_EXISTS');
+ assert.equal((await req('staff/feedback','POST',{id:'missing',reply:'پاسخ ساختگی معتبر',resolved:true},admin)).status,404);
+ const deletion=(await req('staff/queue','GET',null,admin)).data.feedback.find(f=>f.kind==='deletion');
+ assert.equal((await req('staff/feedback','POST',{id:deletion.id,reply:'پاسخ به معنای حذف نیست',resolved:true},admin)).status,409);
+ assert.equal((await req('record','GET',null,m)).data.feedback.find(f=>f.id===deletion.id).status,'open');
+});
 await test('Oversized JSON is rejected before parsing',async()=>assert.equal((await req('feedback','POST',{kind:'issue',message:'x'.repeat(60000)},m)).status,413));
 await test('Invite capacity is enforced under concurrent requests',async()=>{const count=(await db.prepare("SELECT count(*) n FROM pilot_users WHERE role='member'").first()).n;for(let i=count;i<49;i++)await db.prepare("INSERT INTO pilot_users VALUES (?,?,?,'member',1,'demo-clinician-11',?)").bind('capacity-'+i,'0919000'+String(i).padStart(4,'0'),'Synthetic capacity '+i,Date.now()).run();const rs=await Promise.all(['09199999001','09199999002'].map(phone=>req('staff/invite','POST',{name:'Synthetic capacity',phone,clinicianId:doctor.id},admin)));assert.equal(rs.filter(x=>x.status===200).length,1);assert.equal((await db.prepare("SELECT count(*) n FROM pilot_users WHERE role='member'").first()).n,50);});
 await test('Suspension revokes access and reassigning changes clinician access',async()=>{assert.equal((await req('staff/member','POST',{id:m2.id,active:false,clinicianId:'other-doctor'},admin)).status,200);assert.equal((await req('record','GET',null,m2)).status,401);assert.equal((await req('record?user='+m2.id,'GET',null,doctor)).status,404);});

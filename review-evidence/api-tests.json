@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T13:26:22.543Z",
+  "generatedAt": "2026-10-06T13:49:18.649Z",
   "environment": "ephemeral Miniflare D1/R2; synthetic data only; no real provider calls",
   "tests": [
     {
@@ -120,6 +120,18 @@
     },
     {
       "name": "Correcting answers cannot close an unresolved urgent alert",
+      "status": "pass"
+    },
+    {
+      "name": "Urgent review names its owner, requires doctor note, and a fresh red flag reopens the block",
+      "status": "pass"
+    },
+    {
+      "name": "Demo payment validates ownership/state and never replaces a paid receipt",
+      "status": "pass"
+    },
+    {
+      "name": "Duplicate invitation and unavailable support record return actionable errors",
       "status": "pass"
     },
     {

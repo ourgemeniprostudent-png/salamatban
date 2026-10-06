@@ -1,0 +1,35 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.3.zip",
+  "bytes": 5255262,
+  "sha256": "29cae0c76e7a357aeff1e7ff4e85584d3aa319edb1abb8dc435f0351a90e62ba",
+  "fileCount": 158,
+  "sourceCommit": "4c2ff2434c1caf0e107450531b093cec3e7a1ee4",
+  "validation": {
+    "mode": "file-protocol-branch harness (file URL blocked by environment policy)",
+    "onlineLink": true,
+    "localGuideVisible": true,
+    "appAndWasmNotRequested": true,
+    "noHorizontalOverflow": true,
+    "browserRegression": {
+      "command": "npm run test:demo",
+      "passed": 13,
+      "failed": 0,
+      "includes": [
+        "login",
+        "Jalali picker",
+        "record and file persistence",
+        "payment simulation",
+        "doctor review",
+        "coordination",
+        "mobile layouts",
+        "brand assets"
+      ]
+    },
+    "pdfPages": 57,
+    "rootIndexOffline": "passed",
+    "localLinks": "passed",
+    "packagedWebsiteMatchesTestedBuild": true,
+    "publicSiteUpdated": false
+  },
+  "archiveIntegrity": "passed"
+}

@@ -1,0 +1,9 @@
+{
+  "archive": "salamatban-demo.zip",
+  "bytes": 482597,
+  "sha256": "ec9497760ba1fe09dd1b281d9b1e9e2142594979a4034274f4cc7753c420a6fd",
+  "targetDirectory": "/domains/temporarydomain.ir/public_html/salamatban-demo/",
+  "expectedUrl": "https://temporarydomain.ir/salamatban-demo/",
+  "status": "prepared; not uploaded",
+  "backend": "browser-only synthetic demonstration; no remote API"
+}

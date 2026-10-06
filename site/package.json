@@ -12,7 +12,10 @@
     "lint": "node node_modules/eslint/bin/eslint.js . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .test-build",
     "db:generate": "node node_modules/drizzle-kit/bin.cjs generate",
     "test": "node tests/pilot.test.mjs",
-    "db:local": "node node_modules/wrangler/bin/wrangler.js d1 migrations apply DB --local --config wrangler.local.jsonc"
+    "db:local": "node node_modules/wrangler/bin/wrangler.js d1 migrations apply DB --local --config wrangler.local.jsonc",
+    "build:demo": "node demo/build.mjs",
+    "test:demo": "node --test demo/presentation.test.mjs",
+    "package:demo": "npm run build:demo && node demo/package.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",
@@ -28,12 +31,16 @@
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@types/sql.js": "1.4.11",
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "^0.5.34",
     "drizzle-kit": "^0.31.10",
+    "esbuild": "0.28.1",
     "eslint": "9.39.4",
     "eslint-config-next": "^16.3.6",
+    "playwright": "1.63.0",
     "react-server-dom-webpack": "^19.3.0",
+    "sql.js": "1.14.2",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vinext": "^1.0.1",

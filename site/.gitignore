@@ -41,3 +41,6 @@ next-env.d.ts
 
 /.test-build/
 /.dev.vars
+
+# Browser-only presentation build
+/dist-demo/

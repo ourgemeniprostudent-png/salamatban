@@ -56,16 +56,16 @@
     ]
   },
   "publicHostingVerification": {
-    "status": "standalone branding update awaiting publication verification",
+    "status": "completed successfully; standalone identity verified across all 33 public assets",
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-    "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37441269332",
+    "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37441934248",
     "matchingAssets": 33,
     "tlsVerification": "enabled",
     "publicBrowserLimitation": "Chromium proxy certificate untrusted; no TLS bypass; local Chromium suite validated matching published assets",
-    "pagesCommit": "c64f846ed2146c84283fd1a1ea643d33c1f298cd"
+    "pagesCommit": "c5a0613c66da3f54145ec2e5ea444f80b5687648"
   },
   "productionServices": "not activated; live dependencies documented separately",
-  "implementationCommit": "dccee97fe3d09e1a8f7a5369f117fc9a17c8a9e6",
+  "implementationCommit": "fd1c59b8e828499c637bf50dd120db1c9fd7c28e",
   "brandIdentity": {
     "name": "سلامت‌بان",
     "presentation": "standalone",

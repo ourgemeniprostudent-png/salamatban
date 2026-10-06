@@ -1,0 +1,50 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.1.zip",
+  "bytes": 5079049,
+  "sha256": "63870d136a6c6caf2f8b257d7dcdce34377155bf7f70530aea0666377743ed34",
+  "fileCount": 150,
+  "pdfPages": 51,
+  "sourceCommit": "97acfe44c4c89bfc48b790d9b55ada63aca74a6b",
+  "validation": {
+    "roles": [
+      {
+        "role": "member",
+        "login": true,
+        "sessionAfterReload": true
+      },
+      {
+        "role": "clinician",
+        "login": true,
+        "sessionAfterReload": true
+      },
+      {
+        "role": "coordinator",
+        "login": true,
+        "sessionAfterReload": true
+      },
+      {
+        "role": "admin",
+        "login": true,
+        "sessionAfterReload": true
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "document": {
+      "diagrams": 6,
+      "images": true,
+      "font": true,
+      "scripts": 0
+    },
+    "launcher": "Python 3 bundled launcher served included website; four roles tested with external requests blocked",
+    "windowsLauncher": "provided; not executed on Windows",
+    "macLauncher": "provided; not executed on macOS",
+    "pdfPages": 51,
+    "pdfPublicLinks": 2,
+    "publishedAssetsByteMatched": 33,
+    "sourceExportByteMatched": true,
+    "startPageAndDocumentLinks": "passed"
+  },
+  "archiveIntegrity": "passed",
+  "extractedFileIntegrity": "passed"
+}

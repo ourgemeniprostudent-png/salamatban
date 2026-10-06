@@ -1,0 +1,32 @@
+{
+  "packageVersion": "1.7.2",
+  "appVersion": "1.7",
+  "checkedAt": "2026-10-06T14:25:09.276Z",
+  "browser": "Chromium",
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false,
+      "details": "passed"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "details": "passed"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "details": "passed"
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "details": "passed"
+    }
+  ],
+  "guideNavigation": "passed",
+  "keyboardSkipLink": "passed",
+  "selfContainedOfflineHtml": "passed with embedded fonts and artwork; native macOS file launch not automated",
+  "pageErrors": []
+}

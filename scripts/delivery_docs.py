@@ -1,7 +1,7 @@
 """Shared delivery version, document catalog and deterministic rendering. No I/O on import."""
 import hashlib,html,posixpath,re
 from urllib.parse import urlsplit,urlunsplit
-VERSION = '1.7.1'
+VERSION = '1.7.2'
 APP_VERSION = '1.7'
 DOCS = [
  'DELIVERY-STATUS-fa.md', 'salamatban-product-architecture-fa.md',
@@ -10,7 +10,7 @@ DOCS = [
  'FIRST-OPERATIONAL-RELEASE-fa.md', 'architecture/runtime-v1.6.md',
  'architecture/SALAMATBAN-1000-USERS-fa.md', 'architecture/database-1000-users-fa.md',
 ]
-EVIDENCE = ['ux-release.json', 'ux-publication.json', 'architecture-database-validation.json', 'delivery-consistency-v1.7.1.json']
+EVIDENCE = ['ux-release.json', 'ux-publication.json', 'architecture-database-validation.json', 'delivery-consistency-v1.7.1.json', 'delivery-landing-v1.7.2.json']
 MIRRORS = {f'deliverables/{n}':f'technical/{n}' for n in DOCS + ['launch-budget.csv','launch-readiness-register.csv','architecture/postgresql-target-schema.sql']}
 MIRRORS.update({f'review-evidence/{n}':f'technical/{n}' for n in EVIDENCE})
 LINK = re.compile(r'(!?\[[^\]\n]*\]\()([^\s)]+)(\))')

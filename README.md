@@ -80,4 +80,4 @@ npm run build
 
 ## مرجع جاری تحویل
 
-برنامهٔ منتشرشده ۱٫۷ و بستهٔ مستندات ۱٫۷٫۱ است. [وضعیت تحویل](deliverables/DELIVERY-STATUS-fa.md)، [دامنهٔ بررسی جریان‌ها](deliverables/FLOW-REVIEW-v1.7-fa.md) و [چک‌لیست جاری](deliverables/salamatban-release-checklist-fa.md) مرجع‌اند. بخش‌های نسخه‌دار بالا سابقهٔ افزوده‌ها هستند. مدل فعال ۱۴ جدول و مهاجرت‌های `0000` تا `0003` دارد. نسخهٔ `0.1.0` در package.json شناسهٔ داخلی بستهٔ npm است و شمارهٔ انتشار محصول نیست.
+برنامهٔ منتشرشده ۱٫۷ و بستهٔ مستندات ۱٫۷٫۲ است. [وضعیت تحویل](deliverables/DELIVERY-STATUS-fa.md)، [دامنهٔ بررسی جریان‌ها](deliverables/FLOW-REVIEW-v1.7-fa.md) و [چک‌لیست جاری](deliverables/salamatban-release-checklist-fa.md) مرجع‌اند. بخش‌های نسخه‌دار بالا سابقهٔ افزوده‌ها هستند. مدل فعال ۱۴ جدول و مهاجرت‌های `0000` تا `0003` دارد. نسخهٔ `0.1.0` در package.json شناسهٔ داخلی بستهٔ npm است و شمارهٔ انتشار محصول نیست.

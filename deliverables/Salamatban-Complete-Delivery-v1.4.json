@@ -1,0 +1,64 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.4.zip",
+  "bytes": 5345540,
+  "sha256": "4c14194652f744ab1768ab360beea6386e83a9142c33ab138806d965514464bc",
+  "fileCount": 169,
+  "sourceCommit": "cc41a5393cee8ae76147a25eab099834ae9c8059",
+  "validation": {
+    "date": "2026-10-06",
+    "change": "Bounded selection dialogs and searchable long lists",
+    "browserTests": {
+      "command": "npm run test:demo",
+      "passed": 13,
+      "failed": 0,
+      "newChecks": [
+        "320px dialog viewport bounds",
+        "bounded long year list",
+        "Persian-digit year search",
+        "Escape preserves selection and parent calendar",
+        "focus restoration"
+      ]
+    },
+    "builds": {
+      "demo": "passed",
+      "server": "passed"
+    },
+    "screenshots": [
+      "site/.test-build/visual-review/compact-year-select-320.png"
+    ],
+    "mapPickerImplemented": false,
+    "locationProposal": "Searchable city first; optional map only for precise address when needed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "pdfPages": 59,
+    "localLinks": "passed",
+    "packagedWebsiteMatchesTestedBuild": true,
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "96c60e83499c77e229c48239fb9707e44b6f4baa",
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "matches": true,
+          "sha256": "967361fc91eb95b6a33df1726dfb820b48190f3847e0a1913f08351400933499"
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "matches": true,
+          "sha256": "e318eba755380f1a48b478ee717ef356e59df4c2166562c6a77e0803085a4c96"
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "matches": true,
+          "sha256": "a5c37f1c2ddc3df19086c37961db5ca2140f470c9a780c6421f99c625e0232f8"
+        }
+      ],
+      "success": true
+    },
+    "directFileLaunch": "unchanged from verified v1.3 guide behavior"
+  },
+  "archiveIntegrity": "passed"
+}

@@ -1,0 +1,25 @@
+{
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+  "pagesCommit": "96c60e83499c77e229c48239fb9707e44b6f4baa",
+  "assets": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "967361fc91eb95b6a33df1726dfb820b48190f3847e0a1913f08351400933499"
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "matches": true,
+      "sha256": "e318eba755380f1a48b478ee717ef356e59df4c2166562c6a77e0803085a4c96"
+    },
+    {
+      "file": "app.css",
+      "status": 200,
+      "matches": true,
+      "sha256": "a5c37f1c2ddc3df19086c37961db5ca2140f470c9a780c6421f99c625e0232f8"
+    }
+  ],
+  "success": true
+}

@@ -56,12 +56,13 @@
     ]
   },
   "publicHostingVerification": {
-    "status": "initial identity deployment completed successfully; public assets matched; aligned palette update pending",
+    "status": "completed successfully; all 33 public assets match final tested build",
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-    "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37440543505",
+    "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37441269332",
     "matchingAssets": 33,
     "tlsVerification": "enabled",
-    "publicBrowserLimitation": "Chromium proxy certificate untrusted; no TLS bypass; local Chromium suite validated matching published assets"
+    "publicBrowserLimitation": "Chromium proxy certificate untrusted; no TLS bypass; local Chromium suite validated matching published assets",
+    "pagesCommit": "c64f846ed2146c84283fd1a1ea643d33c1f298cd"
   },
   "partnerBrandVerification": {
     "url": "https://doctoreto.com/",
@@ -73,5 +74,5 @@
     "fontChoice": "user-supplied Peyda overrides partner font"
   },
   "productionServices": "not activated; live dependencies documented separately",
-  "implementationCommit": "84adeabc27bf78d686aa9c30f5a34e81e7411534"
+  "implementationCommit": "dccee97fe3d09e1a8f7a5369f117fc9a17c8a9e6"
 }

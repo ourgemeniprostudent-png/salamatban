@@ -1,0 +1,207 @@
+{
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+  "pagesCommit": "c64f846ed2146c84283fd1a1ea643d33c1f298cd",
+  "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37441269332",
+  "actionStatus": "completed successfully:  Run 3 of pages-build-deployment. pages build and deployment",
+  "tlsVerification": true,
+  "files": [
+    {
+      "file": "app.css",
+      "status": 200,
+      "matches": true,
+      "sha256": "fb654560e72ac9b39db2c4503fa5db32f47a1924d99e7bcce226a1fa4b834541"
+    },
+    {
+      "file": "og.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "b54165c005ee405a9687b53e528b2c9a7a5c20c63b152c84239664e2d4954785"
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "dbe0ec717f57f22f9395d33c4e211e229c7e751406409b8985f9e73a7154ef90"
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "matches": true,
+      "sha256": "d54c88aeccfbedf30299c96edc2b4b30b01f61f75bcd962eb89781f754cccd61"
+    },
+    {
+      "file": "sql-wasm.wasm",
+      "status": 200,
+      "matches": true,
+      "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a"
+    },
+    {
+      "file": "favicon.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "1d998047ee702d9ecb2bb330b31a0152fdb9bcaff998a00e477b6d9e0df36055"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Bold.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Regular.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-SemiBold.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "9a8255e578cac803b2378b131630736eb69cdc58dcb53df1644adc1ed4b568fa"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Thin.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "d87cfe700933b1c5e121863f3ba8b4d2fdce16f7657d72217ce17a9e2bd78b60"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-ExtraBold.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "31fa8ce338a9ec29b1f13fb60623a4288142e316e8e129288df44e210f41a13b"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Medium.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-ExtraLight.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "c688a839a1813e2423d2cbba3a18129a6ee53a2aff03997ba7bc885251d26007"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Light.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "9bca090cd9cd8f8aff47b82fa48492f723cce0039904799017c6cf5be8e44dc2"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Black.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-Regular-EKWUS3Y3.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-Black-4RT5PX52.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-Thin-V5NA6DPK.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "d87cfe700933b1c5e121863f3ba8b4d2fdce16f7657d72217ce17a9e2bd78b60"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-Light-WRKETGJM.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "9bca090cd9cd8f8aff47b82fa48492f723cce0039904799017c6cf5be8e44dc2"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-ExtraBold-3BSAVZNR.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "31fa8ce338a9ec29b1f13fb60623a4288142e316e8e129288df44e210f41a13b"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-SemiBold-E2NUIS5T.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "9a8255e578cac803b2378b131630736eb69cdc58dcb53df1644adc1ed4b568fa"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-ExtraLight-W52722HO.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "c688a839a1813e2423d2cbba3a18129a6ee53a2aff03997ba7bc885251d26007"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-Medium-KS2FFHX2.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1"
+    },
+    {
+      "file": "assets/PeydaWebFaNum-Bold-3JC2HNDI.woff2",
+      "status": 200,
+      "matches": true,
+      "sha256": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220"
+    },
+    {
+      "file": "brand/symbol.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "1d998047ee702d9ecb2bb330b31a0152fdb9bcaff998a00e477b6d9e0df36055"
+    },
+    {
+      "file": "brand/tokens.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "6f1e252b8f249ec11ecd1db7fcd3c4e92bb7960ecec511d0bfdaf9ec79ac5ae5"
+    },
+    {
+      "file": "brand/social-card.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "3b5b10c50e96396fc7c4df09af62fbe3c2471ae44378b458c821bf642d0a612a"
+    },
+    {
+      "file": "brand/index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "3bb8534e35e7b1dbf8acf2f9a980369bf30684468e36789c005c97f0f770c296"
+    },
+    {
+      "file": "brand/logo-reverse.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "64ccc7986a07be06ac4a66f0ccc76c461097637eed84557f8a6a5f6086a657e5"
+    },
+    {
+      "file": "brand/README-fa.md",
+      "status": 200,
+      "matches": true,
+      "sha256": "621b2088d2bdd002ab1105548c5ecf05da376b172546b88cdb1ceb85f8b7dac3"
+    },
+    {
+      "file": "brand/logo.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "1323fa4a9397070a7e31d62f709f9b5d3f3e9857bc5d99beaf2267509428f6d7"
+    },
+    {
+      "file": "brand/fonts.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "75c3b3876c355079127b9a42544f83b20fd12b4d65a9ad8c3fd0486fedaa6ab1"
+    },
+    {
+      "file": "brand/logo-mono.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "37f8e6d52965c11f0e8e8d1601a635bd5c7582e68dc2d2254a9964fd7f1df5d9"
+    }
+  ]
+}

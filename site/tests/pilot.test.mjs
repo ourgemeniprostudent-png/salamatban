@@ -9,6 +9,7 @@ const mf=new Miniflare(convertV4MiniflareOptions({modules:true,script:'export de
 const db=await mf.getD1Database('DB'),files=await mf.getR2Bucket('FILES');
 for(const statement of (await readFile('drizzle-pilot/0000_optimal_wind_dancer.sql','utf8')).split('--> statement-breakpoint'))await db.prepare(statement).run();
 for(const statement of (await readFile('drizzle-pilot/0001_guards.sql','utf8')).split('\n').filter(x=>x.startsWith('CREATE')))await db.prepare(statement).run();
+for(const statement of (await readFile('drizzle-pilot/0002_violet_morgan_stark.sql','utf8')).split('--> statement-breakpoint'))await db.prepare(statement).run();
 const c={mode:'demo',origin:'https://pilot.test',authSecret:'test-secret',merchant:'',smsKey:'',smsTemplate:'',staffTotp:{},priceRial:12000000,pricingVersion:'test',scanUrl:'',scanToken:'',consentVersion:'',consentBody:'',clinicalApproved:false,ready:false};
 const report=[];
 async function test(name,fn){try{await fn();report.push({name,status:'pass'});console.log('PASS',name);}catch(e){report.push({name,status:'fail',detail:e.message});console.error('FAIL',name,e);throw e;}}
@@ -41,6 +42,27 @@ await test('Concurrent publication produces one immutable plan version',async()=
 await test('Action progress is persisted independently of approved plan',async()=>{assert.equal((await req('actions','POST',{planId:pid,actionId,done:true,evidence:'test'},m)).status,200);const d=(await req('record','GET',null,m)).data;assert.equal(d.updates[0].done,1);assert.equal(d.plans[0].actions[0].done,false);});
 await test('Booking needs consent and cannot skip confirmation prerequisites',async()=>{assert.equal((await req('booking','POST',{title:'خدمت ساختگی',preferred:'شهر ساختگی'},m)).status,422);assert.equal((await req('booking','POST',{title:'خدمت ساختگی',preferred:'هفته آینده، شهر ساختگی',consent:true},m)).status,200);const t=(await req('staff/queue','GET',null,coord)).data.tasks[0];taskId=t.id;assert.equal((await req('staff/booking','POST',{id:t.id,status:'confirmed'},coord)).status,409);assert.equal((await req('staff/booking','POST',{id:t.id,status:'contacted'},coord)).status,200);assert.equal((await req('staff/booking','POST',{id:t.id,status:'confirmed'},coord)).status,422);});
 await test('Coordinator confirmation is visible to member with provider reference',async()=>{assert.equal((await req('staff/booking','POST',{id:taskId,status:'confirmed',provider:'مرکز ساختگی',scheduledAt:'زمان ساختگی',reference:'TEST-001',centerConsent:true},coord)).status,200);assert.equal((await req('record','GET',null,m)).data.tasks[0].reference,'TEST-001');});
+await test('Home-visit location requires confirmation and valid coordinates',async()=>{
+ const body={title:'خدمت ساختگی در محل',preferred:'شهر ساختگی فردا',consent:true,homeVisit:true,location:{address:'آدرس ساختگی برای آزمون',unit:'۱',entrance:'ورودی آزمایشی',latitude:35.7,longitude:51.4,confirmed:false}};
+ assert.equal((await req('booking','POST',body,m)).status,422);
+ assert.equal((await req('booking','POST',{...body,location:{...body.location,confirmed:true,latitude:91}},m)).status,422);
+ assert.equal((await req('booking','POST',{...body,location:{...body.location,confirmed:true}},m)).status,200);
+ const own=(await req('record','GET',null,m)).data.tasks.find(t=>t.address);
+ assert.equal(own.address,body.location.address);
+ assert.ok(!(await req('record?user='+m.id,'GET',null,doctor)).data.tasks.some(t=>t.address),'Clinical access does not expose location');
+ assert.ok(!(await req('record','GET',null,m2)).data.tasks.some(t=>t.address),'Other members cannot read locations');
+ const t=(await req('staff/queue','GET',null,coord)).data.tasks.find(t=>t.id===own.id);
+ assert.equal(t.latitude,'35.7');
+ assert.equal((await req('staff/booking','POST',{id:t.id,status:'cancelled'},coord)).status,200);
+ const final=(await req('record','GET',null,m)).data.tasks.find(x=>x.id===t.id);
+ assert.equal(final.latitude,null);assert.equal(final.longitude,null);assert.equal(final.address,body.location.address);
+});
+await test('Manual address works without coordinates',async()=>{
+ const body={title:'درخواست آدرس دستی',preferred:'شهر ساختگی فردا',consent:true,homeVisit:true,location:{address:'نشانی دستی و ساختگی',confirmed:true}};
+ assert.equal((await req('booking','POST',body,m)).status,200);
+ const row=(await req('record','GET',null,m)).data.tasks.find(t=>t.address===body.location.address);
+ assert.equal(row.latitude,null);assert.equal(row.longitude,null);
+});
 await test('Support response and data-deletion request remain tracked as open',async()=>{assert.equal((await req('feedback','POST',{kind:'deletion',message:'درخواست ساختگی برای آزمون رسیدگی',page:'support'},m)).status,200);const f=(await req('staff/queue','GET',null,admin)).data.feedback[0];assert.equal((await req('staff/feedback','POST',{id:f.id,reply:'درخواست در صف بررسی است.',resolved:false},admin)).status,200);assert.equal((await req('record','GET',null,m)).data.feedback[0].status,'open');});
 await test('Urgent response blocks payment and enters doctor queue',async()=>{const x=(await req('record','GET',null,m2)).data.record;await req('record','PUT',{version:x.version,profile:r.profile,answers:{...r.answers,urgent_chest_pain:'yes'},consent:true},m2);assert.equal((await req('payment','POST',{},m2)).status,409);const members=(await req('staff/queue','GET',null,doctor)).data.members;assert.equal(members.find(x=>x.id===m2.id).urgent,1);});
 await test('Correcting answers cannot close an unresolved urgent alert',async()=>{const x=(await req('record','GET',null,m2)).data.record;assert.equal((await req('record','PUT',{version:x.version,answers:{...x.answers,urgent_chest_pain:'no'}},m2)).status,200);assert.equal((await req('payment','POST',{},m2)).status,409);});

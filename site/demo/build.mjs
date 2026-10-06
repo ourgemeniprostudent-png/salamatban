@@ -14,11 +14,12 @@ await build({
   entryNames: 'app', assetNames: 'assets/[name]-[hash]', bundle: true,
   format: 'esm', platform: 'browser', target: ['es2022'], minify: true,
   define: { 'process.env.NODE_ENV': '"production"' },
-  loader: { '.sql': 'text', '.woff2': 'file' },
+  loader: { '.sql': 'text', '.woff2': 'file', '.png': 'file' },
   alias: { '@': root },
   plugins: [demoBindings(root)],
 });
 await cp(path.join(root, 'node_modules/sql.js/dist/sql-wasm.wasm'), path.join(output, 'sql-wasm.wasm'));
+await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8'));
 await cp(path.join(root, 'public/favicon.svg'), path.join(output, 'favicon.svg'));
 await cp(path.join(root, 'public/og.png'), path.join(output, 'og.png'));
 await cp(path.join(root, 'public/brand'), path.join(output, 'brand'), { recursive: true });
@@ -54,4 +55,9 @@ Header set Cache-Control "no-cache"
 </FilesMatch>
 </IfModule>
 `);
+const releaseAssets = {};
+for (const name of ['index.html', 'app.js', 'app.css']) {
+  releaseAssets[name] = createHash('sha256').update(await readFile(path.join(output, name))).digest('hex');
+}
+await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '1.5', assets: releaseAssets }, null, 2) + '\n');
 console.log('Static presentation built in site/dist-demo. Upload its contents to a dedicated HTTPS folder.');

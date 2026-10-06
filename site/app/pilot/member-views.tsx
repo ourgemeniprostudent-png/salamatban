@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, type ReactNode, type CSSProperties } from 'react';
+import { type ReactNode, type CSSProperties } from 'react';
 import { assessmentDefinition, type AssessmentQuestion } from '@/lib/assessment-definition';
 import { labels } from '@/lib/pilot/domain';
 import { Icon } from './brand';
+import { DocumentUpload, type UploadProgress } from './document-upload';
 
 // These presentation views consume the same validated API records as the pilot shell.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -86,7 +87,7 @@ export function HomeOverview({ data, profile, onNavigate }: OverviewProps & { pr
   return <div className="mv-view mv-home">
     <div className="mv-home-lead"><span className="mv-soft-caption"><Icon name="sun" size={18}/>همراه شما، برای روزهای سالم‌تر</span><p>{profile.firstName ? `${profile.firstName} عزیز، ` : ''}اینجا مسیر سلامت خود را یک‌جا می‌بینید.</p></div>
     <section className="mv-welcome-card">
-      <div className="mv-welcome-content"><span className="mv-hero-label"><span/>قدم بعدی شما</span><h2>{actionTitle}</h2><p>{record.information_request || (plan ? 'جمع‌بندی پزشک را بخوانید، اقدام‌های پیشنهادی را ببینید و پیشرفت خود را در همین‌جا ثبت کنید.' : submitted ? 'پس از بررسی، جمع‌بندی و برنامه شخصی شما در این صفحه قرار می‌گیرد. می‌توانید وضعیت پرونده را همین‌جا دنبال کنید.' : 'از شناخت بهتر خود شروع کنید. سوابق، سبک زندگی و مدارک خود را ثبت کنید تا پزشک برنامه پیگیری شما را آماده کند.')}</p><div className="mv-hero-actions"><button className="mv-hero-button" onClick={() => onNavigate(plan ? 'plan' : submitted ? 'health' : 'intake')}>{plan ? 'مشاهده برنامه سلامت' : submitted ? 'مشاهده پرونده سلامت' : needsInformation ? 'تکمیل اطلاعات پرونده' : progress.done ? 'ادامه تکمیل پرونده' : 'شروع پرونده سلامت'}<Icon name="arrow" size={19}/></button><span><Icon name="shield" size={16}/>بررسی با مسئولیت پزشک</span></div></div>
+      <div className="mv-welcome-content"><span className="mv-hero-label"><span/>قدم بعدی شما</span><h2>{actionTitle}</h2><p>{record.information_request || (plan ? 'جمع‌بندی پزشک را بخوانید، اقدام‌های پیشنهادی را ببینید و پیشرفت خود را در همین‌جا ثبت کنید.' : submitted ? 'پزشک مسئول، پاسخ‌ها و مدارک شما را بررسی می‌کند و نتیجه در تصویر سلامت و برنامه پیگیری قرار می‌گیرد. زمان پاسخ قطعی هنوز اعلام نشده است؛ برای پیگیری از پشتیبانی اقدام کنید.' : 'از شناخت بهتر خود شروع کنید. سوابق، سبک زندگی و مدارک خود را ثبت کنید تا پزشک برنامه پیگیری شما را آماده کند.')}</p><div className="mv-hero-actions"><button className="mv-hero-button" onClick={() => onNavigate(plan ? 'plan' : submitted ? 'health' : 'intake')}>{plan ? 'مشاهده برنامه سلامت' : submitted ? 'مشاهده پرونده سلامت' : needsInformation ? 'تکمیل اطلاعات پرونده' : progress.done ? 'ادامه تکمیل پرونده' : 'شروع پرونده سلامت'}<Icon name="arrow" size={19}/></button><span><Icon name="shield" size={16}/>بررسی با مسئولیت پزشک</span></div></div>
       <div className="mv-welcome-visual" aria-hidden="true"><div className="mv-visual-orbit mv-visual-orbit-one"/><div className="mv-visual-orbit mv-visual-orbit-two"/><div className="mv-health-symbol"><Icon name="heart" size={58}/><span className="mv-symbol-plus">+</span></div><div className="mv-floating-note mv-floating-note-top"><span><Icon name="shield" size={18}/></span><div><strong>پرونده سلامت شما</strong><small>{labels[record.status] || 'در حال تشکیل'}</small></div></div><div className="mv-floating-note mv-floating-note-bottom"><span><Icon name="check" size={18}/></span><div><strong>همراهی در هر قدم</strong><small>از شناخت تا پیگیری</small></div></div></div>
     </section>
     <div className="mv-metrics">
@@ -126,22 +127,8 @@ export function HealthOverview({ data, onNavigate }: OverviewProps) {
   </div>;
 }
 
-export function DocumentsOverview({ data, fileList, onUpload, busy, locked }: { data: Obj; fileList: ReactNode; onUpload: (file: File) => Promise<void> | void; busy: boolean; locked: boolean }) {
-  const [dragging, setDragging] = useState(false);
-  const [uploadError, setUploadError] = useState('');
-  const files: Obj[] = data.files || [];
-  const blocked = busy || locked || files.length >= 10;
-  const totalBytes = files.reduce((total, file) => total + Number(file.size || 0), 0);
-  async function upload(file?: File) {
-    if (!file || blocked) return;
-    setUploadError('');
-    try { await onUpload(file); } catch (error) { setUploadError(error instanceof Error ? error.message : 'بارگذاری انجام نشد؛ دوباره تلاش کنید.'); }
-  }
-  return <div className="mv-view"><div className="mv-document-summary"><div><span className="mv-metric-icon is-blue"><Icon name="file" size={24}/></span><span><strong>{fa(files.length)}</strong><small>مدرک ثبت‌شده</small></span></div><div><span className="mv-metric-icon is-teal"><Icon name="upload" size={24}/></span><span><strong>{fa(Math.round(totalBytes / 1024))}<i>کیلوبایت</i></strong><small>حجم مجموع مدارک</small></span></div><p>مدارک مرتبط را در یک‌جا نگه دارید تا پزشک هنگام بررسی پرونده به آن‌ها دسترسی داشته باشد.</p></div>
-    <section className="mv-card"><SectionHead icon="upload" title="افزودن مدرک سلامت" text="آزمایش، تصویر گزارش یا مستندات مرتبط با پرونده"/>{locked ? <div className="mv-info-banner is-compact"><Icon name="lock" size={23}/><div><strong>پرونده برای بررسی قفل است</strong><p>برای افزودن یا اصلاح مدرک، درخواست خود را در بخش پشتیبانی ثبت کنید.</p></div></div> : <label className={`mv-upload-zone ${dragging ? 'is-dragging' : ''} ${blocked ? 'is-disabled' : ''}`} onDragOver={event => { event.preventDefault(); if (!blocked) setDragging(true); }} onDragLeave={() => setDragging(false)} onDrop={event => { event.preventDefault(); setDragging(false); void upload(event.dataTransfer.files[0]); }}><span className="mv-upload-icon"><Icon name="upload" size={31}/></span><strong>{busy ? 'در حال بارگذاری مدرک…' : files.length >= 10 ? 'حداکثر ۱۰ مدرک ثبت شده است' : 'فایل را اینجا رها کنید'}</strong><span>یا از فایل‌های دستگاهتان انتخاب کنید</span><span className="mv-upload-button">انتخاب مدرک<Icon name="plus" size={17}/></span><small>JPG، PNG یا PDF · حداکثر ۱۰ مگابایت برای هر فایل</small><input type="file" aria-label="انتخاب مدرک" accept="image/jpeg,image/png,application/pdf" disabled={blocked} onChange={event => { void upload(event.currentTarget.files?.[0]); event.currentTarget.value = ''; }}/></label>}{uploadError && <p className="mv-upload-error" role="alert">{uploadError}</p>}</section>
-    <section className="mv-card"><SectionHead icon="file" title="مدارک من" text={files.length ? `${fa(files.length)} مدرک آماده دریافت و مشاهده` : 'همه مدارک مرتبط با پرونده شما'}/>{files.length ? <div className="mv-files">{fileList}</div> : <EmptyState icon="file" title="جای مدارک شما اینجاست" text="اگر مدرکی دارید، اولین فایل را اضافه کنید. نداشتن مدرک مانع تکمیل و ارسال پرونده نیست."/>}</section>
-    <div className="mv-inline-note"><Icon name="shield" size={20}/><p>فقط مدارک مرتبط با این پرونده را بارگذاری کنید. اطلاعات کارت بانکی و مدارک هویتی غیرضروری را ارسال نکنید.</p></div>
-  </div>;
+export function DocumentsOverview({ data, fileList, onUpload, busy, locked }: { data: Obj; fileList: ReactNode; onUpload: (file: File, progress?:(p:UploadProgress)=>void) => Promise<void>; busy: boolean; locked: boolean }) {
+ return <div className="mv-view"><section className="mv-card"><SectionHead icon="upload" title="افزودن مدرک سلامت" text="آزمایش، تصویر گزارش یا مستندات مرتبط با پرونده"/>{locked?<p>پرونده برای بررسی قفل است. برای افزودن مدرک از پشتیبانی کمک بگیرید.</p>:<DocumentUpload onUpload={onUpload} disabled={busy} count={data.files.length}/>}</section><section className="mv-card"><SectionHead icon="file" title="مدارک من" text={`${fa(data.files.length)} مدرک آماده دریافت و مشاهده`}/>{data.files.length?<div className="mv-files">{fileList}</div>:<EmptyState icon="file" title="جای مدارک شما اینجاست" text="نداشتن مدرک مانع تکمیل و ارسال پرونده نیست."/>}</section></div>;
 }
 
 export function AccountOverview({ data, user, onNavigate }: OverviewProps & { user: Obj }) {

@@ -1,0 +1,4 @@
+{
+  "status": "blocked",
+  "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+}

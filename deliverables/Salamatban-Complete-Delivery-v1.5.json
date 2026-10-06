@@ -1,0 +1,130 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.5.zip",
+  "bytes": 5660750,
+  "sha256": "de10294ef613e81495653ce4446928b00804951f2e7c3eafb235f7680c420f38",
+  "fileCount": 207,
+  "version": "1.5",
+  "sourceBaseCommit": "d43d862c33190e66205b9b42c1108cffb942eda0",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "1.5",
+    "date": "2026-10-06T13:08:07.145198+00:00",
+    "workflow": "synthetic browser demo plus local D1/R2 development",
+    "checks": {
+      "api": {
+        "passed": 36,
+        "failed": 0
+      },
+      "calendar": {
+        "passed": 5,
+        "failed": 0
+      },
+      "presentationBrowser": {
+        "passed": 13,
+        "failed": 0
+      },
+      "uxBrowser": {
+        "passed": 9,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "localD1Migration": "0002 applied successfully",
+      "runningServer": "Persian page, demo metadata, OTP login, D1 record read and logout passed",
+      "upgrade": "existing v1.4 browser database preserves profile, file and record version"
+    },
+    "features": [
+      "conditional optional fields; all required clinical questions retained",
+      "inline field errors and focus",
+      "serialized autosave, retry and version conflict handling",
+      "searchable city catalog with manual fallback",
+      "direct short choices",
+      "section review and direct return",
+      "camera/gallery, image/PDF preview and per-file upload progress/retry",
+      "clear primary actions and honest post-submit status",
+      "active queue filters and result count",
+      "optional confirmed demo address/map; coordinates removed on terminal booking status"
+    ],
+    "providerNetwork": {
+      "tile": "HTTPS 200",
+      "nominatimStatus": "HTTPS 200",
+      "tehranSearch": "HTTPS 200; nonempty result with coordinates; CORS *"
+    },
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "be2266d99f09dd9a0e931dbaa3d844c9534f7c9e",
+      "success": true,
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "711857d48ca9c38215370937b989471f1917d224119b71baa8c1c56aa75f1d1a",
+          "matches": true
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "68a44770c7d38e85dd7adfc21c041549c1c755c666f122aaa1f4dc6a8b44f330",
+          "matches": true
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "sha256": "cd9876434068cdd04742787627f352a8e42a026e4a1139c1ea04028126a8de13",
+          "matches": true
+        },
+        {
+          "file": "release.json",
+          "status": 200,
+          "sha256": "b09f6a3de178b509362c097d53d687862b7f51e366ec2699b96039da92cbe51f",
+          "matches": true
+        },
+        {
+          "file": "sql-wasm.wasm",
+          "status": 200,
+          "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+          "matches": true
+        },
+        {
+          "file": "brand/index.html",
+          "status": 200,
+          "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
+          "matches": true
+        }
+      ],
+      "verifiedAt": "2026-10-06T13:06:04Z"
+    },
+    "publicBrowser": {
+      "status": "blocked",
+      "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    },
+    "limitations": [
+      "Real Android/iPhone camera and GPS not tested",
+      "5–8 participant usability study not performed",
+      "Home visits remain demo-only; production provider/retention agreements not implemented",
+      "City starter catalog is not a nationwide official dataset"
+    ],
+    "artifacts": {
+      "deploymentSha256": "1a7cd08717a20dfed386fd2bd457aaadef247fd2c915494ea6f2948f6966f5ec"
+    }
+  },
+  "archiveIntegrity": "passed",
+  "deliveryChecks": {
+    "directFileFallback": "file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation",
+    "archive": "Salamatban-Complete-Delivery-v1.5.zip",
+    "integrity": "passed",
+    "manifestFiles": 206,
+    "matchedCurrentFiles": {
+      "source": 140,
+      "website": 39
+    },
+    "missingLinks": [],
+    "exclusions": "passed",
+    "pdfPages": 60,
+    "pdfTextPages": 60,
+    "pdfVisualReview": "page 4 inspected: Persian text, headings and line wrapping readable",
+    "packagedLauncher": "passed: actual extracted serve-demo.py with matching HTML/JS/CSS/WASM/release assets"
+  }
+}

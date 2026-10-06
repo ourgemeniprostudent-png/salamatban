@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T21:48:02.982Z",
+  "generatedAt": "2026-10-06T12:59:20.296Z",
   "environment": "ephemeral Miniflare D1/R2; synthetic data only; no real provider calls",
   "tests": [
     {
@@ -96,6 +96,14 @@
     },
     {
       "name": "Coordinator confirmation is visible to member with provider reference",
+      "status": "pass"
+    },
+    {
+      "name": "Home-visit location requires confirmation and valid coordinates",
+      "status": "pass"
+    },
+    {
+      "name": "Manual address works without coordinates; unchecked home visit stores no location",
       "status": "pass"
     },
     {

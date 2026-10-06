@@ -1,0 +1,15 @@
+{
+  "scope": "local final build",
+  "url": "http://127.0.0.1:4187/",
+  "verifiedAt": "2026-10-06T13:07:50.841Z",
+  "status": "passed",
+  "checks": [
+    "public page HTTP 200",
+    "synthetic OTP login",
+    "v1.5 marker",
+    "city selection",
+    "draft save",
+    "reload preserves stored draft"
+  ],
+  "pageErrors": []
+}

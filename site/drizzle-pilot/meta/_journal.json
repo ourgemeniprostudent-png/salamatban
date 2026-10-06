@@ -15,6 +15,13 @@
       "when": 1791236796135,
       "tag": "0001_guards",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791291307043,
+      "tag": "0002_violet_morgan_stark",
+      "breakpoints": true
     }
   ]
 }

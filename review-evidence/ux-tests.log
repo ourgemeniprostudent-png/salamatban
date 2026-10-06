@@ -1,0 +1,27 @@
+
+> sites-project@0.1.0 test:ux
+> node --test demo/ux.test.mjs
+
+▶ UX v1.5: real browser drafts, validation, documents and optional location
+  ✔ consent is explicit; errors focus the first field; searchable cities allow manual input (1084.199996ms)
+  ✔ a failed draft retains input and explicit retry saves it (1382.162853ms)
+  ✔ editing during an in-flight save preserves the later input (2233.674435ms)
+  ✔ version conflicts never overwrite the newer record and reload requires confirmation (1437.275259ms)
+  ✔ all clinical questions remain; optional details expand and final review links return directly (2164.396595ms)
+  ✔ camera and gallery input, preview, failure and per-file retry (440.409483ms)
+  ✔ a v1.4 browser database upgrades without losing the record or file (30.760574ms)
+  ✔ home-visit map is optional, explicit, editable and survives manual fallback (2348.079259ms)
+✔ UX v1.5: real browser drafts, validation, documents and optional location (12647.915018ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12986.012107
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

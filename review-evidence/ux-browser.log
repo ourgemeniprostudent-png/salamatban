@@ -1,0 +1,31 @@
+
+> sites-project@0.1.0 test:demo
+> node --test demo/presentation.test.mjs
+
+▶ static presentation works under a shared-hosting subdirectory
+  ✔ loads without a server API, logs in through the actual UI (734.201984ms)
+  ✔ Persian birth-date picker supports mobile selection, invalid input and ISO persistence (2047.187181ms)
+  ✔ saves consent/intake and keeps uploaded document in browser storage (41.864703ms)
+  ✔ reload retains identity, SQL record and downloadable file (215.614385ms)
+  ✔ new member views show persisted health/profile data and support actual document upload/download (596.264041ms)
+  ✔ simulated payment and submission use the original service rules (50.475064ms)
+  ✔ doctor sees the same case and publishes through the UI (701.332906ms)
+  ✔ member sees plan, records progress and requests coordination (548.065651ms)
+  ✔ coordinator confirms the requested appointment through the UI and member sees the confirmed details (988.801745ms)
+  ✔ 320/360/1440px layout, mobile navigation and independent browser storage (1803.859025ms)
+  ✔ admin overview and membership page load with role restrictions (387.647599ms)
+  ✔ public brand guide, nine supplied Peyda weights and logo downloads work under the same subdirectory (667.645089ms)
+✔ static presentation works under a shared-hosting subdirectory (9477.706295ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9850.91382
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

@@ -1,4 +1,6 @@
 import { PilotError, sampleAccounts, phoneNumber, text, asciiDigits, policyText, policyVersion, clinicalConsentText, coordinationConsentText, validateProfile, validateActions, detectedType, canReadClinical, type Role, type Action } from './domain';
+import { cleanLocation } from './location';
+import { cities } from '../data/cities';
 import { cleanAnswers, isUrgent } from './intake';
 import { hash, keyedHash, equal, randomToken, randomCode, verifyTotp } from './crypto';
 import { requireLiveReady, type Settings } from './config';
@@ -108,12 +110,13 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       const plans=await all('SELECT p.id,p.version,p.summary,p.actions,p.published_at,u.name AS reviewer FROM pilot_plans p JOIN pilot_users u ON u.id=p.reviewer_id WHERE p.user_id=? ORDER BY p.version DESC',uid);
       const updates=await all('SELECT plan_id,action_id,done,evidence,created_at FROM pilot_action_updates WHERE user_id=? ORDER BY created_at',uid);
       await audit(user.id,uid,'record_read');
-      return json({record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT id,kind,status,title,preferred,provider,scheduled_at,reference,note FROM pilot_tasks WHERE user_id=? AND kind='booking' ORDER BY created_at DESC",uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
+      return json({record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,l.address,l.unit,l.entrance,l.latitude,l.longitude FROM pilot_tasks t LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
     }
     if(path==='record'&&request.method==='PUT') {
       role('member');const r=await record(user.id);
       if(!['draft','needs_information'].includes(r.status))throw new PilotError('RECORD_LOCKED',409);
-      const profile=body.profile&&typeof body.profile==='object'?Object.fromEntries(['firstName','lastName','birthDate','city','goal','insurance'].map(k=>[k,text(body.profile[k],k==='goal'?400:100)])):parse(r.profile);
+      const profile=body.profile&&typeof body.profile==='object'?Object.fromEntries(['firstName','lastName','birthDate','city','cityId','provinceId','goal','insurance'].map(k=>[k,text(body.profile[k],k==='goal'?400:100)])):parse(r.profile);
+      if(profile.cityId){const city=cities.find(c=>c.id===profile.cityId&&c.name===profile.city&&c.provinceId===profile.provinceId);if(!city){profile.cityId='';profile.provinceId='';}}
       const answers=cleanAnswers(body.answers??parse(r.answers));
       // A member correction cannot close an unresolved alert that already reached the team.
       const urgent=isUrgent(answers)||(r.urgent&&!r.urgent_resolved_at)?1:0;
@@ -183,7 +186,7 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     if(path==='staff/queue'&&request.method==='GET') {
       role('clinician','coordinator','admin');
       if(user.role==='clinician')return json({members:await all("SELECT u.id,u.name,r.status,r.urgent,r.urgent_resolved_at,r.submitted_at FROM pilot_users u JOIN pilot_records r ON r.user_id=u.id WHERE u.clinician_id=? AND u.active=1 AND (r.status!='draft' OR r.urgent=1) ORDER BY r.urgent DESC,r.submitted_at",user.id)});
-      if(user.role==='coordinator')return json({tasks:await all("SELECT t.*,u.name,u.phone FROM pilot_tasks t JOIN pilot_users u ON u.id=t.user_id WHERE t.kind='booking' ORDER BY t.created_at DESC")});
+      if(user.role==='coordinator')return json({tasks:await all("SELECT t.*,u.name,u.phone,l.address,l.unit,l.entrance,l.latitude,l.longitude FROM pilot_tasks t JOIN pilot_users u ON u.id=t.user_id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id WHERE t.kind='booking' ORDER BY t.created_at DESC")});
       return json({counts:await one("SELECT (SELECT count(*) FROM pilot_users WHERE role='member' AND active=1) members,(SELECT count(*) FROM pilot_records WHERE submitted_at IS NOT NULL) submitted,(SELECT count(DISTINCT user_id) FROM pilot_orders WHERE status='paid') paid,(SELECT count(DISTINCT user_id) FROM pilot_plans) published,(SELECT count(*) FROM pilot_feedback WHERE status='open') feedbackOpen,(SELECT count(*) FROM pilot_orders WHERE status IN ('requesting','reconciliation')) reconciliation"),members:await all("SELECT id,name,phone,active,clinician_id FROM pilot_users WHERE role='member'"),clinicians:await all("SELECT id,name FROM pilot_users WHERE role='clinician' AND active=1"),orders:(await all("SELECT * FROM pilot_orders WHERE status IN ('reconciliation','requesting')")).map(paymentView),feedback:await all('SELECT f.id,f.user_id,f.kind,f.message,f.status,f.reply,u.name FROM pilot_feedback f JOIN pilot_users u ON u.id=f.user_id ORDER BY f.created_at DESC')});
     }
     if(path==='staff/review'&&request.method==='POST') {
@@ -219,9 +222,13 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     }
     if(path==='booking'&&request.method==='POST') {
       role('member');const r=await record(user.id);if(!r.coordination_consent||!body.consent)throw new PilotError('COORDINATION_CONSENT_REQUIRED',422);
+      if(body.homeVisit&&c.mode!=='demo')throw new PilotError('LOCATION_DEMO_ONLY',422);
+      const location=body.homeVisit?cleanLocation(body.location):null;
       const title=text(body.title,160),preferred=text(body.preferred,300);if(title.length<3||preferred.length<3)throw new PilotError('INVALID_BOOKING',422);
       if(!await one('SELECT id FROM pilot_plans WHERE user_id=?',user.id))throw new PilotError('PLAN_REQUIRED',409);
-      await limit(`booking:${user.id}`,3,86400000);await run('INSERT INTO pilot_tasks(id,user_id,kind,status,title,preferred,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?)',id(),user.id,'booking','requested',title,preferred,now(),now());await audit(user.id,user.id,'booking_consent');return json({ok:true});
+      await limit(`booking:${user.id}`,3,86400000);const taskId=id();const statements=[db.prepare('INSERT INTO pilot_tasks(id,user_id,kind,status,title,preferred,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?)').bind(taskId,user.id,'booking','requested',title,preferred,now(),now())];
+      if(location)statements.push(db.prepare('INSERT INTO pilot_booking_locations(task_id,address,unit,entrance,latitude,longitude,confirmed_at) VALUES (?,?,?,?,?,?,?)').bind(taskId,location.address,location.unit,location.entrance,location.latitude===null?null:String(location.latitude),location.longitude===null?null:String(location.longitude),now()));
+      await db.batch(statements);await audit(user.id,user.id,'booking_consent');return json({ok:true});
     }
     if(path==='staff/booking'&&request.method==='POST') {
       role('coordinator');const t=await one("SELECT * FROM pilot_tasks WHERE id=? AND kind='booking'",text(body.id,80));if(!t)throw new PilotError('NOT_FOUND',404);
@@ -229,7 +236,9 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       if(!transitions[t.status]?.includes(body.status))throw new PilotError('INVALID_STATE',409);
       const provider=text(body.provider,160),scheduled=text(body.scheduledAt,80),reference=text(body.reference,120),note=text(body.note,600);
       if(body.status==='confirmed'&&(!provider||!scheduled||!reference||!body.centerConsent))throw new PilotError('BOOKING_CONFIRMATION_REQUIRED',422);
-      const changed=await run('UPDATE pilot_tasks SET status=?,provider=?,scheduled_at=?,reference=?,note=?,assigned_to=?,updated_at=? WHERE id=? AND status=?',body.status,provider||t.provider,scheduled||t.scheduled_at,reference||t.reference,note,user.id,now(),t.id,t.status);
+      const updates=[db.prepare('UPDATE pilot_tasks SET status=?,provider=?,scheduled_at=?,reference=?,note=?,assigned_to=?,updated_at=? WHERE id=? AND status=?').bind(body.status,provider||t.provider,scheduled||t.scheduled_at,reference||t.reference,note,user.id,now(),t.id,t.status)];
+      if(['completed','cancelled'].includes(body.status))updates.push(db.prepare("UPDATE pilot_booking_locations SET latitude=NULL,longitude=NULL WHERE task_id=? AND EXISTS (SELECT 1 FROM pilot_tasks WHERE id=? AND status IN ('completed','cancelled'))").bind(t.id,t.id));
+      const [changed]=await db.batch(updates);
       if(!changed.meta.changes)throw new PilotError('VERSION_CONFLICT',409);await audit(user.id,t.user_id,body.status==='confirmed'?'booking_confirmed_with_consent':`booking_${body.status}`,t.id);return json({ok:true});
     }
     if(path==='feedback'&&request.method==='POST') {

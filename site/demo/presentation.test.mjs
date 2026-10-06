@@ -133,7 +133,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await birth.fill('۱۳۷۰/۰۱/۰۱');
     await birth.fill('۱۴۰۰/۱۲/۳۰');
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
-    await page.getByText('تمام مشخصات، تاریخ تولد، شهر، بیمه و هدف را کامل کنید.', { exact: false }).waitFor();
+    await page.getByText('یک تاریخ تولد معتبر وارد کنید.', { exact: false }).waitFor();
     assert.equal(await birth.getAttribute('aria-invalid'), 'true');
     const invalidSave = await page.evaluate(async () => (await window.demoRequest('record')).data.record.profile.birthDate);
     assert.ok(!invalidSave, 'Editing a valid date to an impossible date must not silently save the old value');
@@ -179,7 +179,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.keyboard.press('Enter');
     assert.equal(await birth.inputValue(), '۱۴۰۳/۱۲/۳۰');
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
-    await page.getByText('این پایلوت برای افراد ۱۸ سال و بالاتر است.', { exact: false }).waitFor();
+    await page.getByText('سن قابل پذیرش از ۱۸ تا ۱۱۹ سال است.', { exact: false }).waitFor();
     await opener.click();
     await selectValue(calendar.getByLabel('سال', { exact: true }), '1370');
     await selectValue(calendar.getByLabel('ماه', { exact: true }), '1');
@@ -193,6 +193,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', { name: 'خروج', exact: true }).waitFor();
     await navigate('تکمیل پرونده');
     await page.getByRole('button', { name: 'قبلی', exact: true }).click();
+    await birth.waitFor();
     assert.equal(await birth.inputValue(), '۱۳۷۰/۰۱/۰۱');
     await page.setViewportSize({ width: 1440, height: 1000 });
     await driver();
@@ -269,6 +270,11 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
   });
   await check('doctor sees the same case and publishes through the UI', async () => {
     await logout(); await login('09000000011');
+    await page.getByLabel('جست‌وجوی پرونده', {exact:true}).fill('نامی که وجود ندارد');
+    await page.getByText('پرونده‌ای با این جست‌وجو پیدا نشد.', {exact:true}).waitFor();
+    assert.match(await page.locator('.ux-filter-summary').innerText(), /۰ نتیجه/);
+    await page.getByRole('button', {name:'پاک‌کردن فیلترها',exact:true}).click();
+    assert.equal(await page.getByLabel('جست‌وجوی پرونده',{exact:true}).inputValue(),'');
     await page.locator('.p-queue-row').first().click();
     await page.getByLabel('جمع‌بندی قابل نمایش به کاربر', { exact: true }).fill('این جمع‌بندی صرفاً برای نمایش نرم‌افزار و با اطلاعات کاملاً ساختگی است.');
     await page.getByLabel('عنوان', { exact: true }).fill('اقدام ساختگی برای نمایش');

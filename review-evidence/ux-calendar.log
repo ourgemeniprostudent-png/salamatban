@@ -1,0 +1,22 @@
+
+> sites-project@0.1.0 test:calendar
+> node --test tests/persian-date.test.mjs
+
+✔ Nowruz and leap Esfand convert without a day shift (1.717883ms)
+✔ Manual input accepts Persian, Arabic and Latin digits and normalizes output (1.162044ms)
+✔ Invalid dates are rejected instead of rolling into another month (0.334293ms)
+✔ Every day in the supported UI range round-trips, including Gregorian leap years (425.797479ms)
+✔ Week columns start on Saturday and date arithmetic crosses month/year boundaries (0.242097ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 540.716953
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 /** Original Salamatban mark: a protective shield, a growing leaf and a care path. */
 export function BrandMark({ className = '' }: { className?: string }) {
   return <svg className={`sb-brand-mark ${className}`} viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false">
-    <path d="M24 3 41 9v14c0 10-7.2 17-17 22C14.2 40 7 33 7 23V9L24 3Z" fill="#1677D2" />
+    <path d="M24 3 41 9v14c0 10-7.2 17-17 22C14.2 40 7 33 7 23V9L24 3Z" fill="#346ED1" />
     <path d="M14 28c5-1 6-9 10-9 4 0 4 7 10 5" stroke="white" strokeWidth="3.3" strokeLinecap="round" />
-    <path d="M25.5 17.5c-.5-5 2.4-8 7.5-8 .4 5-2.3 8-7.5 8Z" fill="#A8EBDB" />
+    <path d="M25.5 17.5c-.5-5 2.4-8 7.5-8 .4 5-2.3 8-7.5 8Z" fill="#45CAF6" />
     <circle cx="15" cy="28" r="2.1" fill="white" />
     <circle cx="34" cy="24" r="2.1" fill="white" />
   </svg>;

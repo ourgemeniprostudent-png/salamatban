@@ -11,17 +11,19 @@
 
 :root {
   --sb-font: 'Peyda', Tahoma, Arial, sans-serif;
-  --sb-primary: #1677d2;
-  --sb-primary-hover: #0d5ead;
-  --sb-primary-deep: #08477f;
-  --sb-primary-soft: #eaf4ff;
-  --sb-primary-border: #bfdcf5;
+  --sb-primary: #346ED1;
+  --sb-partner-accent: #4187FF;
+  --sb-partner-cyan: #45CAF6;
+  --sb-primary-hover: #2755A3;
+  --sb-primary-deep: #1A3B74;
+  --sb-primary-soft: #ECF3FF;
+  --sb-primary-border: #C6DBFF;
   --sb-teal: #14a89b;
   --sb-teal-ink: #087f76;
   --sb-teal-soft: #e9f8f5;
   --sb-ink: #18344d;
   --sb-ink-deep: #102a43;
-  --sb-muted: #60758a;
+  --sb-muted: #667085;
   --sb-canvas: #f4f8fc;
   --sb-surface: #ffffff;
   --sb-surface-alt: #f8fbfe;
@@ -33,9 +35,9 @@
   --sb-warning-soft: #fff5df;
   --sb-danger: #b33c44;
   --sb-danger-soft: #fff0f1;
-  --sb-info: #0d5ead;
-  --sb-info-soft: #eaf4ff;
-  --sb-focus: #0d5ead;
+  --sb-info: #2755A3;
+  --sb-info-soft: #ECF3FF;
+  --sb-focus: #2755A3;
   --sb-shadow-sm: 0 4px 16px #18344d06;
   --sb-shadow: 0 14px 42px #18344d0b;
   --sb-shadow-lg: 0 28px 72px #18344d12;

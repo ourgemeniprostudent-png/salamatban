@@ -55,7 +55,23 @@
       900
     ]
   },
-  "publicHostingVerification": "pending; public origin currently blocked by cloud proxy",
-  "partnerBrandVerification": "doctoreto.com unavailable through cloud proxy; independent proposed identity",
-  "productionServices": "not activated; live dependencies documented separately"
+  "publicHostingVerification": {
+    "status": "initial identity deployment completed successfully; public assets matched; aligned palette update pending",
+    "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+    "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37440543505",
+    "matchingAssets": 33,
+    "tlsVerification": "enabled",
+    "publicBrowserLimitation": "Chromium proxy certificate untrusted; no TLS bypass; local Chromium suite validated matching published assets"
+  },
+  "partnerBrandVerification": {
+    "url": "https://doctoreto.com/",
+    "stylesheet": "https://doctoreto.com/_next/static/css/bd603ace29ba67a0.css",
+    "status": "HTTP 200; actual CSS and logo reviewed",
+    "primary500": "#4187FF",
+    "accessiblePrimary600": "#346ED1",
+    "secondary500": "#45CAF6",
+    "fontChoice": "user-supplied Peyda overrides partner font"
+  },
+  "productionServices": "not activated; live dependencies documented separately",
+  "implementationCommit": "84adeabc27bf78d686aa9c30f5a34e81e7411534"
 }

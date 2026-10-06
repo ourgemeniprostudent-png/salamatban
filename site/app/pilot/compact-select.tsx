@@ -54,7 +54,7 @@ export function CompactSelect({ value, onValueChange, children, disabled, 'aria-
       onClick={event => { if (event.target !== event.currentTarget) return; const box = event.currentTarget.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close(); }}>
       <header><h2 id={`${id}-title`}>{title}</h2><button type="button" className="cs-close" aria-label="بستن گزینه‌ها" onClick={close}>×</button></header>
       {options.length > 8 && <input ref={search} type="search" autoComplete="off" aria-label={`جست‌وجو در ${title}`} placeholder="جست‌وجو…" value={query} onChange={event => setQuery(event.target.value)}
-        onKeyDown={event => { if (event.key === 'ArrowDown') { event.preventDefault(); dialog.current?.querySelector<HTMLButtonElement>('[role="option"]:not(:disabled)')?.focus(); } }}/>} 
+        onKeyDown={event => { if (event.key === 'ArrowDown') { event.preventDefault(); dialog.current?.querySelector<HTMLButtonElement>('[role="option"]:not(:disabled)')?.focus(); } }}/>}
       <div className="cs-options" role="listbox" aria-label={title} onKeyDown={event => {
         const buttons = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="option"]:not(:disabled)'));
         const index = buttons.indexOf(document.activeElement as HTMLButtonElement);

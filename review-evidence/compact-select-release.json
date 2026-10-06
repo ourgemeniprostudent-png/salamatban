@@ -21,5 +21,7 @@
     "site/.test-build/visual-review/compact-year-select-320.png"
   ],
   "mapPickerImplemented": false,
-  "locationProposal": "Searchable city first; optional map only for precise address when needed"
+  "locationProposal": "Searchable city first; optional map only for precise address when needed",
+  "typecheck": "passed",
+  "lint": "passed"
 }

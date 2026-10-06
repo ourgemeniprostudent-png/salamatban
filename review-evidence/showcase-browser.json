@@ -1,0 +1,38 @@
+{
+  "packageVersion": "1.8",
+  "appVersion": "1.7",
+  "baseUrl": "http://127.0.0.1:4193/",
+  "checkedAt": "2026-10-06T14:55:02.656Z",
+  "viewports": [
+    {
+      "width": 320,
+      "panes": 6,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "panes": 6,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 768,
+      "panes": 6,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1440,
+      "panes": 6,
+      "horizontalOverflow": false
+    }
+  ],
+  "checks": [
+    "four role walkthroughs",
+    "six recovered diagrams load, zoom, close and expose PNG/SVG files",
+    "current/target filters",
+    "four product screenshots and viewer",
+    "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
+    "feedback works when browser storage is blocked",
+    "keyboard skip link and concise guide"
+  ],
+  "pageErrors": []
+}

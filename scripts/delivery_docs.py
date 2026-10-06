@@ -1,16 +1,18 @@
 """Shared delivery version, document catalog and deterministic rendering. No I/O on import."""
 import hashlib,html,posixpath,re
 from urllib.parse import urlsplit,urlunsplit
-VERSION = '1.7.2'
+VERSION = '1.8'
 APP_VERSION = '1.7'
+GUIDE_DOCS = ['SHOWCASE-GUIDE-fa.md']
 DOCS = [
+ 'SHOWCASE-GUIDE-fa.md',
  'DELIVERY-STATUS-fa.md', 'salamatban-product-architecture-fa.md',
  'UX-IMPROVEMENTS-fa.md', 'FLOW-REVIEW-v1.7-fa.md', 'UX-LOCATION-CONTRACT-fa.md',
  'DEVELOPER-HANDOFF-fa.md', 'salamatban-release-checklist-fa.md',
  'FIRST-OPERATIONAL-RELEASE-fa.md', 'architecture/runtime-v1.6.md',
  'architecture/SALAMATBAN-1000-USERS-fa.md', 'architecture/database-1000-users-fa.md',
 ]
-EVIDENCE = ['ux-release.json', 'ux-publication.json', 'architecture-database-validation.json', 'delivery-consistency-v1.7.1.json', 'delivery-landing-v1.7.2.json']
+EVIDENCE = ['ux-release.json', 'ux-publication.json', 'architecture-database-validation.json']
 MIRRORS = {f'deliverables/{n}':f'technical/{n}' for n in DOCS + ['launch-budget.csv','launch-readiness-register.csv','architecture/postgresql-target-schema.sql']}
 MIRRORS.update({f'review-evidence/{n}':f'technical/{n}' for n in EVIDENCE})
 LINK = re.compile(r'(!?\[[^\]\n]*\]\()([^\s)]+)(\))')

@@ -1,0 +1,124 @@
+{
+  "packageVersion": "1.8",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
+  "pagesCommit": "a93eeb4cf509cb02e1a01c1ec182af074a807397",
+  "success": true,
+  "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "571ade906bfe650e5ea59719a5921ba3243b5056f4c551defc795976d18f91df"
+    },
+    {
+      "file": "documents/Salamatban-Complete-Guide-fa.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "6ccc93c4bb181d46af2a22fb8b00029b7088ccbfcc493c89859f116cd7499c59"
+    },
+    {
+      "file": "documents/Salamatban-Complete-Guide-fa.pdf",
+      "status": 200,
+      "matches": true,
+      "sha256": "b9687dfed38a8eccf2fed1af4990205a1e47938df7098d23f6833835cf35494b"
+    },
+    {
+      "file": "presentation/assets/architecture-data.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "f1e208596e3e5a128eae656a94e559d6d94a81db9ab4d92e5039992c1b8c048b"
+    },
+    {
+      "file": "presentation/assets/architecture-data.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "2fcb83a18b4a0d6cb3acb5fbb1652a1a961f2f4abf25d8ad628efab0ebbd0252"
+    },
+    {
+      "file": "presentation/assets/architecture-demo.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "147326d02e909129e1866f34e0627ebf3c129e764ccbd934e2f19e6ac4300f75"
+    },
+    {
+      "file": "presentation/assets/architecture-demo.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "f36a98a230cb7e8748cc7fa3685988be8fa8614142cc2b7307e8d8b689f1f3cb"
+    },
+    {
+      "file": "presentation/assets/architecture-infrastructure.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "4297073f3e0b8b17233d23f339efe952c0dba33b70573278ca3f8985242cc08d"
+    },
+    {
+      "file": "presentation/assets/architecture-infrastructure.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "914ac110fdbf7d2599fedd5d84c387f40736b35a353f1131899c3a3599c35371"
+    },
+    {
+      "file": "presentation/assets/architecture-journey.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "c4c4e1fe594c31abffd7f5199490433158d5bfef6af5ac22a9585f734e574df6"
+    },
+    {
+      "file": "presentation/assets/architecture-journey.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "6cd7c75c903cfc5f59035aec065e828d9f7c5265c3dda8cba5b762b616fd258d"
+    },
+    {
+      "file": "presentation/assets/architecture-server.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "349015222de406d6817a715073a81ad6fa1c1f99a90350204acd320d2c8a6617"
+    },
+    {
+      "file": "presentation/assets/architecture-server.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "e8037643ce6d9ee6d2481acb5cb7b3245649d6d429fdada3ce6b4d3e9eeaad69"
+    },
+    {
+      "file": "presentation/assets/architecture-target.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "f07263f612fee0384a7d160c327c382cdc68fa95c07e9acd0abd3b25df56df54"
+    },
+    {
+      "file": "presentation/assets/architecture-target.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "b6de18394ddcbfaee34e4bd31fb80d749aa9ea12254391de44573749c25252d5"
+    },
+    {
+      "file": "presentation/assets/screen-coordinator.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "bf068800486b8cc84a940f1b322caba8da7eccd443aaf726d84aae2f35f8bf8d"
+    },
+    {
+      "file": "presentation/assets/screen-doctor.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "1f66e3639d6b68859cf8c5f284c6569449bff54c1d57e1f4768410dd45a45557"
+    },
+    {
+      "file": "presentation/assets/screen-form.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "4d6c00c1708a9c09452848b5e62853efc52531e2012d5da6712465faa7f0f4d7"
+    },
+    {
+      "file": "presentation/assets/screen-payment.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "6be5f8c0c8dc85101ee73c52f15b8f4346b830334113698757a0bc1155d99eb9"
+    }
+  ],
+  "verifiedAt": "2026-10-06T14:57:58Z"
+}

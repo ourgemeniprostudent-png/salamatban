@@ -1,0 +1,138 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.8.zip",
+  "bytes": 7049508,
+  "sha256": "76f5eaebe2cd3817a15bedb0c603a8e03b4b97ad8ac7703c64e5ba2895cb7a3f",
+  "fileCount": 249,
+  "version": "1.8",
+  "appVersion": "1.7",
+  "sourceBaseCommit": "538af89c1d5cc089649a9bb04f35511fdc65765c",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "1.7",
+    "date": "2026-10-06T13:56:19.707055+00:00",
+    "workflow": "synthetic browser demo plus local D1/R2 development",
+    "checks": {
+      "api": {
+        "passed": 40,
+        "failed": 0
+      },
+      "calendar": {
+        "passed": 5,
+        "failed": 0
+      },
+      "uxBrowser": {
+        "passed": 10,
+        "failed": 0
+      },
+      "roleWorkflowBrowser": {
+        "passed": 6,
+        "failed": 0
+      },
+      "edgeFlowsBrowser": {
+        "passed": 6,
+        "failed": 0
+      },
+      "staticPresentation": {
+        "passed": 13,
+        "failed": 0
+      },
+      "startup": {
+        "passed": 3,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "localServerSmoke": "passed",
+      "localFinalBrowser": {
+        "scope": "local final build",
+        "url": "http://127.0.0.1:4187/",
+        "verifiedAt": "2026-10-06T13:53:20.454Z",
+        "status": "passed",
+        "checks": [
+          "public page HTTP 200",
+          "synthetic OTP login",
+          "v1.7 marker",
+          "city selection",
+          "draft save",
+          "reload preserves stored draft"
+        ],
+        "pageErrors": []
+      },
+      "counting": "Node suite totals include five parent wrappers; 78 individual checks, 83 including wrappers."
+    },
+    "features": [
+      "Explicit urgent payment block reason, assigned doctor, preserved answers, and same-browser demo continuation guide beside disabled payment",
+      "New red flag resets earlier review; unchanged saved answers preserve completed review; atomic record/task resolution",
+      "Upload advances form version while preserving unsaved edits",
+      "Reopened or resubmitted record takes priority over previous published plan",
+      "Expired session reauthentication preserves local answers and resumes autosave",
+      "Serialized draft saves and actionable shared role error messages",
+      "Payment owner/state/idempotency checks; duplicate invitation and missing support record errors; deletion/refund cannot be falsely completed by ordinary reply",
+      "Referral insert checks latest published plan"
+    ],
+    "publicBrowser": {
+      "status": "blocked",
+      "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    },
+    "limitations": [
+      "Real Android/iPhone camera and GPS not tested",
+      "5–8 participant usability study not performed",
+      "Home visits remain demo-only; production provider/retention agreements not implemented",
+      "City starter catalog is not a nationwide official dataset",
+      "Public site uses browser-local storage; no shared cross-device patient database",
+      "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
+      "Startup improvement verified with controlled delays, not measured on user network",
+      "Safari and Firefox not tested; no comprehensive security/load audit or clinical validation"
+    ],
+    "artifacts": {
+      "deploymentSha256": "b3b4e168e0118ad9d3c3ec11c42c1920cb44d38ebe1af4dc09b37656cd5d3a32"
+    },
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "83ed48bf35ef403447ea9974245d92df49716734",
+      "success": true,
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "1db8ea7cfb1d666eeb891ec1962dcd0b64cec04973de8af01a59b05f1dcf5b30",
+          "matches": true
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "d08076b99ca19d8708b3f346e4fe1e76333033a3602a81d71e6afd5917667b76",
+          "matches": true
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "sha256": "75ff3e5bf35d4b0a44048faa4dff1979ca88964c551cd7b7165922f300d9d201",
+          "matches": true
+        },
+        {
+          "file": "release.json",
+          "status": 200,
+          "sha256": "9e2f702edd0984d58c242a291bd93fd104d70fe3384e73806231a79e7863debc",
+          "matches": true
+        },
+        {
+          "file": "sql-wasm.wasm",
+          "status": 200,
+          "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+          "matches": true
+        },
+        {
+          "file": "brand/index.html",
+          "status": 200,
+          "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
+          "matches": true
+        }
+      ],
+      "verifiedAt": "2026-10-06T13:57:06Z"
+    }
+  },
+  "archiveIntegrity": "passed"
+}

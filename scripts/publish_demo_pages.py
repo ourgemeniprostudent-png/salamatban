@@ -45,7 +45,14 @@ if parent:
 
 with tempfile.TemporaryDirectory(prefix="salamatban-pages-") as temp:
     index_env = dict(os.environ, GIT_INDEX_FILE=str(Path(temp) / "index"))
-    git("read-tree", "--empty", env=index_env)
+    if parent:
+        git("read-tree", parent, env=index_env)
+        # Updating the app must preserve the separately published presentation.
+        stale = [name for name in git("ls-files", "-z", env=index_env).split("\0") if name and not name.startswith("showcase/")]
+        if stale:
+            git("update-index", "--force-remove", "-z", "--stdin", data=("\0".join(stale)+"\0").encode(), env=index_env)
+    else:
+        git("read-tree", "--empty", env=index_env)
     for name, contents in sorted(files.items()):
         blob = git("hash-object", "-w", "--stdin", data=contents)
         git("update-index", "--add", "--cacheinfo", "100644", blob, name, env=index_env)

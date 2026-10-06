@@ -1,0 +1,4 @@
+
+> sites-project@0.1.0 lint
+> node node_modules/eslint/bin/eslint.js . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .test-build
+

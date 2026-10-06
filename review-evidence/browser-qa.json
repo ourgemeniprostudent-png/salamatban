@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-06",
+  "tool": "Codex CUA in-app browser",
+  "data": "synthetic only",
+  "checks": [
+    {
+      "scenario": "OTP login and returning session",
+      "result": "pass"
+    },
+    {
+      "scenario": "consent, profile including native date, safety and history wizard",
+      "result": "pass"
+    },
+    {
+      "scenario": "save/reload persisted draft and answers",
+      "result": "pass"
+    },
+    {
+      "scenario": "simulated successful payment and submission to doctor",
+      "result": "pass"
+    },
+    {
+      "scenario": "390px mobile layout and 320px member dashboard overflow",
+      "result": "pass",
+      "measuredScrollWidths": [
+        390,
+        320
+      ]
+    },
+    {
+      "scenario": "native Android/iOS devices, slow network, screen reader",
+      "result": "not_run"
+    }
+  ],
+  "screenshot": "deliverables/pilot-mobile.jpg"
+}

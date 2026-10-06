@@ -1,0 +1,38 @@
+
+> sites-project@0.1.0 test
+> node tests/pilot.test.mjs
+
+PASS Live mode refuses incomplete infrastructure
+PASS Unauthenticated health record is denied
+PASS Demo seed and OTP sign-in for five separate roles
+PASS OTP challenge cannot be reused
+PASS OTP attempts exhaust after five failures
+PASS Cross-user reads and coordinator/admin clinical reads are denied
+PASS CSRF and cross-origin writes are denied
+PASS Intake draft saves and survives a fresh request
+PASS Stale draft writes cannot overwrite a newer draft
+PASS Submission is blocked before payment
+PASS File signature rejects a forged PDF
+PASS Private file uploads and duplicate protection work
+PASS File downloads enforce assigned-doctor/owner access
+PASS Concurrent payment requests create only one open order; price is server-owned
+PASS Forged successful callback does not activate demo entitlement
+PASS Demo completion and paid submission work
+PASS Submitted records reject member edits
+PASS Coordinator cannot publish clinical plans
+PASS Unassigned clinician cannot open another doctor’s file
+PASS Doctor can request information and member resubmits without another payment
+PASS Concurrent publication produces one immutable plan version
+PASS Action progress is persisted independently of approved plan
+PASS Booking needs consent and cannot skip confirmation prerequisites
+PASS Coordinator confirmation is visible to member with provider reference
+PASS Support response and data-deletion request remain tracked as open
+PASS Urgent response blocks payment and enters doctor queue
+PASS Correcting answers cannot close an unresolved urgent alert
+PASS Oversized JSON is rejected before parsing
+PASS Invite capacity is enforced under concurrent requests
+PASS Suspension revokes access and reassigning changes clinician access
+PASS Reopening a plan preserves the published version
+PASS Real-adapter callback verifies stored amount; code 101 is idempotent
+PASS Failed provider verification remains unresolved, regardless of callback Status
+PASS Logout revokes the server session

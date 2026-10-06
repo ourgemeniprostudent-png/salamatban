@@ -1,0 +1,16 @@
+CREATE TABLE roadmap_action_updates (id TEXT PRIMARY KEY NOT NULL, action_id TEXT NOT NULL REFERENCES roadmap_actions(id), member_id TEXT NOT NULL REFERENCES members(id), status TEXT NOT NULL, evidence TEXT NOT NULL, created_at INTEGER NOT NULL);
+CREATE INDEX idx_roadmap_action_updates_action_created ON roadmap_action_updates(action_id, created_at);
+CREATE TABLE medical_documents (id TEXT PRIMARY KEY NOT NULL, member_id TEXT NOT NULL REFERENCES members(id), original_name TEXT NOT NULL, object_key TEXT NOT NULL, content_type TEXT NOT NULL, byte_size INTEGER NOT NULL, checksum TEXT NOT NULL, status TEXT NOT NULL, review_note TEXT, reviewed_by TEXT, reviewed_at INTEGER, created_at INTEGER NOT NULL);
+CREATE INDEX idx_medical_documents_member_created ON medical_documents(member_id, created_at);
+CREATE INDEX idx_medical_documents_status ON medical_documents(status);
+CREATE TABLE assistance_plans (id TEXT PRIMARY KEY NOT NULL, title TEXT NOT NULL, duration_months INTEGER NOT NULL UNIQUE, test_price_rial INTEGER NOT NULL DEFAULT 0, is_active INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE orders (id TEXT PRIMARY KEY NOT NULL, member_id TEXT NOT NULL REFERENCES members(id), plan_id TEXT NOT NULL REFERENCES assistance_plans(id), status TEXT NOT NULL, amount_rial INTEGER NOT NULL, policy_version TEXT NOT NULL, created_at INTEGER NOT NULL);
+CREATE INDEX idx_orders_member_created ON orders(member_id, created_at);
+CREATE TABLE payment_attempts (id TEXT PRIMARY KEY NOT NULL, order_id TEXT NOT NULL REFERENCES orders(id), provider TEXT NOT NULL, provider_reference TEXT NOT NULL, status TEXT NOT NULL, idempotency_key TEXT NOT NULL UNIQUE, verified_at INTEGER, created_at INTEGER NOT NULL);
+CREATE TABLE subscriptions (id TEXT PRIMARY KEY NOT NULL, member_id TEXT NOT NULL REFERENCES members(id), order_id TEXT NOT NULL REFERENCES orders(id), duration_months INTEGER NOT NULL, status TEXT NOT NULL, starts_on TEXT NOT NULL, ends_on TEXT NOT NULL, created_at INTEGER NOT NULL);
+CREATE INDEX idx_subscriptions_member_status ON subscriptions(member_id, status);
+CREATE TABLE providers (id TEXT PRIMARY KEY NOT NULL, name TEXT NOT NULL, city TEXT NOT NULL, service_label TEXT NOT NULL, adapter TEXT NOT NULL, is_active INTEGER NOT NULL DEFAULT 1);
+CREATE TABLE appointments (id TEXT PRIMARY KEY NOT NULL, member_id TEXT NOT NULL REFERENCES members(id), roadmap_action_id TEXT REFERENCES roadmap_actions(id), provider_id TEXT NOT NULL REFERENCES providers(id), scheduled_for TEXT NOT NULL, status TEXT NOT NULL, external_reference TEXT, adapter_response TEXT, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL);
+CREATE INDEX idx_appointments_member_scheduled ON appointments(member_id, scheduled_for);
+CREATE TABLE reminder_preferences (id TEXT PRIMARY KEY NOT NULL, member_id TEXT NOT NULL REFERENCES members(id), in_app_enabled INTEGER NOT NULL DEFAULT 1, sms_enabled INTEGER NOT NULL DEFAULT 0, roadmap_enabled INTEGER NOT NULL DEFAULT 1, appointment_enabled INTEGER NOT NULL DEFAULT 1, updated_at INTEGER NOT NULL);
+CREATE UNIQUE INDEX idx_reminder_preferences_member ON reminder_preferences(member_id);

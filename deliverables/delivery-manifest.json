@@ -1,0 +1,16 @@
+{
+  "generated": "2026-10-06",
+  "prd": "deliverables/Hamyar-Salamat-MVP-PRD-fa.docx",
+  "pdf": "deliverables/Hamyar-Salamat-MVP-PRD-fa.pdf",
+  "prdPages": 10,
+  "code": "site",
+  "readiness": "deliverables/readiness.json",
+  "testResults": "review-evidence/api-tests.json",
+  "testsPassed": 34,
+  "lint": "pass",
+  "typecheck": "pass",
+  "productionBuild": "pass",
+  "liveDeployment": false,
+  "realDataUsed": false,
+  "realPaymentsMade": false
+}

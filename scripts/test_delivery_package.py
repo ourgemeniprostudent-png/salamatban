@@ -3,8 +3,9 @@
 Run after packaging; reuses installed Node dependencies, not an older delivery.
 """
 from pathlib import Path
+from delivery_docs import VERSION
 import hashlib,json,subprocess,zipfile,shutil,tempfile,sys
-root=Path(__file__).resolve().parent.parent;name='Salamatban-Complete-Delivery-v1.8';prefix=name+'/'
+root=Path(__file__).resolve().parent.parent;name=f'Salamatban-Complete-Delivery-v{VERSION}';prefix=name+'/'
 archive=root/'deliverables'/f'{name}.zip';scratch=tempfile.TemporaryDirectory(prefix='salamatban-delivery-test-');work=Path(scratch.name)
 with zipfile.ZipFile(archive) as z:
  original={n:z.read(n) for n in z.namelist()};infos={n:z.getinfo(n) for n in z.namelist()}

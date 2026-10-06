@@ -1,7 +1,7 @@
 {
-  "packageVersion": "1.8",
+  "packageVersion": "1.9",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "a93eeb4cf509cb02e1a01c1ec182af074a807397",
+  "pagesCommit": "6ab8e3ac059bc358da181efacd6e47088cefcc15",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "571ade906bfe650e5ea59719a5921ba3243b5056f4c551defc795976d18f91df"
+      "sha256": "5b58213a97bdff4cd9d9ca81249d624f00d176d1fbc4f2d70cafffaa670b7436"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "6ccc93c4bb181d46af2a22fb8b00029b7088ccbfcc493c89859f116cd7499c59"
+      "sha256": "aa1d9d18b4469773f2bec61197dc8f294b9c273ffb24c63b6cbd6d34eda28f27"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "b9687dfed38a8eccf2fed1af4990205a1e47938df7098d23f6833835cf35494b"
+      "sha256": "da622d6f5bdf39c97ab3de234d788412b1a465eb37791dc9e0a24031327fc8cb"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -120,5 +120,5 @@
       "sha256": "6be5f8c0c8dc85101ee73c52f15b8f4346b830334113698757a0bc1155d99eb9"
     }
   ],
-  "verifiedAt": "2026-10-06T14:57:58Z"
+  "verifiedAt": "2026-10-06T15:57:50Z"
 }

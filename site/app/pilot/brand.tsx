@@ -12,6 +12,7 @@ export function BrandMark({ className = '' }: { className?: string }) {
 }
 
 const icons: Record<string, ReactNode> = {
+  copy: <><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></>,
   home: <><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z" /><path d="M9 14h6" /></>,
   heart: <path d="M20.8 5.7a5.1 5.1 0 0 0-7.2 0L12 7.3l-1.6-1.6a5.1 5.1 0 0 0-7.2 7.2L12 21l8.8-8.1a5.1 5.1 0 0 0 0-7.2Z" />,
   route: <><circle cx="5" cy="5" r="2" /><circle cx="19" cy="19" r="2" /><path d="M9 5h7a4 4 0 0 1 0 8H8a3 3 0 0 0 0 6h7" /></>,

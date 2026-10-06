@@ -5,10 +5,10 @@ from html.parser import HTMLParser
 from pathlib import Path,PurePosixPath
 from urllib.parse import unquote,urlsplit
 import posixpath,zipfile
-from delivery_docs import GUIDE_DOCS, linked, markdown
+from delivery_docs import VERSION, APP_VERSION, GUIDE_DOCS, linked, markdown
 root=Path(__file__).resolve().parent.parent
-archive=Path(sys.argv[1]) if len(sys.argv)>1 else root/'deliverables/Salamatban-Complete-Delivery-v1.8.zip'
-prefix='Salamatban-Complete-Delivery-v1.8/'
+archive=Path(sys.argv[1]) if len(sys.argv)>1 else root/f'deliverables/Salamatban-Complete-Delivery-v{VERSION}.zip'
+prefix=f'Salamatban-Complete-Delivery-v{VERSION}/'
 class Links(HTMLParser):
     def __init__(self):super().__init__();self.links=[];self.ids=set()
     def handle_starttag(self,tag,attrs):
@@ -64,8 +64,8 @@ with zipfile.ZipFile(archive) as z:
             elif parsed.fragment and target.endswith('.html') and unquote(parsed.fragment) not in parsers[target].ids:
                 missing.append({'from':name[len(prefix):],'link':link,'reason':'missing HTML anchor'})
     catalog=json.loads(z.read(prefix+'CONTENTS.json'))
-    assert manifest['version']==catalog['packageVersion']=='1.8'
-    assert manifest['appVersion']==catalog['appVersion']==json.loads(z.read(prefix+'website/release.json'))['version']==json.loads(z.read(prefix+'technical/ux-release.json'))['version']=='1.7'
+    assert manifest['version']==catalog['packageVersion']==VERSION
+    assert manifest['appVersion']==catalog['appVersion']==json.loads(z.read(prefix+'website/release.json'))['version']==json.loads(z.read(prefix+'technical/ux-release.json'))['version']==APP_VERSION
     for mirror in catalog['mirrors']:
         original=z.read(prefix+mirror['source']).decode()
         actual=z.read(prefix+mirror['path']).decode()

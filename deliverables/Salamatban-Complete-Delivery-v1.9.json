@@ -1,0 +1,142 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.9.zip",
+  "bytes": 7209129,
+  "sha256": "4e2a7a1a5ea05f43d1c54476f3ffdb0b6d0a74e22883efa643d936a1ef705050",
+  "fileCount": 256,
+  "version": "1.9",
+  "appVersion": "1.9",
+  "sourceBaseCommit": "1181048213ff47a5789a8df863d2085a1b65d2ea",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "1.9",
+    "date": "2026-10-06T15:55:56.997961+00:00",
+    "workflow": "demo login UI and synthetic local browser regression",
+    "checks": {
+      "loginBrowser": {
+        "version": "1.9",
+        "verifiedAt": "2026-10-06T15:55:18.991Z",
+        "status": "passed",
+        "individualChecks": 7,
+        "checks": [
+          "five named accounts are visible left of the desktop form and fill the selected phone",
+          "code and copy icon write the real clipboard and show local confirmation without submitting",
+          "choosing another account clears the previous challenge and copy confirmation",
+          "keyboard activation copies the code and clipboard denial uses a working fallback",
+          "copy failure is explicit and does not claim success or submit login",
+          "all accounts stay expanded and layouts fit 320, 390, 768 and 1440 pixels",
+          "selected doctor can complete the unchanged OTP login and reach their role"
+        ],
+        "pageErrors": [],
+        "viewports": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "clipboard": "real Chromium clipboard; denied API fallback; both methods denied"
+      },
+      "staticPresentation": {
+        "individualPassed": 12,
+        "failed": 0
+      },
+      "edgeFlowsBrowser": {
+        "individualPassed": 5,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "counting": "24 individual browser checks; 27 including three parent wrappers",
+      "localFinalBrowser": {
+        "scope": "local final build",
+        "url": "http://127.0.0.1:4194/website/",
+        "verifiedAt": "2026-10-06T15:56:44.107Z",
+        "status": "passed",
+        "checks": [
+          "public page HTTP 200",
+          "synthetic OTP login",
+          "v1.9 marker",
+          "city selection",
+          "draft save",
+          "reload preserves stored draft"
+        ],
+        "pageErrors": []
+      }
+    },
+    "baseline": {
+      "version": "1.7",
+      "file": "ux-baseline-v1.7.json",
+      "executedAt": "2026-10-06T13:56:19.707055+00:00",
+      "scope": "78 individual API/calendar/UX/roles/edge/presentation/startup checks. These are historical baseline results, not rerun totals for 1.9."
+    },
+    "features": [
+      "Five named sample accounts always expanded to the left of desktop login; compact mobile account grid",
+      "Selecting a sample fills phone, focuses its field and clears previous challenge and code",
+      "OTP value and adjacent icon both copy with local success tooltip; keyboard support and truthful clipboard failure",
+      "Same-account session reauthentication retains answers and does not offer account switching"
+    ],
+    "limitations": [
+      "Real Android/iPhone camera and GPS not tested",
+      "5–8 participant usability study not performed",
+      "Home visits remain demo-only; production provider/retention agreements not implemented",
+      "City starter catalog is not a nationwide official dataset",
+      "Public site uses browser-local storage; no shared cross-device patient database",
+      "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
+      "Startup improvement verified with controlled delays, not measured on user network",
+      "Safari and Firefox not tested; no comprehensive security/load audit or clinical validation"
+    ],
+    "publicBrowser": {
+      "status": "blocked",
+      "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    },
+    "artifacts": {
+      "deploymentSha256": "10c1273471df5309cc8d81c8eaa4c3a6859ba25c67a263011212c8a9382208a8"
+    },
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "9b78c99666b8f5937fa2521c848da7b68e795933",
+      "success": true,
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "54d70f82178c0a496a473d947b26ecd3c8383713693e58610a43fa9ab5cf8596",
+          "matches": true
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "7661d71153535e4695b04b0a4db692a9ed58b39c3909eaed1e544d7baf89447c",
+          "matches": true
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "sha256": "143219cd2643fa43b3331df783161b59879c76442b8bf0216dd45bc4e989a53b",
+          "matches": true
+        },
+        {
+          "file": "release.json",
+          "status": 200,
+          "sha256": "6b680db3461773f3a61324d037b52daa3c88364703cc6d4f464904dc1c4da806",
+          "matches": true
+        },
+        {
+          "file": "sql-wasm.wasm",
+          "status": 200,
+          "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+          "matches": true
+        },
+        {
+          "file": "brand/index.html",
+          "status": 200,
+          "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
+          "matches": true
+        }
+      ],
+      "verifiedAt": "2026-10-06T15:56:14Z"
+    }
+  },
+  "archiveIntegrity": "passed"
+}

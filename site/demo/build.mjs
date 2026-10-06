@@ -26,7 +26,21 @@ await cp(path.join(root, 'public/fonts'), path.join(output, 'fonts'), { recursiv
 const jsVersion = createHash('sha256').update(await readFile(path.join(output, 'app.js'))).digest('hex').slice(0, 12);
 const cssVersion = createHash('sha256').update(await readFile(path.join(output, 'app.css'))).digest('hex').slice(0, 12);
 await writeFile(path.join(output, 'index.html'), `<!doctype html>
-<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="سلامت‌بان؛ از شناخت سلامت تا برنامهٔ پزشک و پیگیری قدم‌به‌قدم."><meta property="og:title" content="سلامت‌بان | همراهِ مسیر سلامت شما"><meta property="og:description" content="پرونده سلامت، برنامه شخصی و همراهی تیم مراقبت"><meta property="og:image" content="./og.png"><title>سلامت‌بان | نسخهٔ نمایشی</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="./app.css?v=${cssVersion}"></head><body><div id="app">در حال آماده‌سازی نسخهٔ نمایشی…</div><noscript>برای نمایش نرم‌افزار، JavaScript مرورگر باید فعال باشد.</noscript><script type="module" src="./app.js?v=${jsVersion}"></script></body></html>`);
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="سلامت‌بان؛ از شناخت سلامت تا برنامهٔ پزشک و پیگیری قدم‌به‌قدم."><meta property="og:title" content="سلامت‌بان | همراهِ مسیر سلامت شما"><meta property="og:description" content="پرونده سلامت، برنامه شخصی و همراهی تیم مراقبت"><meta property="og:image" content="./og.png"><title>سلامت‌بان | نسخهٔ نمایشی</title><style>
+@font-face{font-family:LaunchPeyda;src:url('./fonts/PeydaWebFaNum-Regular.woff2')}body{margin:0}.demo-launch{box-sizing:border-box;max-width:760px;margin:8vh auto;padding:32px;color:#18344d;background:#f4f8fc;border:1px solid #d7e4ef;border-radius:20px;font:17px/2 LaunchPeyda,Tahoma,sans-serif}.demo-launch h1{font-size:26px}.demo-launch a{color:#2755a3}.demo-launch .launch-button{display:inline-block;margin:8px 0;padding:10px 22px;border-radius:12px;background:#346ed1;color:white;text-decoration:none}.demo-launch code{direction:ltr;unicode-bidi:isolate;display:inline-block}.demo-launch [hidden]{display:none}@media(max-width:600px){.demo-launch{margin:20px 12px;padding:22px}}
+</style><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="./app.css?v=${cssVersion}"></head><body><div id="app"><main class="demo-launch"><h1>سلامت‌بان</h1><p id="launch-status" role="status">در حال آماده‌سازی نسخهٔ نمایشی…</p><a class="launch-button" href="https://ourgemeniprostudent-png.github.io/salamatban/">مشاهدهٔ سایت آنلاین</a><section id="local-launch" hidden><h2>فایل سایت مستقیم باز شده است</h2><p>برای مشاهدهٔ فوری، دکمهٔ بالا را بزنید؛ نصب برنامه یا حساب گیت‌هاب لازم نیست.</p><p>برای اجرای نسخهٔ داخل بسته بدون اینترنت، ابتدا کل ZIP را استخراج کنید. در پوشهٔ اصلی، <b>Start-Windows.cmd</b> را در ویندوز اجرا کنید؛ در مک/لینوکس از دستور <code>python3 serve-demo.py</code> استفاده کنید. Python 3 باید نصب باشد و پنجرهٔ اجرا باز بماند.</p><p><a href="../00-START-HERE.html">باز کردن راهنمای کامل بسته و مستندات</a></p></section><p id="launch-error" hidden>بارگذاری برنامه کامل نشد. اتصال یا فایل‌های استخراج‌شده را بررسی کنید و دوباره صفحه را باز کنید.</p></main></div><noscript>برای نمایش نرم‌افزار، JavaScript مرورگر باید فعال باشد. لینک سایت آنلاین و راهنمای بسته قابل استفاده‌اند.</noscript><script>
+if (location.protocol === 'file:') {
+  document.getElementById('launch-status').textContent = 'برای اجرای سایت، یکی از روش‌های زیر را انتخاب کنید.';
+  document.getElementById('local-launch').hidden = false;
+} else {
+  import('./app.js?v=${jsVersion}').catch(function () {
+    var status = document.getElementById('launch-status');
+    var error = document.getElementById('launch-error');
+    if (status) status.textContent = 'سایت بارگذاری نشد.';
+    if (error) error.hidden = false;
+  });
+}
+</script></body></html>`);
 await writeFile(path.join(output, '.htaccess'), `DirectoryIndex index.html
 <IfModule mod_mime.c>
 AddType application/wasm .wasm

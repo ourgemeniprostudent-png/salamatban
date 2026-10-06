@@ -208,7 +208,7 @@ FROM candidate c WHERE j.id=c.id RETURNING j.*;
 
 صف‌ها page-size پیش‌فرض ۲۵ و حداکثر ۱۰۰ دارند؛ cursor با tie-breaker شناسه لازم است. endpoint فعلی `/record` کل orders/plans/updates را یکجا می‌خواند و `/staff/queue` فهرست کامل دارد؛ در مقصد باید جدا/صفحه‌بندی شوند و projection سازگار برای رابط فعلی داشته باشند. روی fixture نماینده `EXPLAIN (ANALYZE, BUFFERS)` گرفته شود؛ وجود ایندکس به‌تنهایی زمان پاسخ را ثابت نمی‌کند. هیچ read replica برای ۱۰۰۰ عضو الزام ذاتی نیست؛ standby هدف بازیابی است و read-after-write پرونده/پرداخت باید از primary باشد.
 
-## ۸. نگاشت دقیق از ۱۲ جدول فعلی
+## ۸. نگاشت دقیق از ۱۴ جدول فعال (۱۲ جدول پایه به‌اضافهٔ آدرس و اتصال اقدام به کار)
 
 منبع بررسی: [schema فعال](../../site/db/pilot-schema.ts)، [migration پایه](../../site/drizzle-pilot/0000_optimal_wind_dancer.sql)، [قیدهای مسابقه](../../site/drizzle-pilot/0001_guards.sql)، [سرویس فعال](../../site/lib/pilot/service.ts) و [قرارداد دامنه](../../site/lib/pilot/domain.ts). `reference-code` مرجع تاریخی است و migration آن روی مقصد اعمال نمی‌شود.
 
@@ -226,8 +226,12 @@ FROM candidate c WHERE j.id=c.id RETURNING j.*;
 | `pilot_feedback` | support_tickets + پیام عضو و در صورت وجود پاسخ | تاریخ پاسخ مستقل در مبدأ موجود نیست؛ زمان import/نشان legacy استفاده و محدودیت گزارش شود. |
 | `pilot_audit` | audit_events | actorهای `gateway`/سیستم به actor_type؛ رشتهٔ خالی به NULL؛ request ID جدید فقط شناسهٔ import است، نه request اصلی. |
 | `pilot_rate_limits` | انتقال لازم نیست؛ bucketهای تازه | هنگام cutover محدودیت لبه و کنترل ارسال OTP فعال بماند تا reset باعث موج درخواست نشود. |
+| `pilot_booking_locations` | در DDL هدف ۱٫۰ هنوز مدل متناظر ندارد | قبل از مهاجرت باید مدل آدرس/مختصات با سیاست نگهداری و حذف افزوده و آزموده شود؛ حذف بی‌صدای این داده مجاز نیست. |
+| `pilot_task_actions` | رابطهٔ coordination_tasks با plan_actions در DDL هدف ۱٫۰ هنوز تعریف نشده | افزودن FK مالکیت و اتصال به نسخهٔ برنامه و آزمون تکرار/انتشار لازم است؛ این وابستگی را از عنوان کار حدس نزنید. |
 
 مبدأ فقط نسخه/هش رضایت ترکیبی و checkbox هماهنگی را نگه می‌دارد و همهٔ سند/زمان/شاهد مورد نیاز مقصد را ندارد. **رضایت مصوب را از روی checkbox اختراع نکنید.** متن دقیق همان نسخه، هش و شواهد تأیید اگر موجود بود با گزارش provenance وارد می‌شود؛ در غیر این صورت پذیرش جدید لازم است و transition ارسال پرونده/هماهنگی تا تکمیل آن متوقف می‌ماند. `approved_at` در مقصد تاریخ تأیید واقعی سند است؛ تاریخ قدیمی کاربر یا import جای آن نیست. همهٔ نمونه‌های demo از پایگاه production حذف می‌شوند؛ برنامهٔ نمایشی مستقل حفظ می‌شود.
+
+طرح هدف ۱٫۰ پیش از افزوده‌های اجرایی ۱٫۵ و ۱٫۶ نوشته شده است؛ ۷۵ بررسی ثبت‌شده مربوط به همان DDL با ۲۷ جدول‌اند. پوشش دو نگاشت بالا نیازمند توسعه و آزمون تازه است و این بسته آن را انجام‌شده اعلام نمی‌کند.
 
 SQL فعلی `INSERT INTO ... VALUES` وابسته به ترتیب ستون و نحو SQLite/D1 است؛ این SQLها مستقیماً روی PostgreSQL اجرا نمی‌شوند. repositoryهای ماژولار، placeholderهای PG، transaction API و مدل خطای unique/version باید بازنویسی و تست شوند. API `/api/pilot` تا پایان انتقال رابط با adapter قرارداد به `/api/v1` نگاشت می‌شود؛ این schema جای adapter را پیاده نکرده است.
 

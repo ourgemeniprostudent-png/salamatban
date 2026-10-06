@@ -1,0 +1,25 @@
+{
+  "packageVersion": "1.7.1",
+  "appVersion": "1.7",
+  "verifiedAt": "2026-10-06T14:10:36.668456+00:00",
+  "scope": "documentation and packaging; application tests were not rerun or re-dated",
+  "unchangedComparedToV17": {
+    "website/": 39,
+    "source/site/": 97
+  },
+  "checks": {
+    "htmlAndMarkdownLinks": "passed; including HTML fragment targets",
+    "documentMirrors": "all mirrored documents matched; only relative links relocated",
+    "guide": "11 HTML sections match canonical source rendering",
+    "pdf": "generated from the same HTML; cover and inventory page visually reviewed",
+    "negativeBrokenMarkdownLink": "rejected after recomputing valid archive manifest",
+    "negativeMissingHtmlAnchor": "rejected after recomputing valid archive manifest",
+    "standaloneRebuild": "passed using delivered source and build with installed Node dependencies; no old ZIP or Git checkout required"
+  },
+  "validationCommand": "python3 scripts/validate_complete_delivery.py",
+  "regressionCommand": "python3 scripts/test_delivery_package.py",
+  "limitations": [
+    "PDF visual review sampled cover and inventory pages; not every page",
+    "Application validation scope remains in ux-release.json and FLOW-REVIEW-v1.7-fa.md"
+  ]
+}

@@ -1,0 +1,20 @@
+# Local demo only. Copy to .dev.vars for local development. Never reuse a live DB/R2 bucket.
+PILOT_MODE=demo
+PILOT_ORIGIN=http://localhost:4173
+
+# Live values belong in the selected host's secret store, never this file.
+# PILOT_MODE=live
+# PILOT_ORIGIN=https://your-approved-domain.example
+# AUTH_SECRET=<random value of at least 32 characters>
+# ZARINPAL_MERCHANT_ID=<merchant UUID from account owner>
+# KAVENEGAR_API_KEY=<provider secret>
+# KAVENEGAR_OTP_TEMPLATE=<approved template>
+# STAFF_TOTP_SECRETS={"09...":"BASE32_SECRET_AT_LEAST_20_BYTES"}
+# ASSESSMENT_PRICE_RIAL=<approved positive integer>
+# PRICING_VERSION=<approved price version>
+# CONSENT_VERSION=<approved policy version>
+# CONSENT_BODY=<approved Persian consent and privacy text>
+# FILE_SCAN_URL=https://your-approved-private-scanner.example/scan
+# FILE_SCAN_TOKEN=<scanner secret>
+# CLINICAL_CONTENT_APPROVED=false
+# PILOT_LAUNCH_READY=false

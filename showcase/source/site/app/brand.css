@@ -1,0 +1,56 @@
+/* Salamatban visual identity. Fonts supplied by the project owner. */
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Thin.woff2') format('woff2'); font-style: normal; font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-ExtraLight.woff2') format('woff2'); font-style: normal; font-weight: 200; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Light.woff2') format('woff2'); font-style: normal; font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Regular.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Medium.woff2') format('woff2'); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-SemiBold.woff2') format('woff2'); font-style: normal; font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Bold.woff2') format('woff2'); font-style: normal; font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-ExtraBold.woff2') format('woff2'); font-style: normal; font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Black.woff2') format('woff2'); font-style: normal; font-weight: 900; font-display: swap; }
+
+:root {
+  --sb-font: 'Peyda', Tahoma, Arial, sans-serif;
+  --sb-primary: #346ED1;
+  --sb-accent: #4187FF;
+  --sb-cyan: #45CAF6;
+  --sb-primary-hover: #2755A3;
+  --sb-primary-deep: #1A3B74;
+  --sb-primary-soft: #ECF3FF;
+  --sb-primary-border: #C6DBFF;
+  --sb-teal: #14a89b;
+  --sb-teal-ink: #087f76;
+  --sb-teal-soft: #e9f8f5;
+  --sb-ink: #18344d;
+  --sb-ink-deep: #102a43;
+  --sb-muted: #667085;
+  --sb-canvas: #f4f8fc;
+  --sb-surface: #ffffff;
+  --sb-surface-alt: #f8fbfe;
+  --sb-border: #d7e4ef;
+  --sb-control-border: #7891a8;
+  --sb-success: #15734b;
+  --sb-success-soft: #eaf7ef;
+  --sb-warning: #865809;
+  --sb-warning-soft: #fff5df;
+  --sb-danger: #b33c44;
+  --sb-danger-soft: #fff0f1;
+  --sb-info: #2755A3;
+  --sb-info-soft: #ECF3FF;
+  --sb-focus: #2755A3;
+  --sb-shadow-sm: 0 4px 16px #18344d06;
+  --sb-shadow: 0 14px 42px #18344d0b;
+  --sb-shadow-lg: 0 28px 72px #18344d12;
+  --sb-radius-sm: 10px;
+  --sb-radius: 16px;
+  --sb-radius-lg: 24px;
+  --sb-space-1: 4px;
+  --sb-space-2: 8px;
+  --sb-space-3: 12px;
+  --sb-space-4: 16px;
+  --sb-space-6: 24px;
+  --sb-space-8: 32px;
+  --sb-space-12: 48px;
+}
+.sb-brand-mark { display: block; width: 48px; height: 48px; flex: 0 0 auto; }
+.sb-icon { display: inline-block; flex: 0 0 auto; vertical-align: middle; }

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "demo",
+    "title": "معماری نسخهٔ نمایشی",
+    "description": "اجرا در مرورگر؛ داده‌ها روی همین دستگاه می‌مانند.",
+    "status": "current",
+    "svg": "architecture-demo.svg",
+    "png": "architecture-demo.png"
+  },
+  {
+    "id": "server",
+    "title": "مسیر سروری موجود",
+    "description": "کد اتصال به D1 و R2 موجود است؛ محیط واقعی و سرویس‌ها باید راه‌اندازی شوند.",
+    "status": "server",
+    "svg": "architecture-server.svg",
+    "png": "architecture-server.png"
+  },
+  {
+    "id": "journey",
+    "title": "جریان کامل مراقبت",
+    "description": "از ورود و هشدار تا بررسی پزشک و هماهنگی کارشناس.",
+    "status": "current",
+    "svg": "architecture-journey.svg",
+    "png": "architecture-journey.png"
+  },
+  {
+    "id": "target",
+    "title": "معماری هدف ۱۰۰۰ عضو",
+    "description": "طرح توسعه با API، PostgreSQL و پردازشگرهای پس‌زمینه؛ هنوز روی محصول اعمال نشده است.",
+    "status": "target",
+    "svg": "architecture-target.svg",
+    "png": "architecture-target.png"
+  },
+  {
+    "id": "infrastructure",
+    "title": "زیرساخت پیشنهادی",
+    "description": "طرح استقرار، پشتیبان و بازیابی؛ نیازمند تأمین و آزمون عملیاتی.",
+    "status": "target",
+    "svg": "architecture-infrastructure.svg",
+    "png": "architecture-infrastructure.png"
+  },
+  {
+    "id": "data",
+    "title": "مدل دادهٔ هدف",
+    "description": "روابط اصلی مدل PostgreSQL؛ پوشش آدرس و اتصال اقدام به کار هنوز نیازمند تکمیل است.",
+    "status": "target",
+    "svg": "architecture-data.svg",
+    "png": "architecture-data.png"
+  }
+]

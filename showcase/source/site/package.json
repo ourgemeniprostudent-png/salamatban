@@ -1,0 +1,64 @@
+{
+  "name": "sites-project",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "node node_modules/vinext/dist/cli.js dev",
+    "build": "node node_modules/vinext/dist/cli.js build",
+    "start": "node node_modules/vinext/dist/cli.js start",
+    "lint": "node node_modules/eslint/bin/eslint.js . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .test-build",
+    "db:generate": "node node_modules/drizzle-kit/bin.cjs generate",
+    "test": "node tests/pilot.test.mjs",
+    "db:local": "node node_modules/wrangler/bin/wrangler.js d1 migrations apply DB --local --config wrangler.local.jsonc",
+    "build:demo": "node demo/build.mjs",
+    "test:demo": "node --test demo/presentation.test.mjs",
+    "package:demo": "npm run build:demo && node demo/package.mjs",
+    "test:calendar": "node --test tests/persian-date.test.mjs",
+    "test:ux": "node --test demo/ux.test.mjs",
+    "test:workflow": "node --test demo/workflow.test.mjs",
+    "test:startup": "node --test demo/startup.test.mjs",
+    "test:edges": "node --test demo/edge-flows.test.mjs"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.2",
+    "jalaali-js": "1.2.8",
+    "leaflet": "1.9.4",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.5",
+    "@cloudflare/workers-types": "^5.20261005.1",
+    "@openai/sites-vite-plugin": "^0.1.0 || ^0.2.0",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/jalaali-js": "1.2.0",
+    "@types/leaflet": "1.9.21",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/sql.js": "1.4.11",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "^0.5.34",
+    "drizzle-kit": "^0.31.10",
+    "esbuild": "0.28.1",
+    "eslint": "9.39.4",
+    "eslint-config-next": "^16.3.6",
+    "playwright": "1.63.0",
+    "react-server-dom-webpack": "^19.3.0",
+    "sql.js": "1.14.2",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vinext": "^1.0.1",
+    "vite": "^8.3.2",
+    "wrangler": "^4.147.0"
+  },
+  "overrides": {
+    "postcss": "8.5.26",
+    "sharp": "0.35.4"
+  },
+  "type": "module"
+}

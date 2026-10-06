@@ -1,0 +1,2 @@
+@import './brand.css';
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--sb-canvas,#f5f8fc);color:var(--sb-ink,#18344d);font-family:var(--sb-font,'Peyda'),Tahoma,Arial,sans-serif;line-height:1.85}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}::selection{background:#d4eaff;color:#134e7c}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

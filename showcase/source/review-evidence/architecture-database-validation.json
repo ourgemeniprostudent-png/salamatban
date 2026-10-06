@@ -1,0 +1,453 @@
+{
+  "status": "passed",
+  "executedAtUtc": "2026-10-06T10:39:10Z",
+  "engine": {
+    "name": "PostgreSQL",
+    "version": "17.11"
+  },
+  "schema": {
+    "path": "deliverables/architecture/postgresql-target-schema.sql",
+    "sha256": "58c572d44abfd965ca5b99d9eed089f35ea6daac529e724eabafd8c3f92aae64",
+    "tableCount": 27,
+    "indexCount": 86,
+    "appliedToProduction": false
+  },
+  "validator": "scripts/validate_target_schema.py",
+  "assertionCount": 75,
+  "assertions": [
+    {
+      "name": "valid_member_clinician_record_plan_action_progress_path",
+      "passed": true,
+      "expected_sqlstate": null
+    },
+    {
+      "name": "valid_payment_matches_order_amount",
+      "passed": true,
+      "expected_sqlstate": null
+    },
+    {
+      "name": "clinician_role_required_for_assignment",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "one_active_assignment_per_member",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "record_cannot_use_other_member_consent",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "revision_cannot_refer_to_other_member",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "document_cannot_refer_to_other_member",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "plan_cannot_refer_to_other_member",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "action_cannot_refer_to_other_member",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "progress_cannot_refer_to_other_member",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "task_event_cannot_refer_to_other_member",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "duplicate_plan_version_rejected",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "duplicate_source_record_version_rejected",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "missing_source_record_revision_rejected",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "published_plan_requires_historical_reviewer_name",
+      "passed": true,
+      "expected_sqlstate": "23502"
+    },
+    {
+      "name": "published_reviewer_name_survives_account_rename",
+      "passed": true,
+      "expected_sqlstate": null
+    },
+    {
+      "name": "invalid_gregorian_birth_date_rejected",
+      "passed": true,
+      "expected_sqlstate": "22008"
+    },
+    {
+      "name": "invalid_gregorian_action_date_rejected",
+      "passed": true,
+      "expected_sqlstate": "22008"
+    },
+    {
+      "name": "negative_record_version_rejected",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "non_object_profile_rejected",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "oversize_document_rejected",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "clean_document_requires_storage_and_scan_time",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "purged_document_requires_purge_time",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "duplicate_active_document_hash_rejected",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "payment_expected_amount_must_match_order",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "verified_amount_mismatch_rejected",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "verified_payment_requires_provider_evidence",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "second_verified_payment_per_order_rejected",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "paid_order_requires_paid_time",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "order_amount_cannot_change_after_payment_attempt",
+      "passed": true,
+      "expected_sqlstate": "23503"
+    },
+    {
+      "name": "second_active_assessment_order_rejected",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "duplicate_open_urgent_task_rejected",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "booking_requires_consent",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "outbox_event_key_is_unique",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "job_dedupe_key_is_unique",
+      "passed": true,
+      "expected_sqlstate": "23505"
+    },
+    {
+      "name": "running_job_requires_lease",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "ready_job_cannot_keep_lease",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "completed_job_requires_finish_time",
+      "passed": true,
+      "expected_sqlstate": "23514"
+    },
+    {
+      "name": "runtime_role_is_non_owner_non_superuser",
+      "passed": true,
+      "expected_sqlstate": null
+    },
+    {
+      "name": "runtime_cannot_update_consent_documents",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_consent_documents",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_consent_documents",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_consent_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_consent_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_consent_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_record_revisions",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_record_revisions",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_record_revisions",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_care_plans",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_care_plans",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_care_plans",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_plan_actions",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_plan_actions",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_plan_actions",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_action_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_action_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_action_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_task_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_task_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_task_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_support_messages",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_support_messages",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_support_messages",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_update_audit_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_delete_audit_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_cannot_truncate_audit_events",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "web_role_cannot_publish_consent_document",
+      "passed": true,
+      "expected_sqlstate": "42501"
+    },
+    {
+      "name": "runtime_can_append_progress_with_generated_sequence",
+      "passed": true,
+      "expected_sqlstate": null
+    },
+    {
+      "name": "overlapping_skip_locked_workers_claim_distinct_jobs",
+      "passed": true
+    },
+    {
+      "name": "both_job_claims_persisted_once_with_lease",
+      "passed": true
+    },
+    {
+      "name": "conditional_update_rejects_stale_lease_token",
+      "passed": true
+    },
+    {
+      "name": "conditional_update_rejects_expired_lease",
+      "passed": true
+    },
+    {
+      "name": "current_valid_lease_completes_and_clears_lease_fields",
+      "passed": true
+    },
+    {
+      "name": "documented_claim_skips_exhausted_jobs",
+      "passed": true
+    },
+    {
+      "name": "schema_stores_1000_enabled_synthetic_members",
+      "passed": true
+    }
+  ],
+  "syntheticMemberCount": 1000,
+  "queryPlan": {
+    "purpose": "Illustrative review queue index selection with 1,000 synthetic records; not a performance benchmark",
+    "sql": "SELECT id,member_id FROM health_records WHERE status='submitted' ORDER BY urgent DESC,submitted_at,id LIMIT 25",
+    "explain": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 0.28,
+          "Total Cost": 3.36,
+          "Plan Rows": 25,
+          "Plan Width": 41,
+          "Plans": [
+            {
+              "Node Type": "Index Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Scan Direction": "Forward",
+              "Index Name": "records_review_queue",
+              "Relation Name": "health_records",
+              "Alias": "health_records",
+              "Startup Cost": 0.28,
+              "Total Cost": 123.37,
+              "Plan Rows": 998,
+              "Plan Width": 41,
+              "Index Cond": "(status = 'submitted'::text)"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "appendOnlyPermissions": {
+    "testedWithExplicitDisposableNonOwnerRole": true,
+    "tables": [
+      "consent_documents",
+      "consent_events",
+      "record_revisions",
+      "care_plans",
+      "plan_actions",
+      "action_events",
+      "task_events",
+      "support_messages",
+      "audit_events"
+    ],
+    "notProvisionedBySchemaDdl": true
+  },
+  "queueConcurrency": {
+    "overlappingTransactions": 2,
+    "claimedDistinctJobs": true,
+    "providerCalled": false,
+    "deliveryGuarantee": "at-least-once; no exactly-once claim"
+  },
+  "notVerified": [
+    "1,000 simultaneously active users, HTTP latency, throughput, production sizing or availability",
+    "Application integration, authentication/authorization, transitions and clinical content validation",
+    "Membership admission capacity lock protocol and concurrent refund total checks",
+    "Consent scope/withdrawal enforcement and clinical-assignment authorization",
+    "External payment/SMS/storage/scan providers, payment reconciliation and worker side effects",
+    "Runtime deployment role provisioning, backups, restoration, retention and actual production migration"
+  ],
+  "durationSeconds": 4.993,
+  "cleanup": "Temporary test database and role removed by validator finally block"
+}

@@ -327,13 +327,13 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     const forbidden = await page.evaluate(id => window.demoRequest('files/' + id), fileId);
     assert.equal(forbidden.status, 404);
     const task = page.locator('.p-task').filter({ has: page.getByRole('heading', { name: /خدمت ساختگی/ }) });
-    await task.getByRole('button', { name: 'در حال هماهنگی', exact: true }).click();
+    await task.getByRole('button', { name: 'ثبت تماس و شروع هماهنگی', exact: true }).click();
     await task.getByLabel('مرکز', { exact: true }).fill('مرکز ساختگی برای نمایش');
     await task.getByLabel('زمان نوبت', { exact: true }).fill('۱۴۰۵/۰۸/۱۰ ساعت ۱۰:۰۰');
     await task.getByLabel('کد تأیید', { exact: true }).fill('DEMO-CONFIRMED-001');
     await task.getByLabel('یادداشت قابل نمایش', { exact: true }).fill('هماهنگی ساختگی برای بررسی مسیر نرم‌افزار');
     await task.getByRole('checkbox', { name: 'رضایت انتقال اطلاعات لازم به همین مرکز از کاربر گرفته شد.', exact: true }).check();
-    await task.getByRole('button', { name: 'نوبت تأیید شد', exact: true }).click();
+    await task.getByRole('button', { name: 'تأیید نوبت', exact: true }).click();
     await task.locator('.p-tag.confirmed').waitFor();
     await selectValue(page.getByRole('combobox', { name: /^وضعیت هماهنگی/ }), 'confirmed');
     await task.waitFor();

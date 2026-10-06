@@ -17,7 +17,9 @@
     "test:demo": "node --test demo/presentation.test.mjs",
     "package:demo": "npm run build:demo && node demo/package.mjs",
     "test:calendar": "node --test tests/persian-date.test.mjs",
-    "test:ux": "node --test demo/ux.test.mjs"
+    "test:ux": "node --test demo/ux.test.mjs",
+    "test:workflow": "node --test demo/workflow.test.mjs",
+    "test:startup": "node --test demo/startup.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

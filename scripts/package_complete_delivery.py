@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the complete v1.5 delivery from tested outputs and the established guide.
+"""Build the complete v1.6 delivery from tested outputs and the established guide.
 Run npm run build:demo and tests in site first. Requires Node 24, the locked
 Playwright package, and Chromium (CHROMIUM_PATH or /usr/bin/chromium).
 No databases, credentials, caches or installed dependencies are exported.
@@ -15,7 +15,7 @@ import tempfile
 import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = '1.5'
+VERSION = '1.6'
 NAME = f'Salamatban-Complete-Delivery-v{VERSION}'
 OUTPUT = ROOT / 'deliverables' / f'{NAME}.zip'
 PREVIOUS = ROOT / 'deliverables/Salamatban-Complete-Delivery-v1.4.zip'
@@ -92,7 +92,7 @@ with tempfile.TemporaryDirectory(prefix='salamatban-delivery-', dir='/workspace'
         for name in ['index.html','00-START-HERE.html','README-fa.txt','Start-Mac-Linux.command','Start-Windows.cmd','serve-demo.py']:
             content = previous.read(prefix+name)
             if name.endswith(('.html','.txt')):
-                content = content.decode().replace('۱٫۴','۱٫۵').replace('v1.4','v1.5').encode()
+                content = content.decode().replace('۱٫۴','۱٫۶').replace('v1.4','v1.6').encode()
             (dest/name).write_bytes(content)
         guide = previous.read(prefix+'documents/Salamatban-Complete-Guide-fa.html').decode()
     (dest/'Start-Mac-Linux.command').chmod(0o755)
@@ -127,11 +127,11 @@ with tempfile.TemporaryDirectory(prefix='salamatban-delivery-', dir='/workspace'
     for name in ['ux-release.json','ux-publication.json','architecture-database-validation.json']:
         if (ROOT/'review-evidence'/name).exists():
             shutil.copy2(ROOT/'review-evidence'/name,dest/'technical'/name)
-    for name in ['ux-city-form.png','ux-upload.png','ux-location-320.png']:
+    for name in ['ux-city-form.png','ux-upload.png','ux-location-320.png','ux-question-390.png','ux-options-320.png','ux-payment-receipt-390.png','ux-doctor-workflow.png','ux-coordinator-workflow.png']:
         if (ROOT/'site/.test-build'/name).exists():
             shutil.copy2(ROOT/'site/.test-build'/name,dest/'documents'/name)
     shutil.copy2(ROOT/'site/.test-build/visual-review/compact-year-select-320.png',dest/'documents/compact-year-select-320.png')
-    guide=guide.replace('۱٫۴','۱٫۵').replace('v1.4','v1.5')
+    guide=guide.replace('۱٫۴','۱٫۶').replace('v1.4','v1.6')
     guide=guide.replace('../technical/deliverables/architecture/','../technical/architecture/').replace('../technical/review-evidence/','../technical/').replace('../technical/site/','../source/site/').replace('../technical/scripts/','../source/scripts/')
     sections = {'ux-improvements':'UX-IMPROVEMENTS-fa.md','document-2':'DEVELOPER-HANDOFF-fa.md','document-4':'salamatban-release-checklist-fa.md'}
     for section,name in sections.items():
@@ -142,13 +142,13 @@ with tempfile.TemporaryDirectory(prefix='salamatban-delivery-', dir='/workspace'
             raise SystemExit(f'Expected one guide section {section}, got {count}')
     contract='<section class="section" id="location-contract">'+markdown((ROOT/'deliverables/UX-LOCATION-CONTRACT-fa.md').read_text())+'</section>'
     guide=guide.replace('<section class="section" id="demo">',contract+'<section class="section" id="demo">')
-    guide=guide.replace('۱۲ جدول فعلی','۱۲ جدول پایهٔ قبلی؛ جدول آدرس نمایشی در افزودهٔ ۱٫۵')
+    guide=guide.replace('۱۲ جدول فعلی','۱۲ جدول پایهٔ قبلی؛ دو جدول آدرس و اتصال اقدام به پیگیری در نسخهٔ ۱٫۶')
     guide=guide.replace('</head>','<style>code{overflow-wrap:anywhere}table{width:100%;table-layout:fixed}td,th{overflow-wrap:anywhere}pre{white-space:pre-wrap;direction:ltr;text-align:left}h1,h2,h3{break-after:avoid}tr{break-inside:avoid}</style></head>')
     guide_path=dest/'documents/Salamatban-Complete-Guide-fa.html'
     guide_path.write_text(guide)
     with (dest/'README-fa.txt').open('a') as f:
-        f.write('\nافزودهٔ ۱٫۵: ذخیرهٔ خودکار، شهر، مدارک، مرور و نقشهٔ اختیاری. نقشه/جست‌وجوی مکان به اینترنت نیاز دارند؛ آدرس دستی و بقیهٔ نمایش محلی مستقل‌اند. خدمت در محل فقط نمایشی است. گزارش انتشار جاری در technical/ux-publication.json قرار دارد.\n')
-    notice='<section><h2>نسخهٔ ۱٫۵ — تجربهٔ کاربری تازه</h2><p>ذخیرهٔ خودکار قابل پیگیری، شهر جست‌وجوپذیر، ویرایش مستقیم مرور، مدارک با پیش‌نمایش و نقشهٔ اختیاری خدمت نمایشی در محل.</p><p>فرم و آدرس دستی محلی کار می‌کنند؛ نقشه و جست‌وجوی مکان اینترنت می‌خواهند.</p><a href="technical/UX-IMPROVEMENTS-fa.md">وضعیت بهبودها</a> · <a href="technical/ux-publication.json">گزارش انتشار همین نسخه</a></section>'
+        f.write('\nافزودهٔ ۱٫۶: پرسش‌های تک‌مرحله‌ای، پرداخت نمایشی و گردش کار پزشک و کارشناس؛ امکانات قبلی حفظ شده‌اند. نقشه/جست‌وجوی مکان به اینترنت نیاز دارند؛ آدرس دستی و بقیهٔ نمایش محلی مستقل‌اند. خدمت در محل فقط نمایشی است. گزارش انتشار جاری در technical/ux-publication.json قرار دارد.\n')
+    notice='<section><h2>نسخهٔ ۱٫۶ — تجربهٔ کاربری تازه</h2><p>فرم کم‌اسکرول، پرداخت نمایشی مرحله‌به‌مرحله، اقدامات روشن پزشک و ارجاع قابل پیگیری به کارشناس.</p><p>فرم و آدرس دستی محلی کار می‌کنند؛ نقشه و جست‌وجوی مکان اینترنت می‌خواهند.</p><a href="technical/UX-IMPROVEMENTS-fa.md">وضعیت بهبودها</a> · <a href="technical/ux-publication.json">گزارش انتشار همین نسخه</a></section>'
     for name in ['index.html','00-START-HERE.html']:
         p=dest/name;p.write_text(p.read_text().replace('technical/deliverables/architecture/','technical/architecture/').replace('</main>',notice+'</main>'))
     renderer="""const {chromium}=await import(process.argv[1]);const {readFile}=await import('node:fs/promises');const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});try{const page=await browser.newPage();await page.setContent(await readFile(process.argv[2],'utf8'),{waitUntil:'load'});await page.evaluate(()=>document.fonts.ready);await page.pdf({path:process.argv[3],format:'A4',printBackground:true,preferCSSPageSize:true});}finally{await browser.close();}"""

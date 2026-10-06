@@ -1,16 +1,12 @@
 {
   "directFileFallback": "file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation",
-  "archive": "Salamatban-Complete-Delivery-v1.5.zip",
+  "archive": "Salamatban-Complete-Delivery-v1.6.zip",
   "integrity": "passed",
-  "manifestFiles": 206,
+  "manifestFiles": 222,
   "matchedCurrentFiles": {
-    "source": 140,
+    "source": 150,
     "website": 39
   },
   "missingLinks": [],
-  "exclusions": "passed",
-  "pdfPages": 60,
-  "pdfTextPages": 60,
-  "pdfVisualReview": "page 4 inspected: Persian text, headings and line wrapping readable",
-  "packagedLauncher": "passed: actual extracted serve-demo.py with matching HTML/JS/CSS/WASM/release assets"
+  "exclusions": "passed"
 }

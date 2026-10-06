@@ -36,6 +36,14 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     return (await one('SELECT * FROM pilot_records WHERE user_id=?',uid))!;
   };
   const paymentView=(r:Row)=>({id:r.id,status:r.status,amountRial:r.amount_rial,reference:r.reference,mode:r.mode,createdAt:r.created_at,redirect:r.status==='pending'&&r.authority&&r.mode==='live'?`https://payment.zarinpal.com/pg/StartPay/${r.authority}`:null});
+  // A plan action owned by the coordination team creates one durable booking task.
+  const teamTasks=(uid:string,pid:string,actions:Action[],city:string)=>actions.filter(a=>a.owner==='team').flatMap(a=>{
+    const taskId=`${pid}:${a.id}`;
+    return [
+      q("INSERT OR IGNORE INTO pilot_tasks(id,user_id,kind,status,title,preferred,created_at,updated_at) SELECT ?,?,'booking','requested',?,?,?,? WHERE EXISTS(SELECT 1 FROM pilot_plans WHERE id=? AND user_id=?)",taskId,uid,a.title,`${city} · موعد اقدام: ${a.due}`,now(),now(),pid,uid),
+      q('INSERT OR IGNORE INTO pilot_task_actions(task_id,plan_id,action_id) SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM pilot_tasks WHERE id=?)',taskId,pid,a.id,taskId),
+    ];
+  });
   const verifyOrder=async(order:Row)=>{
     if(order.status==='paid')return;
     if(order.mode!==c.mode||!order.authority||!['pending','reconciliation'].includes(order.status))throw new PilotError('INVALID_PAYMENT_STATE',409);
@@ -110,7 +118,7 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       const plans=await all('SELECT p.id,p.version,p.summary,p.actions,p.published_at,u.name AS reviewer FROM pilot_plans p JOIN pilot_users u ON u.id=p.reviewer_id WHERE p.user_id=? ORDER BY p.version DESC',uid);
       const updates=await all('SELECT plan_id,action_id,done,evidence,created_at FROM pilot_action_updates WHERE user_id=? ORDER BY created_at',uid);
       await audit(user.id,uid,'record_read');
-      return json({record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,l.address,l.unit,l.entrance,l.latitude,l.longitude FROM pilot_tasks t LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
+      return json({record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,l.address,l.unit,l.entrance,l.latitude,l.longitude,ta.plan_id,ta.action_id FROM pilot_tasks t LEFT JOIN pilot_task_actions ta ON ta.task_id=t.id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
     }
     if(path==='record'&&request.method==='PUT') {
       role('member');const r=await record(user.id);
@@ -186,8 +194,17 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     if(path==='staff/queue'&&request.method==='GET') {
       role('clinician','coordinator','admin');
       if(user.role==='clinician')return json({members:await all("SELECT u.id,u.name,r.status,r.urgent,r.urgent_resolved_at,r.submitted_at FROM pilot_users u JOIN pilot_records r ON r.user_id=u.id WHERE u.clinician_id=? AND u.active=1 AND (r.status!='draft' OR r.urgent=1) ORDER BY r.urgent DESC,r.submitted_at",user.id)});
-      if(user.role==='coordinator')return json({tasks:await all("SELECT t.*,u.name,u.phone,l.address,l.unit,l.entrance,l.latitude,l.longitude FROM pilot_tasks t JOIN pilot_users u ON u.id=t.user_id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id WHERE t.kind='booking' ORDER BY t.created_at DESC")});
+      if(user.role==='coordinator')return json({tasks:await all("SELECT t.*,u.name,u.phone,ta.plan_id,ta.action_id,l.address,l.unit,l.entrance,l.latitude,l.longitude FROM pilot_tasks t JOIN pilot_users u ON u.id=t.user_id LEFT JOIN pilot_task_actions ta ON ta.task_id=t.id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id WHERE t.kind='booking' AND u.active=1 ORDER BY t.created_at DESC")});
       return json({counts:await one("SELECT (SELECT count(*) FROM pilot_users WHERE role='member' AND active=1) members,(SELECT count(*) FROM pilot_records WHERE submitted_at IS NOT NULL) submitted,(SELECT count(DISTINCT user_id) FROM pilot_orders WHERE status='paid') paid,(SELECT count(DISTINCT user_id) FROM pilot_plans) published,(SELECT count(*) FROM pilot_feedback WHERE status='open') feedbackOpen,(SELECT count(*) FROM pilot_orders WHERE status IN ('requesting','reconciliation')) reconciliation"),members:await all("SELECT id,name,phone,active,clinician_id FROM pilot_users WHERE role='member'"),clinicians:await all("SELECT id,name FROM pilot_users WHERE role='clinician' AND active=1"),orders:(await all("SELECT * FROM pilot_orders WHERE status IN ('reconciliation','requesting')")).map(paymentView),feedback:await all('SELECT f.id,f.user_id,f.kind,f.message,f.status,f.reply,u.name FROM pilot_feedback f JOIN pilot_users u ON u.id=f.user_id ORDER BY f.created_at DESC')});
+    }
+    if(path==='staff/handoff'&&request.method==='POST') {
+      role('clinician');const uid=text(body.userId,80);await clinical(uid);const r=await record(uid);
+      if(r.status!=='published')throw new PilotError('INVALID_STATE',409);
+      if(!r.coordination_consent)throw new PilotError('COORDINATION_CONSENT_REQUIRED',422);
+      const p=await one('SELECT * FROM pilot_plans WHERE user_id=? ORDER BY version DESC LIMIT 1',uid);
+      if(!p)throw new PilotError('PLAN_REQUIRED',409);
+      const tasks=teamTasks(uid,p.id,parse(p.actions),parse(r.profile).city||'');if(tasks.length)await db.batch(tasks);
+      await audit(user.id,uid,'plan_handed_to_coordination',p.id);return json({ok:true});
     }
     if(path==='staff/review'&&request.method==='POST') {
       role('clinician');const uid=text(body.userId,80);await clinical(uid);const r=await record(uid);
@@ -205,19 +222,21 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
         const changed=await run("UPDATE pilot_records SET status='needs_information',information_request=?,version=version+1,updated_at=? WHERE user_id=? AND version=? AND status='submitted'",note,now(),uid,r.version);if(!changed.meta.changes)throw new PilotError('VERSION_CONFLICT',409);
       } else if(body.action==='publish') {
         if(r.status!=='submitted'||(r.urgent&&!r.urgent_resolved_at))throw new PilotError('INVALID_STATE',409);
-        const summary=text(body.summary,4000),actions=validateActions(body.actions);if(summary.length<20)throw new PilotError('INVALID_PLAN',422);
+        const summary=text(body.summary,4000),actions=validateActions(body.actions);if(actions.some(a=>a.owner==='team')&&!r.coordination_consent)throw new PilotError('COORDINATION_CONSENT_REQUIRED',422);if(summary.length<20)throw new PilotError('INVALID_PLAN',422);
         const last=await one('SELECT max(version) v FROM pilot_plans WHERE user_id=?',uid),pid=id();
         // Conditional insert plus unique record/version indexes prevent concurrent publication.
         const results=await db.batch([
           q("INSERT INTO pilot_plans SELECT ?,?,?,?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM pilot_records WHERE user_id=? AND version=? AND status='submitted' AND (urgent=0 OR urgent_resolved_at IS NOT NULL))",pid,uid,(last?.v||0)+1,user.id,r.version,JSON.stringify({profile:parse(r.profile),answers:parse(r.answers),consentVersion:r.consent_version}),summary,JSON.stringify(actions),now(),uid,r.version),
           q("UPDATE pilot_records SET status='published',version=version+1,updated_at=? WHERE user_id=? AND version=? AND status='submitted' AND EXISTS(SELECT 1 FROM pilot_plans WHERE id=?)",now(),uid,r.version,pid),
+          q("UPDATE pilot_tasks SET status='cancelled',note='با انتشار نسخه جدید برنامه جایگزین شد.',updated_at=? WHERE id IN (SELECT task_id FROM pilot_task_actions WHERE plan_id IN (SELECT id FROM pilot_plans WHERE user_id=? AND id!=?)) AND status IN ('requested','contacted','confirmed') AND EXISTS(SELECT 1 FROM pilot_plans WHERE id=?)",now(),uid,pid,pid),
+          ...teamTasks(uid,pid,actions,parse(r.profile).city||''),
         ]);
         if(!results[0].meta.changes||!results[1].meta.changes)throw new PilotError('VERSION_CONFLICT',409);
       } else throw new PilotError('INVALID_ACTION');
       await audit(user.id,uid,`clinical_${body.action}`);return json({ok:true});
     }
     if(path==='actions'&&request.method==='POST') {
-      role('member');const p=await one('SELECT * FROM pilot_plans WHERE user_id=? ORDER BY version DESC LIMIT 1',user.id);if(!p||p.id!==body.planId||!(parse(p.actions) as Action[]).some(a=>a.id===body.actionId))throw new PilotError('NOT_FOUND',404);
+      role('member');const p=await one('SELECT * FROM pilot_plans WHERE user_id=? ORDER BY version DESC LIMIT 1',user.id);if(!p||p.id!==body.planId||!(parse(p.actions) as Action[]).some(a=>a.id===body.actionId&&a.owner==='member'))throw new PilotError('NOT_FOUND',404);
       if(typeof body.done!=='boolean')throw new PilotError('INVALID_STATE');await run('INSERT INTO pilot_action_updates VALUES (?,?,?,?,?,?,?)',id(),user.id,p.id,body.actionId,body.done?1:0,text(body.evidence,400),now());return json({ok:true});
     }
     if(path==='booking'&&request.method==='POST') {
@@ -237,8 +256,9 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       const provider=text(body.provider,160),scheduled=text(body.scheduledAt,80),reference=text(body.reference,120),note=text(body.note,600);
       if(body.status==='confirmed'&&(!provider||!scheduled||!reference||!body.centerConsent))throw new PilotError('BOOKING_CONFIRMATION_REQUIRED',422);
       const updates=[db.prepare('UPDATE pilot_tasks SET status=?,provider=?,scheduled_at=?,reference=?,note=?,assigned_to=?,updated_at=? WHERE id=? AND status=?').bind(body.status,provider||t.provider,scheduled||t.scheduled_at,reference||t.reference,note,user.id,now(),t.id,t.status)];
+      if(body.status==='completed') updates.unshift(q("INSERT INTO pilot_action_updates(id,user_id,plan_id,action_id,done,evidence,created_at) SELECT ?,t.user_id,ta.plan_id,ta.action_id,1,?,? FROM pilot_tasks t JOIN pilot_task_actions ta ON ta.task_id=t.id WHERE t.id=? AND t.status='confirmed'",id(),`تأیید کارشناس: ${note||'انجام هماهنگی ثبت شد.'}`,now(),t.id));
       if(['completed','cancelled'].includes(body.status))updates.push(db.prepare("UPDATE pilot_booking_locations SET latitude=NULL,longitude=NULL WHERE task_id=? AND EXISTS (SELECT 1 FROM pilot_tasks WHERE id=? AND status IN ('completed','cancelled'))").bind(t.id,t.id));
-      const [changed]=await db.batch(updates);
+      const results=await db.batch(updates);const changed=results[body.status==='completed'?1:0];
       if(!changed.meta.changes)throw new PilotError('VERSION_CONFLICT',409);await audit(user.id,t.user_id,body.status==='confirmed'?'booking_confirmed_with_consent':`booking_${body.status}`,t.id);return json({ok:true});
     }
     if(path==='feedback'&&request.method==='POST') {

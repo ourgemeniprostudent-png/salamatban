@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T12:59:20.296Z",
+  "generatedAt": "2026-10-06T13:26:22.543Z",
   "environment": "ephemeral Miniflare D1/R2; synthetic data only; no real provider calls",
   "tests": [
     {
@@ -87,6 +87,10 @@
       "status": "pass"
     },
     {
+      "name": "Team referral requires consent, is idempotent and completion updates only the linked action",
+      "status": "pass"
+    },
+    {
       "name": "Action progress is persisted independently of approved plan",
       "status": "pass"
     },
@@ -103,7 +107,7 @@
       "status": "pass"
     },
     {
-      "name": "Manual address works without coordinates; unchecked home visit stores no location",
+      "name": "Manual address works without coordinates",
       "status": "pass"
     },
     {

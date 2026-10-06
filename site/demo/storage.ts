@@ -49,8 +49,10 @@ export async function openStore(name: string) {
   const database = await new Promise<IDBDatabase>((resolve, reject) => {
     const request = indexedDB.open(name, 1);
     request.onupgradeneeded = () => request.result.createObjectStore('demo');
+    let blocked = false;
+    request.onblocked = () => { blocked = true; reject(new Error('پنجره‌های دیگر همین سایت را ببندید و دوباره تلاش کنید.')); };
     request.onerror = () => reject(request.error);
-    request.onsuccess = () => resolve(request.result);
+    request.onsuccess = () => { if (blocked) request.result.close(); else resolve(request.result); };
   });
   return {
     read: () => new Promise<DemoSnapshot | undefined>((resolve, reject) => {

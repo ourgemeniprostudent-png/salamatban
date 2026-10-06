@@ -4,6 +4,7 @@ import type { Settings } from '../lib/pilot/config';
 import { BrowserDatabase, browserFiles, openStore } from './storage';
 import schema from '../drizzle-pilot/0000_optimal_wind_dancer.sql';
 import guards from '../drizzle-pilot/0001_guards.sql';
+import taskActions from '../drizzle-pilot/0003_great_bedlam.sql';
 import locations from '../drizzle-pilot/0002_violet_morgan_stark.sql';
 
 export async function createDemoBackend() {
@@ -35,6 +36,7 @@ export async function createDemoBackend() {
         if (!saved) { database.sqlite.run(schema); database.sqlite.run(guards); }
         // Additive upgrade preserves existing demo records, files and sessions.
         if (!database.sqlite.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='pilot_booking_locations'").length) database.sqlite.run(locations);
+        if (!database.sqlite.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='pilot_task_actions'").length) database.sqlite.run(taskActions);
         const files = saved?.files ?? {};
         const headers = new Headers(init?.headers);
         headers.set('Origin', location.origin);

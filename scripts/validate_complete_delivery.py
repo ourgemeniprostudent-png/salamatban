@@ -6,8 +6,8 @@ from pathlib import Path,PurePosixPath
 from urllib.parse import unquote,urlsplit
 import posixpath,zipfile
 root=Path(__file__).resolve().parent.parent
-archive=root/'deliverables/Salamatban-Complete-Delivery-v1.5.zip'
-prefix='Salamatban-Complete-Delivery-v1.5/'
+archive=root/'deliverables/Salamatban-Complete-Delivery-v1.6.zip'
+prefix='Salamatban-Complete-Delivery-v1.6/'
 class Links(HTMLParser):
     def __init__(self):super().__init__();self.links=[]
     def handle_starttag(self,tag,attrs):

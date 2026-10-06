@@ -7,7 +7,7 @@ import { chromium } from 'playwright';
 import { build } from 'esbuild';
 import { demoBindings } from './bundle.mjs';
 
-test('UX v1.5: real browser drafts, validation, documents and optional location', {timeout:180000}, async t=>{
+test('UX v1.6: real browser drafts, validation, documents and optional location', {timeout:180000}, async t=>{
  const root=process.cwd();await mkdir('.test-build',{recursive:true});
  await build({stdin:{contents:`export {createDemoBackend} from './demo/backend';import initSql from 'sql.js';import {openStore} from './demo/storage';export async function legacySnapshot(){const store=await openStore('salamatban-presentation-v1:'+new URL('.',document.baseURI).pathname);const saved=await store.read();const SQL=await initSql({locateFile:()=>new URL('sql-wasm.wasm',document.baseURI).href});const db=new SQL.Database(saved.database);db.run('DROP TABLE pilot_booking_locations');await store.write({...saved,database:db.export()});db.close();}`,resolveDir:root,loader:'ts'},outfile:'.test-build/ux-driver.js',bundle:true,format:'iife',globalName:'UXDriver',platform:'browser',loader:{'.sql':'text'},define:{'process.env.NODE_ENV':'"production"'},plugins:[demoBindings(root)]});
  const server=createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://test').pathname);const file=path.resolve('dist-demo','.'+(pathname==='/'?'/index.html':pathname));if(!file.startsWith(path.resolve('dist-demo')+path.sep)){res.writeHead(404).end();return;}const data=await readFile(file);res.writeHead(200,{'content-type':({'.html':'text/html','.js':'text/javascript','.css':'text/css','.wasm':'application/wasm','.png':'image/png','.woff2':'font/woff2','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream'}).end(data);}catch{res.writeHead(404).end();}});
@@ -41,9 +41,53 @@ test('UX v1.5: real browser drafts, validation, documents and optional location'
   await page.evaluate(async()=>{const r=(await window.request('record')).data.record;const result=await window.request('record',{version:r.version,profile:{...r.profile,goal:'نسخه ثبت‌شده در پنجره دیگر'},answers:r.answers,consent:true,coordination:true,step:1},'PUT');if(result.status!==200)throw new Error('fixture save failed');});
   await page.getByLabel('هدف شما از همراهی').fill('ویرایش محلی ناسازگار');await page.getByText('ذخیره متوقف شد؛ نسخه جدیدتری وجود دارد.',{exact:true}).waitFor();assert.equal(await page.getByLabel('هدف شما از همراهی').inputValue(),'ویرایش محلی ناسازگار');await stored('goal','نسخه ثبت‌شده در پنجره دیگر');page.once('dialog',d=>d.dismiss());await page.getByRole('button',{name:'بارگذاری نسخه تازه با تأیید شما'}).click();assert.equal(await page.getByLabel('هدف شما از همراهی').inputValue(),'ویرایش محلی ناسازگار');page.once('dialog',d=>d.accept());await page.getByRole('button',{name:'بارگذاری نسخه تازه با تأیید شما'}).click();await page.waitForFunction(()=>document.querySelector('textarea').value==='نسخه ثبت‌شده در پنجره دیگر');
  });
- await check('all clinical questions remain; optional details expand and final review links return directly',async()=>{
-  await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'علائم مهم',exact:true}).waitFor();assert.equal(await page.locator('.p-question').count(),7);await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.waitForFunction(()=>document.activeElement===document.querySelector('.p-question input'));for(const input of await page.getByRole('radio',{name:'خیر',exact:true}).all())await input.check();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();
-  await page.getByRole('heading',{name:'سوابق و سبک زندگی',exact:true}).waitFor();assert.equal(await page.getByLabel('داروها و مکمل‌های فعلی',{exact:true}).count(),0);await page.getByRole('button',{name:'دارو یا مکملی برای ثبت دارم (اختیاری)'}).click();await page.getByLabel('داروها و مکمل‌های فعلی',{exact:true}).fill('نام داروی ساختگی برای آزمون');await page.getByRole('radio',{name:'برای من مطرح نیست'}).check();await page.locator('fieldset').filter({has:page.locator('legend',{hasText:'بیماری‌های شناخته‌شده'})}).getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).check();await page.getByRole('checkbox',{name:'هیچ‌کدام/نمی‌دانم',exact:true}).check();await page.getByRole('radio',{name:'هرگز',exact:true}).check();await page.getByRole('radio',{name:'۱ تا ۲ روز در هفته'}).check();await page.getByRole('radio',{name:'خوب',exact:true}).check();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'مدارک',exact:true}).waitFor();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();await page.getByRole('button',{name:'ویرایش مشخصات اولیه'}).click();await page.getByLabel('نام',{exact:true}).fill('نام اصلاح‌شده');await page.getByRole('button',{name:'ذخیره و بازگشت به مرور نهایی'}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();assert.match(await page.locator('.p-summary').innerText(),/نام اصلاح‌شده/);await stored('firstName','نام اصلاح‌شده');
+ await check('single-question flow keeps every clinical question, validates and fits mobile options',async()=>{
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'علائم مهم',exact:true}).waitFor();
+  assert.equal(await page.locator('.p-question').count(),1);
+  assert.equal(await page.getByRole('radio').count(),2);
+  await page.getByRole('button',{name:'پرسش بعدی ←',exact:true}).click();await page.getByText('برای ادامه، پاسخ این پرسش را انتخاب کنید.',{exact:true}).waitFor();
+  assert.equal(await page.locator('.p-question input').first().evaluate(e=>e===document.activeElement),true);
+  const seen=[];
+  for(let i=0;i<7;i++){
+    seen.push(await page.locator('.p-question').getAttribute('data-field'));
+    await page.getByRole('radio',{name:'خیر',exact:true}).check();
+    if(i===0){await page.getByRole('button',{name:'پرسش بعدی ←',exact:true}).click();await page.getByRole('button',{name:'قبلی',exact:true}).click();assert.equal(await page.getByRole('radio',{name:'خیر',exact:true}).isChecked(),true);await page.screenshot({path:'.test-build/ux-question-390.png'});}
+    await page.getByRole('button',{name:i===6?'ذخیره و مرحله بعد ←':'پرسش بعدی ←',exact:true}).click();
+  }
+  assert.equal(new Set(seen).size,7);
+  await page.getByRole('heading',{name:'سوابق و سبک زندگی',exact:true}).waitFor();
+  await page.getByRole('radio',{name:'برای من مطرح نیست'}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
+  await page.setViewportSize({width:320,height:740});await page.getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).check();
+  await page.getByRole('checkbox',{name:'فشارخون',exact:true}).check();assert.equal(await page.getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).isChecked(),false);
+  await page.getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).check();assert.equal(await page.getByRole('checkbox',{name:'فشارخون',exact:true}).isChecked(),false);
+  assert.equal(await page.getByRole('checkbox').count(),10);
+  for(const option of await page.locator('.p-question .p-choice').all()){const rect=await option.boundingBox();assert.ok(rect.height>=44);assert.ok(rect.x>=0&&rect.x+rect.width<=320);}
+  const options=await page.locator('.p-options').boundingBox();assert.ok(options.height<400,JSON.stringify(options));
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'.test-build/ux-options-320.png'});
+  await page.getByRole('button',{name:'پرسش بعدی ←'}).click();await page.getByLabel('داروها و مکمل‌های فعلی',{exact:true}).fill('نام داروی ساختگی برای آزمون');await page.getByRole('button',{name:'پرسش بعدی ←'}).click();await page.getByRole('button',{name:'ادامه بدون پاسخ'}).click();
+  await page.getByRole('checkbox',{name:'هیچ‌کدام/نمی‌دانم',exact:true}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
+  await page.getByRole('radio',{name:'هرگز',exact:true}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
+  await page.getByRole('radio',{name:'۱ تا ۲ روز در هفته'}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
+  await page.getByRole('radio',{name:'خوب',exact:true}).check();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();
+  await page.getByRole('heading',{name:'مدارک',exact:true}).waitFor();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();
+  await page.locator('.ux-review-section summary').filter({hasText:'مشخصات اولیه'}).click();await page.getByRole('button',{name:'ویرایش مشخصات اولیه'}).click();await page.getByLabel('نام',{exact:true}).fill('نام اصلاح‌شده');await page.getByRole('button',{name:'ذخیره و بازگشت به مرور نهایی'}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();
+  await stored('firstName','نام اصلاح‌شده');await page.setViewportSize({width:1280,height:900});
+ });
+ await check('demo checkout supports cancel, resume after reload, failure, retry and a durable unique receipt',async()=>{
+  await page.getByRole('button',{name:'شروع پرداخت نمایشی',exact:true}).click();await page.getByRole('heading',{name:'مرور سفارش',exact:true}).waitFor();
+  assert.equal(await page.locator('.ux-checkout input').count(),0);
+  await page.getByRole('button',{name:'انصراف و بازگشت به پرونده'}).click();await page.getByRole('button',{name:'ادامه پرداخت نمایشی'}).waitFor();
+  const pending=await page.evaluate(async()=>(await window.request('record')).data.orders);assert.equal(pending.length,1);assert.equal(pending[0].status,'pending');
+  await page.reload();await page.getByRole('button',{name:'خروج',exact:true}).waitFor();await driver();await nav('تکمیل پرونده');
+  await page.getByRole('button',{name:'ادامه پرداخت نمایشی'}).click();await page.getByRole('button',{name:'ادامه به پرداخت آزمایشی'}).click();
+  await page.getByText('آزمودن پرداخت ناموفق',{exact:true}).click();await page.getByRole('checkbox',{name:'این بار پرداخت را ناموفق شبیه‌سازی کن'}).check();
+  await page.getByRole('button',{name:'تأیید پرداخت نمایشی'}).click();await page.getByRole('heading',{name:'پرداخت نمایشی ناموفق بود'}).waitFor();assert.equal(await page.getByRole('button',{name:'ارسال برای بررسی پزشک'}).count(),0);
+  await page.getByRole('button',{name:'بازگشت و تلاش دوباره'}).click();await page.getByRole('button',{name:'شروع پرداخت نمایشی'}).click();await page.getByRole('button',{name:'ادامه به پرداخت آزمایشی'}).click();
+  await page.getByRole('button',{name:'تأیید پرداخت نمایشی'}).click();await page.getByRole('heading',{name:'پرداخت نمایشی موفق بود'}).waitFor();assert.match(await page.locator('.ux-receipt').innerText(),/DEMO-/);
+  const paid=await page.evaluate(async()=>(await window.request('record')).data.orders);assert.equal(paid.length,2);assert.equal(paid.filter(o=>o.status==='paid').length,1);
+  await page.setViewportSize({width:390,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'.test-build/ux-payment-receipt-390.png',fullPage:true});
+  await page.reload();await page.getByRole('button',{name:'خروج',exact:true}).waitFor();await driver();await nav('تکمیل پرونده');await page.getByRole('button',{name:'مشاهده رسید نمایشی'}).click();await page.getByRole('heading',{name:'پرداخت نمایشی موفق بود'}).waitFor();assert.match(await page.locator('.ux-receipt').innerText(),new RegExp(paid.find(o=>o.status==='paid').reference));await page.getByRole('button',{name:'بازگشت به پرونده',exact:true}).click();await page.setViewportSize({width:1280,height:900});
  });
  await check('camera and gallery input, preview, failure and per-file retry',async()=>{
   await nav('مدارک پزشکی');assert.equal(await page.getByLabel('گرفتن عکس با دوربین',{exact:true}).getAttribute('capture'),'environment');

@@ -10,6 +10,7 @@ const db=await mf.getD1Database('DB'),files=await mf.getR2Bucket('FILES');
 for(const statement of (await readFile('drizzle-pilot/0000_optimal_wind_dancer.sql','utf8')).split('--> statement-breakpoint'))await db.prepare(statement).run();
 for(const statement of (await readFile('drizzle-pilot/0001_guards.sql','utf8')).split('\n').filter(x=>x.startsWith('CREATE')))await db.prepare(statement).run();
 for(const statement of (await readFile('drizzle-pilot/0002_violet_morgan_stark.sql','utf8')).split('--> statement-breakpoint'))await db.prepare(statement).run();
+for(const statement of (await readFile('drizzle-pilot/0003_great_bedlam.sql','utf8')).split('--> statement-breakpoint'))await db.prepare(statement).run();
 const c={mode:'demo',origin:'https://pilot.test',authSecret:'test-secret',merchant:'',smsKey:'',smsTemplate:'',staffTotp:{},priceRial:12000000,pricingVersion:'test',scanUrl:'',scanToken:'',consentVersion:'',consentBody:'',clinicalApproved:false,ready:false};
 const report=[];
 async function test(name,fn){try{await fn();report.push({name,status:'pass'});console.log('PASS',name);}catch(e){report.push({name,status:'fail',detail:e.message});console.error('FAIL',name,e);throw e;}}
@@ -39,7 +40,33 @@ await test('Coordinator cannot publish clinical plans',async()=>assert.equal((aw
 await test('Unassigned clinician cannot open another doctor’s file',async()=>{await db.prepare("INSERT INTO pilot_users VALUES ('other-doctor','09000000019','Other doctor','clinician',1,NULL,?)").bind(Date.now()).run();const other=await login('09000000019');assert.equal((await req('record?user='+m.id,'GET',null,other)).status,404);});
 await test('Doctor can request information and member resubmits without another payment',async()=>{assert.equal((await req('staff/review','POST',{userId:m.id,version:r.version,action:'request_information',note:'لطفاً هدف ساختگی آزمون را بازبینی کنید.'},doctor)).status,200);r=(await req('record','GET',null,m)).data.record;assert.equal(r.status,'needs_information');assert.equal((await req('record/submit','POST',{version:r.version},m)).status,200);r=(await req('record','GET',null,m)).data.record;});
 await test('Concurrent publication produces one immutable plan version',async()=>{const b={userId:m.id,version:r.version,action:'publish',summary:'این جمع‌بندی صرفاً برای آزمون نرم‌افزار با داده ساختگی نوشته شده است.',actions:[{title:'آزمون ثبت پیشرفت',reason:'این اقدام فقط آزمون نرم‌افزار است.',due:new Date(Date.now()+7*86400000).toISOString().slice(0,10),owner:'member'}]};const results=await Promise.all([req('staff/review','POST',b,doctor),req('staff/review','POST',b,doctor)]);assert.equal(results.filter(x=>x.status===200).length,1);const d=(await req('record','GET',null,m)).data;assert.equal(d.plans.length,1);assert.equal(d.record.status,'published');pid=d.plans[0].id;actionId=d.plans[0].actions[0].id;});
-await test('Action progress is persisted independently of approved plan',async()=>{assert.equal((await req('actions','POST',{planId:pid,actionId,done:true,evidence:'test'},m)).status,200);const d=(await req('record','GET',null,m)).data;assert.equal(d.updates[0].done,1);assert.equal(d.plans[0].actions[0].done,false);});
+await test('Team referral requires consent, is idempotent and completion updates only the linked action',async()=>{
+  const before=(await req('record','GET',null,m)).data;
+  await req('staff/review','POST',{userId:m.id,version:before.record.version,action:'reopen',note:'آزمون ارجاع تیم هماهنگی از برنامه پزشک'},doctor);
+  let rec=(await req('record','GET',null,m)).data.record;
+  await req('record/submit','POST',{version:rec.version},m);rec=(await req('record','GET',null,m)).data.record;
+  const actions=[...before.plans[0].actions,{title:'هماهنگی نوبت ساختگی',reason:'آزمون ارجاع تیم',due:new Date(Date.now()+86400000).toISOString().slice(0,10),owner:'team'}];
+  await db.prepare('UPDATE pilot_records SET coordination_consent=0 WHERE user_id=?').bind(m.id).run();
+  const body={userId:m.id,version:rec.version,action:'publish',summary:'جمع‌بندی ساختگی برای آزمون پیگیری کامل ارجاع به تیم.',actions};
+  assert.equal((await req('staff/review','POST',body,doctor)).status,422);
+  await db.prepare('UPDATE pilot_records SET coordination_consent=1 WHERE user_id=?').bind(m.id).run();
+  assert.equal((await req('staff/review','POST',body,doctor)).status,200);
+  const current=(await req('record','GET',null,m)).data;pid=current.plans[0].id;actionId=current.plans[0].actions[0].id;
+  const teamAction=current.plans[0].actions[1];
+  assert.equal((await req('actions','POST',{planId:pid,actionId:teamAction.id,done:true},m)).status,404);
+  for(let i=0;i<2;i++)assert.equal((await req('staff/handoff','POST',{userId:m.id},doctor)).status,200);
+  const queue=(await req('staff/queue','GET',null,coord)).data.tasks;
+  assert.equal(queue.filter(t=>t.action_id===teamAction.id).length,1);const task=queue.find(t=>t.action_id===teamAction.id);
+  assert.ok(!('answers' in task));assert.ok(!('summary' in task));
+  assert.equal((await req('staff/handoff','POST',{userId:m.id},coord)).status,403);
+  assert.equal((await req('staff/booking','POST',{id:task.id,status:'completed'},coord)).status,409);
+  await req('staff/booking','POST',{id:task.id,status:'contacted'},coord);
+  await req('staff/booking','POST',{id:task.id,status:'confirmed',provider:'مرکز ساختگی',scheduledAt:'زمان ساختگی',reference:'TEAM-TEST',centerConsent:true},coord);
+  const completed=await Promise.all([req('staff/booking','POST',{id:task.id,status:'completed',note:'انجام نوبت ساختگی پیگیری شد'},coord),req('staff/booking','POST',{id:task.id,status:'completed'},coord)]);
+  assert.equal(completed.filter(r=>r.status===200).length,1);
+  const updates=(await req('record','GET',null,m)).data.updates.filter(u=>u.action_id===teamAction.id);assert.equal(updates.length,1);assert.equal(updates[0].done,1);
+});
+await test('Action progress is persisted independently of approved plan',async()=>{assert.equal((await req('actions','POST',{planId:pid,actionId,done:true,evidence:'test'},m)).status,200);const d=(await req('record','GET',null,m)).data;assert.equal(d.updates.find(u=>u.action_id===actionId).done,1);assert.equal(d.plans[0].actions[0].done,false);});
 await test('Booking needs consent and cannot skip confirmation prerequisites',async()=>{assert.equal((await req('booking','POST',{title:'خدمت ساختگی',preferred:'شهر ساختگی'},m)).status,422);assert.equal((await req('booking','POST',{title:'خدمت ساختگی',preferred:'هفته آینده، شهر ساختگی',consent:true},m)).status,200);const t=(await req('staff/queue','GET',null,coord)).data.tasks[0];taskId=t.id;assert.equal((await req('staff/booking','POST',{id:t.id,status:'confirmed'},coord)).status,409);assert.equal((await req('staff/booking','POST',{id:t.id,status:'contacted'},coord)).status,200);assert.equal((await req('staff/booking','POST',{id:t.id,status:'confirmed'},coord)).status,422);});
 await test('Coordinator confirmation is visible to member with provider reference',async()=>{assert.equal((await req('staff/booking','POST',{id:taskId,status:'confirmed',provider:'مرکز ساختگی',scheduledAt:'زمان ساختگی',reference:'TEST-001',centerConsent:true},coord)).status,200);assert.equal((await req('record','GET',null,m)).data.tasks[0].reference,'TEST-001');});
 await test('Home-visit location requires confirmation and valid coordinates',async()=>{

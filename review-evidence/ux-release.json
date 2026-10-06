@@ -1,10 +1,10 @@
 {
-  "version": "1.5",
-  "date": "2026-10-06T13:08:07.145198+00:00",
+  "version": "1.6",
+  "date": "2026-10-06T13:30:11.306888+00:00",
   "workflow": "synthetic browser demo plus local D1/R2 development",
   "checks": {
     "api": {
-      "passed": 36,
+      "passed": 37,
       "failed": 0
     },
     "calendar": {
@@ -16,61 +16,92 @@
       "failed": 0
     },
     "uxBrowser": {
-      "passed": 9,
+      "passed": 10,
       "failed": 0
     },
+    "roleWorkflowBrowser": {
+      "passed": 6,
+      "failed": 0
+    },
+    "startupBrowser": {
+      "passed": 3,
+      "failed": 0
+    },
+    "countConvention": "Node test runner totals include parent tests; API counts are individual checks",
     "typecheck": "passed",
     "lint": "passed",
     "serverBuild": "passed",
     "staticBuild": "passed",
-    "localD1Migration": "0002 applied successfully",
-    "runningServer": "Persian page, demo metadata, OTP login, D1 record read and logout passed",
-    "upgrade": "existing v1.4 browser database preserves profile, file and record version"
+    "localD1Migration": "0003 applied successfully",
+    "localFinalBrowser": {
+      "scope": "local final build",
+      "url": "http://127.0.0.1:4187/",
+      "verifiedAt": "2026-10-06T13:29:46.486Z",
+      "status": "passed",
+      "checks": [
+        "public page HTTP 200",
+        "synthetic OTP login",
+        "v1.6 marker",
+        "city selection",
+        "draft save",
+        "reload preserves stored draft"
+      ],
+      "pageErrors": []
+    },
+    "startup": "WASM begins before app finishes; single reused download; slow startup recovery and 45s blocked-store timeout verified with controlled browser clock"
   },
   "features": [
-    "conditional optional fields; all required clinical questions retained",
-    "inline field errors and focus",
-    "serialized autosave, retry and version conflict handling",
-    "searchable city catalog with manual fallback",
-    "direct short choices",
-    "section review and direct return",
-    "camera/gallery, image/PDF preview and per-file upload progress/retry",
-    "clear primary actions and honest post-submit status",
-    "active queue filters and result count",
-    "optional confirmed demo address/map; coordinates removed on terminal booking status"
+    "single question per view, mobile two-column choices, required-answer validation and progress",
+    "review/gateway/result demo payment with cancellation, resume, failure, retry and persistent receipt",
+    "doctor actions exposed beside collapsed clinical answers; explicit state-dependent guidance",
+    "transactional idempotent physician-to-coordinator task handoff, consent and role controls",
+    "coordinator completion propagates to member plan; member cannot complete team-owned action",
+    "admin support reply and resolution of ordinary issues",
+    "local browser upgrade preserves existing records"
   ],
-  "providerNetwork": {
-    "tile": "HTTPS 200",
-    "nominatimStatus": "HTTPS 200",
-    "tehranSearch": "HTTPS 200; nonempty result with coordinates; CORS *"
+  "publicBrowser": {
+    "status": "blocked",
+    "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+  },
+  "limitations": [
+    "Real Android/iPhone camera and GPS not tested",
+    "5–8 participant usability study not performed",
+    "Home visits remain demo-only; production provider/retention agreements not implemented",
+    "City starter catalog is not a nationwide official dataset",
+    "Public site uses browser-local storage; no shared cross-device patient database",
+    "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
+    "Startup improvement verified with controlled delays, not measured on user network"
+  ],
+  "artifacts": {
+    "deploymentSha256": "b08382ad4c8fa3dd6cc1d4b2ad409376c792f3b2ad5dfeab7169fdeaeb5295ba"
   },
   "publication": {
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-    "pagesCommit": "be2266d99f09dd9a0e931dbaa3d844c9534f7c9e",
+    "pagesCommit": "b87d110c17252bafe6f60f934731f30be6462061",
     "success": true,
     "assets": [
       {
         "file": "index.html",
         "status": 200,
-        "sha256": "711857d48ca9c38215370937b989471f1917d224119b71baa8c1c56aa75f1d1a",
+        "sha256": "f48525f3ead85b47b3f9c35097962f138da2df762798f70e45cf175aea605f2f",
         "matches": true
       },
       {
         "file": "app.js",
         "status": 200,
-        "sha256": "68a44770c7d38e85dd7adfc21c041549c1c755c666f122aaa1f4dc6a8b44f330",
+        "sha256": "32407a8a9b132479b73848d84440c9424a5b4dcf6dc9e0254814a86a6af93187",
         "matches": true
       },
       {
         "file": "app.css",
         "status": 200,
-        "sha256": "cd9876434068cdd04742787627f352a8e42a026e4a1139c1ea04028126a8de13",
+        "sha256": "f47313a7af6d71d1752f3464114a6da066d19576874e561da80b8f6ae725a235",
         "matches": true
       },
       {
         "file": "release.json",
         "status": 200,
-        "sha256": "b09f6a3de178b509362c097d53d687862b7f51e366ec2699b96039da92cbe51f",
+        "sha256": "d0767cf1bdf0ef4a94bdbf7c61e3e6f5917672febf42ee0ff770049afb803999",
         "matches": true
       },
       {
@@ -86,19 +117,6 @@
         "matches": true
       }
     ],
-    "verifiedAt": "2026-10-06T13:06:04Z"
-  },
-  "publicBrowser": {
-    "status": "blocked",
-    "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
-  },
-  "limitations": [
-    "Real Android/iPhone camera and GPS not tested",
-    "5–8 participant usability study not performed",
-    "Home visits remain demo-only; production provider/retention agreements not implemented",
-    "City starter catalog is not a nationwide official dataset"
-  ],
-  "artifacts": {
-    "deploymentSha256": "1a7cd08717a20dfed386fd2bd457aaadef247fd2c915494ea6f2948f6966f5ec"
+    "verifiedAt": "2026-10-06T13:30:26Z"
   }
 }

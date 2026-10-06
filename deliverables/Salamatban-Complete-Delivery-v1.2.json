@@ -1,0 +1,59 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.2.zip",
+  "bytes": 5205375,
+  "sha256": "6cf06f3ca347ff4f07e6903b5788ae2900eb94fab3d24611329948354598dcfb",
+  "fileCount": 156,
+  "pdfPages": 57,
+  "sourceCommit": "e56bb9ef95b50ffe585df6707b2f6f36ef3c8229",
+  "validation": {
+    "roles": [
+      {
+        "role": "member",
+        "login": true,
+        "sessionAfterReload": true
+      },
+      {
+        "role": "clinician",
+        "login": true,
+        "sessionAfterReload": true
+      },
+      {
+        "role": "coordinator",
+        "login": true,
+        "sessionAfterReload": true
+      },
+      {
+        "role": "admin",
+        "login": true,
+        "sessionAfterReload": true
+      }
+    ],
+    "errors": [],
+    "externalRequests": [],
+    "document": {
+      "diagrams": 6,
+      "font": true,
+      "images": true,
+      "chapter": true,
+      "scripts": 0
+    },
+    "launcher": "Python 3 bundled launcher served included website; four roles tested with external requests blocked",
+    "windowsLauncher": "provided; not executed on Windows",
+    "macLauncher": "provided; not executed on macOS",
+    "websiteTestProvenance": "Role and reload checks from v1.1 retained; all website bytes verified unchanged against that tested package.",
+    "operationalPlanning": {
+      "pdfPages": 57,
+      "publicLinks": 2,
+      "readinessRows": 37,
+      "budgetRows": 20,
+      "emptyPages": 0
+    },
+    "pdfPages": 57,
+    "pdfPublicLinks": 2,
+    "publishedAssetsByteMatched": 33,
+    "sourceExportByteMatched": true,
+    "startPageAndDocumentLinks": "passed"
+  },
+  "archiveIntegrity": "passed",
+  "extractedFileIntegrity": "passed"
+}

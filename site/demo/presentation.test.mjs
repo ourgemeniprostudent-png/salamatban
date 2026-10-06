@@ -69,6 +69,14 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', { name: 'ورود', exact: true }).click();
     await page.getByRole('button', { name: 'خروج', exact: true }).waitFor();
   }
+  async function selectValue(control, value) {
+    if (await control.evaluate(el => el.tagName === 'SELECT')) return control.selectOption(value);
+    await control.click();
+    const dialog = page.locator('.cs-dialog[open]');
+    const search = dialog.getByRole('searchbox');
+    if (await search.count()) await search.fill(value);
+    await dialog.locator(`[role="option"][data-value="${value}"]`).click();
+  }
   async function logout() {
     await page.getByRole('button', { name: 'خروج', exact: true }).click();
     await page.getByRole('heading', { name: 'ورود به پرونده', exact: true }).waitFor();
@@ -120,7 +128,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByLabel('نام', { exact: true }).fill('آزمون');
     await page.getByLabel('نام خانوادگی', { exact: true }).fill('تقویم');
     await page.getByLabel('شهر', { exact: true }).fill('شهر ساختگی');
-    await page.getByRole('combobox', { name: /^بیمه/ }).selectOption('none');
+    await selectValue(page.getByRole('combobox', { name: /^بیمه/ }), 'none');
     await page.getByLabel('هدف شما از همراهی', { exact: true }).fill('بررسی تاریخ شمسی با اطلاعات ساختگی');
     await birth.fill('۱۳۷۰/۰۱/۰۱');
     await birth.fill('۱۴۰۰/۱۲/۳۰');
@@ -134,8 +142,22 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     const opener = page.getByRole('button', { name: 'باز کردن تقویم تاریخ تولد (شمسی)', exact: true });
     await opener.click();
     const calendar = page.getByRole('dialog', { name: 'تقویم تاریخ تولد (شمسی)', exact: true });
-    await calendar.getByLabel('سال', { exact: true }).selectOption('1370');
-    await calendar.getByLabel('ماه', { exact: true }).selectOption('1');
+    const yearControl = calendar.getByLabel('سال', { exact: true });
+    const originalYear = await yearControl.innerText();
+    await yearControl.click();
+    const optionsDialog = page.locator('.cs-dialog[open]');
+    const optionsBox = await optionsDialog.boundingBox();
+    assert.ok(optionsBox.x >= 0 && optionsBox.x + optionsBox.width <= 320 && optionsBox.y >= 0 && optionsBox.y + optionsBox.height <= 740);
+    assert.ok((await optionsDialog.getByRole('listbox').boundingBox()).height <= 265, 'Long year lists must scroll inside a bounded surface');
+    await optionsDialog.getByRole('searchbox').fill('۱۳۷۰');
+    assert.equal(await optionsDialog.getByRole('option').count(), 1);
+    await page.screenshot({ path: path.join(screenshots, 'compact-year-select-320.png') });
+    await page.keyboard.press('Escape');
+    assert.equal(await calendar.isVisible(), true, 'Escape closes the choices, not the parent calendar');
+    assert.equal(await yearControl.innerText(), originalYear, 'Cancelling must preserve the selected year');
+    assert.equal(await yearControl.evaluate(el => el === document.activeElement), true);
+    await selectValue(calendar.getByLabel('سال', { exact: true }), '1370');
+    await selectValue(calendar.getByLabel('ماه', { exact: true }), '1');
     await assertLayout();
     assert.match(await calendar.innerText(), /فروردین/);
     assert.doesNotMatch(await calendar.innerText(), /Select date|October|Cancel/);
@@ -146,8 +168,8 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     assert.equal(await calendar.isVisible(), false);
     assert.equal(await opener.evaluate(element => element === document.activeElement), true);
     await opener.click();
-    await calendar.getByLabel('سال', { exact: true }).selectOption('1404');
-    await calendar.getByLabel('ماه', { exact: true }).selectOption('1');
+    await selectValue(calendar.getByLabel('سال', { exact: true }), '1404');
+    await selectValue(calendar.getByLabel('ماه', { exact: true }), '1');
     await calendar.getByRole('button', { name: '۱ فروردین ۱۴۰۴', exact: true }).focus();
     await page.keyboard.press('ArrowRight');
     assert.equal(await calendar.getByRole('button', { name: '۳۰ اسفند ۱۴۰۳', exact: true }).evaluate(element => element === document.activeElement), true);
@@ -159,8 +181,8 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
     await page.getByText('این پایلوت برای افراد ۱۸ سال و بالاتر است.', { exact: false }).waitFor();
     await opener.click();
-    await calendar.getByLabel('سال', { exact: true }).selectOption('1370');
-    await calendar.getByLabel('ماه', { exact: true }).selectOption('1');
+    await selectValue(calendar.getByLabel('سال', { exact: true }), '1370');
+    await selectValue(calendar.getByLabel('ماه', { exact: true }), '1');
     await calendar.getByRole('button', { name: '۱ فروردین ۱۳۷۰', exact: true }).click();
     assert.equal(await birth.inputValue(), '۱۳۷۰/۰۱/۰۱');
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
@@ -307,7 +329,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await task.getByRole('checkbox', { name: 'رضایت انتقال اطلاعات لازم به همین مرکز از کاربر گرفته شد.', exact: true }).check();
     await task.getByRole('button', { name: 'نوبت تأیید شد', exact: true }).click();
     await task.locator('.p-tag.confirmed').waitFor();
-    await page.getByRole('combobox', { name: /^وضعیت هماهنگی/ }).selectOption('confirmed');
+    await selectValue(page.getByRole('combobox', { name: /^وضعیت هماهنگی/ }), 'confirmed');
     await task.waitFor();
     await assertLayout();
     await screenshot('coordinator-1440.png');

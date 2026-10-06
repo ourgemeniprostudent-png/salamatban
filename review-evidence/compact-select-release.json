@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-06",
+  "change": "Bounded selection dialogs and searchable long lists",
+  "browserTests": {
+    "command": "npm run test:demo",
+    "passed": 13,
+    "failed": 0,
+    "newChecks": [
+      "320px dialog viewport bounds",
+      "bounded long year list",
+      "Persian-digit year search",
+      "Escape preserves selection and parent calendar",
+      "focus restoration"
+    ]
+  },
+  "builds": {
+    "demo": "passed",
+    "server": "passed"
+  },
+  "screenshots": [
+    "site/.test-build/visual-review/compact-year-select-320.png"
+  ],
+  "mapPickerImplemented": false,
+  "locationProposal": "Searchable city first; optional map only for precise address when needed"
+}

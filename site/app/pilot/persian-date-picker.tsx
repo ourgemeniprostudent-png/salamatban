@@ -2,6 +2,7 @@
 
 import { useId, useLayoutEffect, useRef, useState, type KeyboardEvent } from 'react';
 import { Icon } from './brand';
+import { CompactSelect } from './compact-select';
 import {
   PERSIAN_MONTHS, formatPersianDate, isoToPersian, parsePersianInput,
   persianDigits, persianMonthLength, persianToIso, persianWeekdayOffset,
@@ -150,16 +151,16 @@ export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', 
       <div className="p-date-navigation">
         <button type="button" className="p-date-arrow" aria-label="ماه قبل" disabled={first <= lower}
           onClick={() => changeMonth(view.year, view.month - 1)}><Icon name="chevron-right" size={21} /></button>
-        <select aria-label="ماه" value={view.month} onChange={event => changeMonth(view.year, Number(event.currentTarget.value))}>
+        <CompactSelect aria-label="ماه" value={view.month} onValueChange={value => changeMonth(view.year, Number(value))}>
           {PERSIAN_MONTHS.map((name, index) => {
             const monthStart = persianToIso({ year: view.year, month: index + 1, day: 1 })!;
             const monthEnd = persianToIso({ year: view.year, month: index + 1, day: persianMonthLength(view.year, index + 1) })!;
             return <option key={name} value={index + 1} disabled={monthEnd < lower || monthStart > upper}>{name}</option>;
           })}
-        </select>
-        <select aria-label="سال" value={view.year} onChange={event => changeMonth(Number(event.currentTarget.value), view.month)}>
+        </CompactSelect>
+        <CompactSelect aria-label="سال" value={view.year} onValueChange={value => changeMonth(Number(value), view.month)}>
           {years.map(year => <option key={year} value={year}>{persianDigits(year)}</option>)}
-        </select>
+        </CompactSelect>
         <button type="button" className="p-date-arrow" aria-label="ماه بعد" disabled={last >= upper}
           onClick={() => changeMonth(view.year, view.month + 1)}><Icon name="chevron" size={21} /></button>
       </div>

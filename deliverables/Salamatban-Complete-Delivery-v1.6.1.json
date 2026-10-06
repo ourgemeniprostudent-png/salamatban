@@ -1,0 +1,116 @@
+{
+  "file": "Salamatban-Complete-Delivery-v1.6.1.zip",
+  "bytes": 6120069,
+  "sha256": "9b7539139aed98ea8a1e6e7d1aabddfe1d32ce4748829af20339ff385256884a",
+  "fileCount": 223,
+  "version": "1.6.1",
+  "sourceBaseCommit": "328e4e2a06b15df541aebf899d3a34804294a9bd",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "1.6.1",
+    "date": "2026-10-06T13:35:33.228335+00:00",
+    "workflow": "synthetic browser demo plus local D1/R2 development",
+    "checks": {
+      "uxBrowser": {
+        "passed": 10,
+        "failed": 0
+      },
+      "roleWorkflowBrowser": {
+        "passed": 6,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "localFinalBrowser": {
+        "scope": "local final build",
+        "url": "http://127.0.0.1:4187/",
+        "verifiedAt": "2026-10-06T13:35:18.664Z",
+        "status": "passed",
+        "checks": [
+          "public page HTTP 200",
+          "synthetic OTP login",
+          "v1.6.1 marker",
+          "city selection",
+          "draft save",
+          "reload preserves stored draft"
+        ],
+        "pageErrors": []
+      },
+      "scope": "Payment start with injected storage failure, delayed response, visible feedback, retry, stable saved record version and single order; full UI roles rerun. API, calendar and startup suites from v1.6 were not rerun because their implementation did not change."
+    },
+    "features": [
+      "single question per view, mobile two-column choices, required-answer validation and progress",
+      "review/gateway/result demo payment with cancellation, resume, failure, retry and persistent receipt",
+      "doctor actions exposed beside collapsed clinical answers; explicit state-dependent guidance",
+      "transactional idempotent physician-to-coordinator task handoff, consent and role controls",
+      "coordinator completion propagates to member plan; member cannot complete team-owned action",
+      "admin support reply and resolution of ordinary issues",
+      "local browser upgrade preserves existing records",
+      "immediate payment progress label, local focused error feedback, no redundant saved-draft write or record refetch before checkout"
+    ],
+    "publicBrowser": {
+      "status": "blocked",
+      "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    },
+    "limitations": [
+      "Real Android/iPhone camera and GPS not tested",
+      "5–8 participant usability study not performed",
+      "Home visits remain demo-only; production provider/retention agreements not implemented",
+      "City starter catalog is not a nationwide official dataset",
+      "Public site uses browser-local storage; no shared cross-device patient database",
+      "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
+      "Startup improvement verified with controlled delays, not measured on user network",
+      "Exact no-visible-change symptom on user device not directly reproduced; reported URL matches the publication"
+    ],
+    "artifacts": {
+      "deploymentSha256": "37d738fb6b1a3e8e517b9d15926e41baa92ab3d077c45382e97dced0b5b62a6d"
+    },
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "1a3dc6d4a4f779a20db08f5ede26dc2c72d146d5",
+      "success": true,
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "35f9785fa605c32102aeb257aa01e48a4ddf0f0abc644a8ac585e698b80c0d90",
+          "matches": true
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "9222d5d5445ddafb245843a43faf5579c1cc316a1b40d240c65ca3b7545237c8",
+          "matches": true
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "sha256": "b7c31d6d05eddee05c0f3eb6b66c73d57ecf41b6082a0a7e3696dcbc91b9100c",
+          "matches": true
+        },
+        {
+          "file": "release.json",
+          "status": 200,
+          "sha256": "b1ac84797f1df948e1bbe6182877aeaa2855d3491580c46a85ef427ba46addbc",
+          "matches": true
+        },
+        {
+          "file": "sql-wasm.wasm",
+          "status": 200,
+          "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+          "matches": true
+        },
+        {
+          "file": "brand/index.html",
+          "status": 200,
+          "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
+          "matches": true
+        }
+      ],
+      "verifiedAt": "2026-10-06T13:35:56Z"
+    }
+  },
+  "archiveIntegrity": "passed"
+}

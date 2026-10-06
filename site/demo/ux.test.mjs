@@ -7,7 +7,7 @@ import { chromium } from 'playwright';
 import { build } from 'esbuild';
 import { demoBindings } from './bundle.mjs';
 
-test('UX v1.6: real browser drafts, validation, documents and optional location', {timeout:180000}, async t=>{
+test('UX v1.6.1: real browser drafts, validation, documents and optional location', {timeout:180000}, async t=>{
  const root=process.cwd();await mkdir('.test-build',{recursive:true});
  await build({stdin:{contents:`export {createDemoBackend} from './demo/backend';import initSql from 'sql.js';import {openStore} from './demo/storage';export async function legacySnapshot(){const store=await openStore('salamatban-presentation-v1:'+new URL('.',document.baseURI).pathname);const saved=await store.read();const SQL=await initSql({locateFile:()=>new URL('sql-wasm.wasm',document.baseURI).href});const db=new SQL.Database(saved.database);db.run('DROP TABLE pilot_booking_locations');await store.write({...saved,database:db.export()});db.close();}`,resolveDir:root,loader:'ts'},outfile:'.test-build/ux-driver.js',bundle:true,format:'iife',globalName:'UXDriver',platform:'browser',loader:{'.sql':'text'},define:{'process.env.NODE_ENV':'"production"'},plugins:[demoBindings(root)]});
  const server=createServer(async(req,res)=>{try{const pathname=decodeURIComponent(new URL(req.url,'http://test').pathname);const file=path.resolve('dist-demo','.'+(pathname==='/'?'/index.html':pathname));if(!file.startsWith(path.resolve('dist-demo')+path.sep)){res.writeHead(404).end();return;}const data=await readFile(file);res.writeHead(200,{'content-type':({'.html':'text/html','.js':'text/javascript','.css':'text/css','.wasm':'application/wasm','.png':'image/png','.woff2':'font/woff2','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream'}).end(data);}catch{res.writeHead(404).end();}});
@@ -75,7 +75,19 @@ test('UX v1.6: real browser drafts, validation, documents and optional location'
   await stored('firstName','نام اصلاح‌شده');await page.setViewportSize({width:1280,height:900});
  });
  await check('demo checkout supports cancel, resume after reload, failure, retry and a durable unique receipt',async()=>{
-  await page.getByRole('button',{name:'شروع پرداخت نمایشی',exact:true}).click();await page.getByRole('heading',{name:'مرور سفارش',exact:true}).waitFor();
+  const beforePaymentVersion=await page.evaluate(async()=>(await window.request('record')).data.record.version);
+  await page.evaluate(()=>{window.paymentTx=IDBDatabase.prototype.transaction;window.failPayment=true;IDBDatabase.prototype.transaction=function(...args){if(window.failPayment&&args[1]==='readwrite'){window.failPayment=false;throw new DOMException('Synthetic payment storage failure','QuotaExceededError');}return window.paymentTx.apply(this,args);};});
+  await page.getByRole('button',{name:'شروع پرداخت نمایشی',exact:true}).click();
+  await page.locator('.ux-payment-status').getByText('پرداخت شروع نشد',{exact:true}).waitFor();
+  assert.match(await page.locator('.ux-payment-status').innerText(),/ذخیره‌سازی مرورگر/);
+  const errorRect=await page.locator('.ux-payment-status').boundingBox();assert.ok(errorRect.y>=0&&errorRect.y+errorRect.height<=900);
+  await page.evaluate(()=>{IDBDatabase.prototype.transaction=window.paymentTx;window.delayPayment=true;IDBDatabase.prototype.transaction=function(...args){const tx=window.paymentTx.apply(this,args);if(window.delayPayment&&args[1]==='readwrite'){window.delayPayment=false;const descriptor=Object.getOwnPropertyDescriptor(IDBTransaction.prototype,'oncomplete');Object.defineProperty(tx,'oncomplete',{set(fn){descriptor.set.call(tx,event=>setTimeout(()=>fn.call(tx,event),1200));},get(){return descriptor.get.call(tx);}});}return tx;};});
+  await page.getByRole('button',{name:'شروع پرداخت نمایشی',exact:true}).click();
+  await page.getByRole('button',{name:'در حال آماده‌سازی پرداخت…',exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'در حال آماده‌سازی پرداخت…',exact:true}).isDisabled(),true);
+  await page.getByRole('heading',{name:'مرور سفارش',exact:true}).waitFor();
+  await page.evaluate(()=>{IDBDatabase.prototype.transaction=window.paymentTx;});
+  assert.equal(await page.evaluate(async()=>(await window.request('record')).data.record.version),beforePaymentVersion,'Starting payment for an already saved draft does not rewrite the record');
+
   assert.equal(await page.locator('.ux-checkout input').count(),0);
   await page.getByRole('button',{name:'انصراف و بازگشت به پرونده'}).click();await page.getByRole('button',{name:'ادامه پرداخت نمایشی'}).waitFor();
   const pending=await page.evaluate(async()=>(await window.request('record')).data.orders);assert.equal(pending.length,1);assert.equal(pending[0].status,'pending');

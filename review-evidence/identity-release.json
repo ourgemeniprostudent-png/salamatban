@@ -1,0 +1,61 @@
+{
+  "version": "salamatban-identity-v1",
+  "date": "2026-10-06",
+  "project": "سلامت‌بان",
+  "sourceBaseCommit": "c83394faeb01f22e1a9b6701c45dfb40ca90cd38",
+  "backendTests": {
+    "passed": 34,
+    "failed": 0,
+    "providers": "mocked, synthetic data"
+  },
+  "browserTests": {
+    "passed": 12,
+    "failed": 0,
+    "engine": "Chromium",
+    "viewportWidths": [
+      320,
+      360,
+      1440
+    ],
+    "covered": [
+      "login",
+      "intake persistence",
+      "document upload/download",
+      "physician publication",
+      "member progress",
+      "coordinator appointment confirmation",
+      "member appointment readback",
+      "role restrictions",
+      "nine Peyda font weights",
+      "mobile drawer keyboard/focus",
+      "brand guide and downloads"
+    ]
+  },
+  "checks": {
+    "lint": "passed",
+    "typescript": "passed",
+    "productionBuild": "passed",
+    "demoBuild": "passed",
+    "archiveIntegrity": "passed"
+  },
+  "assets": {
+    "brandKit": "deliverables/Salamatban-Brand-Kit.zip",
+    "brandGuidePdf": "deliverables/Salamatban-Visual-Identity.pdf",
+    "demoArchive": "deployments/salamatban-demo.zip",
+    "fontFamily": "PeydaWebFaNum",
+    "fontWeights": [
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900
+    ]
+  },
+  "publicHostingVerification": "pending; public origin currently blocked by cloud proxy",
+  "partnerBrandVerification": "doctoreto.com unavailable through cloud proxy; independent proposed identity",
+  "productionServices": "not activated; live dependencies documented separately"
+}

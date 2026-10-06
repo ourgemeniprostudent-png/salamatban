@@ -17,7 +17,7 @@ export async function sendOtp(c:Settings, phone:string, code:string) {
 }
 export async function requestPayment(c:Settings, order:{id:string;amount_rial:number}) {
   const r=await providerJson('https://payment.zarinpal.com/pg/v4/payment/request.json',{
-    merchant_id:c.merchant,amount:order.amount_rial,currency:'IRR',description:'خدمت ارزیابی همیار سلامت',
+    merchant_id:c.merchant,amount:order.amount_rial,currency:'IRR',description:'خدمت ارزیابی سلامت‌بان',
     callback_url:`${c.origin}/api/pilot/payment/callback`,metadata:{order_id:order.id},
   });
   if(r.data?.code!==100||!/^A[A-Za-z0-9]{35}$/.test(r.data.authority||'')) throw new PilotError('PAYMENT_REQUEST_FAILED',503);

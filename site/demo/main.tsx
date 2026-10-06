@@ -6,7 +6,7 @@ import '../app/pilot/pilot.css';
 
 async function main() {
   const backend = await createDemoBackend();
-  createRoot(document.getElementById('app')!).render(<>
+  createRoot(document.getElementById('app')!).render(<div className="presentation-mode">
     <aside className="presentation-note" aria-label="راهنمای نسخه نمایشی">
       <div><strong>نسخهٔ نمایشی برای بررسی کارفرما</strong><p>اطلاعات فقط در همین مرورگر ذخیره می‌شوند. برای بررسی نقش‌ها از حساب‌های ساختگی استفاده کنید؛ اطلاعات واقعی وارد نکنید.</p></div>
       <button type="button" onClick={() => {
@@ -15,8 +15,8 @@ async function main() {
         }
       }}>شروع دوبارهٔ نمایش</button>
     </aside>
-    <Pilot transport={backend.fetch} homeHref="./" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
-  </>);
+    <Pilot transport={backend.fetch} homeHref="./" brandHref="./brand/index.html" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
+  </div>);
 }
 void main().catch((error: Error) => {
   const root = document.getElementById('app')!;

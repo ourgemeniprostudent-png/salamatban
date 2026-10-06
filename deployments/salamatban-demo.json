@@ -1,9 +1,12 @@
 {
   "archive": "salamatban-demo.zip",
-  "bytes": 482597,
-  "sha256": "ec9497760ba1fe09dd1b281d9b1e9e2142594979a4034274f4cc7753c420a6fd",
+  "bytes": 1427048,
+  "sha256": "bfb2a9620c52e921bb97c368581e4251ab2e28eeb1188cf76b5e427773d629a7",
   "targetDirectory": "/domains/temporarydomain.ir/public_html/salamatban-demo/",
   "expectedUrl": "https://temporarydomain.ir/salamatban-demo/",
-  "status": "prepared; not uploaded",
+  "identityVersion": "salamatban-identity-v1",
+  "pagesUrl": "https://ourgemeniprostudent-png.github.io/salamatban/",
+  "pagesBranch": "gh-pages",
+  "status": "built; verify hosting publication separately",
   "backend": "browser-only synthetic demonstration; no remote API"
 }

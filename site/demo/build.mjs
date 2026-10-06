@@ -19,8 +19,11 @@ await build({
 });
 await cp(path.join(root, 'node_modules/sql.js/dist/sql-wasm.wasm'), path.join(output, 'sql-wasm.wasm'));
 await cp(path.join(root, 'public/favicon.svg'), path.join(output, 'favicon.svg'));
+await cp(path.join(root, 'public/og.png'), path.join(output, 'og.png'));
+await cp(path.join(root, 'public/brand'), path.join(output, 'brand'), { recursive: true });
+await cp(path.join(root, 'public/fonts'), path.join(output, 'fonts'), { recursive: true });
 await writeFile(path.join(output, 'index.html'), `<!doctype html>
-<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>سلامت‌بان | نسخهٔ نمایشی</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="./app.css"></head><body><div id="app">در حال آماده‌سازی نسخهٔ نمایشی…</div><noscript>برای نمایش نرم‌افزار، JavaScript مرورگر باید فعال باشد.</noscript><script type="module" src="./app.js"></script></body></html>`);
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="سلامت‌بان؛ از شناخت سلامت تا برنامهٔ پزشک و پیگیری قدم‌به‌قدم."><meta property="og:title" content="سلامت‌بان | همراهِ مسیر سلامت شما"><meta property="og:description" content="پرونده سلامت، برنامه شخصی و همراهی تیم مراقبت"><meta property="og:image" content="./og.png"><title>سلامت‌بان | نسخهٔ نمایشی</title><link rel="icon" href="./favicon.svg"><link rel="stylesheet" href="./app.css"></head><body><div id="app">در حال آماده‌سازی نسخهٔ نمایشی…</div><noscript>برای نمایش نرم‌افزار، JavaScript مرورگر باید فعال باشد.</noscript><script type="module" src="./app.js"></script></body></html>`);
 await writeFile(path.join(output, '.htaccess'), `DirectoryIndex index.html
 <IfModule mod_mime.c>
 AddType application/wasm .wasm

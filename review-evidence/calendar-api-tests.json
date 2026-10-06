@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-10-06T09:27:33.575Z",
+  "environment": "ephemeral Miniflare D1/R2; synthetic data only; no real provider calls",
+  "tests": [
+    {
+      "name": "Live mode refuses incomplete infrastructure",
+      "status": "pass"
+    },
+    {
+      "name": "Unauthenticated health record is denied",
+      "status": "pass"
+    },
+    {
+      "name": "Demo seed and OTP sign-in for five separate roles",
+      "status": "pass"
+    },
+    {
+      "name": "OTP challenge cannot be reused",
+      "status": "pass"
+    },
+    {
+      "name": "OTP attempts exhaust after five failures",
+      "status": "pass"
+    },
+    {
+      "name": "Cross-user reads and coordinator/admin clinical reads are denied",
+      "status": "pass"
+    },
+    {
+      "name": "CSRF and cross-origin writes are denied",
+      "status": "pass"
+    },
+    {
+      "name": "Intake draft saves and survives a fresh request",
+      "status": "pass"
+    },
+    {
+      "name": "Stale draft writes cannot overwrite a newer draft",
+      "status": "pass"
+    },
+    {
+      "name": "Submission is blocked before payment",
+      "status": "pass"
+    },
+    {
+      "name": "File signature rejects a forged PDF",
+      "status": "pass"
+    },
+    {
+      "name": "Private file uploads and duplicate protection work",
+      "status": "pass"
+    },
+    {
+      "name": "File downloads enforce assigned-doctor/owner access",
+      "status": "pass"
+    },
+    {
+      "name": "Concurrent payment requests create only one open order; price is server-owned",
+      "status": "pass"
+    },
+    {
+      "name": "Forged successful callback does not activate demo entitlement",
+      "status": "pass"
+    },
+    {
+      "name": "Demo completion and paid submission work",
+      "status": "pass"
+    },
+    {
+      "name": "Submitted records reject member edits",
+      "status": "pass"
+    },
+    {
+      "name": "Coordinator cannot publish clinical plans",
+      "status": "pass"
+    },
+    {
+      "name": "Unassigned clinician cannot open another doctor’s file",
+      "status": "pass"
+    },
+    {
+      "name": "Doctor can request information and member resubmits without another payment",
+      "status": "pass"
+    },
+    {
+      "name": "Concurrent publication produces one immutable plan version",
+      "status": "pass"
+    },
+    {
+      "name": "Action progress is persisted independently of approved plan",
+      "status": "pass"
+    },
+    {
+      "name": "Booking needs consent and cannot skip confirmation prerequisites",
+      "status": "pass"
+    },
+    {
+      "name": "Coordinator confirmation is visible to member with provider reference",
+      "status": "pass"
+    },
+    {
+      "name": "Support response and data-deletion request remain tracked as open",
+      "status": "pass"
+    },
+    {
+      "name": "Urgent response blocks payment and enters doctor queue",
+      "status": "pass"
+    },
+    {
+      "name": "Correcting answers cannot close an unresolved urgent alert",
+      "status": "pass"
+    },
+    {
+      "name": "Oversized JSON is rejected before parsing",
+      "status": "pass"
+    },
+    {
+      "name": "Invite capacity is enforced under concurrent requests",
+      "status": "pass"
+    },
+    {
+      "name": "Suspension revokes access and reassigning changes clinician access",
+      "status": "pass"
+    },
+    {
+      "name": "Reopening a plan preserves the published version",
+      "status": "pass"
+    },
+    {
+      "name": "Real-adapter callback verifies stored amount; code 101 is idempotent",
+      "status": "pass"
+    },
+    {
+      "name": "Failed provider verification remains unresolved, regardless of callback Status",
+      "status": "pass"
+    },
+    {
+      "name": "Logout revokes the server session",
+      "status": "pass"
+    }
+  ]
+}

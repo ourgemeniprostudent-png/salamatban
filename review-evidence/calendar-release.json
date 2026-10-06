@@ -1,0 +1,66 @@
+{
+  "version": "salamatban-persian-calendar-v1",
+  "date": "2026-10-06",
+  "sourceBaseCommit": "f50836bad33f7c67daa12999c7422388cdb66153",
+  "changes": [
+    "Custom RTL Jalali birth-date and action-due pickers",
+    "Gregorian ISO storage compatibility",
+    "Keyboard focus across Nowruz and developer handoff"
+  ],
+  "tests": {
+    "calendar": {
+      "passed": 5,
+      "failed": 0,
+      "rangeRoundTrip": "Every day 1900-01-01 through 2100-12-31",
+      "cases": [
+        "Nowruz",
+        "leap Esfand",
+        "invalid dates",
+        "Persian/Arabic/Latin digits",
+        "UTC date arithmetic"
+      ]
+    },
+    "browser": {
+      "passed": 13,
+      "failed": 0,
+      "engine": "Chromium",
+      "viewportWidths": [
+        320,
+        360,
+        1440
+      ],
+      "calendarCases": [
+        "UI selection and ISO persistence after reload",
+        "invalid edit cannot silently save previous date",
+        "minimum age guard",
+        "due-date lower and upper range",
+        "Escape and restored focus",
+        "rapid arrow keys and Enter across leap Esfand/Nowruz"
+      ]
+    },
+    "backend": {
+      "passed": 34,
+      "failed": 0,
+      "report": "calendar-api-tests.json",
+      "providers": "mocked; no real external provider calls"
+    }
+  },
+  "checks": {
+    "lint": "passed",
+    "typescript": "passed",
+    "productionBuild": "passed",
+    "demoBuild": "passed",
+    "archiveIntegrity": "passed; every ZIP entry matches tested dist-demo"
+  },
+  "artifacts": {
+    "handoff": "deliverables/DEVELOPER-HANDOFF-fa.md",
+    "screenshot": "review-evidence/persian-calendar-mobile.png",
+    "archive": "deployments/salamatban-demo.zip",
+    "archiveSha256": "fe5fe442bcda973dcf8e63c447d47a013fbd806d35cd21f2b78fe870c3c62bf0"
+  },
+  "publicHostingVerification": {
+    "status": "awaiting publication verification",
+    "url": "https://ourgemeniprostudent-png.github.io/salamatban/"
+  },
+  "productionServices": "not activated; public version remains a browser-only synthetic demonstration"
+}

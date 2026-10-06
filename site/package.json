@@ -15,10 +15,12 @@
     "db:local": "node node_modules/wrangler/bin/wrangler.js d1 migrations apply DB --local --config wrangler.local.jsonc",
     "build:demo": "node demo/build.mjs",
     "test:demo": "node --test demo/presentation.test.mjs",
-    "package:demo": "npm run build:demo && node demo/package.mjs"
+    "package:demo": "npm run build:demo && node demo/package.mjs",
+    "test:calendar": "node --test tests/persian-date.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",
+    "jalaali-js": "1.2.8",
     "next": "^16.3.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
@@ -28,6 +30,7 @@
     "@cloudflare/workers-types": "^5.20261005.1",
     "@openai/sites-vite-plugin": "^0.1.0 || ^0.2.0",
     "@tailwindcss/postcss": "4.2.1",
+    "@types/jalaali-js": "1.2.0",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",

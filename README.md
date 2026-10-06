@@ -8,6 +8,7 @@
 - `deliverables/`: PRD، بک‌لاگ و وضعیت آمادگی.
 - `review-evidence/`: نتایج واقعی آزمون و بررسی وابستگی‌ها؛ اطلاعات ساختگی.
 - `scripts/create_deliverables.py`: منبع قابل بازتولید Word و HTML سند.
+- `deployments/`: بستهٔ نمایشی مستقل از سرور و [راهنمای انتشار در GitHub Pages یا هاست اشتراکی](deployments/README-fa.md).
 
 ## اجرای محلی
 

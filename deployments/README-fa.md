@@ -2,6 +2,29 @@
 
 این بسته برای نمایش به کارفرما روی هاست اشتراکی آماده شده است. ظاهر و منطق پایلوت از برنامهٔ اصلی استفاده می‌شوند؛ SQL و فایل‌های ساختگی در مرورگر با SQLite/WASM و IndexedDB نگهداری می‌شوند. هیچ API یا حساب Cloudflare، دیتابیس هاست، Node.js روی هاست یا کلید پرداخت لازم نیست.
 
+## انتشار رایگان با GitHub Pages
+
+نسخهٔ نمایشی می‌تواند مستقیماً از شاخهٔ `gh-pages` منتشر شود. این شاخه فقط فایل‌های قابل نمایش بسته و `.nojekyll` را دارد. در [تنظیمات Pages](https://github.com/ourgemeniprostudent-png/salamatban/settings/pages)، بخش **Build and deployment** را این‌طور تنظیم کنید:
+
+- **Source:** `Deploy from a branch`
+- **Branch:** `gh-pages`
+- **Folder:** `/ (root)`
+- **Save** را بزنید و منتظر تکمیل انتشار در تب Actions بمانید.
+
+آدرس مورد انتظار پس از انتشار موفق: `https://ourgemeniprostudent-png.github.io/salamatban/`. پوش شاخه به‌تنهایی موفقیت انتشار را اثبات نمی‌کند؛ صفحه، ورود و ذخیره/رفرش باید از همین آدرس بررسی شوند. برای مشاهدهٔ سایت عمومی، حساب GitHub یا دسترسی مخزن لازم نیست. اطلاعات همچنان در مرورگر هر فرد نگهداری می‌شوند.
+
+برای به‌روزرسانی نسخه‌های بعدی، بسته را بسازید و تست کنید، سپس از ریشهٔ مخزن اجرا کنید:
+
+```sh
+cd site
+npm run package:demo
+npm run test:demo
+cd ..
+python3 scripts/publish_demo_pages.py
+```
+
+اسکریپت هش بسته را با manifest بررسی و فایل‌های آن را بدون تغییر فایل‌های checkout و بدون force-push روی `gh-pages` پوش می‌کند. پس از فعال‌کردن Pages، پوش‌های بعدی همین شاخه انتشار را به‌روز می‌کنند. تغییرات سورس و ZIP را نیز روی `main` ذخیره کنید.
+
 ## بارگذاری در DirectAdmin / AXFile
 
 1. در File Manager دامنهٔ `temporarydomain.ir` وارد `public_html` شوید.

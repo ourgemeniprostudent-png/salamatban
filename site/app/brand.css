@@ -12,8 +12,8 @@
 :root {
   --sb-font: 'Peyda', Tahoma, Arial, sans-serif;
   --sb-primary: #346ED1;
-  --sb-partner-accent: #4187FF;
-  --sb-partner-cyan: #45CAF6;
+  --sb-accent: #4187FF;
+  --sb-cyan: #45CAF6;
   --sb-primary-hover: #2755A3;
   --sb-primary-deep: #1A3B74;
   --sb-primary-soft: #ECF3FF;

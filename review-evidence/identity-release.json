@@ -56,7 +56,7 @@
     ]
   },
   "publicHostingVerification": {
-    "status": "completed successfully; all 33 public assets match final tested build",
+    "status": "standalone branding update awaiting publication verification",
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
     "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37441269332",
     "matchingAssets": 33,
@@ -64,15 +64,16 @@
     "publicBrowserLimitation": "Chromium proxy certificate untrusted; no TLS bypass; local Chromium suite validated matching published assets",
     "pagesCommit": "c64f846ed2146c84283fd1a1ea643d33c1f298cd"
   },
-  "partnerBrandVerification": {
-    "url": "https://doctoreto.com/",
-    "stylesheet": "https://doctoreto.com/_next/static/css/bd603ace29ba67a0.css",
-    "status": "HTTP 200; actual CSS and logo reviewed",
-    "primary500": "#4187FF",
-    "accessiblePrimary600": "#346ED1",
-    "secondary500": "#45CAF6",
-    "fontChoice": "user-supplied Peyda overrides partner font"
-  },
   "productionServices": "not activated; live dependencies documented separately",
-  "implementationCommit": "dccee97fe3d09e1a8f7a5369f117fc9a17c8a9e6"
+  "implementationCommit": "dccee97fe3d09e1a8f7a5369f117fc9a17c8a9e6",
+  "brandIdentity": {
+    "name": "سلامت‌بان",
+    "presentation": "standalone",
+    "primary": "#346ED1",
+    "accent": "#4187FF",
+    "cyan": "#45CAF6",
+    "font": "owner-supplied PeydaWebFaNum",
+    "publicAffiliations": [],
+    "outboundPromotionalLinks": 0
+  }
 }

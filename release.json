@@ -1,8 +1,8 @@
 {
-  "version": "1.6.1",
+  "version": "1.7",
   "assets": {
-    "index.html": "35f9785fa605c32102aeb257aa01e48a4ddf0f0abc644a8ac585e698b80c0d90",
-    "app.js": "9222d5d5445ddafb245843a43faf5579c1cc316a1b40d240c65ca3b7545237c8",
-    "app.css": "b7c31d6d05eddee05c0f3eb6b66c73d57ecf41b6082a0a7e3696dcbc91b9100c"
+    "index.html": "1db8ea7cfb1d666eeb891ec1962dcd0b64cec04973de8af01a59b05f1dcf5b30",
+    "app.js": "d08076b99ca19d8708b3f346e4fe1e76333033a3602a81d71e6afd5917667b76",
+    "app.css": "75ff3e5bf35d4b0a44048faa4dff1979ca88964c551cd7b7165922f300d9d201"
   }
 }

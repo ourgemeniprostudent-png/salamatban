@@ -59,8 +59,16 @@
     "archiveSha256": "fe5fe442bcda973dcf8e63c447d47a013fbd806d35cd21f2b78fe870c3c62bf0"
   },
   "publicHostingVerification": {
-    "status": "awaiting publication verification",
-    "url": "https://ourgemeniprostudent-png.github.io/salamatban/"
+    "status": "completed successfully; all 33 public files match the tested build",
+    "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+    "report": "calendar-publication.json",
+    "actionRun": "https://github.com/ourgemeniprostudent-png/salamatban/actions/runs/37443648509",
+    "pagesCommit": "cb5a034d08294d52fb4bab28ac08a1f19c9cd9f8",
+    "matchingAssets": 33,
+    "tlsVerification": "enabled",
+    "verifiedAt": "2026-10-06T09:33:39.264852+00:00",
+    "browserVerification": "Local Chromium tested the identical published assets; direct public Chromium is blocked by proxy certificate trust. TLS validation was not bypassed."
   },
-  "productionServices": "not activated; public version remains a browser-only synthetic demonstration"
+  "productionServices": "not activated; public version remains a browser-only synthetic demonstration",
+  "implementationCommit": "bfd829c3c74a44208e28bd15ea815069501f3f90"
 }

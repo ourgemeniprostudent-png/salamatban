@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-06",
+  "change": "Replace mirrored Unicode chevrons with directional SVG icons in RTL Persian calendar",
+  "direction": {
+    "right": "previous month, points right",
+    "left": "next month, points left"
+  },
+  "checks": {
+    "browser": {
+      "passed": 13,
+      "failed": 0
+    },
+    "lint": "passed",
+    "typescript": "passed",
+    "productionBuild": "passed",
+    "demoBuild": "passed",
+    "archiveIntegrity": "passed",
+    "visualInspection": "320px screenshot: both navigation arrows point outward"
+  },
+  "screenshot": "calendar-arrows-mobile.png",
+  "archiveSha256": "d3edeb4dc3d9abb3c7afa634233d98b4a96646a8a0acb9b7ac016c9109b1065b",
+  "publicHostingVerification": {
+    "status": "awaiting publication verification",
+    "url": "https://ourgemeniprostudent-png.github.io/salamatban/"
+  }
+}

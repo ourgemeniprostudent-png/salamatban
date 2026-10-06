@@ -149,7 +149,7 @@ export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', 
       </div>
       <div className="p-date-navigation">
         <button type="button" className="p-date-arrow" aria-label="ماه قبل" disabled={first <= lower}
-          onClick={() => changeMonth(view.year, view.month - 1)}><span aria-hidden="true">›</span></button>
+          onClick={() => changeMonth(view.year, view.month - 1)}><Icon name="chevron-right" size={21} /></button>
         <select aria-label="ماه" value={view.month} onChange={event => changeMonth(view.year, Number(event.currentTarget.value))}>
           {PERSIAN_MONTHS.map((name, index) => {
             const monthStart = persianToIso({ year: view.year, month: index + 1, day: 1 })!;
@@ -161,7 +161,7 @@ export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', 
           {years.map(year => <option key={year} value={year}>{persianDigits(year)}</option>)}
         </select>
         <button type="button" className="p-date-arrow" aria-label="ماه بعد" disabled={last >= upper}
-          onClick={() => changeMonth(view.year, view.month + 1)}><span aria-hidden="true">‹</span></button>
+          onClick={() => changeMonth(view.year, view.month + 1)}><Icon name="chevron" size={21} /></button>
       </div>
       <p className="p-date-month" aria-live="polite">{PERSIAN_MONTHS[view.month - 1]} {persianDigits(view.year)}</p>
       <table className="p-date-grid" role="grid" aria-label={`${PERSIAN_MONTHS[view.month - 1]} ${persianDigits(view.year)}`}>

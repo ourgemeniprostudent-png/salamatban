@@ -14,7 +14,7 @@
 .pilot .p-date-close{display:grid;place-items:center;padding:8px;min-width:38px;min-height:38px;background:#f4f8fc;color:#52697e}
 .p-date-navigation{display:grid;grid-template-columns:36px minmax(0,1fr) minmax(0,.8fr) 36px;align-items:center;gap:5px}
 .pilot .p-date-navigation select{padding:7px 5px;min-height:42px;font-size:13px;background:#f8fbfe}
-.pilot .p-date-arrow{padding:0;min-height:42px;background:#fff;color:var(--sb-primary,#346ed1);font-size:27px;line-height:1}
+.pilot .p-date-arrow{display:grid;place-items:center;padding:0;min-height:42px;background:#fff;color:var(--sb-primary,#346ed1);line-height:1}
 .p-date-month{margin:12px 0 5px;font-size:12px;text-align:center;font-weight:650}
 .p-date-grid{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:2px;font-size:13px}
 .p-date-grid th{height:32px;padding:0;color:#6b7e91;font-size:11px;font-weight:500;text-align:center}

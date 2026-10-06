@@ -21,6 +21,7 @@ const icons: Record<string, ReactNode> = {
   settings: <><path d="m9.5 3-.7 2.2-2 .9-2.2-.5-2.1 3.6L4 11v2l-1.5 1.8 2.1 3.6 2.2-.5 2 .9.7 2.2h5l.7-2.2 2-.9 2.2.5 2.1-3.6L20 13v-2l1.5-1.8-2.1-3.6-2.2.5-2-.9-.7-2.2Z" /><circle cx="12" cy="12" r="3" /></>,
   arrow: <path d="M20 12H4m6-6-6 6 6 6" />,
   chevron: <path d="m14 6-6 6 6 6" />,
+  'chevron-right': <path d="m10 6 6 6-6 6" />,
   check: <path d="m5 12 4 4L19 6" />,
   shield: <><path d="M12 3 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6l-9-3Z" /><path d="m8 12 3 3 5-6" /></>,
   logout: <><path d="M10 4H4v16h6M10 12h11m-4-4 4 4-4 4" /></>,

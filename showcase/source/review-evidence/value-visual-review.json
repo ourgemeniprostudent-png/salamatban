@@ -1,0 +1,26 @@
+{
+  "version": "2.4.1",
+  "checkedAt": "2026-10-08T19:39:32.529Z",
+  "checks": [
+    "standalone preview: white/blue artwork and three outcome cards render without overflow at four widths",
+    "standalone live artwork can pause without changing its geometry",
+    "all six scenarios retain functional sample programme dialogs",
+    "illustrated document card opens free tools, edits the sheet and downloads the actual updated text",
+    "first-step checklist, genuine sample chart entries and reset remain usable",
+    "service details and complete paid member invitation have working destinations",
+    "paid member overview uses five real plan versions, twenty actual completed actions, dated doctor review and valid four-width layout",
+    "paid member artwork pause/resume control works",
+    "illustrated paid service cards open real documents/downloads, coordination and programme; preview remains read-only",
+    "switching to the ongoing member computes 50% completion from that member’s own actions",
+    "return from sample retains underlying practice space",
+    "system reduced-motion disables decoration and hides an unnecessary pause control"
+  ],
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "pageErrors": [],
+  "success": true
+}

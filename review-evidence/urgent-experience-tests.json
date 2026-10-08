@@ -1,24 +1,24 @@
 {
-  "version": "2.4.4",
+  "version": "2.4.5",
   "builtAssets": {
-    "index.html": "53bc5594b61fd870aad59843d78fac86a68e7bbd3a7748611fc268b1676907b3",
-    "app.js": "f507581c687c57127a58cc36820e1d0207c51a17b3321b76daf05d11b10bba6d",
-    "app.css": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298",
+    "index.html": "e1d14244002741c8948dc3f4f84272e390cc34dcf19a7a96aeaf467ffb89c390",
+    "app.js": "3af65cb6a80a6cc18ada0d8ce9f6b9d6f8ce6198a74a89faa14a1dc05b0ebe42",
+    "app.css": "8f33a35abcdec09c68651fac9340e933cb925bc156d80571f1ac80fd444ced66",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "27d467b7d59a6e2fc118e5c02de84a9d9e7f82410385a81c32fade11fcda7302"
+    "previews/value-before-payment/index.html": "650de6084c5fe9a5cdda8589228118d2c5fd0c8fe583eb6d8426f6be3826cce6"
   },
   "configuredFixture": {
     "endpoint": "https://maps.salamatban.example/api/maps/hospitals",
     "assets": {
-      "app.js": "08f4c379b7e9a0fef4902f0eabb8f38a0f222a1a0bfa1fac7752185f3835cb09",
-      "app.css": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298"
+      "app.js": "e914dbebaa74f9c195e86975798f2649800aae6a4a07ecfe9cef3e6debc84b3b",
+      "app.css": "8f33a35abcdec09c68651fac9340e933cb925bc156d80571f1ac80fd444ced66"
     },
     "mockedGateway": true,
     "liveProviderVerified": false,
     "scope": "Isolated demo bundle differs from the released app only by its public gateway configuration; no provider credential is bundled."
   },
-  "completedAt": "2026-10-08T21:56:37.915Z",
+  "completedAt": "2026-10-08T22:27:08.378Z",
   "status": "passed",
   "individualPassed": 8,
   "pageErrors": [],

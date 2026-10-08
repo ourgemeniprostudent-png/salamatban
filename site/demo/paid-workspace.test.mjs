@@ -41,5 +41,5 @@ test('paid workspace navigation, detail layouts and cold font loading',async t=>
  await t.test('a failed font does not block login startup',async()=>{
   const c=await browser.newContext();const p=await c.newPage();await p.route('**/PeydaWebFaNum-Medium.woff2',r=>r.fulfill({status:404,body:'missing test font'}));await p.goto(base);await p.getByRole('button',{name:'دریافت کد ورود',exact:true}).waitFor();const faces=await p.evaluate(()=>[...document.fonts].filter(f=>['400','500'].includes(f.weight)).map(f=>({weight:f.weight,status:f.status})));assert.ok(faces.some(f=>f.weight==='400'&&f.status==='loaded'));assert.ok(faces.some(f=>f.weight==='500'&&f.status==='error'));await c.close();checks.push({name:'font failure leaves login usable',passed:true});
  });
- assert.deepEqual(errors,[]);await writeFile('.test-build/paid-workspace-tests.json',JSON.stringify({version:'2.4.4',completedAt:new Date().toISOString(),checks,pageErrors:errors,fontWaitLimitMs:4000},null,2)+'\n');
+ assert.deepEqual(errors,[]);await writeFile('.test-build/paid-workspace-tests.json',JSON.stringify({version:'2.4.5',completedAt:new Date().toISOString(),checks,pageErrors:errors,fontWaitLimitMs:4000},null,2)+'\n');
 });

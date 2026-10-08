@@ -3,15 +3,15 @@
   "comparedAssets": [
     {
       "file": "app.js",
-      "sha256": "f507581c687c57127a58cc36820e1d0207c51a17b3321b76daf05d11b10bba6d"
+      "sha256": "3af65cb6a80a6cc18ada0d8ce9f6b9d6f8ce6198a74a89faa14a1dc05b0ebe42"
     },
     {
       "file": "app.css",
-      "sha256": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298"
+      "sha256": "8f33a35abcdec09c68651fac9340e933cb925bc156d80571f1ac80fd444ced66"
     },
     {
       "file": "index.html",
-      "sha256": "53bc5594b61fd870aad59843d78fac86a68e7bbd3a7748611fc268b1676907b3"
+      "sha256": "e1d14244002741c8948dc3f4f84272e390cc34dcf19a7a96aeaf467ffb89c390"
     },
     {
       "file": "data/care-facilities.geoapify.json",
@@ -19,7 +19,7 @@
     },
     {
       "file": "release.json",
-      "sha256": "2b4f47b691d9fed3ff04310cee3c4f1e60383dbf275fa78a9520da9845761feb"
+      "sha256": "8589192d57391c81e2f3d5bdf841a3ab6d7314327242c131e51b66a58925a6ce"
     },
     {
       "file": "THIRD-PARTY-NOTICES.txt",
@@ -27,7 +27,7 @@
     },
     {
       "file": "previews/value-before-payment/index.html",
-      "sha256": "27d467b7d59a6e2fc118e5c02de84a9d9e7f82410385a81c32fade11fcda7302"
+      "sha256": "650de6084c5fe9a5cdda8589228118d2c5fd0c8fe583eb6d8426f6be3826cce6"
     },
     {
       "file": "demo/documents/manifest.json",
@@ -44,6 +44,6 @@
   ],
   "archiveReconstruction": "passed",
   "negativeChecks": 4,
-  "version": "2.4.4",
-  "completedAt": "2026-10-08T22:01:03.126898+00:00"
+  "version": "2.4.5",
+  "checkedAt": "2026-10-08T22:29:42.121951+00:00"
 }

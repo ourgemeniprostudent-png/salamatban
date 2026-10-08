@@ -1,3 +1,4 @@
+import {memberDemoStory,staffDemoStory} from './demo-account-summary';
 import { cleanJourney } from './journey';
 import { PilotError, sampleAccounts, phoneNumber, text, asciiDigits, policyText, policyVersion, clinicalConsentText, coordinationConsentText, validateProfile, validateActions, detectedType, canReadClinical, type Role, type Action } from './domain';
 import { cleanLocation } from './location';
@@ -11,7 +12,7 @@ import { sendOtp, requestPayment, verifyPayment, scanFile } from './providers';
 // D1 rows are projected explicitly before crossing the API boundary.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Row = Record<string, any>; // SQL rows stay internal; explicit projections define each response.
-type Context = {db:D1Database;files:R2Bucket;c:Settings;demoAccounts?:typeof sampleAccounts};
+type Context = {db:D1Database;files:R2Bucket;c:Settings;demoAccounts?:typeof sampleAccounts;demoAsOf?:number};
 const now=()=>Date.now(), id=()=>crypto.randomUUID();
 const parse=(s:string|null)=>s?JSON.parse(s):null;
 const json=(data:unknown,status=200,extra:Record<string,string>={})=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...extra}});
@@ -61,7 +62,24 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
     if(c.mode==='demo') {
       await db.batch(accounts.map(a=>q('INSERT INTO pilot_users(id,phone,name,role,clinician_id,created_at) SELECT ?,?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM pilot_users WHERE phone=?)',`demo-${a.role}-${a.phone.slice(-2)}`,a.phone,a.name,a.role,a.role==='member'?'demo-clinician-11':null,now(),a.phone)));
     }
-    if(path==='meta'&&request.method==='GET')return json({mode:c.mode,priceRial:c.priceRial,policyVersion:c.consentVersion||policyVersion,policyText:c.consentBody||policyText,clinicalConsentText,coordinationConsentText,samples:c.mode==='demo'?accounts:[]});
+    if(path==='meta'&&request.method==='GET'){
+      const samples=c.mode==='demo'?await Promise.all(accounts.map(async account=>{
+        const uid=`demo-${account.role}-${account.phone.slice(-2)}`,person=await one('SELECT created_at FROM pilot_users WHERE id=?',uid),asOf=ctx.demoAsOf||now();
+        let story;
+        if(account.role==='member'){
+          const r=await one('SELECT * FROM pilot_records WHERE user_id=?',uid),plans=await all('SELECT id,actions FROM pilot_plans WHERE user_id=? ORDER BY version DESC',uid),latest=plans[0];
+          const updates=latest?await all('SELECT action_id FROM pilot_action_updates WHERE user_id=? AND plan_id=? AND done=1',uid,latest.id):[];
+          const files=await one('SELECT count(*) n FROM pilot_files WHERE user_id=?',uid);
+          story=memberDemoStory({createdAt:person?.created_at??asOf,asOf,profile:parse(r?.profile)||{},answers:parse(r?.answers)||{},consent:!!r?.consent_at,step:r?.step||0,submitted:!!r?.submitted_at,status:r?.status||'draft',urgent:!!r?.urgent&&!r?.urgent_resolved_at,actions:parse(latest?.actions)||[],completed:updates.map(u=>u.action_id),documents:files?.n||0,plans:plans.length});
+        }else{
+          const days=Math.max(0,Math.floor((asOf-(person?.created_at??asOf))/86400000));
+          const counts=account.role==='clinician'?await one("SELECT count(*) cases,sum(CASE WHEN r.status IN ('submitted','needs_information') OR (r.urgent=1 AND r.urgent_resolved_at IS NULL) THEN 1 ELSE 0 END) waiting FROM pilot_users u LEFT JOIN pilot_records r ON r.user_id=u.id WHERE u.clinician_id=? AND u.active=1",uid):account.role==='coordinator'?await one("SELECT sum(CASE WHEN t.assigned_to=? THEN 1 ELSE 0 END) tasks,sum(CASE WHEN t.assigned_to=? AND t.status='completed' THEN 1 ELSE 0 END) completed,count(*) shared FROM pilot_tasks t JOIN pilot_users u ON u.id=t.user_id WHERE t.kind='booking' AND u.active=1",uid,uid):await one("SELECT (SELECT count(*) FROM pilot_users WHERE role='member' AND active=1) members,(SELECT count(*) FROM pilot_users WHERE role IN ('clinician','coordinator') AND active=1) staff");
+          story=staffDemoStory(account.role,days,counts||{});
+        }
+        return {...account,story};
+      })):[];
+      return json({mode:c.mode,priceRial:c.priceRial,policyVersion:c.consentVersion||policyVersion,policyText:c.consentBody||policyText,clinicalConsentText,coordinationConsentText,samples});
+    }
     if(path==='payment/callback'&&request.method==='GET') {
       const authority=url.searchParams.get('Authority')||'';
       const order=await one('SELECT * FROM pilot_orders WHERE authority=? AND mode=?',authority,c.mode);

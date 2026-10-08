@@ -1,0 +1,161 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.4.5.zip",
+  "bytes": 49860411,
+  "sha256": "2d5683e07ae67cae323306aeaa327f6a6c1ce968a7f1ebe094c5bcc2f9e7a27b",
+  "fileCount": 556,
+  "version": "2.4.5",
+  "appVersion": "2.4.5",
+  "sourceBaseCommit": "ce1a81f40096c43f6b1e0ae682a2ecbe0f1170a4",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.4.5",
+    "date": "2026-10-08T22:28:00.629938+00:00",
+    "workflow": "Two demo doctors and two coordinators, with separate assigned clinician case queues and a shared coordination queue. Blue hover/focus/touch cards above account names show actual registration completion, latest reported action completion, tenure, document/plan counts, and role-specific responsibilities. Existing snapshots upgrade additively while preserving user edits and explicit admin assignments.",
+    "builtAssets": {
+      "index.html": "e1d14244002741c8948dc3f4f84272e390cc34dcf19a7a96aeaf467ffb89c390",
+      "app.js": "3af65cb6a80a6cc18ada0d8ce9f6b9d6f8ce6198a74a89faa14a1dc05b0ebe42",
+      "app.css": "8f33a35abcdec09c68651fac9340e933cb925bc156d80571f1ac80fd444ced66",
+      "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+      "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+      "previews/value-before-payment/index.html": "650de6084c5fe9a5cdda8589228118d2c5fd0c8fe583eb6d8426f6be3826cce6",
+      "media/care-consultation.webp": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
+    },
+    "checks": {
+      "completeDemo": {
+        "individualPassed": 11,
+        "failed": 0,
+        "evidence": "complete-demo-tests.json"
+      },
+      "staticPresentation": {
+        "individualPassed": 12,
+        "failed": 0,
+        "evidence": "presentation-tests.json"
+      },
+      "paidWorkspace": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "paid-workspace-tests.json",
+        "viewports": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "fontColdCacheDelayMs": 1500,
+        "loadedWeights": [
+          400,
+          500,
+          600,
+          700,
+          800,
+          900
+        ],
+        "postSettledDashboardFontShift": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "publicBrowser": {
+        "completed": 10,
+        "evidence": "demo-public-browser.json",
+        "status": "passed"
+      },
+      "extractedSource": {
+        "status": "passed",
+        "evidence": "delivery-source-rebuild.json"
+      },
+      "showcaseBrowser": {
+        "status": "passed",
+        "evidence": "showcase-browser.json"
+      },
+      "careMobile": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "care-mobile-tests.json",
+        "viewports": [
+          "320×740",
+          "360×844",
+          "390×844",
+          "430×932",
+          "844×390",
+          "1440×1050"
+        ],
+        "engine": "managed Chromium",
+        "physicalMobileSafariTested": false
+      },
+      "groupedIntake": {
+        "individualPassed": 3,
+        "failed": 0,
+        "evidence": "grouped-intake-tests.json"
+      },
+      "staffWorkspaces": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "workspace-tests.json"
+      },
+      "urgentExperience": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "urgent-experience-tests.json"
+      },
+      "browserRegression": {
+        "individualPassed": 63,
+        "parentTestsPassed": 9,
+        "failed": 0,
+        "runnerEvidence": "presentation-tests.json",
+        "scope": "All nine affected and existing browser suites passed in one run."
+      },
+      "loginLayout": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "login-layout-tests.json",
+        "desktopSizes": [
+          "1366×768",
+          "1440×900",
+          "1920×1080"
+        ],
+        "phoneTabletLandscapeSizes": [
+          "320×740",
+          "390×844",
+          "430×932",
+          "844×390",
+          "768×1024"
+        ]
+      },
+      "accountPeek": {
+        "individualPassed": 6,
+        "failed": 0,
+        "evidence": "account-peek-tests.json",
+        "scope": "Paired staff permissions, all ten member metrics, stable hover/focus, touch sizes 320/390/430, actual action refresh, additive migration preservation"
+      }
+    },
+    "retainedComponentEvidence": {
+      "previousRelease": "ux-baseline-v2.4.4.json",
+      "scope": "Older component evidence stays labeled. Paired staff, account cards, entry/OTP, role workflows, grouped intake, paid workspace/fonts, urgent assistance, lane isolation and mobile care were executed for v2.4.5."
+    },
+    "demo": {
+      "lanes": [
+        "practice",
+        "complete"
+      ],
+      "cases": 10,
+      "yearHistoryCases": 3,
+      "documents": 32,
+      "preview": "isolated ephemeral read-only",
+      "asOf": "2026-10-08",
+      "doctors": 2,
+      "coordinators": 2
+    },
+    "limits": [
+      "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",
+      "Completion percentages measure reported actions, not health improvement.",
+      "One-year sample history does not define the duration included in each purchase.",
+      "Standalone prepayment page remains an independent design preview; no real medical assessment or purchase is performed.",
+      "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
+    ],
+    "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+    "packageValidation": "Archive integrity and source reconstruction are recorded separately."
+  },
+  "archiveIntegrity": "passed"
+}

@@ -51,5 +51,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-Hospital map results: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright
-Search service: https://nominatim.openstreetmap.org/
+Home-visit address picker: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright
+Address search service: https://nominatim.openstreetmap.org/
+
+Medical center listings: Geoapify (https://www.geoapify.com/), based on OpenStreetMap contributors, ODbL (https://www.openstreetmap.org/copyright).
+Default demo uses a dated local snapshot; its coverage and retrieval dates are in data/care-facilities.geoapify.json. An explicitly configured server gateway enables live search.
+Destination links: Neshan (https://neshan.org/). No provider key is included in this build.

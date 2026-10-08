@@ -11,7 +11,7 @@ import { sendOtp, requestPayment, verifyPayment, scanFile } from './providers';
 // D1 rows are projected explicitly before crossing the API boundary.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Row = Record<string, any>; // SQL rows stay internal; explicit projections define each response.
-type Context = {db:D1Database;files:R2Bucket;c:Settings};
+type Context = {db:D1Database;files:R2Bucket;c:Settings;demoAccounts?:typeof sampleAccounts};
 const now=()=>Date.now(), id=()=>crypto.randomUUID();
 const parse=(s:string|null)=>s?JSON.parse(s):null;
 const json=(data:unknown,status=200,extra:Record<string,string>={})=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...extra}});
@@ -57,10 +57,11 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
   };
   try {
     requireLiveReady(c);
+    const accounts=ctx.demoAccounts||sampleAccounts;
     if(c.mode==='demo') {
-      await db.batch(sampleAccounts.map(a=>q('INSERT INTO pilot_users(id,phone,name,role,clinician_id,created_at) SELECT ?,?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM pilot_users WHERE phone=?)',`demo-${a.role}-${a.phone.slice(-2)}`,a.phone,a.name,a.role,a.role==='member'?'demo-clinician-11':null,now(),a.phone)));
+      await db.batch(accounts.map(a=>q('INSERT INTO pilot_users(id,phone,name,role,clinician_id,created_at) SELECT ?,?,?,?,?,? WHERE NOT EXISTS(SELECT 1 FROM pilot_users WHERE phone=?)',`demo-${a.role}-${a.phone.slice(-2)}`,a.phone,a.name,a.role,a.role==='member'?'demo-clinician-11':null,now(),a.phone)));
     }
-    if(path==='meta'&&request.method==='GET')return json({mode:c.mode,priceRial:c.priceRial,policyVersion:c.consentVersion||policyVersion,policyText:c.consentBody||policyText,clinicalConsentText,coordinationConsentText,samples:c.mode==='demo'?sampleAccounts:[]});
+    if(path==='meta'&&request.method==='GET')return json({mode:c.mode,priceRial:c.priceRial,policyVersion:c.consentVersion||policyVersion,policyText:c.consentBody||policyText,clinicalConsentText,coordinationConsentText,samples:c.mode==='demo'?accounts:[]});
     if(path==='payment/callback'&&request.method==='GET') {
       const authority=url.searchParams.get('Authority')||'';
       const order=await one('SELECT * FROM pilot_orders WHERE authority=? AND mode=?',authority,c.mode);
@@ -121,7 +122,7 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       const plans=await all('SELECT p.id,p.version,p.summary,p.actions,p.published_at,u.name AS reviewer FROM pilot_plans p JOIN pilot_users u ON u.id=p.reviewer_id WHERE p.user_id=? ORDER BY p.version DESC',uid);
       const updates=await all('SELECT plan_id,action_id,done,evidence,created_at FROM pilot_action_updates WHERE user_id=? ORDER BY created_at',uid);
       await audit(user.id,uid,'record_read');
-      return json({clinician:doctor?{name:doctor.name,...(c.mode==='demo'?{demoPhone:doctor.phone}:{})}:null,record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status FROM pilot_files WHERE user_id=?',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,l.address,l.unit,l.entrance,l.latitude,l.longitude,ta.plan_id,ta.action_id FROM pilot_tasks t LEFT JOIN pilot_task_actions ta ON ta.task_id=t.id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
+      return json({memberSince:owner.created_at,clinician:doctor?{name:doctor.name,...(c.mode==='demo'?{demoPhone:doctor.phone}:{})}:null,record:{...r,profile:parse(r.profile),answers:parse(r.answers)},files:await all('SELECT id,name,mime,size,scan_status,created_at FROM pilot_files WHERE user_id=? ORDER BY created_at DESC',uid),plans:plans.map(p=>({...p,actions:parse(p.actions)})),updates,orders:(await all('SELECT * FROM pilot_orders WHERE user_id=? ORDER BY created_at DESC',uid)).map(paymentView),tasks:await all("SELECT t.id,t.kind,t.status,t.title,t.preferred,t.provider,t.scheduled_at,t.reference,t.note,t.created_at,t.updated_at,l.address,l.unit,l.entrance,l.latitude,l.longitude,ta.plan_id,ta.action_id FROM pilot_tasks t LEFT JOIN pilot_task_actions ta ON ta.task_id=t.id LEFT JOIN pilot_booking_locations l ON l.task_id=t.id AND ?=1 WHERE t.user_id=? AND t.kind='booking' ORDER BY t.created_at DESC",user.role==='member'?1:0,uid),feedback:await all('SELECT id,kind,message,status,reply FROM pilot_feedback WHERE user_id=? ORDER BY created_at DESC',uid)});
     }
     if(path==='record'&&request.method==='PUT') {
       role('member');const r=await record(user.id);

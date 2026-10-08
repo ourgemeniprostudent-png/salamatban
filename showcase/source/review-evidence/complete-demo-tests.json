@@ -1,0 +1,24 @@
+{
+  "version": "2.4",
+  "completedAt": "2026-10-08T19:01:47.396Z",
+  "checks": 11,
+  "passed": [
+    "the unchanged practice namespace accepts an independent record",
+    "ten cases have coherent stages, three year histories and valid document bytes",
+    "reload never reseeds or overwrites modifications",
+    "a member cannot read another member and staff permissions remain enforced",
+    "paid preview uses a disposable session and rejects all business mutations",
+    "a damaged document cannot seed a partial demo; retry recovers",
+    "catalog supports all ten members and three staff roles without horizontal overflow",
+    "full paid user UI exposes downloaded documents, completed actions and year history",
+    "member at pre-payment sees explicit sample CTA, returns with own identity and draft intact",
+    "seeded clinician queue, coordinator handoff and admin counts are actionable in UI",
+    "resetting complete lane restores fixtures without deleting practice lane"
+  ],
+  "pageErrors": [],
+  "assetFailures": [],
+  "cases": 10,
+  "yearHistories": 3,
+  "fictionalDocuments": 32,
+  "preview": "ephemeral read-only; practice identity, CSRF and draft preserved"
+}

@@ -30,6 +30,7 @@ await cp(path.join(root, 'public/brand'), path.join(output, 'brand'), { recursiv
 await cp(path.join(root, 'public/fonts'), path.join(output, 'fonts'), { recursive: true });
 await cp(path.join(root, 'public/media'), path.join(output, 'media'), { recursive: true });
 await cp(path.join(root, 'public/data'), path.join(output, 'data'), { recursive: true });
+await cp(path.join(root, 'public/demo'), path.join(output, 'demo'), { recursive: true });
 const careSnapshot = JSON.parse(await readFile(path.join(output, 'data/care-facilities.geoapify.json'), 'utf8'));
 if(careSnapshot.schemaVersion !== 1 || careSnapshot.provider !== 'geoapify' || careSnapshot.mode !== 'snapshot' || !Array.isArray(careSnapshot.entries) || !careSnapshot.entries.length) throw new Error('A valid real geographic snapshot is required for this demo.');
 const jsVersion = createHash('sha256').update(await readFile(path.join(output, 'app.js'))).digest('hex').slice(0, 12);
@@ -70,8 +71,8 @@ Header set Cache-Control "no-cache"
 </IfModule>
 `);
 const releaseAssets = {};
-for (const name of ['index.html', 'app.js', 'app.css', 'data/care-facilities.geoapify.json']) {
+for (const name of ['index.html', 'app.js', 'app.css', 'data/care-facilities.geoapify.json','demo/documents/manifest.json']) {
   releaseAssets[name] = createHash('sha256').update(await readFile(path.join(output, name))).digest('hex');
 }
-await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.3.2', maps: { provider: 'geoapify', directionsProvider: 'neshan', mode: hospitalLookupEndpoint ? 'live' : 'snapshot', gatewayConfigured: !!hospitalLookupEndpoint, lookupEndpoint: hospitalLookupEndpoint, snapshotUrl: './data/care-facilities.geoapify.json', snapshotGeneratedAt: careSnapshot.generatedAt, coveredCities: careSnapshot.entries.length, facilityCount: careSnapshot.entries.reduce((sum,entry)=>sum+entry.facilities.length,0), liveGatewayVerified: false }, assets: releaseAssets }, null, 2) + '\n');
+await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.4', demo: { lanes:['practice','complete'], fixtureVersion:'complete-demo-v1', cases:10, yearHistoryCases:3, documents:32, preview:'isolated ephemeral read-only', asOf:'2026-10-08' }, maps: { provider: 'geoapify', directionsProvider: 'neshan', mode: hospitalLookupEndpoint ? 'live' : 'snapshot', gatewayConfigured: !!hospitalLookupEndpoint, lookupEndpoint: hospitalLookupEndpoint, snapshotUrl: './data/care-facilities.geoapify.json', snapshotGeneratedAt: careSnapshot.generatedAt, coveredCities: careSnapshot.entries.length, facilityCount: careSnapshot.entries.reduce((sum,entry)=>sum+entry.facilities.length,0), liveGatewayVerified: false }, assets: releaseAssets }, null, 2) + '\n');
 console.log('Static presentation built in site/dist-demo. Upload its contents to a dedicated HTTPS folder.');

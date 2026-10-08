@@ -1,9 +1,9 @@
 {
-  "packageVersion": "2.3.2",
-  "appVersion": "2.3.2",
-  "publicAppVersion": "2.3.2",
-  "baseUrl": "http://127.0.0.1:4195/",
-  "checkedAt": "2026-10-08T16:27:46.635Z",
+  "packageVersion": "2.4",
+  "appVersion": "2.4",
+  "publicAppVersion": "2.4",
+  "baseUrl": "http://127.0.0.1:4197/",
+  "checkedAt": "2026-10-08T19:05:11.916Z",
   "viewports": [
     {
       "width": 320,
@@ -28,11 +28,11 @@
   ],
   "checks": [
     "four role walkthroughs",
-    "package/app/public target are v2.3.2 and snapshot mode is distinguished from live search",
+    "package/app/public target are v2.4 and snapshot mode is distinguished from live search",
     "current role architecture is directly reachable from product experience",
     "six recovered diagrams load, zoom, close and expose PNG/SVG files",
     "current/target filters",
-    "eleven product screenshots and viewer",
+    "fourteen product screenshots and viewer",
     "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
     "feedback works when browser storage is blocked",
     "keyboard skip link and concise guide"

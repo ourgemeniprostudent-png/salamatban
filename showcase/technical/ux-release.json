@@ -1,157 +1,83 @@
 {
-  "version": "2.3.2",
-  "date": "2026-10-08T16:23:35.424147+00:00",
-  "workflow": "Dated real Geoapify place snapshots on GitHub Pages, Neshan directions, optional server-only live gateways for later hosting.",
+  "version": "2.4",
+  "date": "2026-10-08T19:02:15.321483+00:00",
+  "workflow": "Two independent browser-local lanes, ten coherent fictional cases and genuine watermarked document files. Ephemeral read-only customer preview uses an independent session and leaves the current draft untouched.",
+  "builtAssets": {
+    "index.html": "051bbabcaa15d75458e40083acc5b2138eab105c89e8503a7bb7cbeb51a3142d",
+    "app.js": "eed0a16e4054a8863339bf0f457f5499e5bc9f43ef79eee681281ee7816d431e",
+    "app.css": "11b50c5fcbf325c48cee8638914afbe79d8bed25d7842e00c5c3648964ef6d45",
+    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+    "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159"
+  },
   "checks": {
-    "geoapifyGateway": {
-      "individualPassed": 12,
-      "failed": 0,
-      "evidence": "geoapify-proxy-tests.json"
-    },
-    "portableNodeGateway": {
-      "individualPassed": 6,
-      "failed": 0,
-      "evidence": "maps-server-tests.json"
-    },
-    "facilityLookup": {
+    "completeDemo": {
       "individualPassed": 11,
       "failed": 0,
-      "evidence": "facility-lookup-tests.json"
+      "evidence": "complete-demo-tests.json"
     },
-    "mapsConfig": {
-      "individualPassed": 2,
+    "api": {
+      "individualPassed": 41,
       "failed": 0,
-      "evidence": "maps-config-tests.json"
+      "evidence": "api-tests.json"
+    },
+    "roleWorkflow": {
+      "individualPassed": 6,
+      "failed": 0,
+      "evidence": "workflow-tests.json"
+    },
+    "staticPresentation": {
+      "individualPassed": 12,
+      "failed": 0,
+      "evidence": "ux-tests.json"
     },
     "typecheck": "passed",
     "lint": "passed",
     "serverBuild": "passed",
     "staticBuild": "passed",
-    "portableGatewayBuild": "passed",
-    "referenceExperience": {
-      "individualPassed": 18,
-      "failed": 0,
-      "evidence": "reference-experience-tests.json"
-    },
-    "urgentAndMotion": {
-      "individualPassed": 8,
-      "failed": 0,
-      "evidence": "urgent-experience-tests.json"
-    },
-    "totalIndividualPassed": 57,
-    "snapshotReview": {
+    "fictionalDocumentCorpus": {
       "status": "passed",
-      "assertionGroups": 9,
-      "evidence": "geoapify-snapshot-review.json",
-      "scope": "Source/corpus acceptance; separate from test count and live provider evidence."
+      "pdfs": 25,
+      "images": 7,
+      "evidence": "demo-document-review.json"
     },
-    "geometry": {
-      "measuredComparisons": 11,
-      "maximumMeasuredMovementPx": 0,
-      "scope": "Measured tested anchors during data states and city suggestions at tested viewports; not a universal zero-CLS claim."
+    "totalIndividualPassed": 70,
+    "publicBrowser": {
+      "passed": 5,
+      "evidence": "demo-public-browser.json"
     },
-    "delivery": {
+    "extractedSource": {
       "status": "passed",
-      "checkedAt": "2026-10-08T16:29:11.288655+00:00",
-      "archiveIntegrity": "passed",
-      "sourceBuildSnapshotConsistency": "passed",
-      "documentMirrors": 23,
-      "localLinksChecked": 408,
-      "missingLinks": 0,
-      "configuredMapCredentialScan": "passed",
-      "negativeArtifactChecks": {
-        "passed": 4,
-        "cases": [
-          "broken Markdown target",
-          "missing HTML anchor",
-          "stale snapshot metadata",
-          "runtime SQLite sidecar directory"
-        ]
-      },
-      "extractedAppCompilation": {
-        "status": "passed",
-        "command": "npm run build:demo",
-        "dependencyScope": "Uses the installed matching Node dependencies through a temporary symlink; node_modules is not in the ZIP.",
-        "byteIdenticalFiles": [
-          "app.js",
-          "app.css",
-          "index.html",
-          "data/care-facilities.geoapify.json",
-          "release.json",
-          "THIRD-PARTY-NOTICES.txt"
-        ]
-      },
-      "extractedArchiveReconstruction": "passed independently after compiling the extracted app, without Git or an older delivery ZIP",
-      "countScope": "Delivery checks are separate from the 57 product test cases."
+      "evidence": "delivery-source-rebuild.json"
     },
-    "showcase": {
+    "showcaseBrowser": {
       "status": "passed",
-      "evidence": "showcase-browser.json",
-      "checkedAt": "2026-10-08T16:27:46.635Z",
-      "viewports": [
-        320,
-        390,
-        768,
-        1440
-      ],
-      "assertionGroups": 9,
-      "pageErrors": 0,
-      "scope": "Local browser verification of the packaged dashboard, six panes, role routes, architecture downloads, eleven screenshots, feedback and guide; public showcase publication is a separate step."
+      "evidence": "showcase-browser.json"
     }
   },
-  "builtAssets": {
-    "index.html": "250587148b51d0dd916f3edfae982cd2e6ec0c37c639e01ab96c4443c7f6e606",
-    "app.js": "766aa23fb97c1462acd4dabc41a2c9a7e7530c86de0446a30402fafd7d6f41d1",
-    "app.css": "acacb87d16471c99ddae4052995e1c1089c368d5e0931724b4597c0bca7d7e84",
-    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d"
+  "countScope": "Independent functional assertions; Node parent tests, build/type checks, corpus review and archive/publication checks are counted separately.",
+  "retainedComponentEvidence": {
+    "scope": "Unchanged geographic integration, urgent guidance, motion, grouping, layout stability and provider preparation retain v2.3.2/v2.3 evidence. They were not all rerun in this release; representative actual API/workflow/static UI checks were rerun.",
+    "previousRelease": "ux-baseline-v2.3.2.json"
   },
-  "maps": {
-    "provider": "geoapify",
-    "directionsProvider": "neshan",
-    "mode": "snapshot",
-    "gatewayConfigured": false,
-    "lookupEndpoint": null,
-    "snapshotUrl": "./data/care-facilities.geoapify.json",
-    "snapshotGeneratedAt": "2026-10-08T16:22:30.184Z",
-    "coveredCities": 39,
-    "facilityCount": 169,
-    "liveGatewayVerified": false
+  "demo": {
+    "lanes": [
+      "practice",
+      "complete"
+    ],
+    "fixtureVersion": "complete-demo-v1",
+    "cases": 10,
+    "yearHistoryCases": 3,
+    "documents": 32,
+    "preview": "isolated ephemeral read-only",
+    "asOf": "2026-10-08"
   },
-  "features": [
-    "Local dated Geoapify/OpenStreetMap snapshot for 39 selected cities, with five Safadasht listings",
-    "Same-origin snapshot download; no city or health data sent to a map provider by the public lookup",
-    "Explicit uncovered-city and ambiguous-city recovery with canonical province/county selection",
-    "Conservative category/title exclusions; no verified-care claims",
-    "Neshan destination links and independent 115 symptom guidance preserved",
-    "Portable Node24/SQLite live gateway and isolated Worker included, not publicly deployed"
+  "limits": [
+    "Fictional case calendar is fixed at 2026-10-08; completion percentages count actions, not health improvement.",
+    "Data is local to each browser. Payment, OTP, clinicians, specimen documents and coordination institutions are synthetic.",
+    "Customer preview is read-only and ephemeral; complete demo permits normal role workflow mutations in its separate local store.",
+    "Public facility data remains a dated real Geoapify/OpenStreetMap snapshot, with Neshan directions; live gateway is not deployed.",
+    "No real-device, exhaustive security, load-test or clinical-validation claim."
   ],
-  "publication": {
-    "status": "published and public HTTPS assets verified",
-    "success": true,
-    "publicAppVersion": "2.3.2",
-    "url": "https://ourgemeniprostudent-png.github.io/salamatban/?v=2.3.2",
-    "pagesCommit": "a68eeef303e67786e46748bd18d9c58fa2e2b4a8",
-    "verifiedAt": "2026-10-08T16:25:44Z",
-    "evidence": "ux-publication.json",
-    "verifiedFiles": 9
-  },
-  "limitations": [
-    "City-center snapshot radius is not patient distance or verified nearest care.",
-    "Listings are provider categories/name-filtered and not verified for availability, opening hours or clinical suitability.",
-    "Six selected cities omitted because geocoder could not confirm exact city identity; unlisted cities are explicitly not covered.",
-    "Public browser uses the same-origin dated file, not live upstream requests.",
-    "VPS runtime tested locally; no remote VPS or TLS deployment performed.",
-    "Demo clinical data stays in this browser; real SMS, bank and shared clinical operations remain unconnected."
-  ],
-  "baseline": {
-    "version": "2.3",
-    "file": "ux-baseline-v2.3.json",
-    "scope": "Prior unchanged component checks retained as history; not counted as reruns in2.3.2."
-  },
-  "artifacts": {
-    "package": "Salamatban-Complete-Delivery-v2.3.2.zip",
-    "scope": "Complete source, built snapshot-mode app, presentation, current guides and optional live gateway configuration; live public gateway not deployed.",
-    "deploymentSha256": "c61f88c7e63cbce4c6274a56364be31d5b7336a7ec71525f3036c14b726e94b4"
-  },
-  "scopedValidation": "57 individual checks: 26 browser, 11 client lifecycle, 12 provider gateway, 6 portable HTTP gateway, 2 public configuration; parent containers excluded. Lint, typecheck and all three builds passed. Actual live provider collection and local HTTP boundary are separate evidence."
+  "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+  "packageValidation": "Archive integrity, source rebuild and link/mirror checks are performed separately; see ux-archive-validation.json."
 }

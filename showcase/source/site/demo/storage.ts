@@ -55,6 +55,7 @@ export async function openStore(name: string) {
     request.onsuccess = () => { if (blocked) request.result.close(); else resolve(request.result); };
   });
   return {
+    close: () => database.close(),
     read: () => new Promise<DemoSnapshot | undefined>((resolve, reject) => {
       const request = database.transaction('demo').objectStore('demo').get('snapshot');
       request.onsuccess = () => resolve(request.result);

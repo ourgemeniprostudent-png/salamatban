@@ -1,21 +1,26 @@
 import initSqlJs from 'sql.js';
 import { handlePilot } from '../lib/pilot/service';
 import type { Settings } from '../lib/pilot/config';
-import { BrowserDatabase, browserFiles, openStore } from './storage';
+import { BrowserDatabase, browserFiles, openStore, type DemoSnapshot } from './storage';
+import { completeAccounts, seedCompleteDemo, demoCases } from './fixtures';
 import schema from '../drizzle-pilot/0000_optimal_wind_dancer.sql';
 import guards from '../drizzle-pilot/0001_guards.sql';
 import taskActions from '../drizzle-pilot/0003_great_bedlam.sql';
 import locations from '../drizzle-pilot/0002_violet_morgan_stark.sql';
 
-export async function createDemoBackend() {
+export type DemoLane = 'practice'|'complete';
+export async function createDemoBackend(options:{lane?:DemoLane;preview?:boolean}={}) {
   if (!window.isSecureContext || !crypto.subtle || !navigator.locks) {
     throw new Error('نمایش را با آدرس HTTPS و مرورگر به‌روز باز کنید.');
   }
   const base = new URL('.', document.baseURI);
-  const namespace = `salamatban-presentation-v1:${base.pathname}`;
+  const lane=options.lane||'practice';
+  const namespace = options.preview?`salamatban-preview:${crypto.randomUUID()}`:lane==='practice'?`salamatban-presentation-v1:${base.pathname}`:`salamatban-complete-demo-v1:${base.pathname}`;
   const sessionKey = `${namespace}:session`;
   const SQL = await initSqlJs({ locateFile: () => new URL('sql-wasm.wasm', base).href });
-  const store = await openStore(namespace);
+  let memory:DemoSnapshot|undefined, memoryCookie:string|null=null;
+  const sampleSessions=new Map<string,string>();
+  const store = options.preview?{read:async()=>memory,write:async(snapshot:DemoSnapshot)=>{memory=snapshot;},clear:async()=>{memory=undefined;},close:()=>{memory=undefined;memoryCookie=null;}}:await openStore(namespace);
   const settings: Settings = {
     mode: 'demo', origin: location.origin, authSecret: 'browser-demo-only-no-real-accounts',
     merchant: '', smsKey: '', smsTemplate: '', staffTotp: {}, priceRial: 12000000,
@@ -28,6 +33,11 @@ export async function createDemoBackend() {
     if (url.origin !== location.origin || !url.pathname.startsWith('/api/pilot/')) {
       throw new Error('Only local presentation requests are supported.');
     }
+    if(options.preview&&(init?.method||'GET')!=='GET'&&!['/api/pilot/auth/request','/api/pilot/auth/verify'].includes(url.pathname))return Response.json({error:'PREVIEW_READ_ONLY'},{status:403});
+    if(options.preview&&url.pathname==='/api/pilot/auth/request'){
+      const body=JSON.parse(String(init?.body||'{}'));
+      if(!demoCases.some(person=>person.preview&&person.phone===body.phone))return Response.json({error:'FORBIDDEN'},{status:403});
+    }
     return navigator.locks.request(namespace, async () => {
       let database: BrowserDatabase | undefined;
       try {
@@ -38,9 +48,10 @@ export async function createDemoBackend() {
         if (!database.sqlite.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='pilot_booking_locations'").length) database.sqlite.run(locations);
         if (!database.sqlite.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='pilot_task_actions'").length) database.sqlite.run(taskActions);
         const files = saved?.files ?? {};
+        if(!saved&&lane==='complete')await seedCompleteDemo(database,files,base);
         const headers = new Headers(init?.headers);
         headers.set('Origin', location.origin);
-        const cookie = sessionStorage.getItem(sessionKey);
+        const cookie = options.preview?memoryCookie:sessionStorage.getItem(sessionKey);
         if (cookie) headers.set('Cookie', cookie);
         const request = new Request(url, { ...init, headers });
         // A real browser Request filters Cookie/Origin. This object never leaves
@@ -53,11 +64,13 @@ export async function createDemoBackend() {
           db: database as unknown as D1Database,
           files: browserFiles(files) as unknown as R2Bucket,
           c: settings,
+          ...(lane==='complete'?{demoAccounts:completeAccounts}:{}),
         });
         await store.write({ database: database.sqlite.export(), files });
         const newCookie = response.headers.get('Set-Cookie');
         if (newCookie) {
-          if (newCookie.includes('Max-Age=0')) sessionStorage.removeItem(sessionKey);
+          if(options.preview)memoryCookie=newCookie.includes('Max-Age=0')?null:newCookie.split(';')[0];
+          else if (newCookie.includes('Max-Age=0')) sessionStorage.removeItem(sessionKey);
           else sessionStorage.setItem(sessionKey, newCookie.split(';')[0]);
         }
         return response;
@@ -69,6 +82,23 @@ export async function createDemoBackend() {
   };
   return {
     fetch: execute,
+    dispose: () => store.close(),
+    async enterSample(phone:string){
+      // Only the isolated static demo uses this shortcut; the normal OTP API is exercised.
+      const previous=sampleSessions.get(phone);
+      if(previous){
+        if(options.preview)memoryCookie=previous;else sessionStorage.setItem(sessionKey,previous);
+        const active=await execute('/api/pilot/me');
+        if(active.ok&&(await active.json() as {user:{phone:string}}).user.phone===phone)return;
+      }
+      const request=await execute('/api/pilot/auth/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone})});
+      const challenge=await request.json() as {challenge:string;demoCode?:string};
+      if(!request.ok||!challenge.demoCode)throw new Error('ورود به حساب نمونه انجام نشد. دوباره تلاش کنید.');
+      const verified=await execute('/api/pilot/auth/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone,challenge:challenge.challenge,code:challenge.demoCode})});
+      if(!verified.ok)throw new Error('تأیید ورود نمونه انجام نشد.');
+      const cookie=options.preview?memoryCookie:sessionStorage.getItem(sessionKey);
+      if(cookie)sampleSessions.set(phone,cookie);
+    },
     async reset() {
       await navigator.locks.request(namespace, () => store.clear());
       sessionStorage.removeItem(sessionKey);

@@ -14,3 +14,5 @@ The project owner requires every changed product delivery to use the established
 - UI focus must not add outer rings or double borders. Use a subtle change to the existing border/background; keep keyboard focus identifiable through surface and text treatment. Keep the member experience visually cohesive after onboarding as well as before it.
 
 - Keep the established blue brand across motion, icons and controls; do not introduce a green theme. Use full-width banners and responsive workspace grids. Group related intake questions with a consistent bottom action bar. Staff count cards must open/filter an actual queue, and each case/request must make its next action and resulting handoff clear.
+
+- Use a continuous white page canvas. Do not enclose member intake/discovery/consent in a large rounded or shadowed card over a gray backdrop. Keep the content grid and control affordances; integrate the fixed action bar into the page instead of a floating card.

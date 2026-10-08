@@ -1,7 +1,7 @@
 {
-  "packageVersion": "2.2",
+  "packageVersion": "2.2.1",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "d1419553270997eacc1054e07fc3467cd6ecfc40",
+  "pagesCommit": "75670527c7025715d57598a120b63c69f89c9c46",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "6d25c8185acc12be2a4b5580c66c4201ae2151dc0bed7a089f275040e6822114"
+      "sha256": "6a46f40094fd220ffaa0cf983b8fa25150eafa9b9e901c8fa11e073e4af1b91a"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "1b8e30929c3ddcace7c40aaf124de05685cb179fc3d2d1831d7c3909e0f645e8"
+      "sha256": "64b08bf43d7983bc246b0fe8b167a3e4bcf4eda94c65c52b00ca7b6ff4c6981d"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "5bc83880e3f69cf3e5d568b011f13d30f5a780dd713d1235d7828f52acf19b35"
+      "sha256": "4305783af5dc701be951ed3228a46e797f779304fb47216aed56ae332b88a4e9"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -99,55 +99,55 @@
       "file": "presentation/assets/screen-admin.png",
       "status": 200,
       "matches": true,
-      "sha256": "ee5898db5d238f53f9962bc6629a3c87fff9e82d96b57dd80a0e89e9e835d960"
+      "sha256": "e60bb8973b31db2952da085528ff712ad6e37bb889c939391b462cafc862d097"
     },
     {
       "file": "presentation/assets/screen-consent.png",
       "status": 200,
       "matches": true,
-      "sha256": "9a6847529ff12731bb71218be907a94253cc333ae44696d385c007bdfaf3d9b5"
+      "sha256": "eddcdeefa1bc3fe612e18e00a73c0149d3c6e179e664fd5f61b6d4fd419af4fa"
     },
     {
       "file": "presentation/assets/screen-coordinator.png",
       "status": 200,
       "matches": true,
-      "sha256": "abac59d14c689fe09f0302b3f3c28dde35dfd69501cc48a0622a4843a15b703a"
+      "sha256": "051d8ae8cc0737a8418d125fec4d4f8985900b437e0a3aa885d0b1c029a47b29"
     },
     {
       "file": "presentation/assets/screen-doctor.png",
       "status": 200,
       "matches": true,
-      "sha256": "680c3c98233f80e7d0bbaa6282dc47d4aa74e61d85b5fea80f32aa30858d1e72"
+      "sha256": "0a61383b04a7d6e7af55b456b7008157517cf02aa72cf5936fadd1f10f29b31e"
     },
     {
       "file": "presentation/assets/screen-form.png",
       "status": 200,
       "matches": true,
-      "sha256": "b6af22a445e602a20afba0756b37f633a34b74fef91829e89f987d663c235295"
+      "sha256": "807038bc9075b139a48833323b789149612bb9e881bca857f8f5239f5126328b"
     },
     {
       "file": "presentation/assets/screen-home.png",
       "status": 200,
       "matches": true,
-      "sha256": "6c52d942ed2e82959e38ecf2a520bfce01fd49a4f8fccc6f7ffe61e456fbe350"
+      "sha256": "ce04e437d7ea4e1f5ed9e21aece598ddf7c08169f6b19cf3244803dd34ce1e41"
     },
     {
       "file": "presentation/assets/screen-payment.png",
       "status": 200,
       "matches": true,
-      "sha256": "d7648d5e03ddf03c3e369f31b27f7abd3e650a56c7ad617880c6a20834f9cf32"
+      "sha256": "c1645464bb15523525f753f51a01887efc0dd69ea0ae11bfd91914f769187d40"
     },
     {
       "file": "presentation/assets/screen-program.png",
       "status": 200,
       "matches": true,
-      "sha256": "dd95a80c8c8609b49c2ffeb4fb19522eb74a7a113bc32e4e4ba3ede751e5da42"
+      "sha256": "0b0cd636b59c910a58be4641b2a5151f6c94c5d7274abf291de62e78360f1dad"
     },
     {
       "file": "presentation/assets/screen-welcome.png",
       "status": 200,
       "matches": true,
-      "sha256": "89115912bd13d3dfed9f793cf27c958a30b9ae9e414a7d8b03ba82c022027c1a"
+      "sha256": "ba351ba8ff327b4acd1ab961f30ca2472173cdf4c6f9981f6f0312e58a2e2a9c"
     },
     {
       "file": "presentation/assets/user-flow/MANIFEST.json",
@@ -264,5 +264,5 @@
       "sha256": "19e2c86bfae66c93e975cf515bcb5d6f228c7310126c1a1b109ebce1ac9dd4b3"
     }
   ],
-  "verifiedAt": "2026-10-08T11:08:12Z"
+  "verifiedAt": "2026-10-08T11:35:34Z"
 }

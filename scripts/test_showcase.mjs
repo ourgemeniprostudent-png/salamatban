@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'2.2',appVersion:'2.2',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'2.2.1',appVersion:'2.2.1',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){

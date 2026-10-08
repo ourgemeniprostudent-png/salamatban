@@ -1,12 +1,8 @@
 {
-  "version": "2.2",
-  "date": "2026-10-08T11:07:02.918877+00:00",
-  "workflow": "Synthetic API and Chromium regression; grouped intake, blue full-width scene, fixed form actions, actionable staff queues and case-switch failure safety",
+  "version": "2.2.1",
+  "date": "2026-10-08T11:34:10.783314+00:00",
+  "workflow": "Presentation-only update: continuous white canvas, frameless member forms and integrated fixed actions; current Chromium regression and build validation",
   "checks": {
-    "api": {
-      "individualPassed": 41,
-      "failed": 0
-    },
     "journey": {
       "individualPassed": 8,
       "failed": 0,
@@ -40,10 +36,6 @@
       "individualPassed": 2,
       "failed": 0
     },
-    "persianCalendar": {
-      "individualPassed": 5,
-      "failed": 0
-    },
     "typecheck": "passed",
     "lint": "passed",
     "serverBuild": "passed",
@@ -51,12 +43,12 @@
     "localFinalBrowser": {
       "scope": "local final build",
       "url": "http://127.0.0.1:4201/",
-      "verifiedAt": "2026-10-08T11:02:31.957Z",
+      "verifiedAt": "2026-10-08T11:28:07.537Z",
       "status": "passed",
       "checks": [
         "public page HTTP 200",
         "synthetic OTP login",
-        "v2.2 marker",
+        "v2.2.1 marker",
         "city selection",
         "draft save",
         "reload preserves stored draft"
@@ -70,10 +62,10 @@
       "extractedSourceRebuild": "passed"
     },
     "showcase": {
-      "packageVersion": "2.2",
-      "appVersion": "2.2",
+      "packageVersion": "2.2.1",
+      "appVersion": "2.2.1",
       "baseUrl": "http://127.0.0.1:4203/",
-      "checkedAt": "2026-10-08T11:06:15.741Z",
+      "checkedAt": "2026-10-08T11:33:26.292Z",
       "viewports": [
         {
           "width": 320,
@@ -113,7 +105,7 @@
       "failed": 0,
       "evidence": "visual-tests.json"
     },
-    "totalIndividualPassed": 110,
+    "totalIndividualPassed": 64,
     "groupedIntake": {
       "individualPassed": 3,
       "failed": 0,
@@ -127,10 +119,17 @@
     "roleArchitecture": {
       "status": "passed",
       "roleViewportCombinations": 25,
-      "evidence": "../deliverables/showcase/workflow-v2.2/validation.json"
+      "evidence": "../deliverables/showcase/workflow-v2.2/validation.json",
+      "unchangedSince": "2.2"
+    },
+    "flatSurfaces": {
+      "status": "passed",
+      "reviewedStates": 16,
+      "evidence": "flat-surfaces-validation.json"
     }
   },
   "features": [
+    "Continuous white page canvas; enclosing discovery/intake/consent card border, radius and shadow removed; fixed actions integrated into full-width page footer with field grid and control affordances preserved",
     "Established blue palette across canvas/SVG graphics, icons, controls, status surfaces and showcase",
     "Full-width arrival banner and responsive member workspace; grouped desktop grids and narrow-screen layouts",
     "All profile fields together; 15 clinical questions in 3 groups; contextual questions grouped with preserved legacy cursor",
@@ -163,31 +162,31 @@
   },
   "publication": {
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-    "pagesCommit": "305a58de1a1f69de0ef17a2c29a2057af7e64348",
+    "pagesCommit": "fe32f0f643746dbf9a007abf19343ff585b53f4f",
     "success": true,
     "assets": [
       {
         "file": "index.html",
         "status": 200,
-        "sha256": "e04989acdc5f0fb1876ebf7869220ffd45d60175525c1d997fe28cc33f18db36",
+        "sha256": "0a41a581326ad9b79e324772ff0d0f5afa974de036b6e7ea411c6075aa83db06",
         "matches": true
       },
       {
         "file": "app.js",
         "status": 200,
-        "sha256": "5e4fca513ba01e3cd1d3bddc3226c5bef370543c82f5298fb8240365acfffdca",
+        "sha256": "5b431a213230903b0924b92960f45df73efe0791576dc3398f6fc0d6dea70957",
         "matches": true
       },
       {
         "file": "app.css",
         "status": 200,
-        "sha256": "bf3c78bb6ecf22921f3a7e89a70d068ecd8fcc2f65c80b42145f53b8d2582d7f",
+        "sha256": "720b1f55593066d916f36f28202775ef1283197b3cc8d061891913379fb05de9",
         "matches": true
       },
       {
         "file": "release.json",
         "status": 200,
-        "sha256": "d6b48e3eeee0fd2c31066464e2c3d27914716ea06b7557f7e37a6d7d841892d8",
+        "sha256": "c76d3878d7ff59cc20918c16dff9016a75fd22392b5f2392b35d75187a2c4040",
         "matches": true
       },
       {
@@ -203,7 +202,7 @@
         "matches": true
       }
     ],
-    "verifiedAt": "2026-10-08T11:05:38Z"
+    "verifiedAt": "2026-10-08T11:33:27Z"
   },
   "baseline": {
     "version": "1.7",
@@ -212,6 +211,20 @@
     "scope": "78 individual API/calendar/UX/roles/edge/presentation/startup checks. These are historical baseline results, not rerun totals for 1.9."
   },
   "artifacts": {
-    "deploymentSha256": "96c8ce413fbb68de3296a63c3a960f91b48af1ab92e2fe911484c41876221a41"
+    "deploymentSha256": "eea6c8eb64623796bea04c0f2592de094ddfb4d83df15d12961626ec28019a02"
+  },
+  "retainedUnchangedComponentEvidence": {
+    "api": {
+      "individualPassed": 41,
+      "failed": 0,
+      "validatedRelease": "2.2",
+      "rerunForThisPresentationChange": false
+    },
+    "persianCalendar": {
+      "individualPassed": 5,
+      "failed": 0,
+      "validatedRelease": "2.2",
+      "rerunForThisPresentationChange": false
+    }
   }
 }

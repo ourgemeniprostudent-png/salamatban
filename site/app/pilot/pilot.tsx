@@ -25,6 +25,7 @@ import { QuestionFlow } from './question-flow';
 import { DemoAccounts, DemoCode } from './demo-login';
 import { DemoCheckout } from './demo-checkout';
 import './focus.css';
+import './flat-surfaces.css';
 import { useDraft } from './use-draft';
 import { stepErrors } from '../../lib/pilot/form-validation';
 import { assessmentDefinition, type AssessmentQuestion } from '@/lib/assessment-definition';
@@ -142,7 +143,7 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
       <button className="p-mobile-close p-icon-button" aria-label="بستن منو" onClick={()=>MM(false)}><Icon name="close"/></button>
       <div className="p-sidebar-caption">{{member:'فضای شخصی شما',clinician:'پنل پزشک',coordinator:'پنل همراهی',admin:'مدیریت سامانه'}[user.role as string]}</div>
       <nav className="p-side-nav" aria-label="بخش‌های پرونده">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?'page':undefined} className={tab===key?'active':''} onClick={()=>navigate(key)}><Icon name={icon}/><span>{label}</span>{key==='appointments'&&openTasks>0&&<b>{fa(openTasks)}</b>}{tab===key&&<i/>}</button>)}</nav>
-      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۲</span></div>
+      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۲٫۱</span></div>
     </aside>}
     {mobileMenu&&<button className="p-menu-scrim" aria-label="بستن منوی کناری" onClick={()=>MM(false)}/>}
     <div className="p-workspace" inert={mobileMenu?true:undefined}>
@@ -187,5 +188,5 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
   <StaffWorkspace key={user.id} role={user.role} tab={tab} queue={queue} data={data} selected={selected} busy={busy} fileList={fileList} api={api} refresh={refresh} run={act} onOpen={async id=>{S('');D(null);await refresh(id);S(id);}} onClear={()=>{S('');D(null);}} onNotice={N} onNavigate={navigate}/>
   </>}
   </>}
-  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۲</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
+  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۲٫۱</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
 }

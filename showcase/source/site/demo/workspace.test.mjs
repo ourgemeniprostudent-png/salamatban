@@ -10,7 +10,7 @@ import { navigateProduct, waitForAsync } from './journey-test-helpers.mjs';
 
 // Real local service and UI, exclusively synthetic demo accounts. The driver is
 // used to arrange cases; every action asserted below is exercised through the UI.
-test('Actionable role workspaces v2.2', { timeout: 240000 }, async t => {
+test('Actionable role workspaces v2.2.1', { timeout: 240000 }, async t => {
   const root = process.cwd();
   await mkdir('.test-build', { recursive: true });
   await build({
@@ -367,7 +367,7 @@ test('Actionable role workspaces v2.2', { timeout: 240000 }, async t => {
   });
 
   assert.deepEqual(pageErrors, []);
-  const report = { version: '2.2', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
+  const report = { version: '2.2.1', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
   await writeFile('.test-build/workspace-tests.json', JSON.stringify(report, null, 2));
   await writeFile('../review-evidence/workspace-tests.json', JSON.stringify(report, null, 2));
 });

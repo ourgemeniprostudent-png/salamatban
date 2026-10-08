@@ -25,9 +25,9 @@
     "liveGatewayVerified": false
   },
   "assets": {
-    "index.html": "e01cd20511fc5d4ad655a44ebbe937f732c239400aec8423fbbe787685d913ca",
+    "index.html": "0c026d83fbab28d5f924cc7002024e2fb70a09a94ae744746907499f095466ed",
     "app.js": "318f526dc67c9a427926d2501825336a0e00cf20ecc55a50c93f65645a28de32",
-    "app.css": "3be78334fb66a98ffab4cfcffe19566178d724742bb5594dff14cb677e17b7f5",
+    "app.css": "f1920ea9a4db372018cd3189dd6ed2430162060808355bf5c8775170aea872dc",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
     "previews/value-before-payment/index.html": "9a668e65fd94bec8411fd6d15d01f9e89ed4cdc074321d1bf7fbba5c035d9969"

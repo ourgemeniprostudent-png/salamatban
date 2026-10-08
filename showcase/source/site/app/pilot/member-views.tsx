@@ -4,6 +4,7 @@ import { type ReactNode, type CSSProperties } from 'react';
 import { assessmentDefinition, type AssessmentQuestion } from '@/lib/assessment-definition';
 import { labels } from '@/lib/pilot/domain';
 import { Icon } from './brand';
+import {ServiceGlyph} from './value-art';
 import { DocumentUpload, type UploadProgress } from './document-upload';
 
 // These presentation views consume the same validated API records as the pilot shell.
@@ -128,8 +129,8 @@ export function HealthOverview({ data, onNavigate, readOnly=false }: OverviewPro
   </div>;
 }
 
-export function DocumentsOverview({ data, fileList, onUpload, busy, locked }: { data: Obj; fileList: ReactNode; onUpload: (file: File, progress?:(p:UploadProgress)=>void) => Promise<void>; busy: boolean; locked: boolean }) {
- return <div className="mv-view"><section className="mv-card"><SectionHead icon="upload" title="افزودن مدرک سلامت" text="آزمایش، تصویر گزارش یا مستندات مرتبط با پرونده"/>{locked?<p>پرونده برای بررسی قفل است. برای افزودن مدرک از پشتیبانی کمک بگیرید.</p>:<DocumentUpload onUpload={onUpload} disabled={busy} count={data.files.length}/>}</section><section className="mv-card"><SectionHead icon="file" title="مدارک من" text={`${fa(data.files.length)} مدرک آماده دریافت و مشاهده`}/>{data.files.length?<div className="mv-files">{fileList}</div>:<EmptyState icon="file" title="جای مدارک شما اینجاست" text="نداشتن مدرک مانع تکمیل و ارسال پرونده نیست."/>}</section></div>;
+export function DocumentsOverview({ data, fileList, onUpload, busy, locked, readOnly=false }: { data: Obj; fileList: ReactNode; onUpload: (file: File, progress?:(p:UploadProgress)=>void) => Promise<void>; busy: boolean; locked: boolean; readOnly?:boolean }) {
+ return <div className="mv-view pd-documents"><header className="pd-docs-hero"><ServiceGlyph kind="file"/><div><h2>مدارک، همیشه همراه شما</h2><p>{fa(data.files.length)} آزمایش و گزارش در پرونده</p></div></header>{!readOnly&&<section className="mv-card"><SectionHead icon="upload" title="افزودن مدرک سلامت" text="آزمایش، تصویر گزارش یا مستندات مرتبط با پرونده"/>{locked?<p>پرونده برای بررسی قفل است. برای افزودن مدرک از پشتیبانی کمک بگیرید.</p>:<DocumentUpload onUpload={onUpload} disabled={busy} count={data.files.length}/>}</section>}<section className="mv-card"><SectionHead icon="file" title="مدارک من" text={`${fa(data.files.length)} مدرک آماده دریافت و مشاهده`}/>{data.files.length?<div className="mv-files">{fileList}</div>:<EmptyState icon="file" title="جای مدارک شما اینجاست" text="نداشتن مدرک مانع تکمیل و ارسال پرونده نیست."/>}</section></div>;
 }
 
 export function AccountOverview({ data, user, onNavigate, readOnly=false }: OverviewProps & { user: Obj; readOnly?:boolean }) {

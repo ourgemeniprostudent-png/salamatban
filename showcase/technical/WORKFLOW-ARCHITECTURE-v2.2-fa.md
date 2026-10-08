@@ -1,6 +1,6 @@
 # سلامت‌بان — نقشهٔ تجربه و مسئولیت‌ها
 
-معماری مسیرهای ۲٫۲، با گردش کار بستهٔ ۲٫۴٫۱ · برای دیدن مسیر محصول و گفت‌وگو دربارهٔ آن
+معماری مسیرهای ۲٫۲، با گردش کار بستهٔ ۲٫۴٫۲ · برای دیدن مسیر محصول و گفت‌وگو دربارهٔ آن
 
 [باز کردن نقشهٔ تعاملی نقش‌ها](../source/deliverables/showcase/workflow-v2.2/index.html) · [تصویر نقشهٔ کلی](../source/deliverables/showcase/workflow-v2.2/overview.png) · [نسخهٔ برداری](../source/deliverables/showcase/workflow-v2.2/overview.svg)
 

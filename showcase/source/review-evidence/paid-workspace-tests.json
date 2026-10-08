@@ -1,0 +1,61 @@
+{
+  "version": "2.4.2",
+  "completedAt": "2026-10-08T20:12:37.744Z",
+  "checks": [
+    {
+      "name": "cold delayed fonts",
+      "faces": [
+        {
+          "weight": "400",
+          "status": "loaded",
+          "display": "swap"
+        },
+        {
+          "weight": "500",
+          "status": "loaded",
+          "display": "swap"
+        },
+        {
+          "weight": "600",
+          "status": "loaded",
+          "display": "swap"
+        },
+        {
+          "weight": "700",
+          "status": "loaded",
+          "display": "swap"
+        },
+        {
+          "weight": "800",
+          "status": "loaded",
+          "display": "swap"
+        },
+        {
+          "weight": "900",
+          "status": "loaded",
+          "display": "swap"
+        }
+      ],
+      "requests": 6,
+      "postMountLayoutShift": 0
+    },
+    {
+      "name": "all destinations, document download, five plans and five appointments",
+      "passed": true
+    },
+    {
+      "name": "five sections at four widths, no page overflow, responsive appointments",
+      "passed": true
+    },
+    {
+      "name": "active-member data, pause and reduced motion",
+      "passed": true
+    },
+    {
+      "name": "font failure leaves login usable",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "fontWaitLimitMs": 4000
+}

@@ -64,5 +64,5 @@ const releaseAssets = {};
 for (const name of ['index.html', 'app.js', 'app.css']) {
   releaseAssets[name] = createHash('sha256').update(await readFile(path.join(output, name))).digest('hex');
 }
-await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.0', assets: releaseAssets }, null, 2) + '\n');
+await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.1', assets: releaseAssets }, null, 2) + '\n');
 console.log('Static presentation built in site/dist-demo. Upload its contents to a dedicated HTTPS folder.');

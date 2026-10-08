@@ -1,0 +1,8 @@
+{
+  "version": "2.1",
+  "completedAt": "2026-10-08T10:19:38.345Z",
+  "status": "passed",
+  "individualPassed": 4,
+  "pageErrors": [],
+  "scope": "100-paragraph synthetic policy; explicit separate consents; contained scroll; 320/390/768/1440; keyboard focus trap and return; no outer focus rings"
+}

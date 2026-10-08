@@ -10,3 +10,5 @@ The project owner requires every changed product delivery to use the established
 - Export no runtime databases, credentials, dependency caches or node_modules. Keep original supplied fonts and the independent Salamatban brand.
 - Test affected behavior, ZIP integrity, source/build consistency, and entry links. Report publication separately from Git push.
 - For advice-only responses no rebuilt ZIP is needed; record agreed proposals when producing the next product delivery.
+
+- UI focus must not add outer rings or double borders. Use a subtle change to the existing border/background; keep keyboard focus identifiable through surface and text treatment. Keep the member experience visually cohesive after onboarding as well as before it.

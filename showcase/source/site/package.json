@@ -21,6 +21,7 @@
     "test:workflow": "node --test demo/workflow.test.mjs",
     "test:startup": "node --test demo/startup.test.mjs",
     "test:edges": "node --test demo/edge-flows.test.mjs",
+    "test:visual": "node --test demo/visual.test.mjs",
     "test:journey": "node --test demo/journey.test.mjs"
   },
   "dependencies": {

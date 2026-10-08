@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="fa" dir="rtl"><head>{['Regular', 'SemiBold', 'Bold'].map(weight =>
+  return <html lang="fa" dir="rtl"><head>{['Regular', 'Medium', 'SemiBold', 'Bold', 'ExtraBold', 'Black'].map(weight =>
     <link key={weight} rel="preload" href={`/fonts/PeydaWebFaNum-${weight}.woff2`} as="font" type="font/woff2" crossOrigin="anonymous" />
   )}</head><body>{children}</body></html>;
 }

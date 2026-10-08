@@ -307,7 +307,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
   });
   await check('member sees plan, records progress and requests coordination', async () => {
     await logout(); await login('09000000001');
-    await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).click();
+    await page.locator('.pd-tile').first().click();
     await page.getByRole('heading', { name: 'برنامه پیگیری شما' }).waitFor();
     await page.getByRole('heading', { name: 'نقشه مسیر پیگیری', exact: true }).waitFor();
     assert.equal(await page.locator('.mv-timeline-action .care-action-check strong').innerText(), 'اقدام ساختگی برای نمایش');
@@ -360,7 +360,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.setViewportSize({ width: 320, height: 740 });
     await assertLayout();
     await navigate('خانه سلامت');
-    await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).waitFor();
+    await page.locator('.pd-tile').first().waitFor();
     await assertLayout();
     assert.equal(await page.locator('.p-sidebar').count(),0);
     await navigate('تصویر سلامت');
@@ -368,7 +368,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await assertLayout();
     await screenshot('health-320.png');
     await navigate('خانه سلامت');
-    await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).waitFor();
+    await page.locator('.pd-tile').first().waitFor();
     await screenshot('home-320.png');
     for (const width of [360, 1440]) {
       await page.setViewportSize({ width, height: 1000 });

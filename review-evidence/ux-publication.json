@@ -1,30 +1,30 @@
 {
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-  "pagesCommit": "8bf9231cee9711271f939e41579cdb37a9724218",
+  "pagesCommit": "54d71d97a2dd808db9e03dcb4428133dafb07f33",
   "success": true,
   "assets": [
     {
       "file": "index.html",
       "status": 200,
-      "sha256": "0a22fc98b0aa9a1c6c84cda1110e12ad20cf91ebfb33ea86765a66a5d6aca942",
+      "sha256": "5c52c4122fb82cc5f042fa973f1457d3ea6cf7b87022aaf54c554d82a03a9080",
       "matches": true
     },
     {
       "file": "app.js",
       "status": 200,
-      "sha256": "bb7ed1e4a07a273513789928946840c077d5a2d27272a30f9dbadd8e19c888e7",
+      "sha256": "6fc0a155e06cf353acc6af04ec3ab2926dbbc7ba61c46f51de89bccf7f9da4f2",
       "matches": true
     },
     {
       "file": "app.css",
       "status": 200,
-      "sha256": "52f937eac2183f7c4d8b257c2a09b5374c8d2eb9133ce23d727f75bbe1f6e2fa",
+      "sha256": "0652a2c20b66e37c669fd58bbcd254c28550842ad8c57c4a06c0eb973486ceb5",
       "matches": true
     },
     {
       "file": "release.json",
       "status": 200,
-      "sha256": "f6f41b9547ba7e296accaa38468f8e9834532865ff7201bea56ef06c5b18bfa7",
+      "sha256": "ece072696b2d88278c19cb7b6773ff57e89ede8c702d93e4cbadf5303150dce1",
       "matches": true
     },
     {
@@ -60,7 +60,7 @@
     {
       "file": "previews/value-before-payment/index.html",
       "status": 200,
-      "sha256": "c3edaf0ccadc511ee3bcdf83250c23396f990fb732df5c9221d5aef0866b7e11",
+      "sha256": "87da82552be862df3714b2c2c6c72a4f48993c084779abf61ee1b911be3ab335",
       "matches": true
     },
     {
@@ -80,7 +80,43 @@
       "status": 200,
       "sha256": "1988aaa2d78e2ebbad3cd617e3802c6e81b7b2d92fb7883abe8b45e5af7694b2",
       "matches": true
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Regular.woff2",
+      "status": 200,
+      "sha256": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de",
+      "matches": true
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Medium.woff2",
+      "status": 200,
+      "sha256": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1",
+      "matches": true
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-SemiBold.woff2",
+      "status": 200,
+      "sha256": "9a8255e578cac803b2378b131630736eb69cdc58dcb53df1644adc1ed4b568fa",
+      "matches": true
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Bold.woff2",
+      "status": 200,
+      "sha256": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220",
+      "matches": true
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-ExtraBold.woff2",
+      "status": 200,
+      "sha256": "31fa8ce338a9ec29b1f13fb60623a4288142e316e8e129288df44e210f41a13b",
+      "matches": true
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Black.woff2",
+      "status": 200,
+      "sha256": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33",
+      "matches": true
     }
   ],
-  "verifiedAt": "2026-10-08T19:41:51Z"
+  "verifiedAt": "2026-10-08T20:15:11Z"
 }

@@ -3,15 +3,15 @@
   "comparedAssets": [
     {
       "file": "app.js",
-      "sha256": "bb7ed1e4a07a273513789928946840c077d5a2d27272a30f9dbadd8e19c888e7"
+      "sha256": "6fc0a155e06cf353acc6af04ec3ab2926dbbc7ba61c46f51de89bccf7f9da4f2"
     },
     {
       "file": "app.css",
-      "sha256": "52f937eac2183f7c4d8b257c2a09b5374c8d2eb9133ce23d727f75bbe1f6e2fa"
+      "sha256": "0652a2c20b66e37c669fd58bbcd254c28550842ad8c57c4a06c0eb973486ceb5"
     },
     {
       "file": "index.html",
-      "sha256": "0a22fc98b0aa9a1c6c84cda1110e12ad20cf91ebfb33ea86765a66a5d6aca942"
+      "sha256": "5c52c4122fb82cc5f042fa973f1457d3ea6cf7b87022aaf54c554d82a03a9080"
     },
     {
       "file": "data/care-facilities.geoapify.json",
@@ -19,7 +19,7 @@
     },
     {
       "file": "release.json",
-      "sha256": "f6f41b9547ba7e296accaa38468f8e9834532865ff7201bea56ef06c5b18bfa7"
+      "sha256": "ece072696b2d88278c19cb7b6773ff57e89ede8c702d93e4cbadf5303150dce1"
     },
     {
       "file": "THIRD-PARTY-NOTICES.txt",
@@ -27,7 +27,7 @@
     },
     {
       "file": "previews/value-before-payment/index.html",
-      "sha256": "c3edaf0ccadc511ee3bcdf83250c23396f990fb732df5c9221d5aef0866b7e11"
+      "sha256": "87da82552be862df3714b2c2c6c72a4f48993c084779abf61ee1b911be3ab335"
     },
     {
       "file": "demo/documents/manifest.json",
@@ -44,7 +44,6 @@
   ],
   "archiveReconstruction": "passed",
   "negativeChecks": 4,
-  "version": "2.4.1",
-  "checkedAt": "2026-10-08T19:45:56.648657+00:00",
-  "scope": "Actual v2.4.1 app and standalone value preview built from extracted delivery source; compared asset hashes identify the tested runtime independently of later evidence-only packaging."
+  "version": "2.4.2",
+  "completedAt": "2026-10-08T20:19:55.233694+00:00"
 }

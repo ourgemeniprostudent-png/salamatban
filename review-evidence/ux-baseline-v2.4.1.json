@@ -1,0 +1,71 @@
+{
+  "version": "2.4.1",
+  "date": "2026-10-08T19:41:08.577062+00:00",
+  "workflow": "Illustrated prepayment value preview and published member overview share original blue care artwork, three-dimensional service symbols and functional programme/document/coordination cards. Progress comes from each record\u2019s action history, not invented health scores.",
+  "builtAssets": {
+    "index.html": "0a22fc98b0aa9a1c6c84cda1110e12ad20cf91ebfb33ea86765a66a5d6aca942",
+    "app.js": "bb7ed1e4a07a273513789928946840c077d5a2d27272a30f9dbadd8e19c888e7",
+    "app.css": "52f937eac2183f7c4d8b257c2a09b5374c8d2eb9133ce23d727f75bbe1f6e2fa",
+    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+    "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+    "previews/value-before-payment/index.html": "c3edaf0ccadc511ee3bcdf83250c23396f990fb732df5c9221d5aef0866b7e11"
+  },
+  "checks": {
+    "completeDemo": {
+      "individualPassed": 11,
+      "failed": 0,
+      "evidence": "complete-demo-tests.json"
+    },
+    "staticPresentation": {
+      "individualPassed": 12,
+      "failed": 0,
+      "evidence": "presentation-tests.json"
+    },
+    "visualInteractionReview": {
+      "completed": 12,
+      "failed": 0,
+      "evidence": "value-visual-review.json"
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "serverBuild": "passed",
+    "staticBuild": "passed",
+    "publicBrowser": {
+      "completed": 6,
+      "evidence": "demo-public-browser.json",
+      "status": "passed"
+    },
+    "extractedSource": {
+      "status": "passed",
+      "evidence": "delivery-source-rebuild.json"
+    },
+    "showcaseBrowser": {
+      "status": "passed",
+      "evidence": "showcase-browser.json"
+    }
+  },
+  "retainedComponentEvidence": {
+    "previousRelease": "ux-baseline-v2.4.json",
+    "scope": "Unchanged API/service workflows, seeded corpus, urgent guidance and geographic snapshot retain prior evidence. They were not all rerun. Current affected browser navigation, member UI, isolation, documents and visual interactions were checked."
+  },
+  "demo": {
+    "lanes": [
+      "practice",
+      "complete"
+    ],
+    "cases": 10,
+    "yearHistoryCases": 3,
+    "documents": 32,
+    "preview": "isolated ephemeral read-only",
+    "asOf": "2026-10-08"
+  },
+  "limits": [
+    "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",
+    "Completion percentages measure reported actions, not health improvement.",
+    "One-year sample history does not define the duration included in each purchase.",
+    "Standalone prepayment page remains an independent design preview; no real medical assessment or purchase is performed.",
+    "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
+  ],
+  "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+  "packageValidation": "Archive integrity and source reconstruction are recorded separately."
+}

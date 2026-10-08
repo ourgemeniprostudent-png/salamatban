@@ -1,7 +1,7 @@
 {
-  "packageVersion": "2.2.2",
+  "packageVersion": "2.3",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "b193df67620c41d70fe9ae412b2be63adcdc75f3",
+  "pagesCommit": "f5478951b53b6ab29f4ec74a457687fa92f89514",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "cba574356f32a7c657c0d15f05a88b53302178b09af1c5f925c90790a0da987c"
+      "sha256": "610c16c5b6a6516abff064cdf2a7a8c6db69ed4fe58e1c183ad44778853c0ec0"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "c19dce041541929a96cade62d0f9d5a511aeb970c10aafa7120aebdb3a99aa1b"
+      "sha256": "9138bb28c924fe4df6047c2f6932151dd357bfc3a84fc345cfcf296c1b5aac16"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "230b61250411a0dcce9b9dc9e0807c386e830bd16eb77407950022faba618030"
+      "sha256": "903422b977e5be3722ac9d0b4e62896443838ff33ced14dae04c73739ca910bb"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -99,55 +99,67 @@
       "file": "presentation/assets/screen-admin.png",
       "status": 200,
       "matches": true,
-      "sha256": "46b36e9da65d0092bab7a9e4f2db659c52e7ab0fdf999065454cdc8850845617"
+      "sha256": "4cf0ed1c83560eefb2b23e1011a9a1aca281ef85efc5ccf57629f65cac6197a9"
     },
     {
       "file": "presentation/assets/screen-consent.png",
       "status": 200,
       "matches": true,
-      "sha256": "9437989e6e37ab7570466f502538984c2a9d7a05a0191fd7cb00d27f7b3defa1"
+      "sha256": "06ffe57e518a74883497d1b90045f1dc0179cdd043306cc7fb7c8a36fdd50750"
     },
     {
       "file": "presentation/assets/screen-coordinator.png",
       "status": 200,
       "matches": true,
-      "sha256": "f20c2b80a457d9f736ec6c25378cfcd879ff61913ef406bfd55a4a841d4df18b"
+      "sha256": "9debfdee3449422b066a1c4efb4ba461751c5e9221da00bf8cef3883e19ed0b7"
     },
     {
       "file": "presentation/assets/screen-doctor.png",
       "status": 200,
       "matches": true,
-      "sha256": "2d7f62b2b22b4060a8ca0a2b7daace0f39d252dde0bbc44bea6fe7c8cca75fed"
+      "sha256": "4ed2109d017b984723c76f6159248c0392421a92236a4f31034db52ffec531fd"
     },
     {
       "file": "presentation/assets/screen-form.png",
       "status": 200,
       "matches": true,
-      "sha256": "bfdc29d87f0101fc7d3601064f6120cf7476aa988ac9e291aa4ddb5efa43ac26"
+      "sha256": "d2bb8ae791c19f773fc56bb677c3165ae3a1c4244fd3ab75fbeb372ef7f99fac"
     },
     {
       "file": "presentation/assets/screen-home.png",
       "status": 200,
       "matches": true,
-      "sha256": "88d0d802ff0e95a3e97c599dba0fb78ed66d91e03b52cf93e117be739e9471e5"
+      "sha256": "2d824597fbe312f5dbb18a915dbbffc24abe35719c7da3f12154a40a4bde3773"
+    },
+    {
+      "file": "presentation/assets/screen-login.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "5fa8696f5bd4906078fc93e5c8ef29c10e8da3cd0ed6d55428a501641fe56c72"
     },
     {
       "file": "presentation/assets/screen-payment.png",
       "status": 200,
       "matches": true,
-      "sha256": "0ae91f46114cca427eb751b67af7854b8684175c3e65e820a42b79b2d0c7f90a"
+      "sha256": "bfb5fbad5a5762317a0dfce895657e6fb92adefd8da241709867d596e3bcce75"
     },
     {
       "file": "presentation/assets/screen-program.png",
       "status": 200,
       "matches": true,
-      "sha256": "332b49133ff1a04f6e12cce521d18465c6e6110f633b4a33cd5c9c43a9d39c61"
+      "sha256": "b100dddc4e338242ca5c36c2edd529e2a12213bc4d1354fb06e34389b48464d4"
+    },
+    {
+      "file": "presentation/assets/screen-urgent.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "eb1fb2af2706b82843c20e67fb598f988445b27b23061cad17aca8039bef82c6"
     },
     {
       "file": "presentation/assets/screen-welcome.png",
       "status": 200,
       "matches": true,
-      "sha256": "959f6068d2e9dbccad39d6d24b9907e1473061cebd94b4fd856af48396fc43c7"
+      "sha256": "9ff7b8f6aee5475f2279a18bd02ac2e696f3ea48286f4e52fe4d2f3a42e55f26"
     },
     {
       "file": "presentation/assets/user-flow/MANIFEST.json",
@@ -264,5 +276,5 @@
       "sha256": "19e2c86bfae66c93e975cf515bcb5d6f228c7310126c1a1b109ebce1ac9dd4b3"
     }
   ],
-  "verifiedAt": "2026-10-08T12:36:03Z"
+  "verifiedAt": "2026-10-08T13:28:48Z"
 }

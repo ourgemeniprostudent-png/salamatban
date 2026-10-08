@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "verifiedAt": "2026-10-08T12:25:09.351Z",
+  "verifiedAt": "2026-10-08T13:16:39.966Z",
   "scope": "Critical draft persistence hook in an isolated React/Chromium component harness",
   "individualPassed": 5,
   "checks": [

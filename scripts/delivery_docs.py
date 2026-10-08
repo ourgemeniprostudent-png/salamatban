@@ -1,8 +1,8 @@
 """Shared delivery version, document catalog and deterministic rendering. No I/O on import."""
 import hashlib,html,posixpath,re
 from urllib.parse import urlsplit,urlunsplit
-VERSION = '2.2.2'
-APP_VERSION = '2.2.2'
+VERSION = '2.3'
+APP_VERSION = '2.3'
 GUIDE_DOCS = ['SHOWCASE-GUIDE-fa.md']
 DOCS = [
  'SHOWCASE-GUIDE-fa.md', 'WORKFLOW-ARCHITECTURE-v2.2-fa.md', 'VISUAL-EXPERIENCE-v2.1-fa.md', 'JOURNEY-v2.0-fa.md',

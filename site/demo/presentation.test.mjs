@@ -1,4 +1,4 @@
-import { navigateProduct, completeDiscovery, profileField } from './journey-test-helpers.mjs';
+import { navigateProduct, completeDiscovery, profileField, waitForAsync } from './journey-test-helpers.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -46,6 +46,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     if (!request.url().startsWith(origin + prefix) && !request.url().startsWith('blob:')) unexpectedRequests.push(request.url());
   });
   page.on('console', message => { if (message.type() === 'error') console.error('Browser:', message.text()); });
+  page.on('response', response => { if (response.status() >= 400) console.error('HTTP asset failure:', response.status(), response.url()); });
   async function driver() {
     await page.addScriptTag({ path: path.join(root, '.test-build/demo-driver.js') });
     await page.evaluate(async () => {
@@ -109,6 +110,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.goto(origin + prefix);
     await page.getByRole('button', { name: 'دریافت کد ورود', exact: true }).waitFor();
     await assertPeyda(page, '.pilot');
+    await page.waitForFunction(() => { const photo = document.querySelector('.login-scene-photo'); return photo?.complete && photo.naturalWidth > 0; });
     assert.doesNotMatch(await page.locator('body').innerText(), /همیار[\s‌]*سلامت/);
     await assertLayout();
     await screenshot('login-1440.png');
@@ -131,8 +133,13 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await profileField(page,'birthDate');await birth.fill('۱۳۷۰/۰۱/۰۱');
     await birth.fill('۱۴۰۰/۱۲/۳۰');
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
-    await page.getByText('یک تاریخ تولد معتبر وارد کنید.', { exact: false }).waitFor();
+    // The date picker owns one reserved error slot. Its specific parse error
+    // takes precedence over the former duplicate parent validation message.
+    await page.locator('.p-date-error').filter({ hasText: /^تاریخ شمسی معتبر وارد کنید؛ مانند ۱۳۷۰\/۰۱\/۰۱\.$/ }).waitFor();
     assert.equal(await birth.getAttribute('aria-invalid'), 'true');
+    assert.equal(await birth.inputValue(), '۱۴۰۰/۱۲/۳۰', 'The invalid text remains editable');
+    assert.equal(await page.getByRole('heading', { name: 'علائم مهم', exact: true }).count(), 0, 'An impossible date must not advance the intake');
+    await waitForAsync(page, async () => !(await window.demoRequest('record')).data.record.profile.birthDate);
     const invalidSave = await page.evaluate(async () => (await window.demoRequest('record')).data.record.profile.birthDate);
     assert.ok(!invalidSave, 'Editing a valid date to an impossible date must not silently save the old value');
     assert.equal(await page.locator('input[type="date"]').count(), 0);

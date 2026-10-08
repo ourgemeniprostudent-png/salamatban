@@ -1,0 +1,320 @@
+{
+  "version": "2.3",
+  "builtAssets": {
+    "index.html": "12b55ef47c3d222ae3658ec94f81e9d709a9ed5e0766804dfeb34256d15dbe97",
+    "app.js": "fba7544edb07935073baa2954a381606ac297a4077a3b05493460c1f8799adbc",
+    "app.css": "eaa4a1a431a016c90e7296889d3950c035df7bcc12f2720a3dfaba44c84c59aa"
+  },
+  "completedAt": "2026-10-08T13:18:55.032Z",
+  "status": "passed",
+  "individualPassed": 16,
+  "pageErrors": [],
+  "checks": [
+    "1440: five named sample accounts preserve phone selection, OTP and both copy controls",
+    "390: five named sample accounts preserve phone selection, OTP and both copy controls",
+    "320: five named sample accounts preserve phone selection, OTP and both copy controls",
+    "welcome starts directly below its header and spans the available canvas at phone and wide widths",
+    "urgent_chest_pain: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "urgent_dyspnea: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "urgent_syncope: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "urgent_neuro: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "urgent_bleeding: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "urgent_infection: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "urgent_self_harm: 115 script reflects this answer without inventing a diagnosis, onset or exact location",
+    "several affirmative answers contribute once each; correcting them leaves a historical review flag without claiming current illness",
+    "wide urgent guidance uses three columns without unnecessary body scrolling; call and exit stay reachable on phones",
+    "city hospitals appear automatically and loading, failure, retry and empty results retain one fixed result panel",
+    "changing the current search city cancels stale results and sends no health data or device location",
+    "a missing profile city keeps 115 available and performs no lookup until the current city is entered"
+  ],
+  "measurements": [
+    {
+      "label": "urgent viewport",
+      "width": 1440,
+      "height": 900,
+      "modal": {
+        "x": 32.5,
+        "y": 40,
+        "width": 1360,
+        "height": 820
+      }
+    },
+    {
+      "label": "urgent viewport",
+      "width": 1920,
+      "height": 900,
+      "modal": {
+        "x": 272.5,
+        "y": 40,
+        "width": 1360,
+        "height": 820
+      }
+    },
+    {
+      "label": "urgent viewport",
+      "width": 390,
+      "height": 844,
+      "modal": {
+        "x": 2.5,
+        "y": 10,
+        "width": 370,
+        "height": 824
+      }
+    },
+    {
+      "label": "urgent viewport",
+      "width": 320,
+      "height": 844,
+      "modal": {
+        "x": 2.5,
+        "y": 10,
+        "width": 300,
+        "height": 824
+      }
+    },
+    {
+      "label": "automatic facility results",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "facility network failure",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "facility retry succeeds",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "empty facility search",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "externalRequests": [
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "method": "GET",
+      "body": ""
+    }
+  ],
+  "limitations": "Facility responses are controlled synthetic fixtures; this suite does not claim live provider availability or clinical validation."
+}

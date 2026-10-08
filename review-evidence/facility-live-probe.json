@@ -1,0 +1,567 @@
+{
+  "verifiedAt": "2026-10-08T13:00:22.755328+00:00",
+  "url": "https://nominatim.openstreetmap.org/search?amenity=hospital&city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86&state=%D8%AA%D9%87%D8%B1%D8%A7%D9%86&country=Iran&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+  "query": {
+    "amenity": "hospital",
+    "city": "تهران",
+    "state": "تهران",
+    "country": "Iran",
+    "countrycodes": "ir",
+    "format": "jsonv2",
+    "limit": "6",
+    "addressdetails": "1",
+    "extratags": "1",
+    "namedetails": "1",
+    "accept-language": "fa"
+  },
+  "status": 200,
+  "headers": {
+    "access-control-allow-origin": "*",
+    "server": "envoy",
+    "x-nominatim-server": "longma.openstreetmap.org",
+    "content-type": "application/json; charset=utf-8",
+    "accept-ranges": "bytes",
+    "age": "0",
+    "date": "Thu, 08 Oct 2026 13:00:22 GMT",
+    "via": "1.1 varnish",
+    "x-served-by": "cache-chi-klot8100176-CHI, cache-chi-kmdw8640038-CHI",
+    "x-cache": "MISS, MISS",
+    "x-cache-hits": "0, 0",
+    "x-timer": "S1791464422.411581,VS0,VE336",
+    "vary": "accept-language, Accept-Encoding",
+    "strict-transport-security": "max-age=300",
+    "alt-svc": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400",
+    "content-length": "2",
+    "x-envoy-upstream-service-time": "397",
+    "connection": "close"
+  },
+  "resultCount": 0,
+  "results": [],
+  "variants": [
+    {
+      "verifiedAt": "2026-10-08T13:01:16.945119+00:00",
+      "url": "https://nominatim.openstreetmap.org/search?amenity=hospital&city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86&country=Iran&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "query": {
+        "amenity": "hospital",
+        "city": "تهران",
+        "country": "Iran",
+        "countrycodes": "ir",
+        "format": "jsonv2",
+        "limit": "6",
+        "addressdetails": "1",
+        "extratags": "1",
+        "namedetails": "1",
+        "accept-language": "fa"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "server": "envoy",
+        "content-type": "application/json; charset=utf-8",
+        "x-nominatim-server": "poldi.openstreetmap.org",
+        "accept-ranges": "bytes",
+        "age": "0",
+        "date": "Thu, 08 Oct 2026 13:01:16 GMT",
+        "via": "1.1 varnish",
+        "x-served-by": "cache-chi-kigq8000158-CHI, cache-chi-kmdw8640038-CHI",
+        "x-cache": "MISS, MISS",
+        "x-cache-hits": "0, 0",
+        "x-timer": "S1791464477.823286,VS0,VE104",
+        "vary": "accept-language, Accept-Encoding",
+        "strict-transport-security": "max-age=300",
+        "alt-svc": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400",
+        "content-length": "2",
+        "x-envoy-upstream-service-time": "117",
+        "connection": "close"
+      },
+      "resultCount": 0,
+      "results": []
+    },
+    {
+      "verifiedAt": "2026-10-08T13:01:18.957324+00:00",
+      "url": "https://nominatim.openstreetmap.org/search?amenity=%D8%A8%DB%8C%D9%85%D8%A7%D8%B1%D8%B3%D8%AA%D8%A7%D9%86&city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86&country=Iran&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "query": {
+        "amenity": "بیمارستان",
+        "city": "تهران",
+        "country": "Iran",
+        "countrycodes": "ir",
+        "format": "jsonv2",
+        "limit": "6",
+        "addressdetails": "1",
+        "extratags": "1",
+        "namedetails": "1",
+        "accept-language": "fa"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "server": "envoy",
+        "x-nominatim-server": "vhagar.openstreetmap.org",
+        "content-type": "application/json; charset=utf-8",
+        "accept-ranges": "bytes",
+        "age": "0",
+        "date": "Thu, 08 Oct 2026 13:01:18 GMT",
+        "via": "1.1 varnish",
+        "x-served-by": "cache-chi-kigq8000164-CHI, cache-chi-kmdw8640038-CHI",
+        "x-cache": "MISS, MISS",
+        "x-cache-hits": "0, 0",
+        "x-timer": "S1791464479.505182,VS0,VE443",
+        "vary": "accept-language, Accept-Encoding",
+        "strict-transport-security": "max-age=300",
+        "alt-svc": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400",
+        "content-length": "6919",
+        "x-envoy-upstream-service-time": "452",
+        "connection": "close"
+      },
+      "resultCount": 6,
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 475478443,
+          "name": "بیمارستان",
+          "display_name": "بیمارستان, ونک, ناحیه ۶, منطقه ۳ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 19698-33643, ایران",
+          "class": null,
+          "category": "highway",
+          "type": "residential",
+          "address": {
+            "road": "بیمارستان",
+            "neighbourhood": "ونک",
+            "quarter": "ناحیه ۶",
+            "suburb": "منطقه ۳ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "19698-33643",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان"
+          },
+          "extratags": {
+            "surface": "asphalt",
+            "maxspeed": "30"
+          }
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 36504598,
+          "name": "بیمارستان",
+          "display_name": "بیمارستان, ونک, ناحیه ۱, منطقه ۳ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 19936-43711, ایران",
+          "class": null,
+          "category": "highway",
+          "type": "service",
+          "address": {
+            "road": "بیمارستان",
+            "neighbourhood": "ونک",
+            "quarter": "ناحیه ۱",
+            "suburb": "منطقه ۳ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "19936-43711",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان"
+          },
+          "extratags": {
+            "access": "destination",
+            "oneway": "yes",
+            "maxspeed": "40"
+          }
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 11917626852,
+          "name": "بیمارستان",
+          "display_name": "بیمارستان, آیت الله مدنی, گرگان, ناحیه ۱, منطقه ۷ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 17116-83515, ایران",
+          "class": null,
+          "category": "highway",
+          "type": "bus_stop",
+          "address": {
+            "highway": "بیمارستان",
+            "road": "آیت الله مدنی",
+            "neighbourhood": "گرگان",
+            "quarter": "ناحیه ۱",
+            "suburb": "منطقه ۷ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "17116-83515",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "ref": "3767",
+            "name": "بیمارستان",
+            "name:fa": "بیمارستان"
+          },
+          "extratags": {
+            "bus": "yes",
+            "public_transport": "platform"
+          }
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 11948242213,
+          "name": "بیمارستان",
+          "display_name": "بیمارستان, بلوار دکتر عبیدی, شهرک استقلال, ناحیه ۲, منطقه ۲۱ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 13889-76844, ایران",
+          "class": null,
+          "category": "highway",
+          "type": "bus_stop",
+          "address": {
+            "highway": "بیمارستان",
+            "road": "بلوار دکتر عبیدی",
+            "neighbourhood": "شهرک استقلال",
+            "quarter": "ناحیه ۲",
+            "suburb": "منطقه ۲۱ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "13889-76844",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "ref": "8029",
+            "name": "بیمارستان",
+            "name:fa": "بیمارستان"
+          },
+          "extratags": {
+            "bus": "yes",
+            "public_transport": "platform"
+          }
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 11934715394,
+          "name": "بیمارستان",
+          "display_name": "بیمارستان, یکم, حر, ناحیه ۳, منطقه ۱۱ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 14648-54763, ایران",
+          "class": null,
+          "category": "highway",
+          "type": "bus_stop",
+          "address": {
+            "highway": "بیمارستان",
+            "road": "یکم",
+            "neighbourhood": "حر",
+            "quarter": "ناحیه ۳",
+            "suburb": "منطقه ۱۱ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "14648-54763",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "ref": "4843",
+            "name": "بیمارستان",
+            "name:fa": "بیمارستان"
+          },
+          "extratags": {
+            "bus": "yes",
+            "public_transport": "platform"
+          }
+        },
+        {
+          "osm_type": "node",
+          "osm_id": 5180639425,
+          "name": "بیمارستان",
+          "display_name": "بیمارستان, بلوار شهیدان سرباز, قصر فیروزه ۱, ناحیه ۶, منطقه ۱۴ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 17568-13133, ایران",
+          "class": null,
+          "category": "highway",
+          "type": "bus_stop",
+          "address": {
+            "highway": "بیمارستان",
+            "road": "بلوار شهیدان سرباز",
+            "neighbourhood": "قصر فیروزه ۱",
+            "quarter": "ناحیه ۶",
+            "suburb": "منطقه ۱۴ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "17568-13133",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "ref": "5555",
+            "name": "بیمارستان",
+            "name:fa": "بیمارستان"
+          },
+          "extratags": {
+            "bus": "yes",
+            "public_transport": "platform"
+          }
+        }
+      ]
+    },
+    {
+      "verifiedAt": "2026-10-08T13:02:26.122907+00:00",
+      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "query": {
+        "q": "[hospital] تهران، ایران",
+        "countrycodes": "ir",
+        "format": "jsonv2",
+        "limit": "6",
+        "addressdetails": "1",
+        "extratags": "1",
+        "namedetails": "1",
+        "accept-language": "fa"
+      },
+      "status": 200,
+      "headers": {
+        "access-control-allow-origin": "*",
+        "server": "envoy",
+        "x-nominatim-server": "vhagar.openstreetmap.org",
+        "content-type": "application/json; charset=utf-8",
+        "accept-ranges": "bytes",
+        "age": "0",
+        "date": "Thu, 08 Oct 2026 13:02:26 GMT",
+        "via": "1.1 varnish",
+        "x-served-by": "cache-chi-klot8100128-CHI, cache-chi-kmdw8640078-CHI",
+        "x-cache": "MISS, MISS",
+        "x-cache-hits": "0, 0",
+        "x-timer": "S1791464545.382361,VS0,VE730",
+        "vary": "accept-language, Accept-Encoding",
+        "strict-transport-security": "max-age=300",
+        "alt-svc": "h3=\":443\";ma=86400,h3-29=\":443\";ma=86400,h3-27=\":443\";ma=86400",
+        "content-length": "8204",
+        "x-envoy-upstream-service-time": "790",
+        "connection": "close"
+      },
+      "resultCount": 6,
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 995522616,
+          "name": "بیمارستان قلب تهران",
+          "display_name": "بیمارستان قلب تهران, کارگر شمالی, دکتر شهید سیدحسین فاطمی, ناحیه ۴, منطقه ۶ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 14119-86453, ایران",
+          "class": null,
+          "category": "amenity",
+          "type": "hospital",
+          "lat": "35.7204775",
+          "lon": "51.3878054",
+          "address": {
+            "amenity": "بیمارستان قلب تهران",
+            "road": "کارگر شمالی",
+            "neighbourhood": "دکتر شهید سیدحسین فاطمی",
+            "quarter": "ناحیه ۴",
+            "suburb": "منطقه ۶ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "14119-86453",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان قلب تهران",
+            "name:en": "Tehran Heart Hospital",
+            "name:fa": "بیمارستان قلب تهران",
+            "alt_name": "مرکز قلب تهران"
+          },
+          "extratags": {
+            "healthcare": "hospital"
+          }
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 477441027,
+          "name": "بیمارستان شرکت نفت",
+          "display_name": "بیمارستان شرکت نفت, کامران صالح, فردوسی, ناحیه ۱, منطقه ۱۲ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 11356-19751, ایران",
+          "class": null,
+          "category": "amenity",
+          "type": "hospital",
+          "lat": "35.6909469",
+          "lon": "51.4131115",
+          "address": {
+            "amenity": "بیمارستان شرکت نفت",
+            "road": "کامران صالح",
+            "neighbourhood": "فردوسی",
+            "quarter": "ناحیه ۱",
+            "suburb": "منطقه ۱۲ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "11356-19751",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان شرکت نفت",
+            "name:fa": "بیمارستان شرکت نفت",
+            "alt_name": "بیمارستان فوق تخصصی مرکزی صنعت نفت تهران"
+          },
+          "extratags": {
+            "website": "https://teh.piho.ir/",
+            "healthcare": "hospital"
+          }
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 954125498,
+          "name": "بیمارستان یاس;مجتمع بیمارستانی یاس (دانشگاه علوم پزشکی تهران)",
+          "display_name": "بیمارستان یاس;مجتمع بیمارستانی یاس (دانشگاه علوم پزشکی تهران), سرو, بهجت‌آباد, ناحیه ۳, منطقه ۶ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 15979-33813, ایران",
+          "class": null,
+          "category": "amenity",
+          "type": "hospital",
+          "lat": "35.7179435",
+          "lon": "51.4148216",
+          "address": {
+            "amenity": "بیمارستان یاس;مجتمع بیمارستانی یاس (دانشگاه علوم پزشکی تهران)",
+            "road": "سرو",
+            "neighbourhood": "بهجت‌آباد",
+            "quarter": "ناحیه ۳",
+            "suburb": "منطقه ۶ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "15979-33813",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان یاس;مجتمع بیمارستانی یاس (دانشگاه علوم پزشکی تهران)"
+          },
+          "extratags": {
+            "fax": "88948217",
+            "email": "yashospital@gmail.com",
+            "phone": "42046",
+            "website": "https://yashospital.tums.ac.ir/",
+            "operator": "yousefi",
+            "wikidata": "Q131294862",
+            "emergency": "yes",
+            "healthcare": "hospital",
+            "operator:type": "medical;government",
+            "healthcare:speciality": "general;hospital"
+          }
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 576561224,
+          "name": "مرکز بهداشت غرب تهران",
+          "display_name": "مرکز بهداشت غرب تهران, آیت الله دستغیب, دستغیب, ناحیه ۱, منطقه ۹ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 13497-15355, ایران",
+          "class": null,
+          "category": "amenity",
+          "type": "hospital",
+          "lat": "35.6875345",
+          "lon": "51.3455797",
+          "address": {
+            "amenity": "مرکز بهداشت غرب تهران",
+            "road": "آیت الله دستغیب",
+            "neighbourhood": "دستغیب",
+            "quarter": "ناحیه ۱",
+            "suburb": "منطقه ۹ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "13497-15355",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "مرکز بهداشت غرب تهران"
+          },
+          "extratags": {
+            "healthcare": "hospital"
+          }
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 453018344,
+          "name": "بیمارستان تهران کلینیک",
+          "display_name": "بیمارستان تهران کلینیک, آزادگان, سنائی, ناحیه ۳, منطقه ۶ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 15867-37711, ایران",
+          "class": null,
+          "category": "amenity",
+          "type": "hospital",
+          "lat": "35.7258424",
+          "lon": "51.4181365",
+          "address": {
+            "amenity": "بیمارستان تهران کلینیک",
+            "road": "آزادگان",
+            "neighbourhood": "سنائی",
+            "quarter": "ناحیه ۳",
+            "suburb": "منطقه ۶ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "15867-37711",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان تهران کلینیک",
+            "name:en": "Tehran Clinic Hospital",
+            "name:fa": "بیمارستان تهران کلینیک"
+          },
+          "extratags": {
+            "check_date": "2025-01-13",
+            "healthcare": "hospital"
+          }
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 453011886,
+          "name": "بیمارستان تهران",
+          "display_name": "بیمارستان تهران, جوادزاده غربی, سنائی, ناحیه ۳, منطقه ۶ شهر تهران, تهران, بخش مرکزی تهران, شهرستان تهران, استان تهران, 15858-43135, ایران",
+          "class": null,
+          "category": "amenity",
+          "type": "hospital",
+          "lat": "35.7177688",
+          "lon": "51.4195405",
+          "address": {
+            "amenity": "بیمارستان تهران",
+            "road": "جوادزاده غربی",
+            "neighbourhood": "سنائی",
+            "quarter": "ناحیه ۳",
+            "suburb": "منطقه ۶ شهر تهران",
+            "city": "تهران",
+            "municipality": "بخش مرکزی تهران",
+            "county": "شهرستان تهران",
+            "state": "استان تهران",
+            "ISO3166-2-lvl4": "IR-23",
+            "postcode": "15858-43135",
+            "country": "ایران",
+            "country_code": "ir"
+          },
+          "namedetails": {
+            "name": "بیمارستان تهران"
+          },
+          "extratags": {
+            "building": "hospital",
+            "emergency": "yes",
+            "healthcare": "hospital"
+          }
+        }
+      ]
+    }
+  ],
+  "acceptedVariantIndex": 2,
+  "acceptedHospitalResultCount": 6,
+  "selectionReason": "The category query returns hospital-tagged facilities. Structured English amenity returned no records; Persian amenity returned roads and bus stops, which the parser rejects."
+}

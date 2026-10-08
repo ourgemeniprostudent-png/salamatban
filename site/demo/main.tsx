@@ -3,6 +3,7 @@ import Pilot from '../app/pilot/pilot';
 import { createDemoBackend } from './backend';
 import './presentation.css';
 import '../app/pilot/pilot.css';
+import '../app/pilot/visual-language.css';
 
 async function main() {
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -19,7 +20,7 @@ async function main() {
         }
       }}>شروع دوبارهٔ نمایش</button>
     </aside>
-    <Pilot transport={backend.fetch} homeHref="./" brandHref="./brand/index.html" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
+    <Pilot transport={backend.fetch} homeHref="./" loginImageHref="./media/care-team.webp" brandHref="./brand/index.html" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
   </div>);
 }
 void main().catch((error: Error) => {

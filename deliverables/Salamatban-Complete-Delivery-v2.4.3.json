@@ -1,0 +1,134 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.4.3.zip",
+  "bytes": 48284962,
+  "sha256": "2c4d5cabd68a587260cd1f83917fd21c1b87ade9311a1e4af52d12566abf38c3",
+  "fileCount": 536,
+  "version": "2.4.3",
+  "appVersion": "2.4.3",
+  "sourceBaseCommit": "6edccc5d0fb76ae4cc9e2b543274803f078b563d",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.4.3",
+    "date": "2026-10-08T21:26:37.634533+00:00",
+    "workflow": "Illustrated care journey with real action status, ownership and due dates; touch member navigation and secondary dialog; readable mobile entry, grouped forms, dashboards and operational role workspaces. Actual personal action completion persists; team completion and read-only preview remain protected.",
+    "builtAssets": {
+      "index.html": "cfec562d0bb21cf9e6a82cc608d1897d21f1efe2584386fe0b52ad4ec647b236",
+      "app.js": "318f526dc67c9a427926d2501825336a0e00cf20ecc55a50c93f65645a28de32",
+      "app.css": "563ec33531a74c0a955fb410fa4b39c266e3728575ab079481f08704024fbf86",
+      "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+      "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+      "previews/value-before-payment/index.html": "9a668e65fd94bec8411fd6d15d01f9e89ed4cdc074321d1bf7fbba5c035d9969"
+    },
+    "checks": {
+      "completeDemo": {
+        "individualPassed": 11,
+        "failed": 0,
+        "evidence": "complete-demo-tests.json"
+      },
+      "staticPresentation": {
+        "individualPassed": 12,
+        "failed": 0,
+        "evidence": "presentation-tests.json"
+      },
+      "paidWorkspace": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "paid-workspace-tests.json",
+        "viewports": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "fontColdCacheDelayMs": 1500,
+        "loadedWeights": [
+          400,
+          500,
+          600,
+          700,
+          800,
+          900
+        ],
+        "postSettledDashboardFontShift": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "publicBrowser": {
+        "completed": 9,
+        "evidence": "demo-public-browser.json",
+        "status": "passed"
+      },
+      "extractedSource": {
+        "status": "passed",
+        "evidence": "delivery-source-rebuild.json"
+      },
+      "showcaseBrowser": {
+        "status": "passed",
+        "evidence": "showcase-browser.json"
+      },
+      "careMobile": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "care-mobile-tests.json",
+        "viewports": [
+          "320×740",
+          "360×844",
+          "390×844",
+          "430×932",
+          "844×390",
+          "1440×1050"
+        ],
+        "engine": "managed Chromium",
+        "physicalMobileSafariTested": false
+      },
+      "groupedIntake": {
+        "individualPassed": 3,
+        "failed": 0,
+        "evidence": "grouped-intake-tests.json"
+      },
+      "staffWorkspaces": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "workspace-tests.json"
+      },
+      "urgentExperience": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "urgent-experience-tests.json"
+      },
+      "browserRegression": {
+        "individualPassed": 52,
+        "parentTestsPassed": 7,
+        "failed": 0,
+        "runnerEvidence": "presentation-tests.json"
+      }
+    },
+    "retainedComponentEvidence": {
+      "previousRelease": "ux-baseline-v2.4.2.json",
+      "scope": "Earlier before-payment design and unaffected APIs/location integration keep labeled historical evidence. Member and staff workflows, grouped forms, urgent safety, preview isolation, font loading and mobile journey were rerun for 2.4.3."
+    },
+    "demo": {
+      "lanes": [
+        "practice",
+        "complete"
+      ],
+      "cases": 10,
+      "yearHistoryCases": 3,
+      "documents": 32,
+      "preview": "isolated ephemeral read-only",
+      "asOf": "2026-10-08"
+    },
+    "limits": [
+      "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",
+      "Completion percentages measure reported actions, not health improvement.",
+      "One-year sample history does not define the duration included in each purchase.",
+      "Standalone prepayment page remains an independent design preview; no real medical assessment or purchase is performed.",
+      "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
+    ],
+    "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+    "packageValidation": "Archive integrity and source reconstruction are recorded separately."
+  },
+  "archiveIntegrity": "passed"
+}

@@ -10,7 +10,7 @@ test('paid workspace navigation, detail layouts and cold font loading',async t=>
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});t.after(async()=>{await browser.close();await new Promise(r=>server.close(r));});
  await mkdir('.test-build',{recursive:true});const checks=[],errors=[];
  const context=await browser.newContext({viewport:{width:1440,height:1050}});const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
- const nav=async label=>{await page.locator('.demo-preview .j-member-nav').getByRole('button',{name:label,exact:true}).click();};
+ const nav=async label=>{const target=page.locator('.demo-preview .j-member-nav').getByRole('button',{name:label,exact:true});if(await target.isVisible())await target.click();else{await page.getByRole('button',{name:'بخش‌های بیشتر',exact:true}).click();await page.getByRole('dialog').getByRole('button',{name:label,exact:true}).click();}};
  await t.test('cold delayed fonts load all essential weights without post-mount shift',async()=>{
   await page.addInitScript(()=>{window.layoutShifts=[];new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.layoutShifts.push({value:e.value,afterInteractive:!!document.querySelector('.pd-dashboard')});}).observe({type:'layout-shift',buffered:true});});
   const requests=[];await page.route('**/*.woff2',async route=>{requests.push(route.request().url());await new Promise(r=>setTimeout(r,1500));await route.continue();});
@@ -41,5 +41,5 @@ test('paid workspace navigation, detail layouts and cold font loading',async t=>
  await t.test('a failed font does not block login startup',async()=>{
   const c=await browser.newContext();const p=await c.newPage();await p.route('**/PeydaWebFaNum-Medium.woff2',r=>r.fulfill({status:404,body:'missing test font'}));await p.goto(base);await p.getByRole('button',{name:'دریافت کد ورود',exact:true}).waitFor();const faces=await p.evaluate(()=>[...document.fonts].filter(f=>['400','500'].includes(f.weight)).map(f=>({weight:f.weight,status:f.status})));assert.ok(faces.some(f=>f.weight==='400'&&f.status==='loaded'));assert.ok(faces.some(f=>f.weight==='500'&&f.status==='error'));await c.close();checks.push({name:'font failure leaves login usable',passed:true});
  });
- assert.deepEqual(errors,[]);await writeFile('.test-build/paid-workspace-tests.json',JSON.stringify({version:'2.4.2',completedAt:new Date().toISOString(),checks,pageErrors:errors,fontWaitLimitMs:4000},null,2)+'\n');
+ assert.deepEqual(errors,[]);await writeFile('.test-build/paid-workspace-tests.json',JSON.stringify({version:'2.4.3',completedAt:new Date().toISOString(),checks,pageErrors:errors,fontWaitLimitMs:4000},null,2)+'\n');
 });

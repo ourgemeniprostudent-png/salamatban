@@ -1,6 +1,6 @@
 {
-  "version": "2.4.2",
-  "completedAt": "2026-10-08T20:12:37.744Z",
+  "version": "2.4.3",
+  "completedAt": "2026-10-08T21:22:53.779Z",
   "checks": [
     {
       "name": "cold delayed fonts",

@@ -1,6 +1,6 @@
 'use client';
 
-import { type ReactNode, type CSSProperties } from 'react';
+import { useState, type ReactNode, type CSSProperties } from 'react';
 import { assessmentDefinition, type AssessmentQuestion } from '@/lib/assessment-definition';
 import { labels } from '@/lib/pilot/domain';
 import { Icon } from './brand';
@@ -148,10 +148,24 @@ export function AccountOverview({ data, user, onNavigate, readOnly=false }: Over
 }
 
 export function JourneyTimeline({ data,busy,onToggle }: { data: Obj;busy:boolean;onToggle:(id:string,done:boolean)=>void }) {
+  const [selected,setSelected]=useState('');
+  const [paused,setPaused]=useState(false);
   const plan = data.plans?.[0];
   const actions = planActions(data);
   const done = actions.filter((action: Obj) => action.done).length;
   const percent = actions.length ? Math.round(done / actions.length * 100) : 0;
   const sorted = [...actions].sort((a, b) => String(a.due).localeCompare(String(b.due)));
-  return <section className="mv-card mv-plan-timeline"><SectionHead icon="route" title="نقشه مسیر پیگیری" text={plan ? `اقدام‌های نسخه ${fa(plan.version)} برنامه پزشک` : 'پس از انتشار برنامه، قدم‌ها و موعدها اینجا قرار می‌گیرند'}/>{plan && actions.length ? <><div className="mv-plan-progress"><div className="mv-progress-ring" style={{ '--progress': `${percent}%` } as CSSProperties}><span>{fa(percent)}<small>٪</small></span></div><div><strong>{fa(done)} از {fa(actions.length)} اقدام انجام شده</strong><p>این پیشرفت، ثبت انجام کارها توسط شما و تیم است؛ امتیاز سلامت نیست.</p></div><span className="mv-plan-version">نسخه {fa(plan.version)}</span></div><ol className="mv-action-timeline">{sorted.map((action: Obj, index) => <li key={action.id} className={`${action.done ? 'is-done' : ''} ${action.overdue ? 'is-overdue' : ''}`}><span className="mv-timeline-node">{action.done ? <Icon name="check" size={17}/> : fa(index + 1)}</span><div className="mv-timeline-action"><div className="mv-timeline-meta"><span className="mv-timeline-date"><Icon name="calendar" size={14}/>{displayDate(action.due)}</span><span className={`mv-status ${action.done ? 'mv-status-completed' : action.overdue ? 'mv-status-needs_information' : 'mv-status-pending'}`}>{action.done ? (action.owner==='team'?'انجام‌شده؛ ثبت تیم':'انجام‌شده؛ گزارش شما') : action.overdue ? 'موعد گذشته' : 'در برنامه شما'}</span></div><label className="care-action-check"><input type="checkbox" checked={action.done} disabled={busy||action.owner==='team'} onChange={e=>onToggle(action.id,e.target.checked)}/><strong>{action.title}</strong></label><p>{action.reason}</p><small className="mv-timeline-footer"><span>مسئول پیگیری: {action.owner === 'member' ? 'شما' : 'تیم همراهی'}</span><span className="mv-completion-date" aria-hidden={!action.completedAt}>{action.completedAt ? `ثبت انجام: ${displayDate(action.completedAt)}` : '\u00a0'}</span></small></div></li>)}</ol></> : <EmptyState icon="route" title="هر قدم، در زمان خودش" text="پزشک پس از بررسی پرونده، اقدام‌های پیشنهادی و موعد هرکدام را مشخص می‌کند. برنامه منتشرشده در این مسیر نمایش داده می‌شود."/>}</section>;
+  const next=sorted.find(action=>!action.done);
+  const selectedId=sorted.some(action=>action.id===selected)?selected:next?.id||sorted.at(-1)?.id;
+  return <section className={`mv-card mv-plan-timeline care-roadmap ${paused?'path-paused':''}`}>
+    <div className="care-path-heading"><SectionHead icon="route" title="مسیر مراقبت شما" text={plan ? `قدم‌های برنامه پزشک · نسخه ${fa(plan.version)}` : 'پس از انتشار برنامه، قدم‌ها و موعدها اینجا قرار می‌گیرند'}/><button className="path-motion p-link" onClick={()=>setPaused(!paused)} aria-label={paused?'ادامه حرکت مسیر':'توقف حرکت مسیر'}><Icon name={paused?'play':'pause'} size={18}/></button></div>
+    {plan && actions.length ? <>
+      <div className="mv-plan-progress care-path-progress"><ServiceGlyph kind="route"/><div className="care-path-progress-copy"><span className="path-eyebrow">{done===actions.length?'همه اقدام‌های این برنامه ثبت شده':'قدم به قدم، همراه شما'}</span><strong>{fa(done)} از {fa(actions.length)} اقدام انجام شده</strong><p>{next?`قدم پیش رو: ${next.title}`:'برای بررسی ادامهٔ مسیر، با تیم همراهی در ارتباط باشید.'}</p><small>ترتیب نمایش بر اساس موعد است؛ هر اقدام مستقل ثبت می‌شود.</small></div><div className="mv-progress-ring" style={{ '--progress': `${percent}%` } as CSSProperties}><span>{fa(percent)}<small>٪</small></span></div></div>
+      <ol className="mv-action-timeline care-path-stops">{sorted.map((action: Obj, index) => <li key={action.id} className={`${action.done ? 'is-done' : ''} ${action.overdue ? 'is-overdue' : ''} ${action.id===next?.id?'is-current':''} ${action.id===selectedId?'is-selected':''}`}>
+        <button className="path-waypoint" aria-label={`نمایش قدم ${fa(index+1)}: ${action.title}`} aria-pressed={action.id===selectedId} onClick={()=>setSelected(action.id)}><span className="path-orbit"/><ServiceGlyph kind={action.owner==='team'?'calendar':/مدرک|آزمایش|نتیجه/.test(action.title)?'file':/پزشک|ویزیت/.test(action.title)?'doctor':'route'}/><span className="mv-timeline-node">{action.done?<Icon name="check" size={16}/>:fa(index+1)}</span></button>
+        <span className="path-position">{action.done?'قدم انجام‌شده':action.id===next?.id?'قدم پیش رو':'در ادامهٔ مسیر'}</span>
+        <div className="mv-timeline-action"><div className="mv-timeline-meta"><span className="mv-timeline-date"><Icon name="calendar" size={14}/>{displayDate(action.due)}</span><span className={`mv-status ${action.done ? 'mv-status-completed' : action.overdue ? 'mv-status-needs_information' : 'mv-status-pending'}`}>{action.done ? (action.owner==='team'?'ثبت تیم':'گزارش شما') : action.overdue ? 'نیاز به پیگیری موعد' : 'برنامه‌ریزی‌شده'}</span></div><label className="care-action-check"><input type="checkbox" checked={action.done} disabled={busy||action.owner==='team'} onChange={e=>onToggle(action.id,e.target.checked)}/><strong>{action.title}</strong></label><p>{action.reason}</p><small className="mv-timeline-footer"><span><Icon name={action.owner==='member'?'user':'users'} size={14}/> {action.owner === 'member' ? 'شما انجام می‌دهید' : 'تیم همراهی پیگیری می‌کند'}</span><span className="mv-completion-date" aria-hidden={!action.completedAt}>{action.completedAt ? `ثبت انجام: ${displayDate(action.completedAt)}` : '\u00a0'}</span></small></div>
+      </li>)}</ol><small className="path-measure-note">این درصد، پیشرفت انجام اقدام‌هاست؛ امتیاز سلامت یا نتیجهٔ درمان نیست.</small>
+    </> : <EmptyState icon="route" title="هر قدم، در زمان خودش" text="پزشک پس از بررسی پرونده، اقدام‌های پیشنهادی و موعد هرکدام را مشخص می‌کند. برنامه منتشرشده در این مسیر نمایش داده می‌شود."/>}
+  </section>;
 }

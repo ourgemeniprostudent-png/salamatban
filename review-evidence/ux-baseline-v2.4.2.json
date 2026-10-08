@@ -1,0 +1,87 @@
+{
+  "version": "2.4.2",
+  "date": "2026-10-08T20:16:28.994374+00:00",
+  "workflow": "Compact illustrated published-member workspace: live programme, recent documents and coordination summaries open operational detail tabs. Programme history moves to its tab; responsive appointment cards show actual stages, centre, time and reference. Six essential Peyda weights preload and load before static controls render, with bounded fallback on network failure.",
+  "builtAssets": {
+    "index.html": "5c52c4122fb82cc5f042fa973f1457d3ea6cf7b87022aaf54c554d82a03a9080",
+    "app.js": "6fc0a155e06cf353acc6af04ec3ab2926dbbc7ba61c46f51de89bccf7f9da4f2",
+    "app.css": "0652a2c20b66e37c669fd58bbcd254c28550842ad8c57c4a06c0eb973486ceb5",
+    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+    "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+    "previews/value-before-payment/index.html": "87da82552be862df3714b2c2c6c72a4f48993c084779abf61ee1b911be3ab335"
+  },
+  "checks": {
+    "completeDemo": {
+      "individualPassed": 11,
+      "failed": 0,
+      "evidence": "complete-demo-tests.json"
+    },
+    "staticPresentation": {
+      "individualPassed": 12,
+      "failed": 0,
+      "evidence": "presentation-tests.json"
+    },
+    "paidWorkspace": {
+      "individualPassed": 5,
+      "failed": 0,
+      "evidence": "paid-workspace-tests.json",
+      "viewports": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "fontColdCacheDelayMs": 1500,
+      "loadedWeights": [
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "postSettledDashboardFontShift": 0
+    },
+    "typecheck": "passed",
+    "lint": "passed",
+    "serverBuild": "passed",
+    "staticBuild": "passed",
+    "publicBrowser": {
+      "completed": 8,
+      "evidence": "demo-public-browser.json",
+      "status": "passed"
+    },
+    "extractedSource": {
+      "status": "passed",
+      "evidence": "delivery-source-rebuild.json"
+    },
+    "showcaseBrowser": {
+      "status": "passed",
+      "evidence": "showcase-browser.json"
+    }
+  },
+  "retainedComponentEvidence": {
+    "previousRelease": "ux-baseline-v2.4.1.json",
+    "scope": "Prior before-payment prototype visual review, API tests, geographical snapshot and urgent guidance remain labeled retained evidence. Current member navigation, doctor-to-coordinator workflow, preview isolation, documents, responsive detail tabs and fonts were rerun."
+  },
+  "demo": {
+    "lanes": [
+      "practice",
+      "complete"
+    ],
+    "cases": 10,
+    "yearHistoryCases": 3,
+    "documents": 32,
+    "preview": "isolated ephemeral read-only",
+    "asOf": "2026-10-08"
+  },
+  "limits": [
+    "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",
+    "Completion percentages measure reported actions, not health improvement.",
+    "One-year sample history does not define the duration included in each purchase.",
+    "Standalone prepayment page remains an independent design preview; no real medical assessment or purchase is performed.",
+    "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
+  ],
+  "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+  "packageValidation": "Archive integrity and source reconstruction are recorded separately."
+}

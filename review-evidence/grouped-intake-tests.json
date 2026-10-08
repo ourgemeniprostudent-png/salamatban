@@ -1,6 +1,7 @@
 {
-  "version": "2.3",
-  "completedAt": "2026-10-08T13:17:03.615Z",
+  "version": "2.4.3",
+  "scenarioVersion": "2.3",
+  "completedAt": "2026-10-08T21:22:48.427Z",
   "status": "passed",
   "pageErrors": [],
   "checks": [

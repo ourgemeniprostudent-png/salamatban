@@ -12,3 +12,5 @@ The project owner requires every changed product delivery to use the established
 - For advice-only responses no rebuilt ZIP is needed; record agreed proposals when producing the next product delivery.
 
 - UI focus must not add outer rings or double borders. Use a subtle change to the existing border/background; keep keyboard focus identifiable through surface and text treatment. Keep the member experience visually cohesive after onboarding as well as before it.
+
+- Keep the established blue brand across motion, icons and controls; do not introduce a green theme. Use full-width banners and responsive workspace grids. Group related intake questions with a consistent bottom action bar. Staff count cards must open/filter an actual queue, and each case/request must make its next action and resulting handoff clear.

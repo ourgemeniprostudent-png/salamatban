@@ -7,7 +7,7 @@ root=Path(__file__).resolve().parent.parent;base='https://ourgemeniprostudent-pn
 commit=subprocess.check_output(['git','ls-remote','origin','refs/heads/gh-pages'],cwd=root).decode().split()[0]
 prefix=f'Salamatban-Complete-Delivery-v{VERSION}/'
 with zipfile.ZipFile(root/f'deliverables/Salamatban-Complete-Delivery-v{VERSION}.zip') as z:
- selected=['index.html','documents/Salamatban-Complete-Guide-fa.html','documents/Salamatban-Complete-Guide-fa.pdf']+[n[len(prefix):] for n in z.namelist() if n.startswith(prefix+'presentation/assets/') and n.endswith(('.png','.svg')) or n.startswith(prefix+'presentation/assets/user-flow/') and n.endswith(('.html','.pdf','.json','.zip'))]
+ selected=['index.html','documents/Salamatban-Complete-Guide-fa.html','documents/Salamatban-Complete-Guide-fa.pdf']+[n[len(prefix):] for n in z.namelist() if n.startswith(prefix+'presentation/assets/') and n.endswith(('.png','.svg')) or n.startswith((prefix+'presentation/assets/user-flow/',prefix+'presentation/assets/workflow-v2.2/')) and n.endswith(('.html','.pdf','.json','.zip'))]
  expected={n:hashlib.sha256(z.read(prefix+n)).hexdigest() for n in selected}
 def check(name):
  try:

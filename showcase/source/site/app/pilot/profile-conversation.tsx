@@ -1,10 +1,23 @@
 'use client';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
-export function ProfileConversation({fields,validationAttempt}:{validationAttempt:number;fields:{id:string;title:string;content:ReactNode;valid:boolean}[]}){
-  const [state,setState]=useState({index:0,attempt:validationAttempt}),[error,setError]=useState(false);
-  if(state.attempt!==validationAttempt)setState({index:Math.max(0,fields.findIndex(f=>!f.valid)),attempt:validationAttempt});
-  const index=state.index;const setIndex=(index:number)=>setState({index,attempt:validationAttempt});
-  const ref=useRef<HTMLDivElement>(null),field=fields[index];
-  useEffect(()=>{ref.current?.focus({preventScroll:true});},[index]);
-  return <div className="j-profile" ref={ref} tabIndex={-1}><div className="j-profile-dots" aria-label={`مشخصات، سؤال ${index+1} از ${fields.length}`}>{fields.map((f,i)=><button key={f.id} aria-label={f.title} aria-current={i===index?'step':undefined} onClick={()=>{setError(false);setIndex(i);}} className={i===index?'current':f.valid?'complete':''}>{(i+1).toLocaleString('fa-IR')}</button>)}</div><div key={field.id} className="j-scene"><h3>{field.title}</h3>{field.content}{error&&<p className="ux-error" role="alert">این بخش را کامل کنید تا ادامه دهیم.</p>}</div><div className="j-controls">{index>0?<button className="p-secondary" onClick={()=>{setError(false);setIndex(index-1);}}>مشخصهٔ قبلی</button>:<span/>}{index<fields.length-1?<button className="p-primary" onClick={()=>{if(!field.valid){setError(true);return;}setError(false);setIndex(index+1);}}>مشخصهٔ بعدی</button>:<p className="j-note">مشخصات آماده است؛ با دکمهٔ زیر به مرحلهٔ بعد بروید.</p>}</div></div>;
+import { useEffect, useRef, type ReactNode } from 'react';
+import './grouped-intake.css';
+
+export function ProfileConversation({ fields, validationAttempt }: { validationAttempt: number; fields: { id: string; title: string; content: ReactNode; valid: boolean }[] }) {
+  const region = useRef<HTMLDivElement>(null);
+  const previousAttempt = useRef(validationAttempt);
+  useEffect(() => {
+    if (previousAttempt.current === validationAttempt) return;
+    previousAttempt.current = validationAttempt;
+    const missing = fields.find(field => !field.valid);
+    if (missing) {
+      const field = region.current?.querySelector<HTMLElement>(`[data-profile-field="${missing.id}"]`);
+      field?.querySelector<HTMLInputElement>('input,textarea,button')?.focus({ preventScroll: true });
+      field?.scrollIntoView({ block: 'center', behavior: 'auto' });
+    }
+  }, [validationAttempt, fields]);
+
+  return <div className="j-profile gi-profile" ref={region}>
+    <header className="gi-section-heading"><div><span className="gi-kicker">اطلاعات پایهٔ شما</span><h3>یک‌بار کامل کنید، با هم ادامه می‌دهیم.</h3><p>مشخصات را در همین صفحه وارد کنید؛ سپس به بررسی وضعیت سلامت می‌رویم.</p></div><span className="gi-completion" aria-live="polite">{fields.filter(field => field.valid).length.toLocaleString('fa-IR')} از {fields.length.toLocaleString('fa-IR')} بخش کامل</span></header>
+    <div className="gi-profile-grid">{fields.map(field => <section key={field.id} className={`gi-profile-field gi-profile-${field.id}`} data-profile-field={field.id} aria-labelledby={`profile-heading-${field.id}`}><h4 id={`profile-heading-${field.id}`}>{field.title}</h4>{field.content}</section>)}</div>
+  </div>;
 }

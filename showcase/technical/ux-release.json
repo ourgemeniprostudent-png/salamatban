@@ -1,7 +1,7 @@
 {
-  "version": "2.1",
-  "date": "2026-10-08T10:22:04.339630+00:00",
-  "workflow": "Synthetic API and Chromium regression plus living graphics, explicit linked consent and unified program actions",
+  "version": "2.2",
+  "date": "2026-10-08T11:07:02.918877+00:00",
+  "workflow": "Synthetic API and Chromium regression; grouped intake, blue full-width scene, fixed form actions, actionable staff queues and case-switch failure safety",
   "checks": {
     "api": {
       "individualPassed": 41,
@@ -51,12 +51,12 @@
     "localFinalBrowser": {
       "scope": "local final build",
       "url": "http://127.0.0.1:4201/",
-      "verifiedAt": "2026-10-08T10:20:48.595Z",
+      "verifiedAt": "2026-10-08T11:02:31.957Z",
       "status": "passed",
       "checks": [
         "public page HTTP 200",
         "synthetic OTP login",
-        "v2.1 marker",
+        "v2.2 marker",
         "city selection",
         "draft save",
         "reload preserves stored draft"
@@ -70,10 +70,10 @@
       "extractedSourceRebuild": "passed"
     },
     "showcase": {
-      "packageVersion": "2.1",
-      "appVersion": "2.1",
-      "baseUrl": "http://127.0.0.1:4202/",
-      "checkedAt": "2026-10-08T10:23:22.438Z",
+      "packageVersion": "2.2",
+      "appVersion": "2.2",
+      "baseUrl": "http://127.0.0.1:4203/",
+      "checkedAt": "2026-10-08T11:06:15.741Z",
       "viewports": [
         {
           "width": 320,
@@ -98,9 +98,10 @@
       ],
       "checks": [
         "four role walkthroughs",
+        "current role architecture is directly reachable from product experience",
         "six recovered diagrams load, zoom, close and expose PNG/SVG files",
         "current/target filters",
-        "eight product screenshots and viewer",
+        "nine product screenshots and viewer",
         "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
         "feedback works when browser storage is blocked",
         "keyboard skip link and concise guide"
@@ -112,21 +113,37 @@
       "failed": 0,
       "evidence": "visual-tests.json"
     },
-    "totalIndividualPassed": 99
+    "totalIndividualPassed": 110,
+    "groupedIntake": {
+      "individualPassed": 3,
+      "failed": 0,
+      "evidence": "grouped-intake-tests.json"
+    },
+    "staffWorkspaces": {
+      "individualPassed": 8,
+      "failed": 0,
+      "evidence": "workspace-tests.json"
+    },
+    "roleArchitecture": {
+      "status": "passed",
+      "roleViewportCombinations": 25,
+      "evidence": "../deliverables/showcase/workflow-v2.2/validation.json"
+    }
   },
   "features": [
-    "Focused welcome without sidebar or empty dashboard metrics",
-    "Six visit reasons, multiple concerns with one primary, persisted contextual questions",
-    "User-selected goals including clinician-assisted choice; no inferred diagnosis or health score",
-    "Profile conversation and preserved mandatory safety/history questions",
-    "Calm state-driven home; program navigation appears after actual publication",
-    "Member-initiated followup keeps prior plan, rechecks safety and permits same-record resubmission without another payment",
-    "Complete target flowchart viewer included in showcase and archive with target labeling",
-    "Canvas/SVG luminous sculpture responds to pointer and Start, supports pause/reduced motion/offscreen suspension",
-    "Compact explicit consent with complete scrollable policy dialog and independent optional coordination consent",
-    "No outer focus rings: subtle existing border and keyboard text/surface treatment",
-    "Unified program timeline with member action controls; team actions remain team-owned",
-    "Cohesive record home before and after clinician publication; eight current product screenshots"
+    "Established blue palette across canvas/SVG graphics, icons, controls, status surfaces and showcase",
+    "Full-width arrival banner and responsive member workspace; grouped desktop grids and narrow-screen layouts",
+    "All profile fields together; 15 clinical questions in 3 groups; contextual questions grouped with preserved legacy cursor",
+    "Fixed action bar with stable placement through validation; focused mobile input scrolls clear of bar",
+    "Doctor actionable metric filters, list/detail, information/decision/tracking panes, explicit request-information and publication controls",
+    "Coordinator queue and stage-specific contact/confirmation/completion controls; member receives persisted team result",
+    "Admin metrics open member, support and unresolved-payment queues; resolved response editing preserves resolution",
+    "Failed case switch clears selection so new record data cannot be acted on with an older selected member ID",
+    "Five current role architecture diagrams with interactive viewer, role tabs, downloads and handoff boundaries",
+    "Focused welcome, six visit reasons, user-selected goals, compact linked consent and progressive member panel preserved",
+    "Calm waiting states, unified member program actions and team-owned completion preserved",
+    "Motion supports pause/reduced motion and offscreen suspension; no outer focus ring",
+    "Nine current synthetic screenshots, concise current guide, complete source/build archive and per-file manifest"
   ],
   "limitations": [
     "Real Android/iPhone camera and GPS not tested",
@@ -138,7 +155,7 @@
     "Startup improvement verified with controlled delays, not measured on user network",
     "Safari and Firefox not tested; no comprehensive security/load audit or clinical validation",
     "Goals are reason-based conversation prompts, not validated disease-specific care targets",
-    "Target diagram includes future integrations and operational decisions; implemented scope is documented in JOURNEY-v2.0-fa.md"
+    "Comprehensive target user-flow includes future integrations; current implementation and role responsibilities are documented in WORKFLOW-ARCHITECTURE-v2.2-fa.md"
   ],
   "publicBrowser": {
     "status": "blocked",
@@ -146,31 +163,31 @@
   },
   "publication": {
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-    "pagesCommit": "30fe36c4c160daf4b4c8c1e30534d59f85024e7f",
+    "pagesCommit": "305a58de1a1f69de0ef17a2c29a2057af7e64348",
     "success": true,
     "assets": [
       {
         "file": "index.html",
         "status": 200,
-        "sha256": "aeab1d3fc8b7e8172225c49c82f72bdd20a69900820172755117b88c281d6d6b",
+        "sha256": "e04989acdc5f0fb1876ebf7869220ffd45d60175525c1d997fe28cc33f18db36",
         "matches": true
       },
       {
         "file": "app.js",
         "status": 200,
-        "sha256": "6a1fa900e7f0f69665c7c4536f52da85444504ee3115133db5f836538d3fa0c7",
+        "sha256": "5e4fca513ba01e3cd1d3bddc3226c5bef370543c82f5298fb8240365acfffdca",
         "matches": true
       },
       {
         "file": "app.css",
         "status": 200,
-        "sha256": "0dd6398272c06706b3d213dead98ae1e6277a21a336005eb09a141e8bfd8dfd8",
+        "sha256": "bf3c78bb6ecf22921f3a7e89a70d068ecd8fcc2f65c80b42145f53b8d2582d7f",
         "matches": true
       },
       {
         "file": "release.json",
         "status": 200,
-        "sha256": "1f0c5a52d4ed83295be4c9106060193c9521d22805effcdf1a8e1249e60e71a4",
+        "sha256": "d6b48e3eeee0fd2c31066464e2c3d27914716ea06b7557f7e37a6d7d841892d8",
         "matches": true
       },
       {
@@ -186,7 +203,7 @@
         "matches": true
       }
     ],
-    "verifiedAt": "2026-10-08T10:22:05Z"
+    "verifiedAt": "2026-10-08T11:05:38Z"
   },
   "baseline": {
     "version": "1.7",
@@ -195,6 +212,6 @@
     "scope": "78 individual API/calendar/UX/roles/edge/presentation/startup checks. These are historical baseline results, not rerun totals for 1.9."
   },
   "artifacts": {
-    "deploymentSha256": "bc1279df30e3d1f75feac947565f48e5477b7c2cfffc3ecea645c72a9d26536c"
+    "deploymentSha256": "96c8ce413fbb68de3296a63c3a960f91b48af1ab92e2fe911484c41876221a41"
   }
 }

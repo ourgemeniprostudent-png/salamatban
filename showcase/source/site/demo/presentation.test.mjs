@@ -1,3 +1,4 @@
+import { navigateProduct, completeDiscovery, profileField } from './journey-test-helpers.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -81,11 +82,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', { name: 'خروج', exact: true }).click();
     await page.getByRole('heading', { name: 'ورود به پرونده', exact: true }).waitFor();
   }
-  async function navigate(name) {
-    const menu = page.getByRole('button', { name: 'باز کردن منو', exact: true });
-    if (await menu.isVisible() && await menu.getAttribute('aria-expanded') === 'false') await menu.click();
-    await page.getByRole('navigation', { name: 'بخش‌های پرونده', exact: true }).getByRole('button').filter({ has: page.getByText(name, { exact: true }) }).click();
-  }
+  async function navigate(name) {return navigateProduct(page,name);}
   async function screenshot(name) {
     await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
     await page.screenshot({ path: path.join(screenshots, name), fullPage: true });
@@ -116,21 +113,22 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await assertLayout();
     await screenshot('login-1440.png');
     await login('09000000001');
-    await page.locator('.p-page-title').getByText('پرونده شخصی', { exact: true }).waitFor();
+    await page.getByRole('button',{name:'شروع آشنایی',exact:true}).waitFor();assert.equal(await page.locator('.p-sidebar').count(),0);
     await driver();
   });
   await check('Persian birth-date picker supports mobile selection, invalid input and ISO persistence', async () => {
     await navigate('تکمیل پرونده');
     await page.getByRole('checkbox', { name: 'متن را خواندم و با تشکیل پرونده و بررسی پزشک موافقم.', exact: true }).check();
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
+    await completeDiscovery(page);await profileField(page,'birthDate');
     const birth = page.getByLabel('تاریخ تولد (شمسی)', { exact: true });
     await birth.waitFor();
-    await page.getByLabel('نام', { exact: true }).fill('آزمون');
+    await profileField(page,'name');await page.getByLabel('نام', { exact: true }).fill('آزمون');
     await page.getByLabel('نام خانوادگی', { exact: true }).fill('تقویم');
-    await page.getByLabel('شهر', { exact: true }).fill('شهر ساختگی');
-    await selectValue(page.getByRole('combobox', { name: /^بیمه/ }), 'none');
-    await page.getByLabel('هدف شما از همراهی', { exact: true }).fill('بررسی تاریخ شمسی با اطلاعات ساختگی');
-    await birth.fill('۱۳۷۰/۰۱/۰۱');
+    await profileField(page,'city');await page.getByLabel('شهر', { exact: true }).fill('شهر ساختگی');
+    await profileField(page,'insurance');await selectValue(page.getByRole('combobox', { name: /^بیمه/ }), 'none');
+    await profileField(page,'goal');await page.getByLabel('هدف شما از همراهی', { exact: true }).fill('بررسی تاریخ شمسی با اطلاعات ساختگی');
+    await profileField(page,'birthDate');await birth.fill('۱۳۷۰/۰۱/۰۱');
     await birth.fill('۱۴۰۰/۱۲/۳۰');
     await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
     await page.getByText('یک تاریخ تولد معتبر وارد کنید.', { exact: false }).waitFor();
@@ -193,7 +191,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', { name: 'خروج', exact: true }).waitFor();
     await navigate('تکمیل پرونده');
     await page.getByRole('button', { name: 'قبلی', exact: true }).click();
-    await birth.waitFor();
+    await profileField(page,'birthDate');await birth.waitFor();
     assert.equal(await birth.inputValue(), '۱۳۷۰/۰۱/۰۱');
     await page.setViewportSize({ width: 1440, height: 1000 });
     await driver();
@@ -301,7 +299,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
   });
   await check('member sees plan, records progress and requests coordination', async () => {
     await logout(); await login('09000000001');
-    await page.getByRole('button', { name: 'مشاهده برنامه سلامت', exact: true }).click();
+    await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).click();
     await page.getByRole('heading', { name: 'برنامه پیگیری شما' }).waitFor();
     await page.getByRole('heading', { name: 'نقشه مسیر پیگیری', exact: true }).waitFor();
     assert.equal(await page.locator('.mv-timeline-action h3').innerText(), 'اقدام ساختگی برای نمایش');
@@ -352,30 +350,22 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.setViewportSize({ width: 320, height: 740 });
     await assertLayout();
     await navigate('خانه سلامت');
-    await page.getByRole('button', { name: 'مشاهده برنامه سلامت', exact: true }).waitFor();
+    await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).waitFor();
     await assertLayout();
-    await page.getByRole('button', { name: 'باز کردن منو', exact: true }).click();
-    assert.equal(await page.locator('.p-menu-button').getAttribute('aria-expanded'), 'true');
-    assert.equal(await page.locator('.p-workspace').getAttribute('inert'), '');
-    assert.equal(await page.evaluate(() => !!document.activeElement?.closest('.p-sidebar')), true);
-    await page.keyboard.press('Escape');
-    assert.equal(await page.locator('.p-menu-button').getAttribute('aria-expanded'), 'false');
-    assert.equal(await page.getByRole('button', { name: 'باز کردن منو', exact: true }).evaluate(element => element === document.activeElement), true);
-    await page.getByRole('button', { name: 'باز کردن منو', exact: true }).click();
-    await page.getByRole('navigation', { name: 'بخش‌های پرونده', exact: true }).getByRole('button', { name: 'تصویر سلامت', exact: true }).click();
+    assert.equal(await page.locator('.p-sidebar').count(),0);
+    await navigate('تصویر سلامت');
     await page.getByRole('heading', { name: 'تصویر سلامت', exact: true }).waitFor();
-    assert.equal(await page.getByRole('button', { name: 'باز کردن منو', exact: true }).getAttribute('aria-expanded'), 'false');
     await assertLayout();
     await screenshot('health-320.png');
     await navigate('خانه سلامت');
-    await page.getByRole('button', { name: 'مشاهده برنامه سلامت', exact: true }).waitFor();
+    await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).waitFor();
     await screenshot('home-320.png');
     for (const width of [360, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
       await assertLayout();
       for (const view of ['مدارک پزشکی', 'برنامه پیگیری', 'حساب و حریم خصوصی', 'خانه سلامت']) {
         await navigate(view);
-        await page.locator('.mv-view, .mv-plan-timeline').first().waitFor();
+        await page.locator('.mv-view, .mv-plan-timeline, .j-home').first().waitFor();
         await assertLayout();
       }
       await screenshot(`home-${width}.png`);

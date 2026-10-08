@@ -1,0 +1,27 @@
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { Icon } from './brand';
+import { emptyJourney, visitReasons, type Journey } from '@/lib/pilot/journey';
+export function JourneyDiscovery({value,goal,busy,onChange,onGoal,onFinish}:{value?:Journey;goal:string;busy:boolean;onChange:(value:Journey)=>void;onGoal:(goal:string)=>void;onFinish:()=>void}){
+  const journey=value||emptyJourney(), region=useRef<HTMLDivElement>(null);
+  const [error,setError]=useState('');
+  const chosen=visitReasons.filter(r=>journey.reasons.includes(r.id)).sort((a,b)=>a.id===journey.primary?-1:b.id===journey.primary?1:0);
+  const questions=chosen.flatMap(r=>r.questions.map(q=>({id:q[0],label:q[1],reason:r.title})));
+  const last=questions.length+1,cursor=Math.min(journey.cursor,last);
+  const current=questions[cursor-1];
+  const primary=visitReasons.find(r=>r.id===journey.primary)||chosen[0];
+  function move(next:number){setError('');onChange({...journey,cursor:next});}
+  useEffect(()=>{region.current?.focus({preventScroll:true});region.current?.scrollIntoView({block:'start',behavior:'auto'});},[cursor]);
+  return <section className="p-card j-discovery" aria-label="آشنایی با نیاز شما">
+    <div className="j-conversation-heading"><span className="j-guide-mark"><Icon name="heart"/></span><span>از خودِ شما شروع می‌کنیم<small>پاسخ درست یا غلطی وجود ندارد.</small></span></div>
+    <div className="j-progress"><span style={{width:`${(cursor+1)/(last+1)*100}%`}}/></div>
+    <div key={`${cursor}-${current?.id||''}`} className="j-scene" tabIndex={-1} ref={region}>
+    {cursor===0?<><h1>برای چه چیزی کمک می‌خواهید؟</h1><p className="p-muted">می‌توانید چند مورد را انتخاب کنید؛ سپس بگویید کدام برایتان مهم‌تر است.</p><div className="j-reasons">{visitReasons.map(reason=>{const selected=journey.reasons.includes(reason.id);return <button type="button" key={reason.id} className={`j-reason ${selected?'selected':''}`} aria-pressed={selected} onClick={()=>{setError('');const reasons=selected?journey.reasons.filter(r=>r!==reason.id):[...journey.reasons,reason.id];onChange({...journey,reasons,primary:reasons.includes(journey.primary as typeof reason.id)?journey.primary:reasons[0]||'',context:journey.context});}}><span className="j-reason-icon"><Icon name={reason.icon}/></span><span><strong>{reason.title}</strong><small>{reason.description}</small></span><span className="j-selection" aria-hidden="true">{selected?'✓':'+'}</span></button>;})}</div>{chosen.length>1&&<fieldset className="j-primary"><legend>اول از کدام شروع کنیم؟</legend>{chosen.map(r=><label className="p-choice" key={r.id}><input type="radio" name="primary-reason" checked={journey.primary===r.id} onChange={()=>onChange({...journey,primary:r.id})}/>{r.title}</label>)}</fieldset>}</>:cursor<=questions.length?<><span className="p-eyebrow">{current.reason}</span><h1>{current.label}</h1><p className="p-muted">به زبان خودتان بنویسید. اگر مطمئن نیستید، این سؤال را رد کنید و با پزشک مطرح کنید.</p><textarea aria-label={current.label} value={journey.context[current.id]||''} maxLength={1000} rows={4} placeholder="هر چیزی که فکر می‌کنید کمک می‌کند…" onChange={e=>onChange({...journey,context:{...journey.context,[current.id]:e.target.value}})}/></>:<><span className="p-eyebrow">چیزی که برای شما ارزش دارد</span><h1>دوست دارید این همراهی چه تغییری ایجاد کند؟</h1><p className="p-muted">این‌ها پیشنهادهایی برای گفت‌وگو هستند. هدف شما را پزشک می‌بیند؛ برنامهٔ مراقبت پس از بررسی او مشخص می‌شود.</p><div className="j-goals">{[...(primary?.goals||[]),'برای انتخاب هدف از پزشک کمک می‌خواهم'].map(item=><button key={item} aria-pressed={goal===item} className={`j-goal ${goal===item?'selected':''}`} onClick={()=>{setError('');onGoal(item);}}><Icon name={goal===item?'check':'plus'} size={19}/>{item}</button>)}</div><label className="p-field"><span>یا به زبان خودتان بنویسید</span><textarea aria-label="هدف به زبان خودتان" maxLength={400} value={goal} onChange={e=>{setError('');onGoal(e.target.value);}}/></label><p className="j-note">قرار نیست همین امروز همه‌چیز را تغییر دهید. از یک خواستهٔ روشن شروع می‌کنیم.</p></>}
+    </div>{error&&<p className="ux-error" role="alert">{error}</p>}
+    <div className="j-controls">{cursor>0?<button className="p-secondary" disabled={busy} onClick={()=>move(cursor-1)}>قبلی</button>:<span/>}<button className="p-primary" disabled={busy} onClick={()=>{if(cursor===0&&!chosen.length){setError('یک مورد انتخاب کنید؛ «هنوز دقیق نمی‌دانم» هم یک انتخاب است.');return;}if(cursor===last){if(!goal.trim()){setError('یک پیشنهاد انتخاب کنید یا خواسته‌تان را بنویسید.');return;}onFinish();}else move(cursor+1);}}>{cursor===last?'ادامه به مشخصات من':cursor>0&&!journey.context[current?.id]?'ادامه بدون پاسخ':'ادامه ←'}</button></div>
+  </section>;
+}
+export function JourneySummary({value,goal}:{value?:Journey;goal?:string}){
+  if(!value?.reasons.length)return null;
+  return <div className="j-summary"><h3>آنچه برای شما مهم است</h3><p>{visitReasons.filter(r=>value.reasons.includes(r.id)).map(r=>r.title+(r.id===value.primary?' (اولویت اول)':'')).join(' · ')}</p>{goal&&<p><strong>خواستهٔ شما: </strong>{goal}</p>}<details><summary>مشاهده توضیحات دلیل مراجعه</summary>{visitReasons.filter(r=>value.reasons.includes(r.id)).flatMap(r=>r.questions.map(q=>({key:q[0],label:q[1]}))).map(({key,label})=><div key={key}><b>{label}</b><p>{value.context[key]||'فعلاً پاسخی ثبت نشده؛ قابل گفت‌وگو با پزشک'}</p></div>)}</details><small>این توضیحات، گزارش و ترجیح کاربر است؛ تشخیص پزشکی نیست.</small></div>;
+}

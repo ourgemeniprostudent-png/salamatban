@@ -1,3 +1,4 @@
+import { cleanJourney } from './journey';
 import { PilotError, sampleAccounts, phoneNumber, text, asciiDigits, policyText, policyVersion, clinicalConsentText, coordinationConsentText, validateProfile, validateActions, detectedType, canReadClinical, type Role, type Action } from './domain';
 import { cleanLocation } from './location';
 import { cities } from '../data/cities';
@@ -126,6 +127,7 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       role('member');const r=await record(user.id);
       if(!['draft','needs_information'].includes(r.status))throw new PilotError('RECORD_LOCKED',409);
       const profile=body.profile&&typeof body.profile==='object'?Object.fromEntries(['firstName','lastName','birthDate','city','cityId','provinceId','goal','insurance'].map(k=>[k,text(body.profile[k],k==='goal'?400:100)])):parse(r.profile);
+      if(body.profile){const journey=cleanJourney(body.profile.journey);if(journey)profile.journey=journey;const previous=parse(r.profile);if(previous.followup)profile.followup=previous.followup;}
       if(profile.cityId){const city=cities.find(c=>c.id===profile.cityId&&c.name===profile.city&&c.provinceId===profile.provinceId);if(!city){profile.cityId='';profile.provinceId='';}}
       const answers=cleanAnswers(body.answers??parse(r.answers));
       const previousAnswers=parse(r.answers)||{};
@@ -139,6 +141,18 @@ export async function handlePilot(request:Request,ctx:Context):Promise<Response>
       if(!result.meta.changes)throw new PilotError('VERSION_CONFLICT',409);
       if(urgent&&!urgentResolvedAt)await run("INSERT INTO pilot_tasks(id,user_id,kind,status,title,created_at,updated_at) SELECT ?,?,'urgent','open','تماس فوری توسط پزشک',?,? WHERE NOT EXISTS(SELECT 1 FROM pilot_tasks WHERE user_id=? AND kind='urgent' AND status='open')",id(),user.id,now(),now(),user.id);
       await audit(user.id,user.id,'draft_saved');return json({version:r.version+1,urgent:!!urgent,urgentResolvedAt});
+    }
+    if(path==='record/followup'&&request.method==='POST') {
+      role('member');const r=await record(user.id);
+      if(r.status!=='published')throw new PilotError('RECORD_LOCKED',409);
+      const note=text(body.note,2000),kind=text(body.kind,20);
+      if(!['question','barrier','change','goal'].includes(kind)||note.length<5)throw new PilotError('INVALID_FOLLOWUP',422);
+      const profile={...parse(r.profile),followup:{kind,note,requestedAt:now()}},answers=parse(r.answers);
+      // Recheck present symptoms. Clearing input never closes a persisted unresolved alert.
+      for(const q of assessmentDefinition.questions.filter(q=>q.redFlag))delete answers[q.id];
+      const result=await run("UPDATE pilot_records SET status='needs_information',profile=?,answers=?,step=2,information_request=?,version=version+1,updated_at=? WHERE user_id=? AND version=? AND status='published'",JSON.stringify(profile),JSON.stringify(answers),'بازبینی به درخواست شما: '+note,now(),user.id,Number(body.version));
+      if(!result.meta.changes)throw new PilotError('VERSION_CONFLICT',409);
+      await audit(user.id,user.id,'member_followup_requested');return json({ok:true});
     }
     if(path==='record/submit'&&request.method==='POST') {
       role('member');const r=await record(user.id);validateProfile(parse(r.profile));cleanAnswers(parse(r.answers),true);

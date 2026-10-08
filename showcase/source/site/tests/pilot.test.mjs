@@ -128,6 +128,23 @@ await test('Duplicate invitation and unavailable support record return actionabl
 await test('Oversized JSON is rejected before parsing',async()=>assert.equal((await req('feedback','POST',{kind:'issue',message:'x'.repeat(60000)},m)).status,413));
 await test('Invite capacity is enforced under concurrent requests',async()=>{const count=(await db.prepare("SELECT count(*) n FROM pilot_users WHERE role='member'").first()).n;for(let i=count;i<49;i++)await db.prepare("INSERT INTO pilot_users VALUES (?,?,?,'member',1,'demo-clinician-11',?)").bind('capacity-'+i,'0919000'+String(i).padStart(4,'0'),'Synthetic capacity '+i,Date.now()).run();const rs=await Promise.all(['09199999001','09199999002'].map(phone=>req('staff/invite','POST',{name:'Synthetic capacity',phone,clinicianId:doctor.id},admin)));assert.equal(rs.filter(x=>x.status===200).length,1);assert.equal((await db.prepare("SELECT count(*) n FROM pilot_users WHERE role='member'").first()).n,50);});
 await test('Suspension revokes access and reassigning changes clinician access',async()=>{assert.equal((await req('staff/member','POST',{id:m2.id,active:false,clinicianId:'other-doctor'},admin)).status,200);assert.equal((await req('record','GET',null,m2)).status,401);assert.equal((await req('record?user='+m2.id,'GET',null,doctor)).status,404);});
+await test('Member followup preserves the plan, enforces ownership/version and rechecks safety without another payment',async()=>{
+ const before=(await req('record','GET',null,m)).data;
+ assert.equal((await req('record/followup','POST',{version:before.record.version,kind:'question',note:'سؤال ساختگی درباره برنامه'},coord)).status,403);
+ assert.equal((await req('record/followup','POST',{version:before.record.version-1,kind:'question',note:'سؤال ساختگی درباره برنامه'},m)).status,409);
+ assert.equal((await req('record/followup','POST',{version:before.record.version,kind:'invalid',note:'سؤال ساختگی درباره برنامه'},m)).status,422);
+ assert.equal((await req('record/followup','POST',{version:before.record.version,kind:'barrier',note:'برای انجام اقدام برنامه به راهنمایی نیاز دارم'},m)).status,200);
+ const next=(await req('record','GET',null,m)).data;
+ assert.equal(next.record.status,'needs_information');assert.equal(next.record.step,2);assert.equal(next.plans[0].id,before.plans[0].id);assert.equal(next.orders.length,before.orders.length);assert.equal(next.record.answers.urgent_chest_pain,undefined);
+ assert.equal((await req('record/submit','POST',{version:next.record.version},m)).status,422);
+ assert.equal((await req('record','PUT',{version:next.record.version,consent:true,coordination:true,profile:{...next.record.profile,followup:{note:'tampered'},journey:{version:2,reasons:['wellbeing','invalid'],primary:'wellbeing',context:{wellbeing_detail:'گزارش ساختگی',diagnosis:'forged'},ready:true,cursor:999,approvedByDoctor:true}},answers:before.record.answers,step:5},m)).status,200);
+ const saved=(await req('record','GET',null,m)).data;
+ assert.equal(saved.record.profile.followup.note,'برای انجام اقدام برنامه به راهنمایی نیاز دارم');assert.deepEqual(saved.record.profile.journey.reasons,['wellbeing']);assert.equal(saved.record.profile.journey.approvedByDoctor,undefined);assert.equal(saved.record.profile.journey.context.diagnosis,undefined);assert.equal(saved.record.profile.journey.cursor,14);
+ assert.equal((await req('record/submit','POST',{version:saved.record.version},m)).status,200);
+ const submitted=(await req('record','GET',null,m)).data;
+ const published=await req('staff/review','POST',{userId:m.id,version:submitted.record.version,action:'publish',summary:'برنامه بازبینی‌شده ساختگی برای آزمون حفظ مسیر پیگیری.',actions:[{title:'ادامه اقدام آزمایشی',reason:'آزمون بازبینی عضو',due:new Date(Date.now()+86400000).toISOString().slice(0,10),owner:'member'}]},doctor);
+ assert.equal(published.status,200);pid=(await req('record','GET',null,m)).data.plans[0].id;
+});
 await test('Reopening a plan preserves the published version',async()=>{const d=(await req('record','GET',null,m)).data;assert.equal((await req('staff/review','POST',{userId:m.id,version:d.record.version,action:'reopen',note:'بازبینی ساختگی برای آزمون حفظ نسخه قبلی'},doctor)).status,200);const n=(await req('record','GET',null,m)).data;assert.equal(n.record.status,'needs_information');assert.equal(n.plans[0].id,pid);});
 await test('Real-adapter callback verifies stored amount; code 101 is idempotent',async()=>{
  const live={...c,mode:'live',ready:true,clinicalApproved:true,authSecret:'a'.repeat(40),merchant:'test-merchant',smsKey:'test',smsTemplate:'test',staffTotp:{'09000000011':'test'},consentVersion:'approved-test',consentBody:'test-approved-text',scanUrl:'https://scanner.test',scanToken:'test'};

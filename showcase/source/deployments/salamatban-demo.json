@@ -1,7 +1,7 @@
 {
   "archive": "salamatban-demo.zip",
-  "bytes": 1510168,
-  "sha256": "10c1273471df5309cc8d81c8eaa4c3a6859ba25c67a263011212c8a9382208a8",
+  "bytes": 1517934,
+  "sha256": "aa4e4d954afa58c016b62fc0fb502e92ade24a6396c9a04720cb39499b3db271",
   "targetDirectory": "/domains/temporarydomain.ir/public_html/salamatban-demo/",
   "expectedUrl": "https://temporarydomain.ir/salamatban-demo/",
   "identityVersion": "salamatban-identity-v1",

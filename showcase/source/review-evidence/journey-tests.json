@@ -1,0 +1,14 @@
+{
+  "version": "2.0",
+  "completedAt": "2026-10-08T09:49:06.022Z",
+  "status": "passed",
+  "pageErrors": [],
+  "checks": [
+    "first arrival without sidebar or empty metrics",
+    "six reasons each with full contextual path and goal",
+    "multi-reason primary and resumed question",
+    "bounded server-owned journey schema",
+    "reduced motion respected",
+    "320/390/768/1440 responsive welcome"
+  ]
+}

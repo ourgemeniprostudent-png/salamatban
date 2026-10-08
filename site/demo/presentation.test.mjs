@@ -375,7 +375,8 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
       await assertLayout();
       for (const view of ['مدارک پزشکی', 'برنامه پیگیری', 'حساب و حریم خصوصی', 'خانه سلامت']) {
         await navigate(view);
-        await page.locator('.mv-view, .mv-plan-timeline, .j-home').first().waitFor();
+      // A published member now lands on the illustrated care overview.
+      await page.locator('.mv-view, .mv-plan-timeline, .j-home, .cv-overview').first().waitFor();
         await assertLayout();
       }
       await screenshot(`home-${width}.png`);

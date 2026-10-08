@@ -1,13 +1,14 @@
 {
-  "version": "2.4",
-  "date": "2026-10-08T19:02:15.321483+00:00",
-  "workflow": "Two independent browser-local lanes, ten coherent fictional cases and genuine watermarked document files. Ephemeral read-only customer preview uses an independent session and leaves the current draft untouched.",
+  "version": "2.4.1",
+  "date": "2026-10-08T19:41:08.577062+00:00",
+  "workflow": "Illustrated prepayment value preview and published member overview share original blue care artwork, three-dimensional service symbols and functional programme/document/coordination cards. Progress comes from each record\u2019s action history, not invented health scores.",
   "builtAssets": {
-    "index.html": "051bbabcaa15d75458e40083acc5b2138eab105c89e8503a7bb7cbeb51a3142d",
-    "app.js": "eed0a16e4054a8863339bf0f457f5499e5bc9f43ef79eee681281ee7816d431e",
-    "app.css": "11b50c5fcbf325c48cee8638914afbe79d8bed25d7842e00c5c3648964ef6d45",
+    "index.html": "0a22fc98b0aa9a1c6c84cda1110e12ad20cf91ebfb33ea86765a66a5d6aca942",
+    "app.js": "bb7ed1e4a07a273513789928946840c077d5a2d27272a30f9dbadd8e19c888e7",
+    "app.css": "52f937eac2183f7c4d8b257c2a09b5374c8d2eb9133ce23d727f75bbe1f6e2fa",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
-    "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159"
+    "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+    "previews/value-before-payment/index.html": "c3edaf0ccadc511ee3bcdf83250c23396f990fb732df5c9221d5aef0866b7e11"
   },
   "checks": {
     "completeDemo": {
@@ -15,35 +16,24 @@
       "failed": 0,
       "evidence": "complete-demo-tests.json"
     },
-    "api": {
-      "individualPassed": 41,
-      "failed": 0,
-      "evidence": "api-tests.json"
-    },
-    "roleWorkflow": {
-      "individualPassed": 6,
-      "failed": 0,
-      "evidence": "workflow-tests.json"
-    },
     "staticPresentation": {
       "individualPassed": 12,
       "failed": 0,
-      "evidence": "ux-tests.json"
+      "evidence": "presentation-tests.json"
+    },
+    "visualInteractionReview": {
+      "completed": 12,
+      "failed": 0,
+      "evidence": "value-visual-review.json"
     },
     "typecheck": "passed",
     "lint": "passed",
     "serverBuild": "passed",
     "staticBuild": "passed",
-    "fictionalDocumentCorpus": {
-      "status": "passed",
-      "pdfs": 25,
-      "images": 7,
-      "evidence": "demo-document-review.json"
-    },
-    "totalIndividualPassed": 70,
     "publicBrowser": {
-      "passed": 5,
-      "evidence": "demo-public-browser.json"
+      "completed": 6,
+      "evidence": "demo-public-browser.json",
+      "status": "passed"
     },
     "extractedSource": {
       "status": "passed",
@@ -54,17 +44,15 @@
       "evidence": "showcase-browser.json"
     }
   },
-  "countScope": "Independent functional assertions; Node parent tests, build/type checks, corpus review and archive/publication checks are counted separately.",
   "retainedComponentEvidence": {
-    "scope": "Unchanged geographic integration, urgent guidance, motion, grouping, layout stability and provider preparation retain v2.3.2/v2.3 evidence. They were not all rerun in this release; representative actual API/workflow/static UI checks were rerun.",
-    "previousRelease": "ux-baseline-v2.3.2.json"
+    "previousRelease": "ux-baseline-v2.4.json",
+    "scope": "Unchanged API/service workflows, seeded corpus, urgent guidance and geographic snapshot retain prior evidence. They were not all rerun. Current affected browser navigation, member UI, isolation, documents and visual interactions were checked."
   },
   "demo": {
     "lanes": [
       "practice",
       "complete"
     ],
-    "fixtureVersion": "complete-demo-v1",
     "cases": 10,
     "yearHistoryCases": 3,
     "documents": 32,
@@ -72,12 +60,12 @@
     "asOf": "2026-10-08"
   },
   "limits": [
-    "Fictional case calendar is fixed at 2026-10-08; completion percentages count actions, not health improvement.",
-    "Data is local to each browser. Payment, OTP, clinicians, specimen documents and coordination institutions are synthetic.",
-    "Customer preview is read-only and ephemeral; complete demo permits normal role workflow mutations in its separate local store.",
-    "Public facility data remains a dated real Geoapify/OpenStreetMap snapshot, with Neshan directions; live gateway is not deployed.",
-    "No real-device, exhaustive security, load-test or clinical-validation claim."
+    "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",
+    "Completion percentages measure reported actions, not health improvement.",
+    "One-year sample history does not define the duration included in each purchase.",
+    "Standalone prepayment page remains an independent design preview; no real medical assessment or purchase is performed.",
+    "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
   ],
   "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
-  "packageValidation": "Archive integrity, source rebuild and link/mirror checks are performed separately; see ux-archive-validation.json."
+  "packageValidation": "Archive integrity and source reconstruction are recorded separately."
 }

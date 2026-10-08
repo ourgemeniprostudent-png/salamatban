@@ -34,6 +34,7 @@ def render(root):
  screens.insert(0,{'id':'login','title':'ورود با یک چهرهٔ تازه','description':'تصویر آبی، حساب‌های نمونه کنار فرم و ورود با کد قابل کپی.','png':'screen-login.png'})
  screens.append({'id':'urgent','title':'راهنمای متناسب با علامت','description':'تماس با ۱۱۵، متن متناسب با پاسخ‌ها و فهرست تاریخ‌دار مراکز Geoapify با لینک نشان.','png':'screen-urgent.png'})
  assets={}
+ screens.append({'id':'value-before-payment','title':'ارزش خدمت، در یک نگاه','description':'سه خروجی تصویری و ورود واضح به تجربهٔ عضو پس از خرید.','png':'screen-value-before-payment.png'})
  screens.extend([{'id':'demo-catalog','title':'ده داستان آماده برای ارائه','description':'سه عضو با سابقه یک سال و سناریوهای کامل، در حال پیگیری و در انتظار اقدام.','png':'screen-demo-catalog.png'},{'id':'paid-preview','title':'بعد از خرید چه می‌بینم؟','description':'نمونه فقط‌خواندنی عضو، برنامه و هماهنگی‌ها بدون تغییر پرونده خودتان.','png':'screen-paid-preview.png'},{'id':'year-history','title':'سابقه همراهی در چند دوره','description':'نسخه‌های برنامه، اقدام‌ها و مدارک نمونه با تاریخ و وضعیت ثبت‌شده.','png':'screen-year-history.png'}])
  for item in screens+diagrams:assets[item['id']]={**item,'png':'presentation/assets/'+item['png'],**({'svg':'presentation/assets/'+item['svg']} if 'svg' in item else {})}
  nav=[('overview','grid','نمای کلی'),('experience','route','تجربهٔ محصول'),('gallery','image','تصاویر محیط'),('architecture','code','معماری سامانه'),('readiness','check','وضعیت اجرا'),('feedback','message','نظر شما')]

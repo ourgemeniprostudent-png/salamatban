@@ -11,7 +11,7 @@ import { JourneyDiscovery, JourneySummary } from './journey-discovery';
 import { FollowupRequest } from './followup-request';
 import { ConsentIntro } from './consent-intro';
 import { JourneyHome } from './journey-home';
-import { PaidDemoInvitation, CareHistory } from './value-demo';
+import { PaidDemoInvitation, CareHistory, PaidExperienceOverview } from './value-demo';
 import { ProfileConversation } from './profile-conversation';
 import { emptyJourney } from '@/lib/pilot/journey';
 import './ux-improvements.css';
@@ -169,7 +169,7 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
       <button className="p-mobile-close p-icon-button" aria-label="بستن منو" onClick={()=>MM(false)}><Icon name="close"/></button>
       <div className="p-sidebar-caption">{{member:'فضای شخصی شما',clinician:'پنل پزشک',coordinator:'پنل همراهی',admin:'مدیریت سامانه'}[user.role as string]}</div>
       <nav className="p-side-nav" aria-label="بخش‌های پرونده">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?'page':undefined} className={tab===key?'active':''} onClick={()=>navigate(key)}><Icon name={icon}/><span>{label}</span>{key==='appointments'&&openTasks>0&&<b>{fa(openTasks)}</b>}{tab===key&&<i/>}</button>)}</nav>
-      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۴</span></div>
+      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۴٫۱</span></div>
     </aside>}
     {mobileMenu&&<button className="p-menu-scrim" aria-label="بستن منوی کناری" onClick={()=>MM(false)}/>}
     <div className="p-workspace" inert={mobileMenu?true:undefined}>
@@ -186,7 +186,7 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
   {memberShell&&!['home','intake'].includes(tab)&&<h1 className="j-page-heading">{memberNavigation.find(n=>n[0]===tab)?.[1]}</h1>}
   {user.role==='member'?<>{!data?<p role="status">در حال بارگذاری پرونده…</p>:<>
 
-  {tab==='home'&&<><JourneyHome data={data} profile={profile} readOnly={previewOnly} urgent={urgentBlocked} urgentCurrent={urgent} onUrgent={()=>setUrgentOpen(true)} busy={busy} onRefresh={()=>void act(()=>refresh())} onNavigate={navigate} onStart={()=>{ST(0);navigate('intake');}}/>{data.plans.length>0&&<CareHistory data={data}/>}</>}
+  {tab==='home'&&<>{plan&&data.record.status==='published'&&!urgentBlocked?<PaidExperienceOverview data={data} profile={profile} onNavigate={navigate} readOnly={previewOnly}/>:<JourneyHome data={data} profile={profile} readOnly={previewOnly} urgent={urgentBlocked} urgentCurrent={urgent} onUrgent={()=>setUrgentOpen(true)} busy={busy} onRefresh={()=>void act(()=>refresh())} onNavigate={navigate} onStart={()=>{ST(0);navigate('intake');}}/>}{data.plans.length>0&&<CareHistory data={data}/>}</>}
   {tab==='health'&&<HealthOverview data={data} onNavigate={navigate} readOnly={previewOnly}/>}
   {tab==='documents'&&<DocumentsOverview data={data} fileList={fileList} onUpload={uploadDocument} busy={busy} locked={!!locked||previewOnly}/>}
   {tab==='account'&&<>{!!data.record.consent_at&&<nav className="j-quiet-links" aria-label="اطلاعات من"><button className="p-link" onClick={()=>navigate('health')}>تصویر سلامت</button><button className="p-link" onClick={()=>navigate('documents')}>مدارک پزشکی</button>{!previewOnly&&<button className="p-link" onClick={()=>navigate('intake')}>تکمیل پرونده</button>}</nav>}<AccountOverview data={data} user={user} onNavigate={navigate} readOnly={previewOnly}/></>}
@@ -215,5 +215,5 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
   </>}
   </>}
   {user?.role==='member'&&<UrgentAssistance hospitalSnapshotUrl={hospitalSnapshotUrl} hospitalLookupEndpoint={hospitalLookupEndpoint} open={urgentOpen} city={String(profile.city||'')} province={selectedCity?.province} county={selectedCity?.county} cityId={selectedCity?.id} positiveQuestions={positiveUrgentQuestions} questionId={urgentContext?.id} questionLabel={urgentContext?.label} correctionLabel={urgentContext?undefined:'پاسخ‌های علائم را مرور می‌کنم'} onReturn={()=>setUrgentOpen(false)} onCorrect={locked?undefined:()=>{setUrgentOpen(false);ST(2);T('intake');focusField(urgentContext?.id||assessmentDefinition.questions.find(q=>q.redFlag)!.id);}}/>}
-  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۴</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
+  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۴٫۱</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
 }

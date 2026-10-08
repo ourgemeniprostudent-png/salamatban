@@ -3,15 +3,15 @@
   "comparedAssets": [
     {
       "file": "app.js",
-      "sha256": "eed0a16e4054a8863339bf0f457f5499e5bc9f43ef79eee681281ee7816d431e"
+      "sha256": "bb7ed1e4a07a273513789928946840c077d5a2d27272a30f9dbadd8e19c888e7"
     },
     {
       "file": "app.css",
-      "sha256": "11b50c5fcbf325c48cee8638914afbe79d8bed25d7842e00c5c3648964ef6d45"
+      "sha256": "52f937eac2183f7c4d8b257c2a09b5374c8d2eb9133ce23d727f75bbe1f6e2fa"
     },
     {
       "file": "index.html",
-      "sha256": "051bbabcaa15d75458e40083acc5b2138eab105c89e8503a7bb7cbeb51a3142d"
+      "sha256": "0a22fc98b0aa9a1c6c84cda1110e12ad20cf91ebfb33ea86765a66a5d6aca942"
     },
     {
       "file": "data/care-facilities.geoapify.json",
@@ -19,11 +19,15 @@
     },
     {
       "file": "release.json",
-      "sha256": "cb6d840a4c124062453037cc555a4cef482282fcd9c9f43eccc4656e9f83c8c9"
+      "sha256": "f6f41b9547ba7e296accaa38468f8e9834532865ff7201bea56ef06c5b18bfa7"
     },
     {
       "file": "THIRD-PARTY-NOTICES.txt",
       "sha256": "1951c663fa76670412409f3f8617537b754fc4a3f827d80a12e35aa9d526a55b"
+    },
+    {
+      "file": "previews/value-before-payment/index.html",
+      "sha256": "c3edaf0ccadc511ee3bcdf83250c23396f990fb732df5c9221d5aef0866b7e11"
     },
     {
       "file": "demo/documents/manifest.json",
@@ -40,7 +44,7 @@
   ],
   "archiveReconstruction": "passed",
   "negativeChecks": 4,
-  "version": "2.4",
-  "checkedAt": "2026-10-08T19:06:20.925788+00:00",
-  "scope": "Actual source compilation and archive reconstruction from extracted v2.4 delivery; compared build hashes identify tested app assets independently of later evidence-only ZIP regeneration."
+  "version": "2.4.1",
+  "checkedAt": "2026-10-08T19:45:56.648657+00:00",
+  "scope": "Actual v2.4.1 app and standalone value preview built from extracted delivery source; compared asset hashes identify the tested runtime independently of later evidence-only packaging."
 }

@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'2.4',appVersion:'2.4',publicAppVersion:'2.4',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'2.4.1',appVersion:'2.4.1',publicAppVersion:'2.4.1',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -23,11 +23,11 @@ try{
  await p.locator('[data-nav="experience"]').click();await p.locator('#experience').waitFor({state:'visible'});
  for(const role of ['member','doctor','coordinator','admin']){await p.locator(`[data-role="${role}"]`).click();assert(await p.locator(`[data-role-panel="${role}"]`).isVisible());assert.equal(await p.locator('[data-role-panel]:visible').count(),1)}
  report.checks.push('four role walkthroughs');
- assert(await p.locator('#overview').innerText().then(text=>text.includes('سایت عمومی: ۲٫۴')&&text.includes('بسته و برنامهٔ داخل آن: ۲٫۴')));
- assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/?v=2.4');
+ assert(await p.locator('#overview').innerText().then(text=>text.includes('سایت عمومی: ۲٫۴٫۱')&&text.includes('بسته و برنامهٔ داخل آن: ۲٫۴٫۱')));
+ assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/?v=2.4.1');
  assert((await p.locator('#overview').innerText()).includes('فهرست ذخیره‌شده'));
  assert.equal(await p.locator('#overview a[href="technical/GEOAPIFY-INTEGRATION-fa.md"]').count(),1);
- report.checks.push('package/app/public target are v2.4 and snapshot mode is distinguished from live search');
+ report.checks.push('package/app/public target are v2.4.1 and snapshot mode is distinguished from live search');
  const mapLink=p.locator('#experience a[href="presentation/assets/workflow-v2.2/index.html"]');assert(await mapLink.isVisible());const mapResponse=await context.request.get(new URL(await mapLink.getAttribute('href'),base).href);assert.equal(mapResponse.status(),200);assert((await mapResponse.text()).includes('پزشک'));report.checks.push('current role architecture is directly reachable from product experience');
  await p.locator('[data-nav="architecture"]').click();await p.locator('#architecture').waitFor({state:'visible'});assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),6);
  await p.locator('[data-filter="target"]').click();assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),3);
@@ -42,8 +42,8 @@ try{
  }
  report.checks.push('six recovered diagrams load, zoom, close and expose PNG/SVG files','current/target filters');
  await p.locator('[data-nav="gallery"]').click();await p.locator('#gallery').waitFor({state:'visible'});
- for(const key of ['login','welcome','consent','home','program','form','payment','doctor','coordinator','admin','urgent','demo-catalog','paid-preview','year-history']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
- report.checks.push('fourteen product screenshots and viewer');
+ for(const key of ['login','welcome','consent','home','program','form','payment','doctor','coordinator','admin','urgent','demo-catalog','paid-preview','year-history','value-before-payment']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
+ report.checks.push('fifteen product screenshots and viewer');
  await p.locator('[data-nav="feedback"]').click();await p.locator('#feedback').waitFor({state:'visible'});
  await p.locator('#comment').fill('   ');await p.getByRole('button',{name:'آماده‌کردن بازخورد'}).click();assert(!(await p.locator('#feedback-result').isVisible()));
  const note='در بخش معماری، تفکیک نسخهٔ فعلی و طرح هدف روشن است. پیشنهاد: نمونهٔ بیشتری از مسیر کارشناس.';

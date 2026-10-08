@@ -19,11 +19,12 @@ await build({
   plugins: [demoBindings(root), publicFontAssets(root)],
 });
 await cp(path.join(root, 'node_modules/sql.js/dist/sql-wasm.wasm'), path.join(output, 'sql-wasm.wasm'));
-await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8'));
+await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8')+'\n\nIran city catalog — Ahmad Azizi v3.0 (1399 snapshot)\n'+await readFile(path.join(root, 'lib/data/iran-cities/LICENSE.md'), 'utf8')+'\n\nHospital map results: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright\nSearch service: https://nominatim.openstreetmap.org/\n');
 await cp(path.join(root, 'public/favicon.svg'), path.join(output, 'favicon.svg'));
 await cp(path.join(root, 'public/og.png'), path.join(output, 'og.png'));
 await cp(path.join(root, 'public/brand'), path.join(output, 'brand'), { recursive: true });
 await cp(path.join(root, 'public/fonts'), path.join(output, 'fonts'), { recursive: true });
+await cp(path.join(root, 'public/media'), path.join(output, 'media'), { recursive: true });
 const jsVersion = createHash('sha256').update(await readFile(path.join(output, 'app.js'))).digest('hex').slice(0, 12);
 const cssVersion = createHash('sha256').update(await readFile(path.join(output, 'app.css'))).digest('hex').slice(0, 12);
 const fontPreloads = ['Regular', 'SemiBold', 'Bold'].map(weight => `<link rel="preload" href="./fonts/PeydaWebFaNum-${weight}.woff2" as="font" type="font/woff2" crossorigin>`).join('');
@@ -55,7 +56,7 @@ AddType application/wasm .wasm
 <IfModule mod_headers.c>
 Header always set X-Robots-Tag "noindex, nofollow"
 Header always set X-Content-Type-Options "nosniff"
-Header always set Referrer-Policy "same-origin"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
 <FilesMatch "^(index\\.html|app\\.js|app\\.css)$">
 Header set Cache-Control "no-cache"
 </FilesMatch>
@@ -65,5 +66,5 @@ const releaseAssets = {};
 for (const name of ['index.html', 'app.js', 'app.css']) {
   releaseAssets[name] = createHash('sha256').update(await readFile(path.join(output, name))).digest('hex');
 }
-await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.2.2', assets: releaseAssets }, null, 2) + '\n');
+await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.3', assets: releaseAssets }, null, 2) + '\n');
 console.log('Static presentation built in site/dist-demo. Upload its contents to a dedicated HTTPS folder.');

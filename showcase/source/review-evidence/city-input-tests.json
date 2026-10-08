@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-08T13:17:01.979Z",
+  "scope": "Isolated React/Chromium CityInput harness; not a deployed-page test",
+  "widths": [
+    320,
+    390,
+    1440
+  ],
+  "individualPassed": 5,
+  "checks": [
+    "Arabic spelling selects the stable city ID using ArrowDown and Enter",
+    "Duplicate cities show their province and ambiguous same-province cities show county",
+    "Unknown manual entry is retained and clears the prior selected ID; manual action supports Tab",
+    "Results, no-match state and validation do not move the next control at mobile and desktop widths",
+    "Keyboard traversal scrolls only the suggestion list and retains a visible active option"
+  ],
+  "pageErrors": []
+}

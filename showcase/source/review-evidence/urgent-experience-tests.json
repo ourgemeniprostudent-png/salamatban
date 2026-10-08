@@ -1,6 +1,6 @@
 {
-  "version": "2.2.2",
-  "completedAt": "2026-10-08T12:25:23.318Z",
+  "version": "2.3",
+  "completedAt": "2026-10-08T13:18:47.463Z",
   "status": "passed",
   "individualPassed": 8,
   "pageErrors": [],
@@ -8,10 +8,11 @@
     "consent artwork is animated blue on transparent white, with stable pause controls and reduced motion",
     "returning member home keeps live floating artwork without a dark enclosing panel",
     "a positive safety answer immediately opens specific emergency guidance without shifting the form",
-    "hospital lookup sends no location until explicit permission and uses city or coordinates only",
+    "automatic hospital cards transmit only the city lookup and device location still requires explicit permission",
     "correction returns focus to the actual triggering question without clearing the saved clinical flag",
     "acknowledging guidance leaves clinical review gate intact and avoids payment banners in documents",
     "rapid correction behind an existing autosave retains the urgent review flag after reload",
     "failed urgent persistence preserves guidance and retries the positive snapshot before a correction"
-  ]
+  ],
+  "lookupFixture": "Deterministic synthetic hospital response; no live external request is made. External request URLs are inspected for city-only public lookup data."
 }

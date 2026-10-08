@@ -1,7 +1,7 @@
 {
-  "version": "2.2.2",
-  "date": "2026-10-08T12:30:32.949707+00:00",
-  "workflow": "Patient-first urgent assistance, reliable critical-answer persistence, floating blue artwork and measured interaction stability across intake, roles and reusable controls.",
+  "version": "2.3",
+  "date": "2026-10-08T13:21:03.212107+00:00",
+  "workflow": "Blue reference-inspired entry, national city suggestions, automatic attributed hospital cards and contextual emergency guidance, with preserved care workflow and interaction stability.",
   "checks": {
     "journey": {
       "individualPassed": 8,
@@ -43,13 +43,13 @@
     "localFinalBrowser": {
       "scope": "local final build",
       "url": "http://127.0.0.1:4201/",
-      "verifiedAt": "2026-10-08T12:28:41.436Z",
+      "verifiedAt": "2026-10-08T13:18:18.465Z",
       "status": "passed",
       "checks": [
         "public page HTTP 200",
         "synthetic OTP login",
-        "v2.2.2 marker",
-        "city selection",
+        "v2.3 marker",
+        "expanded-catalog city selection (Lavasan)",
         "draft save",
         "reload preserves stored draft"
       ],
@@ -60,13 +60,13 @@
       "sourceAndBuildEquality": "passed",
       "links": "passed",
       "extractedSourceRebuild": "passed",
-      "scope": "Current source and built-file snapshots match; the package generator rebuilds and validates an extracted standalone delivery. Broken links/anchors are rejected."
+      "scope": "Current source and built-file snapshots match; package generation and validation pass from extracted source. Broken document links and HTML anchors are rejected. Frontend compile is separately validated."
     },
     "showcase": {
-      "packageVersion": "2.2.2",
-      "appVersion": "2.2.2",
-      "baseUrl": "http://127.0.0.1:4292/",
-      "checkedAt": "2026-10-08T12:31:42.662Z",
+      "packageVersion": "2.3",
+      "appVersion": "2.3",
+      "baseUrl": "http://127.0.0.1:4293/",
+      "checkedAt": "2026-10-08T13:24:57.638Z",
       "viewports": [
         {
           "width": 320,
@@ -94,7 +94,7 @@
         "current role architecture is directly reachable from product experience",
         "six recovered diagrams load, zoom, close and expose PNG/SVG files",
         "current/target filters",
-        "nine product screenshots and viewer",
+        "eleven product screenshots and viewer",
         "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
         "feedback works when browser storage is blocked",
         "keyboard skip link and concise guide"
@@ -106,7 +106,7 @@
       "failed": 0,
       "evidence": "visual-tests.json"
     },
-    "totalIndividualPassed": 152,
+    "totalIndividualPassed": 187,
     "groupedIntake": {
       "individualPassed": 3,
       "failed": 0,
@@ -155,23 +155,42 @@
       "failed": 0,
       "evidence": "urgent-experience-tests.json"
     },
-    "componentMeasurements": {
-      "transitions": 42,
-      "maximumMeasuredMovementPx": 0,
-      "evidence": "component-stability-measurements.json",
-      "scope": "Isolated component transitions; not counted again in individual-test total"
-    },
     "publicPreloadedFonts": {
-      "status": "passed",
+      "status": "retained previous exact-byte font check; unchanged font assets",
       "count": 3,
-      "method": "HTTPS 200 and exact SHA-256 comparison for Regular, SemiBold and Bold"
+      "validatedRelease": "2.2.2"
     },
-    "scopedFinalValidation": "After the last birth-date feedback consolidation, typecheck, lint, server/static builds, controls, layout, journey, grouped intake, UX and local final browser checks were rerun; unaffected role, urgent-motion and API checks retain the passing results from this release."
+    "scopedFinalValidation": "Final frozen build: 106 existing browser checks +16 reference browser checks +5 city-input browser checks; 41 API +5 Persian-calendar +7 city-catalog +7 facility-lifecycle checks. TypeScript, lint and server/static builds pass. Local final browser verifies a newly added catalog city persists after reload. Totals exclude parent test containers, repeated runs and publication/archive checks.",
+    "referenceExperience": {
+      "individualPassed": 16,
+      "failed": 0,
+      "evidence": "reference-experience-tests.json"
+    },
+    "facilityLookup": {
+      "individualPassed": 7,
+      "failed": 0,
+      "evidence": "facility-lookup-tests.json"
+    },
+    "cityCatalog": {
+      "individualPassed": 7,
+      "failed": 0,
+      "evidence": "city-catalog-tests.json"
+    },
+    "cityInput": {
+      "individualPassed": 5,
+      "failed": 0,
+      "evidence": "city-input-tests.json"
+    }
   },
   "features": [
+    "Reference-inspired blue photographic login with live floating labels, readable pill controls, all five named demo accounts on the left, unchanged OTP and both code-copy targets; original illustrative image is locally hosted",
+    "First member welcome starts immediately beneath the header; its feedback overlays a fixed area without displacing the hero or primary action",
+    "1355 suggestions across 31 provinces from a pinned MIT-licensed Mordad 1399 snapshot; all36 legacy city IDs/spellings preserved; Arabic/Persian normalization, exact-first ranking, province/county disambiguation, keyboard navigation and manual entry",
+    "Wide three-column urgent dialog with readable symptom-specific115 script for all7 questions and multiple positive answers; historical corrected warning never claims current illness; no invented onset, diagnosis or current address",
+    "Facility lookup has 15-minute bounded cache, deduplication, 1.1-second pacing, cancellation and stale-city protection, 9-second timeout, retry and truthful empty/offline states; guidance stays available independently of the network",
     "Positive critical answer immediately opens a modal with tel:115, dispatcher script, brief safe guidance, correction or return actions; no early payment banner or document reflow",
     "Active symptom and historical corrected-alert home states are distinct; helper is reopenable; only editable records offer correction and context derives from current member answers",
-    "Optional external hospital search uses chosen city, or approximate current coordinates after explicit browser permission; no background map requests, recorded location, or verified-nearest/clinical-capacity claims",
+    "City hospitals are fetched automatically inside urgent guidance using only city/county/province; real named hospital-tagged OSM results, source/date and explicit directions; device location remains opt-in and no verified-nearest/availability claim is made.",
     "Critical snapshots are captured before waiting for an in-flight save, retained after failures, retried with current credentials/version, and persisted before rapid corrections; clinician gate is preserved",
     "Fixed feedback rows, full-message dialog, stable form validation/options/ticks, six-row calendar, stable search/map/file/payment feedback, and reserved image-viewer controls",
     "Blue consent/home canvas motion floats on white without navy enclosure; live frame movement, pause, reduced motion and offscreen suspension verified",
@@ -189,53 +208,54 @@
     "Focused welcome, six visit reasons, user-selected goals, compact linked consent and progressive member panel preserved",
     "Calm waiting states, unified member program actions and team-owned completion preserved",
     "Motion supports pause/reduced motion and offscreen suspension; no outer focus ring",
-    "Nine current synthetic screenshots, concise current guide, complete source/build archive and per-file manifest"
+    "Eleven current synthetic screenshots, concise current guide, complete source/build archive and per-file manifest"
   ],
   "limitations": [
     "Real Android/iPhone camera and GPS not tested",
     "5–8 participant usability study not performed",
     "Home visits remain demo-only; production provider/retention agreements not implemented",
-    "City starter catalog is not a nationwide official dataset",
     "Public site uses browser-local storage; no shared cross-device patient database",
     "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
     "Startup improvement verified with controlled delays, not measured on user network",
     "Safari and Firefox not tested; no comprehensive security/load audit or clinical validation",
     "Goals are reason-based conversation prompts, not validated disease-specific care targets",
     "Comprehensive target user-flow includes future integrations; current implementation and role responsibilities are documented in WORKFLOW-ARCHITECTURE-v2.2-fa.md",
-    "Hospital search opens an external map; no verified in-app directory of nearest emergency facilities or live capacity is connected. Dispatcher guidance takes precedence.",
-    "Interaction geometry checks do not establish zero layout shift during every initial load, content expansion or future state; cold optional-font fallback may remain for a visit."
+    "Interaction geometry checks do not establish zero layout shift during every initial load, content expansion or future state; cold optional-font fallback may remain for a visit.",
+    "City data is a dated third-party snapshot (Mordad 1399), not a current exhaustive official register; manual entry remains available.",
+    "In-app hospital cards depend on internet and public OpenStreetMap/Nominatim data. Coverage, emergency service availability and appropriate/nearest center are not verified. Dispatcher guidance takes precedence.",
+    "Real provider HTTPS returned six hospital-tagged entries and CORS*. Browser behavior used synthetic responses because Chromium rejects this environment proxy CA; live user-network/provider availability is not confirmed."
   ],
   "publicBrowser": {
-    "status": "blocked",
-    "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    "status": "not rerun against the public app in this cloud",
+    "reason": "Chromium proxy CA trust limitation was reproduced by the live hospital-provider probe without disabling TLS. Final app behavior was tested in local Chromium; published HTTPS assets were verified by exact SHA-256 readback."
   },
   "publication": {
     "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-    "pagesCommit": "e3b48fa54c0be0d6fbd12a0f0ed438fd8f085c33",
+    "pagesCommit": "81d180a416065770ce055d6d6e7c479321eac817",
     "success": true,
     "assets": [
       {
         "file": "index.html",
         "status": 200,
-        "sha256": "be80087cbf955d26f7db8664ddc621b62cc75013f1bd8176497ed481405c2c20",
+        "sha256": "12b55ef47c3d222ae3658ec94f81e9d709a9ed5e0766804dfeb34256d15dbe97",
         "matches": true
       },
       {
         "file": "app.js",
         "status": 200,
-        "sha256": "edacbb81cb9d833c2f8f1f30546860364a984588f34afd9ec04b79345bee8481",
+        "sha256": "fba7544edb07935073baa2954a381606ac297a4077a3b05493460c1f8799adbc",
         "matches": true
       },
       {
         "file": "app.css",
         "status": 200,
-        "sha256": "3101a7ae016a52957613bd57a983a7d07f6b2ebc7b3d10a8f0f9dd138327cd32",
+        "sha256": "eaa4a1a431a016c90e7296889d3950c035df7bcc12f2720a3dfaba44c84c59aa",
         "matches": true
       },
       {
         "file": "release.json",
         "status": 200,
-        "sha256": "07f48d931257ba123d94fcac8e393cb526d5907c82a09b9e795993e787d07530",
+        "sha256": "724646ddfa16ddc7fe641b3973373559be2cc1df0a9dafb1d7ba3c0a32c7edda",
         "matches": true
       },
       {
@@ -249,9 +269,21 @@
         "status": 200,
         "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
         "matches": true
+      },
+      {
+        "file": "media/care-team.webp",
+        "status": 200,
+        "sha256": "10ba13eada75bfa3816baa2d2919fe4e2aa57efb3a0455ba103e24197b96997c",
+        "matches": true
+      },
+      {
+        "file": "THIRD-PARTY-NOTICES.txt",
+        "status": 200,
+        "sha256": "93f4aa3994202bf0fd9bf321e2363806c4635c2d1cec466cc998a76482362821",
+        "matches": true
       }
     ],
-    "verifiedAt": "2026-10-08T12:30:59Z"
+    "verifiedAt": "2026-10-08T13:22:46Z"
   },
   "baseline": {
     "version": "1.7",
@@ -260,15 +292,23 @@
     "scope": "78 individual API/calendar/UX/roles/edge/presentation/startup checks. These are historical baseline results, not rerun totals for 1.9."
   },
   "artifacts": {
-    "deploymentSha256": "5384c46bd0bf99efea06f5035206b292c386a41972fbb561abe400029a6825bb"
+    "deploymentSha256": "39340ed616d299b45c74b83cdab14d1a09ead390cf359011502012bda4f7054e"
   },
-  "retainedUnchangedComponentEvidence": {
+  "historicalComponentEvidence": {
     "flatSurfaces": {
-      "status": "passed",
-      "reviewedStates": 16,
-      "evidence": "flat-surfaces-validation.json",
       "validatedRelease": "2.2.1",
+      "evidence": "flat-surfaces-validation.json",
+      "rerunForThisRelease": false
+    },
+    "isolatedMeasurements": {
+      "validatedRelease": "2.2.2",
+      "evidence": "component-stability-measurements.json",
       "rerunForThisRelease": false
     }
+  },
+  "builtAssets": {
+    "index.html": "12b55ef47c3d222ae3658ec94f81e9d709a9ed5e0766804dfeb34256d15dbe97",
+    "app.js": "fba7544edb07935073baa2954a381606ac297a4077a3b05493460c1f8799adbc",
+    "app.css": "eaa4a1a431a016c90e7296889d3950c035df7bcc12f2720a3dfaba44c84c59aa"
   }
 }

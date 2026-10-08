@@ -1,0 +1,10 @@
+/* The suggestion panel is anchored to the field and never moves form actions. */
+.ux-city-options.ux-city-panel{max-height:none;overflow:visible;padding:0}
+.ux-city-results{position:relative;max-height:min(250px,35dvh);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;border-radius:12px 12px 0 0}
+.ux-city-results button{align-items:start;gap:12px}
+.ux-city-results button>span{flex-shrink:0}
+.ux-city-results button>small{text-align:left;line-height:1.7;overflow-wrap:anywhere;font-size:12px}
+.ux-city-panel .ux-city-results-hint{font-size:11px;line-height:1.8;margin:0;padding:8px 10px;color:#5d7184;background:#f5f8fd}
+.ux-city-panel .ux-city-manual{font-size:12px;line-height:1.8;color:#245db7;background:#f5f8fd;border:0;border-radius:0 0 12px 12px}
+.ux-city-panel button:focus-visible{outline:none;background:#eaf3ff;color:#174c9b}
+@media(max-width:480px){.ux-city-results button{flex-direction:column;gap:2px}.ux-city-results button>small{text-align:right}.ux-city-results{max-height:210px}}

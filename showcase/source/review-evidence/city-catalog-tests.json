@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "completedAt": "2026-10-08T13:17:56.199Z",
+  "individualPassed": 7,
+  "provinceCount": 31,
+  "cityCount": 1355,
+  "sourceRelease": "3.0",
+  "sourceDate": "1399-05 (Mordad 1399 / August 2020, as stated by upstream)",
+  "sourceCommit": "c653db7122c9ff640e3eafec19341d9a7f3ac54d",
+  "checks": [
+    {
+      "name": "Dated MIT source is pinned and shipped with the exact copyright and catalog hash",
+      "passed": true
+    },
+    {
+      "name": "National suggestions cover 31 provinces, distinct city IDs and no numbered municipal districts",
+      "passed": true
+    },
+    {
+      "name": "All 36 saved city IDs, canonical spellings and province IDs remain compatible",
+      "passed": true
+    },
+    {
+      "name": "Cities beyond the old capital list are searchable across the country",
+      "passed": true
+    },
+    {
+      "name": "Arabic letters, Persian digits, whitespace and half-spaces preserve meaningful matching",
+      "passed": true
+    },
+    {
+      "name": "Exact cities rank ahead of prefix and province matches; duplicate names retain context",
+      "passed": true
+    },
+    {
+      "name": "Search limits and unknown text do not silently invent a selection",
+      "passed": true
+    }
+  ]
+}

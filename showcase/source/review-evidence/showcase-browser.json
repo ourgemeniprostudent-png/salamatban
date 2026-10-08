@@ -1,8 +1,8 @@
 {
-  "packageVersion": "2.2.2",
-  "appVersion": "2.2.2",
-  "baseUrl": "http://127.0.0.1:4292/",
-  "checkedAt": "2026-10-08T12:31:42.662Z",
+  "packageVersion": "2.3",
+  "appVersion": "2.3",
+  "baseUrl": "http://127.0.0.1:4293/",
+  "checkedAt": "2026-10-08T13:24:57.638Z",
   "viewports": [
     {
       "width": 320,
@@ -30,7 +30,7 @@
     "current role architecture is directly reachable from product experience",
     "six recovered diagrams load, zoom, close and expose PNG/SVG files",
     "current/target filters",
-    "nine product screenshots and viewer",
+    "eleven product screenshots and viewer",
     "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
     "feedback works when browser storage is blocked",
     "keyboard skip link and concise guide"

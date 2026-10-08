@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'2.2.2',appVersion:'2.2.2',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'2.3',appVersion:'2.3',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -37,8 +37,8 @@ try{
  }
  report.checks.push('six recovered diagrams load, zoom, close and expose PNG/SVG files','current/target filters');
  await p.locator('[data-nav="gallery"]').click();await p.locator('#gallery').waitFor({state:'visible'});
- for(const key of ['welcome','consent','home','program','form','payment','doctor','coordinator','admin']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
- report.checks.push('nine product screenshots and viewer');
+ for(const key of ['login','welcome','consent','home','program','form','payment','doctor','coordinator','admin','urgent']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
+ report.checks.push('eleven product screenshots and viewer');
  await p.locator('[data-nav="feedback"]').click();await p.locator('#feedback').waitFor({state:'visible'});
  await p.locator('#comment').fill('   ');await p.getByRole('button',{name:'آماده‌کردن بازخورد'}).click();assert(!(await p.locator('#feedback-result').isVisible()));
  const note='در بخش معماری، تفکیک نسخهٔ فعلی و طرح هدف روشن است. پیشنهاد: نمونهٔ بیشتری از مسیر کارشناس.';

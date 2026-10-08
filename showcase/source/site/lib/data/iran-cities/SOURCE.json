@@ -1,0 +1,55 @@
+{
+  "project": "ahmadazizi/iran-cities",
+  "repository": "https://github.com/ahmadazizi/iran-cities",
+  "commit": "c653db7122c9ff640e3eafec19341d9a7f3ac54d",
+  "commitDate": "2020-10-26",
+  "release": "3.0",
+  "dataDate": "1399-05 (Mordad 1399 / August 2020, as stated by upstream)",
+  "retrievedAt": "2026-10-08",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2017 Ahmad Azizi",
+  "provinceCount": 31,
+  "sourceCityCount": 1354,
+  "excludedDistrictCount": 200,
+  "consolidatedCityCount": 1,
+  "selectableCityCount": 1355,
+  "legacyIdCount": 36,
+  "idPolicy": "Keep all 36 v1 internal city IDs, names and province IDs; all other IDs use ir-city-1399-<sourceId>. IDs are internal identifiers, not official census codes.",
+  "consolidation": {
+    "sourceId": "county-304",
+    "name": "فردیس",
+    "sourceDistrictIds": [
+      "1018",
+      "1019"
+    ],
+    "reason": "The source contains Fardis only as two urban districts in county 304. Suggest their municipality once, not its numbered districts."
+  },
+  "limitations": [
+    "Dated third-party snapshot; not a current official or exhaustive city register.",
+    "Manual city entry remains available.",
+    "No coordinates, verified healthcare facilities or availability are supplied by this catalog."
+  ],
+  "files": [
+    {
+      "path": "releases/v3.0/csv/ostan.csv",
+      "url": "https://raw.githubusercontent.com/ahmadazizi/iran-cities/c653db7122c9ff640e3eafec19341d9a7f3ac54d/releases/v3.0/csv/ostan.csv",
+      "sha256": "9afdf3d714d4d4f39c31f12a09331ff8d8107c34cd77ea514fa8e478247e1f23"
+    },
+    {
+      "path": "releases/v3.0/csv/shahrestan.csv",
+      "url": "https://raw.githubusercontent.com/ahmadazizi/iran-cities/c653db7122c9ff640e3eafec19341d9a7f3ac54d/releases/v3.0/csv/shahrestan.csv",
+      "sha256": "67253673003312d5d0f9765ffd87f6ffac6add6d9880db0ddd9cb8c5ea7b8547"
+    },
+    {
+      "path": "releases/v3.0/csv/shahr.csv",
+      "url": "https://raw.githubusercontent.com/ahmadazizi/iran-cities/c653db7122c9ff640e3eafec19341d9a7f3ac54d/releases/v3.0/csv/shahr.csv",
+      "sha256": "25ad83ee92cce87b7ef6ced26c866c08e7384de7aefc2c1882668c7df25c3bea"
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/ahmadazizi/iran-cities/c653db7122c9ff640e3eafec19341d9a7f3ac54d/LICENSE",
+      "sha256": "d5557616b0f6a29af5a1915eb337fdbbe630c19985706fd4cfe011fcbaa933ef"
+    }
+  ],
+  "catalogSha256": "d35f3ea6c2cf172e519d40d0823a262e12fff6bcf582b5620ce7245428e6e6ba"
+}

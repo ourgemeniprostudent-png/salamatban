@@ -1,13 +1,13 @@
 {
   "scope": "local final build",
   "url": "http://127.0.0.1:4201/",
-  "verifiedAt": "2026-10-08T12:28:41.436Z",
+  "verifiedAt": "2026-10-08T13:18:18.465Z",
   "status": "passed",
   "checks": [
     "public page HTTP 200",
     "synthetic OTP login",
-    "v2.2.2 marker",
-    "city selection",
+    "v2.3 marker",
+    "expanded-catalog city selection (Lavasan)",
     "draft save",
     "reload preserves stored draft"
   ],

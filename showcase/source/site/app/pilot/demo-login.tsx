@@ -1,9 +1,10 @@
 'use client';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Icon } from './brand';
+import {DemoAccountPeek,type DemoSample} from './demo-account-peek';
 import './demo-login.css';
 
-type Sample = { phone:string; name:string; role:string };
+type Sample = DemoSample;
 const roleNames:Record<string,string>={member:'عضو',clinician:'پزشک',coordinator:'کارشناس',admin:'مدیر'};
 const roleIcons:Record<string,string>={member:'users',clinician:'doctor',coordinator:'calendar',admin:'settings'};
 
@@ -14,11 +15,11 @@ export function DemoAccounts({samples,phone,busy,onChoose}:{samples:Sample[];pho
   <header className="p-demo-accounts-heading"><div><h2 id={`${id}-title`}>حساب‌های نمونه</h2><p id={`${id}-help`}>یک نام را انتخاب کنید؛ شمارهٔ آن در فرم بالا قرار می‌گیرد.</p></div><span className="p-demo-account-note"><Icon name="shield" size={15}/>اطلاعات ساختگی، برای تجربهٔ نقش‌ها</span></header>
   <div className="p-demo-role-groups">{roles.filter(role=>samples.some(sample=>sample.role===role)).map(role=><section className={`p-demo-role-group p-demo-role-${role}`} key={role} aria-labelledby={`${id}-${role}`}>
    <h3 id={`${id}-${role}`}><Icon name={roleIcons[role]} size={16}/>{role==='member'?'اعضا':roleNames[role]}<span>{samples.filter(sample=>sample.role===role).length.toLocaleString('fa-IR')}</span></h3>
-   <div className="p-demo-account-list">{samples.filter(sample=>sample.role===role).map(sample=><button type="button" key={sample.phone} className="p-demo-account" aria-pressed={phone===sample.phone} aria-describedby={`${id}-help`} disabled={busy} onClick={()=>onChoose(sample.phone)}>
+   <div className="p-demo-account-list">{samples.filter(sample=>sample.role===role).map(sample=><DemoAccountPeek key={sample.phone} sample={sample} className="p-demo-account-item">{descriptionId=><button type="button" className="p-demo-account" aria-pressed={phone===sample.phone} aria-describedby={`${id}-help${descriptionId?` ${descriptionId}`:''}`} disabled={busy} onClick={()=>onChoose(sample.phone)}>
     <span className="p-demo-account-icon" aria-hidden="true">{sample.name.replace(/^(دکتر|کارشناس|مدیر)\s+/,'').slice(0,1)}</span>
     <span className="p-demo-account-copy"><strong>{sample.name}</strong><bdi>{sample.phone}</bdi></span>
     <span className="p-demo-account-check" aria-hidden="true" style={{visibility:phone===sample.phone?'visible':'hidden'}}><Icon name="check" size={16}/></span>
-   </button>)}</div>
+   </button>}</DemoAccountPeek>)}</div>
   </section>)}</div>
  </aside>;
 }

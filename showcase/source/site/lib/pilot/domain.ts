@@ -14,6 +14,8 @@ export const sampleAccounts = [
   { phone: '09000000002', name: 'کاربر نمونه دوم', role: 'member' as Role },
   { phone: '09000000011', name: 'پزشک نمونه', role: 'clinician' as Role },
   { phone: '09000000012', name: 'کارشناس نمونه', role: 'coordinator' as Role },
+  { phone: '09000000014', name: 'پزشک نمونه دوم', role: 'clinician' as Role },
+  { phone: '09000000015', name: 'کارشناس نمونه دوم', role: 'coordinator' as Role },
   { phone: '09000000013', name: 'مدیر نمونه', role: 'admin' as Role },
 ];
 

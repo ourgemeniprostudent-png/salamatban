@@ -1,14 +1,14 @@
 {
-  "version": "2.4.5",
-  "date": "2026-10-08T22:28:00.629938+00:00",
-  "workflow": "Two demo doctors and two coordinators, with separate assigned clinician case queues and a shared coordination queue. Blue hover/focus/touch cards above account names show actual registration completion, latest reported action completion, tenure, document/plan counts, and role-specific responsibilities. Existing snapshots upgrade additively while preserving user edits and explicit admin assignments.",
+  "version": "2.4.4",
+  "date": "2026-10-08T21:58:28.923864+00:00",
+  "workflow": "Two-band photographic entry: login and short introduction on the right, full-height professional doctor/patient illustration on the left; named sample accounts grouped by member, doctor, coordinator and admin below. Common desktop sizes fit one viewport in phone and OTP phases; phones retain readable scrollable role groups. Existing care journeys and workspaces are retained and regression-tested.",
   "builtAssets": {
-    "index.html": "e1d14244002741c8948dc3f4f84272e390cc34dcf19a7a96aeaf467ffb89c390",
-    "app.js": "3af65cb6a80a6cc18ada0d8ce9f6b9d6f8ce6198a74a89faa14a1dc05b0ebe42",
-    "app.css": "8f33a35abcdec09c68651fac9340e933cb925bc156d80571f1ac80fd444ced66",
+    "index.html": "53bc5594b61fd870aad59843d78fac86a68e7bbd3a7748611fc268b1676907b3",
+    "app.js": "f507581c687c57127a58cc36820e1d0207c51a17b3321b76daf05d11b10bba6d",
+    "app.css": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "650de6084c5fe9a5cdda8589228118d2c5fd0c8fe583eb6d8426f6be3826cce6",
+    "previews/value-before-payment/index.html": "27d467b7d59a6e2fc118e5c02de84a9d9e7f82410385a81c32fade11fcda7302",
     "media/care-consultation.webp": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
   },
   "checks": {
@@ -91,11 +91,11 @@
       "evidence": "urgent-experience-tests.json"
     },
     "browserRegression": {
-      "individualPassed": 63,
-      "parentTestsPassed": 9,
+      "individualPassed": 57,
+      "parentTestsPassed": 8,
       "failed": 0,
       "runnerEvidence": "presentation-tests.json",
-      "scope": "All nine affected and existing browser suites passed in one run."
+      "scope": "Seven suites passed combined; presentation screenshot timeout was rerun in isolation and all twelve presentation checks passed."
     },
     "loginLayout": {
       "individualPassed": 5,
@@ -113,17 +113,11 @@
         "844×390",
         "768×1024"
       ]
-    },
-    "accountPeek": {
-      "individualPassed": 6,
-      "failed": 0,
-      "evidence": "account-peek-tests.json",
-      "scope": "Paired staff permissions, all ten member metrics, stable hover/focus, touch sizes 320/390/430, actual action refresh, additive migration preservation"
     }
   },
   "retainedComponentEvidence": {
-    "previousRelease": "ux-baseline-v2.4.4.json",
-    "scope": "Older component evidence stays labeled. Paired staff, account cards, entry/OTP, role workflows, grouped intake, paid workspace/fonts, urgent assistance, lane isolation and mobile care were executed for v2.4.5."
+    "previousRelease": "ux-baseline-v2.4.3.json",
+    "scope": "Older component evidence stays labeled. Entry, existing role workflows, grouped intake, paid workspace, font startup, urgent assistance, lane isolation and mobile care were executed for v2.4.4."
   },
   "demo": {
     "lanes": [
@@ -134,9 +128,7 @@
     "yearHistoryCases": 3,
     "documents": 32,
     "preview": "isolated ephemeral read-only",
-    "asOf": "2026-10-08",
-    "doctors": 2,
-    "coordinators": 2
+    "asOf": "2026-10-08"
   },
   "limits": [
     "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",

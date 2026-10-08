@@ -2,7 +2,7 @@ import initSqlJs from 'sql.js';
 import { handlePilot } from '../lib/pilot/service';
 import type { Settings } from '../lib/pilot/config';
 import { BrowserDatabase, browserFiles, openStore, type DemoSnapshot } from './storage';
-import { completeAccounts, seedCompleteDemo, demoCases } from './fixtures';
+import { completeAccounts, seedCompleteDemo, upgradeCompleteStaff, demoCases, demoFixtures } from './fixtures';
 import schema from '../drizzle-pilot/0000_optimal_wind_dancer.sql';
 import guards from '../drizzle-pilot/0001_guards.sql';
 import taskActions from '../drizzle-pilot/0003_great_bedlam.sql';
@@ -49,6 +49,7 @@ export async function createDemoBackend(options:{lane?:DemoLane;preview?:boolean
         if (!database.sqlite.exec("SELECT name FROM sqlite_master WHERE type='table' AND name='pilot_task_actions'").length) database.sqlite.run(taskActions);
         const files = saved?.files ?? {};
         if(!saved&&lane==='complete')await seedCompleteDemo(database,files,base);
+        if(lane==='complete')upgradeCompleteStaff(database);
         const headers = new Headers(init?.headers);
         headers.set('Origin', location.origin);
         const cookie = options.preview?memoryCookie:sessionStorage.getItem(sessionKey);
@@ -64,7 +65,7 @@ export async function createDemoBackend(options:{lane?:DemoLane;preview?:boolean
           db: database as unknown as D1Database,
           files: browserFiles(files) as unknown as R2Bucket,
           c: settings,
-          ...(lane==='complete'?{demoAccounts:completeAccounts}:{}),
+          ...(lane==='complete'?{demoAccounts:completeAccounts,demoAsOf:Date.parse(demoFixtures.asOf+'T09:00:00Z')}:{}),
         });
         await store.write({ database: database.sqlite.export(), files });
         const newCookie = response.headers.get('Set-Cookie');

@@ -1,0 +1,15 @@
+{
+  "version": "2.4.5",
+  "completedAt": "2026-10-08T22:26:34.701Z",
+  "individualPassed": 6,
+  "failed": 0,
+  "checks": [
+    "two doctors have disjoint real queues; both coordinators work with shared queue and truthful ownership statistics",
+    "all ten member previews report actual tenure, registration stages and latest action completion, never a health score",
+    "hover and keyboard reveal a card above entry without moving accounts; selection dismisses it before phone submission",
+    "touch info opens without selecting a phone, and outside tap closes at narrow widths",
+    "member action completion appears as 75 percent after logout and catalog reload",
+    "additive upgrade keeps edited records and explicit administrator assignments intact, then never reassigns again"
+  ],
+  "scope": "Actual paired staff queues and permissions, all ten member statistics, hover/focus/Escape, touch and viewport stability, actual completion refresh, additive existing-data upgrade protection."
+}

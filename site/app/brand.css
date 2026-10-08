@@ -1,13 +1,15 @@
-/* Salamatban visual identity. Fonts supplied by the project owner. */
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Thin.woff2') format('woff2'); font-style: normal; font-weight: 100; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-ExtraLight.woff2') format('woff2'); font-style: normal; font-weight: 200; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Light.woff2') format('woff2'); font-style: normal; font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Regular.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Medium.woff2') format('woff2'); font-style: normal; font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-SemiBold.woff2') format('woff2'); font-style: normal; font-weight: 600; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Bold.woff2') format('woff2'); font-style: normal; font-weight: 700; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-ExtraBold.woff2') format('woff2'); font-style: normal; font-weight: 800; font-display: swap; }
-@font-face { font-family: 'Peyda'; src: url('../public/fonts/PeydaWebFaNum-Black.woff2') format('woff2'); font-style: normal; font-weight: 900; font-display: swap; }
+/* Salamatban visual identity. Fonts supplied by the project owner.
+   The entry documents preload the same public URLs. Optional display keeps a
+   slow font response from rewrapping controls after the user starts reading. */
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-Thin.woff2') format('woff2'); font-style: normal; font-weight: 100; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-ExtraLight.woff2') format('woff2'); font-style: normal; font-weight: 200; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-Light.woff2') format('woff2'); font-style: normal; font-weight: 300; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-Regular.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-Medium.woff2') format('woff2'); font-style: normal; font-weight: 500; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-SemiBold.woff2') format('woff2'); font-style: normal; font-weight: 600; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-Bold.woff2') format('woff2'); font-style: normal; font-weight: 700; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-ExtraBold.woff2') format('woff2'); font-style: normal; font-weight: 800; font-display: optional; }
+@font-face { font-family: 'Peyda'; src: url('/fonts/PeydaWebFaNum-Black.woff2') format('woff2'); font-style: normal; font-weight: 900; font-display: optional; }
 
 :root {
   --sb-font: 'Peyda', Tahoma, Arial, sans-serif;

@@ -1,0 +1,285 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.2.2.zip",
+  "bytes": 32833826,
+  "sha256": "f075a385bf8552654863470f79925bc44437e952faea2e34dc1b6ca39c6e23d7",
+  "fileCount": 356,
+  "version": "2.2.2",
+  "appVersion": "2.2.2",
+  "sourceBaseCommit": "1a4b4cbb9274c48f99dd1c84681a23d917905fec",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.2.2",
+    "date": "2026-10-08T12:30:32.949707+00:00",
+    "workflow": "Patient-first urgent assistance, reliable critical-answer persistence, floating blue artwork and measured interaction stability across intake, roles and reusable controls.",
+    "checks": {
+      "journey": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "journey-tests.json"
+      },
+      "ux": {
+        "individualPassed": 9,
+        "failed": 0,
+        "evidence": "ux-tests.json"
+      },
+      "rolesAndMemberFollowup": {
+        "individualPassed": 6,
+        "failed": 0,
+        "evidence": "workflow-tests.json"
+      },
+      "edgeFlows": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "edge-tests.json"
+      },
+      "presentation": {
+        "individualPassed": 12,
+        "failed": 0
+      },
+      "login": {
+        "individualPassed": 7,
+        "failed": 0,
+        "evidence": "login-browser.json"
+      },
+      "startup": {
+        "individualPassed": 2,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "localFinalBrowser": {
+        "scope": "local final build",
+        "url": "http://127.0.0.1:4201/",
+        "verifiedAt": "2026-10-08T12:28:41.436Z",
+        "status": "passed",
+        "checks": [
+          "public page HTTP 200",
+          "synthetic OTP login",
+          "v2.2.2 marker",
+          "city selection",
+          "draft save",
+          "reload preserves stored draft"
+        ],
+        "pageErrors": []
+      },
+      "package": {
+        "integrity": "passed",
+        "sourceAndBuildEquality": "passed",
+        "links": "passed",
+        "extractedSourceRebuild": "passed",
+        "scope": "Current source and built-file snapshots match; the package generator rebuilds and validates an extracted standalone delivery. Broken links/anchors are rejected."
+      },
+      "showcase": {
+        "packageVersion": "2.2.2",
+        "appVersion": "2.2.2",
+        "baseUrl": "http://127.0.0.1:4292/",
+        "checkedAt": "2026-10-08T12:31:42.662Z",
+        "viewports": [
+          {
+            "width": 320,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 390,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 768,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 1440,
+            "panes": 6,
+            "horizontalOverflow": false
+          }
+        ],
+        "checks": [
+          "four role walkthroughs",
+          "current role architecture is directly reachable from product experience",
+          "six recovered diagrams load, zoom, close and expose PNG/SVG files",
+          "current/target filters",
+          "nine product screenshots and viewer",
+          "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
+          "feedback works when browser storage is blocked",
+          "keyboard skip link and concise guide"
+        ],
+        "pageErrors": []
+      },
+      "visualConsent": {
+        "individualPassed": 4,
+        "failed": 0,
+        "evidence": "visual-tests.json"
+      },
+      "totalIndividualPassed": 152,
+      "groupedIntake": {
+        "individualPassed": 3,
+        "failed": 0,
+        "evidence": "grouped-intake-tests.json"
+      },
+      "staffWorkspaces": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "workspace-tests.json"
+      },
+      "roleArchitecture": {
+        "status": "passed",
+        "roleViewportCombinations": 25,
+        "evidence": "../deliverables/showcase/workflow-v2.2/validation.json",
+        "unchangedSince": "2.2"
+      },
+      "api": {
+        "individualPassed": 41,
+        "failed": 0,
+        "evidence": "api-tests.json"
+      },
+      "persianCalendar": {
+        "individualPassed": 5,
+        "failed": 0
+      },
+      "layoutStability": {
+        "individualPassed": 24,
+        "failed": 0,
+        "evidence": "layout-stability-tests.json",
+        "measuredTransitions": 51,
+        "maximumMeasuredMovementPx": 0,
+        "scope": "Covered interactions at 320/390/1440px after fonts settle, including shifts following user input; not a universal initial-loading CLS claim."
+      },
+      "controlStability": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "controls-stability-tests.json"
+      },
+      "criticalDraft": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "critical-draft-tests.json"
+      },
+      "urgentAndMotion": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "urgent-experience-tests.json"
+      },
+      "componentMeasurements": {
+        "transitions": 42,
+        "maximumMeasuredMovementPx": 0,
+        "evidence": "component-stability-measurements.json",
+        "scope": "Isolated component transitions; not counted again in individual-test total"
+      },
+      "publicPreloadedFonts": {
+        "status": "passed",
+        "count": 3,
+        "method": "HTTPS 200 and exact SHA-256 comparison for Regular, SemiBold and Bold"
+      },
+      "scopedFinalValidation": "After the last birth-date feedback consolidation, typecheck, lint, server/static builds, controls, layout, journey, grouped intake, UX and local final browser checks were rerun; unaffected role, urgent-motion and API checks retain the passing results from this release."
+    },
+    "features": [
+      "Positive critical answer immediately opens a modal with tel:115, dispatcher script, brief safe guidance, correction or return actions; no early payment banner or document reflow",
+      "Active symptom and historical corrected-alert home states are distinct; helper is reopenable; only editable records offer correction and context derives from current member answers",
+      "Optional external hospital search uses chosen city, or approximate current coordinates after explicit browser permission; no background map requests, recorded location, or verified-nearest/clinical-capacity claims",
+      "Critical snapshots are captured before waiting for an in-flight save, retained after failures, retried with current credentials/version, and persisted before rapid corrections; clinician gate is preserved",
+      "Fixed feedback rows, full-message dialog, stable form validation/options/ticks, six-row calendar, stable search/map/file/payment feedback, and reserved image-viewer controls",
+      "Blue consent/home canvas motion floats on white without navy enclosure; live frame movement, pause, reduced motion and offscreen suspension verified",
+      "Canonical font preloads avoid duplicate font downloads; optional font display avoids late webfont substitution; initial identity and metadata hydrate before interactive views",
+      "Continuous white page canvas; enclosing discovery/intake/consent card border, radius and shadow removed; fixed actions integrated into full-width page footer with field grid and control affordances preserved",
+      "Established blue palette across canvas/SVG graphics, icons, controls, status surfaces and showcase",
+      "Full-width arrival banner and responsive member workspace; grouped desktop grids and narrow-screen layouts",
+      "All profile fields together; 15 clinical questions in 3 groups; contextual questions grouped with preserved legacy cursor",
+      "Fixed action bar with stable placement through validation; focused mobile input scrolls clear of bar",
+      "Doctor actionable metric filters, list/detail, information/decision/tracking panes, explicit request-information and publication controls",
+      "Coordinator queue and stage-specific contact/confirmation/completion controls; member receives persisted team result",
+      "Admin metrics open member, support and unresolved-payment queues; resolved response editing preserves resolution",
+      "Failed case switch clears selection so new record data cannot be acted on with an older selected member ID",
+      "Five current role architecture diagrams with interactive viewer, role tabs, downloads and handoff boundaries",
+      "Focused welcome, six visit reasons, user-selected goals, compact linked consent and progressive member panel preserved",
+      "Calm waiting states, unified member program actions and team-owned completion preserved",
+      "Motion supports pause/reduced motion and offscreen suspension; no outer focus ring",
+      "Nine current synthetic screenshots, concise current guide, complete source/build archive and per-file manifest"
+    ],
+    "limitations": [
+      "Real Android/iPhone camera and GPS not tested",
+      "5–8 participant usability study not performed",
+      "Home visits remain demo-only; production provider/retention agreements not implemented",
+      "City starter catalog is not a nationwide official dataset",
+      "Public site uses browser-local storage; no shared cross-device patient database",
+      "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
+      "Startup improvement verified with controlled delays, not measured on user network",
+      "Safari and Firefox not tested; no comprehensive security/load audit or clinical validation",
+      "Goals are reason-based conversation prompts, not validated disease-specific care targets",
+      "Comprehensive target user-flow includes future integrations; current implementation and role responsibilities are documented in WORKFLOW-ARCHITECTURE-v2.2-fa.md",
+      "Hospital search opens an external map; no verified in-app directory of nearest emergency facilities or live capacity is connected. Dispatcher guidance takes precedence.",
+      "Interaction geometry checks do not establish zero layout shift during every initial load, content expansion or future state; cold optional-font fallback may remain for a visit."
+    ],
+    "publicBrowser": {
+      "status": "blocked",
+      "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    },
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "e3b48fa54c0be0d6fbd12a0f0ed438fd8f085c33",
+      "success": true,
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "be80087cbf955d26f7db8664ddc621b62cc75013f1bd8176497ed481405c2c20",
+          "matches": true
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "edacbb81cb9d833c2f8f1f30546860364a984588f34afd9ec04b79345bee8481",
+          "matches": true
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "sha256": "3101a7ae016a52957613bd57a983a7d07f6b2ebc7b3d10a8f0f9dd138327cd32",
+          "matches": true
+        },
+        {
+          "file": "release.json",
+          "status": 200,
+          "sha256": "07f48d931257ba123d94fcac8e393cb526d5907c82a09b9e795993e787d07530",
+          "matches": true
+        },
+        {
+          "file": "sql-wasm.wasm",
+          "status": 200,
+          "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+          "matches": true
+        },
+        {
+          "file": "brand/index.html",
+          "status": 200,
+          "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
+          "matches": true
+        }
+      ],
+      "verifiedAt": "2026-10-08T12:30:59Z"
+    },
+    "baseline": {
+      "version": "1.7",
+      "file": "ux-baseline-v1.7.json",
+      "executedAt": "2026-10-06T13:56:19.707055+00:00",
+      "scope": "78 individual API/calendar/UX/roles/edge/presentation/startup checks. These are historical baseline results, not rerun totals for 1.9."
+    },
+    "artifacts": {
+      "deploymentSha256": "5384c46bd0bf99efea06f5035206b292c386a41972fbb561abe400029a6825bb"
+    },
+    "retainedUnchangedComponentEvidence": {
+      "flatSurfaces": {
+        "status": "passed",
+        "reviewedStates": 16,
+        "evidence": "flat-surfaces-validation.json",
+        "validatedRelease": "2.2.1",
+        "rerunForThisRelease": false
+      }
+    }
+  },
+  "archiveIntegrity": "passed"
+}

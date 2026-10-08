@@ -1,0 +1,17 @@
+{
+  "version": "2.2.2",
+  "completedAt": "2026-10-08T12:25:23.318Z",
+  "status": "passed",
+  "individualPassed": 8,
+  "pageErrors": [],
+  "checks": [
+    "consent artwork is animated blue on transparent white, with stable pause controls and reduced motion",
+    "returning member home keeps live floating artwork without a dark enclosing panel",
+    "a positive safety answer immediately opens specific emergency guidance without shifting the form",
+    "hospital lookup sends no location until explicit permission and uses city or coordinates only",
+    "correction returns focus to the actual triggering question without clearing the saved clinical flag",
+    "acknowledging guidance leaves clinical review gate intact and avoids payment banners in documents",
+    "rapid correction behind an existing autosave retains the urgent review flag after reload",
+    "failed urgent persistence preserves guidance and retries the positive snapshot before a correction"
+  ]
+}

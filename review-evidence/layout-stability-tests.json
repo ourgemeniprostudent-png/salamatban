@@ -1,0 +1,1848 @@
+{
+  "version": "2.2.2",
+  "builtAssets": {
+    "index.html": "be80087cbf955d26f7db8664ddc621b62cc75013f1bd8176497ed481405c2c20",
+    "app.js": "edacbb81cb9d833c2f8f1f30546860364a984588f34afd9ec04b79345bee8481",
+    "app.css": "3101a7ae016a52957613bd57a983a7d07f6b2ebc7b3d10a8f0f9dd138327cd32"
+  },
+  "measuredAt": "2026-10-08T12:28:55.887Z",
+  "status": "passed",
+  "individualPassed": 24,
+  "method": "Direct viewport/document anchor bounds and scroll offsets, tolerance 2 CSS pixels; includes shifts after user input",
+  "limitations": "Fonts are settled before interaction measurements; this suite does not claim zero CLS during initial asset loading.",
+  "pageErrors": [],
+  "checks": [
+    "320: copy success and failure preserve login controls and scroll",
+    "320: consent, pending save, delayed save and saved feedback keep the page in place",
+    "320: failed save, retry and long version-conflict feedback do not displace consent content",
+    "320: opening and closing the terms dialog keeps background geometry and scroll",
+    "320: clinical validation and answering a missing question preserve question grid and progress geometry",
+    "320: completing a clinical group does not wrap or resize its navigation tabs",
+    "320: selecting a primary reason preserves radio order and position",
+    "320: staff success feedback preserves metrics, selected case and action position",
+    "390: copy success and failure preserve login controls and scroll",
+    "390: consent, pending save, delayed save and saved feedback keep the page in place",
+    "390: failed save, retry and long version-conflict feedback do not displace consent content",
+    "390: opening and closing the terms dialog keeps background geometry and scroll",
+    "390: clinical validation and answering a missing question preserve question grid and progress geometry",
+    "390: completing a clinical group does not wrap or resize its navigation tabs",
+    "390: selecting a primary reason preserves radio order and position",
+    "390: staff success feedback preserves metrics, selected case and action position",
+    "1440: copy success and failure preserve login controls and scroll",
+    "1440: consent, pending save, delayed save and saved feedback keep the page in place",
+    "1440: failed save, retry and long version-conflict feedback do not displace consent content",
+    "1440: opening and closing the terms dialog keeps background geometry and scroll",
+    "1440: clinical validation and answering a missing question preserve question grid and progress geometry",
+    "1440: completing a clinical group does not wrap or resize its navigation tabs",
+    "1440: selecting a primary reason preserves radio order and position",
+    "1440: staff success feedback preserves metrics, selected case and action position"
+  ],
+  "measurements": [
+    {
+      "label": "copy success",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "code": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "otp": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "copy failure",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "code": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "otp": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "consent checked and pending",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save in flight",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save completed",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save failed",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "retry completed",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long version conflict",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long-message dialog open",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long-message dialog closed",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "terms dialog open",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "terms dialog closed",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "clinical validation",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "last": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "progress": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "first missing answer supplied",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "last": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "progress": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "clinical group completion tick",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "firstTab": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "lastTab": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "firstQuestion": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "primary reason selection",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "second": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "staff success",
+      "width": 320,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "metrics": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "save": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "copy success",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "code": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "otp": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "copy failure",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "code": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "otp": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "consent checked and pending",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save in flight",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save completed",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save failed",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "retry completed",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long version conflict",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long-message dialog open",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long-message dialog closed",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "terms dialog open",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "terms dialog closed",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "clinical validation",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "last": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "progress": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "first missing answer supplied",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "last": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "progress": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "clinical group completion tick",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "firstTab": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "lastTab": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "firstQuestion": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "primary reason selection",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "second": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "staff success",
+      "width": 390,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "metrics": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "save": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "copy success",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "code": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "otp": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "copy failure",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "code": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "otp": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "consent checked and pending",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save in flight",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save completed",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "save failed",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "retry completed",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long version conflict",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long-message dialog open",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "long-message dialog closed",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "terms dialog open",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "terms dialog closed",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "choices": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "next": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "clinical validation",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "last": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "progress": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "first missing answer supplied",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "last": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "progress": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "clinical group completion tick",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "firstTab": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "lastTab": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "firstQuestion": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "primary reason selection",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "first": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "second": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    },
+    {
+      "label": "staff success",
+      "width": 1440,
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      },
+      "deltas": {
+        "metrics": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "heading": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        },
+        "save": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "documentX": 0,
+          "documentY": 0
+        }
+      }
+    }
+  ]
+}

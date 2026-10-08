@@ -9,3 +9,9 @@
 /* Keep secondary copy readable on tinted surfaces and narrow viewports. */
 .mv-info-banner p,.mv-goal-card .mv-soft-caption,.mv-companion-card>.mv-soft-caption,.mv-companion-card>p,.mv-companion-card>small,.mv-plan-progress p{color:#566e85}
 @media(max-width:360px){.mv-section-head{flex-wrap:wrap;gap:5px}.mv-section-head>.mv-section-title{flex-basis:100%}.mv-section-head>.mv-text-link{margin-top:0;margin-right:43px}.mv-section-title h2{word-break:normal;overflow-wrap:normal}.mv-home-lead>.mv-soft-caption{font-size:12px}}
+
+/* Async completion changes the content, not the location of the next action. */
+.mv-timeline-action>.mv-timeline-meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15em);align-items:start;gap:10px}
+.mv-timeline-meta .mv-status{justify-self:end;justify-content:center;width:100%;white-space:normal;min-block-size:calc(1.6em + 10px)}
+.mv-timeline-footer>span{display:block;min-block-size:1.9em}
+@media(max-width:680px){.mv-timeline-action>.mv-timeline-meta{grid-template-columns:minmax(0,1fr);gap:6px}.mv-timeline-meta .mv-status{justify-self:start;width:min(15em,100%)}}

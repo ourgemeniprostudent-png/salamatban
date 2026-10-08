@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-08T12:25:09.351Z",
+  "scope": "Critical draft persistence hook in an isolated React/Chromium component harness",
+  "individualPassed": 5,
+  "checks": [
+    "earlier normal flight cannot replace a queued positive answer with its rapid correction",
+    "failed critical write is retained and retried before the latest correction with fresh credentials",
+    "the same positive snapshot already in flight is not written twice",
+    "a failed preceding normal save does not discard a queued critical snapshot",
+    "conflicts stay blocked and explicit record replacement ignores late acknowledgements"
+  ],
+  "sourceSha256": "5d3df781301a288f5d1e81c07195e81647c5d3e83fb82c0831eaba2c97065446",
+  "sourceFiles": {
+    "app/pilot/use-draft.ts": "0928d5939dcb72844b717f2a20cdece2e7c3c1f105e00062c7d7b15ac0af0336",
+    "demo/critical-draft.test.mjs": "09103785f7ec4785426a47844d938a37afc68d92e303036d0611ccdb6818edf0"
+  },
+  "compiledHarness": {
+    "javascriptSha256": "7c009cb999e21aa16e089199b4aeff04faaaac45d0efc7b672828d241196615a"
+  },
+  "limitations": "Controlled send promises simulate persistence acknowledgements and failures. The 1000 ms autosave debounce is deferred; explicit save calls exercise serialization. This suite does not exercise the real backend, actual urgent popup, automatic debounce timing, clinical evaluation, or published build."
+}

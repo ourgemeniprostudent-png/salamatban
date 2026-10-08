@@ -4,7 +4,7 @@
 .pilot .p-date-open{display:grid;place-items:center;flex:0 0 47px;padding:10px;color:var(--sb-primary,#346ed1);background:var(--sb-primary-soft,#ecf3ff);border:1px solid var(--sb-primary-border,#c6dbff);height:47px}
 .p-date-hint,.p-date-error{font-size:11px;line-height:1.8}
 .p-date-hint{color:var(--sb-muted,#667085)}
-.p-date-error{color:var(--sb-danger,#b33c44)}
+.p-date-error{display:block;min-block-size:3.6em;color:var(--sb-danger,#b33c44)}
 .pilot .p-date-control input[aria-invalid=true]{border-color:var(--sb-danger,#b33c44)}
 .p-date-dialog{width:374px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);margin:auto;padding:22px;border:1px solid var(--sb-border,#d7e4ef);border-radius:22px;background:#fff;color:var(--sb-ink,#18344d);box-shadow:0 24px 90px #102a4340;overflow:auto;font-family:var(--sb-font,'Peyda'),Tahoma,sans-serif}
 .p-date-dialog::backdrop{background:#102a436b;backdrop-filter:blur(3px)}

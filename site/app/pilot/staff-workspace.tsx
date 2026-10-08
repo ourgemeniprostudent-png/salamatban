@@ -35,7 +35,8 @@ function Metrics({ items, active, onSelect }: { items: { id: string; label: stri
   return <div className="sw-metrics" aria-label="فیلتر سریع میز کار">{items.map(item => <button key={item.id} className={active === item.id ? 'is-active' : ''} aria-pressed={active === item.id} onClick={() => onSelect(item.id)}><span className="sw-metric-icon"><Icon name={item.icon}/></span><span><strong>{fa(item.count)}</strong><b>{item.label}</b><small>{item.help} ←</small></span></button>)}</div>;
 }
 function FilterSummary({ count, search, filter, onReset }: { count: number; search: string; filter: string; onReset: () => void }) {
-  return <div className="ux-filter-summary"><span role="status">{fa(count)} نتیجه</span>{(search || filter !== 'all') && <button className="p-link" onClick={onReset}>پاک‌کردن فیلترها</button>}</div>;
+  const filtered = !!search || filter !== 'all';
+  return <div className="ux-filter-summary"><span role="status">{fa(count)} نتیجه</span><button className="p-link" disabled={!filtered} aria-hidden={!filtered} style={{visibility:filtered?'visible':'hidden'}} onClick={onReset}>پاک‌کردن فیلترها</button></div>;
 }
 function focusDetail(id: string) { requestAnimationFrame(() => { const node = document.getElementById(id); node?.focus({ preventScroll: true }); if (innerWidth < 1000) node?.scrollIntoView({ block: 'start' }); }); }
 

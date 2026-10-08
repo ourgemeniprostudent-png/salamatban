@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-08T12:28:26.410Z",
+  "scope": "Shared controls and showcase viewer CSS in an isolated React/Chromium component harness",
+  "individualPassed": 5,
+  "checks": [
+    "searching long selectors keeps the input and dialog fixed including no results",
+    "date validation and month changes preserve field and calendar control positions",
+    "city errors remain visible without moving the next control",
+    "recording a plan action leaves subsequent actions in place",
+    "showcase viewer controls stay fixed during image decoding and zoom changes"
+  ],
+  "sourceSha256": "4daa9465dddc1e4dca225fe5bb41679ec07dea11c5d30d3a7d808268b8263a7f",
+  "sourceFiles": {
+    "../scripts/delivery-template/landing.css": "69194f7402489e90eaa67ea9a5600c1ea7318e9c710429289384f3f56ed72e6b",
+    "app/brand.css": "a4f22cf16d847b5c2a047a376af4b076e42a86367cb12701ade6ecade507c300",
+    "app/globals.css": "72a2bf7896053d959e0667389c300bedfb314cc97c0629a76eaef87906adaefb",
+    "app/pilot/brand.tsx": "8e76dde1e4d6b647c586ecd63b6382582d551036f83355ca7fbe6c853bcb35ef",
+    "app/pilot/city-input.tsx": "4da7bbd32ac9b74c9ca7ccdd7c1033283ecf61bdb19e58fbc70a63bba7ca4519",
+    "app/pilot/compact-select.css": "ec92ecec765e49330145cffac26e2eb8b30963b05de6773eade8f1b33811d1c0",
+    "app/pilot/compact-select.tsx": "639c1075d584b62bacca04da998781eee3d58ad20dbed727fcf153be6556332d",
+    "app/pilot/component-stability.css": "4262fd3442d097cf8ea23b9498410fecc779f548ce5063618507bbf90a5ee644",
+    "app/pilot/controls-stability.css": "dce82096e7f4f6253e697da66f42a850feb1f62fb0fa4676de758552c9428ac0",
+    "app/pilot/document-upload.tsx": "a1ed58c53b4a07ba737d9f502a10339e3f69725a277bc0b0f69e24eaf48f0bb0",
+    "app/pilot/member-views.css": "ca89fdb3d4c51c2ffe7e38d8f7ba7e04aa398b600c090be83b9cc18fe072a616",
+    "app/pilot/member-views.tsx": "eaa273bbc8bb92194d3a5b821011aa3378406d3f5f185bd5880ba99b4b60401a",
+    "app/pilot/persian-date-picker.css": "0170e1a89cd220531c657b9051dce2b694113654f3dd7f3ebfb5e9b3380b6220",
+    "app/pilot/persian-date-picker.tsx": "66770627d37db70af7354614bc8abdfa6444a3abf58b29234cd12e07b6480b2b",
+    "app/pilot/pilot.css": "180cc454ee854e5308ad15a2009bd13d269a75b4fd74a4081c2e55a0f624b9e8",
+    "app/pilot/ux-improvements.css": "91b4712bf0601d27ca2c2640ac8dc1ad5b4fc0fd3a2637363bfb162c58dc3048",
+    "demo/bundle.mjs": "372fe8e3cc85c8be6fde5753384836a96de4395eb781228e30842082dc1317f6",
+    "demo/controls-stability.test.mjs": "996ae2de8099ebb5e7b69864a274b2a8c6b1ec6f1a950300a0d4bdf1b98aec02",
+    "lib/assessment-definition.ts": "bb2928515299835b838af596742e717319de231e9eb481c43686bdcdef23ea56",
+    "lib/data/cities.ts": "80801c87d39878117fbb61c054933400e0714487cdde96e80ac286446c0cc45b",
+    "lib/persian-date.ts": "973b826ccb5186b5760191dd784c6e50fb93debb1b98a5c31a8768528a5798a7",
+    "lib/pilot/domain.ts": "844e4fc7dcf5ca58f21aaa476ad17a3643786e4aa393e56609c0b2e504a9ad5b",
+    "public/fonts/PeydaWebFaNum-Black.woff2": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33",
+    "public/fonts/PeydaWebFaNum-Bold.woff2": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220",
+    "public/fonts/PeydaWebFaNum-ExtraBold.woff2": "31fa8ce338a9ec29b1f13fb60623a4288142e316e8e129288df44e210f41a13b",
+    "public/fonts/PeydaWebFaNum-ExtraLight.woff2": "c688a839a1813e2423d2cbba3a18129a6ee53a2aff03997ba7bc885251d26007",
+    "public/fonts/PeydaWebFaNum-Light.woff2": "9bca090cd9cd8f8aff47b82fa48492f723cce0039904799017c6cf5be8e44dc2",
+    "public/fonts/PeydaWebFaNum-Medium.woff2": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1",
+    "public/fonts/PeydaWebFaNum-Regular.woff2": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de",
+    "public/fonts/PeydaWebFaNum-SemiBold.woff2": "9a8255e578cac803b2378b131630736eb69cdc58dcb53df1644adc1ed4b568fa",
+    "public/fonts/PeydaWebFaNum-Thin.woff2": "d87cfe700933b1c5e121863f3ba8b4d2fdce16f7657d72217ce17a9e2bd78b60"
+  },
+  "compiledHarness": {
+    "javascriptSha256": "ac237981fba39df6f9c01392573d7258b495747f3db3ce0652381dd60618841b",
+    "cssSha256": "1c5a6ac2525e158470d569024699f43ca8bbe1eee52fa480c66a5ad522e1c09a"
+  },
+  "limitations": "Interaction anchor bounds are compared within 1 CSS pixel at selected widths after fonts settle. The showcase uses representative dialog markup and real template CSS. This suite does not measure initial-load CLS, every viewport, the complete app navigation, or the published build."
+}

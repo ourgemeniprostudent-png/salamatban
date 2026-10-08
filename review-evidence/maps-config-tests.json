@@ -1,0 +1,14 @@
+{
+  "version": "2.3.1",
+  "checkedAt": "2026-10-08T14:11:18.533Z",
+  "individualPassed": 2,
+  "failed": 0,
+  "scope": "Public gateway URL configuration unit tests; additional static bundle inspection confirms no server provider endpoint or credential identifier and default null configuration.",
+  "staticBundleIsolation": "passed",
+  "maps": {
+    "provider": "neshan",
+    "gatewayConfigured": false,
+    "lookupEndpoint": null,
+    "liveProviderVerified": false
+  }
+}

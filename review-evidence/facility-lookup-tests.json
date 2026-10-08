@@ -1,16 +1,18 @@
 {
-  "version": "2.3",
-  "completedAt": "2026-10-08T13:12:20.004Z",
-  "individualPassed": 7,
-  "failed": 0,
+  "version": "2.3.1",
+  "status": "passed",
+  "completedAt": "2026-10-08T14:16:33.693Z",
+  "individualPassed": 8,
   "checks": [
-    "query contains only selected administrative location and fixed public-map parameters",
-    "only named hospital-tagged records with valid coordinates and explicit safe phone tags become cards",
-    "simultaneous same-city callers share a request, and one cancellation does not cancel another consumer",
-    "last-consumer cancellation aborts an obsolete city request and it cannot populate the cache",
-    "different-city requests and explicit retries are paced at least 1.1 seconds apart",
-    "network failure is retryable and an empty provider result remains honestly empty",
-    "a hung provider request is aborted after the timeout and reports a recoverable failure"
+    "only administrative location reaches the configured gateway, with no credentials or provider key",
+    "missing gateway or server key is not-configured and never falls back to another map provider",
+    "bounded successful results retain their unverified basis and generate only official Neshan point links",
+    "simultaneous same-city callers share a request and cancelling one does not cancel the other",
+    "last-consumer cancellation aborts obsolete city work and prevents stale cache writes",
+    "cache keys include gateway endpoint and city, with pacing and explicit refresh",
+    "failed transport, rate limit and oversized JSON stay distinct from successful empty results",
+    "a hung gateway is aborted after fourteen seconds and remains a retryable timeout"
   ],
-  "scope": "Source parsing and lifecycle with synthetic fetch responses; actual provider evidence is separate."
+  "scope": "Client contract and request lifecycle with mocked gateway responses only; no live Neshan API or category coverage has been verified.",
+  "reportNote": "Release marker corrected from 2.3; tested behavior and execution unchanged."
 }

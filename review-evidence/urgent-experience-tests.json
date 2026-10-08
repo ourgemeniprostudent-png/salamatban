@@ -1,6 +1,21 @@
 {
-  "version": "2.3",
-  "completedAt": "2026-10-08T13:18:47.463Z",
+  "version": "2.3.1",
+  "builtAssets": {
+    "index.html": "aad580bb8a0cf6fd7ce498b54e95511288118b99ed34313e79eae901086579f6",
+    "app.js": "ab0ced5420afee92adf4319000e41798bcb5bcde4794567448bc13a699599834",
+    "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
+  },
+  "configuredFixture": {
+    "endpoint": "https://maps.salamatban.example/api/maps/hospitals",
+    "assets": {
+      "app.js": "aa12869e889ddc89336a406763e256e30e0a321d917469043ef0ef6aa911b300",
+      "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
+    },
+    "mockedGateway": true,
+    "liveProviderVerified": false,
+    "scope": "Isolated demo bundle differs from the released app only by its public gateway configuration; no provider credential is bundled."
+  },
+  "completedAt": "2026-10-08T14:15:36.826Z",
   "status": "passed",
   "individualPassed": 8,
   "pageErrors": [],
@@ -14,5 +29,5 @@
     "rapid correction behind an existing autosave retains the urgent review flag after reload",
     "failed urgent persistence preserves guidance and retries the positive snapshot before a correction"
   ],
-  "lookupFixture": "Deterministic synthetic hospital response; no live external request is made. External request URLs are inspected for city-only public lookup data."
+  "lookupFixture": "Deterministic synthetic Neshan gateway contract; no live key or provider request. Administrative place names only. Configured urgent screenshots show synthetic results; released default-null behavior is covered separately by reference-experience.test.mjs."
 }

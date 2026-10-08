@@ -1,0 +1,18 @@
+{
+  // Copy to an ignored local config and replace name/database_id before deployment.
+  // This placeholder is usable for isolated local testing, not a configured host.
+  "name": "salamatban-maps-gateway",
+  "main": "maps-worker/index.ts",
+  "compatibility_date": "2026-10-08",
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "salamatban-maps-rate-limits",
+    "database_id": "00000000-0000-4000-8000-000000000000",
+    "migrations_dir": "maps-worker/migrations"
+  }],
+  "vars": {
+    "NESHAN_ALLOWED_ORIGINS": "https://ourgemeniprostudent-png.github.io"
+  }
+  // NESHAN_API_KEY and optional NESHAN_RATE_LIMIT_SECRET are Worker secrets.
+  // Never add them to vars, the demo build, public JSON or the delivery ZIP.
+}

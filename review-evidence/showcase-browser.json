@@ -1,8 +1,9 @@
 {
-  "packageVersion": "2.3",
-  "appVersion": "2.3",
-  "baseUrl": "http://127.0.0.1:4293/",
-  "checkedAt": "2026-10-08T13:24:57.638Z",
+  "packageVersion": "2.3.1",
+  "appVersion": "2.3.1",
+  "publicAppVersion": "2.3",
+  "baseUrl": "http://127.0.0.1:4294/",
+  "checkedAt": "2026-10-08T14:19:47.053Z",
   "viewports": [
     {
       "width": 320,
@@ -27,6 +28,7 @@
   ],
   "checks": [
     "four role walkthroughs",
+    "packaged v2.3.1 and unchanged public v2.3 are distinguished",
     "current role architecture is directly reachable from product experience",
     "six recovered diagrams load, zoom, close and expose PNG/SVG files",
     "current/target filters",

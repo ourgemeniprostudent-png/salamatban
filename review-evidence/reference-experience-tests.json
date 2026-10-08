@@ -1,13 +1,23 @@
 {
-  "version": "2.3",
+  "version": "2.3.1",
   "builtAssets": {
-    "index.html": "12b55ef47c3d222ae3658ec94f81e9d709a9ed5e0766804dfeb34256d15dbe97",
-    "app.js": "fba7544edb07935073baa2954a381606ac297a4077a3b05493460c1f8799adbc",
-    "app.css": "eaa4a1a431a016c90e7296889d3950c035df7bcc12f2720a3dfaba44c84c59aa"
+    "index.html": "aad580bb8a0cf6fd7ce498b54e95511288118b99ed34313e79eae901086579f6",
+    "app.js": "ab0ced5420afee92adf4319000e41798bcb5bcde4794567448bc13a699599834",
+    "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
   },
-  "completedAt": "2026-10-08T13:18:55.032Z",
+  "configuredFixture": {
+    "endpoint": "https://maps.salamatban.example/api/maps/hospitals",
+    "assets": {
+      "app.js": "aa12869e889ddc89336a406763e256e30e0a321d917469043ef0ef6aa911b300",
+      "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
+    },
+    "mockedGateway": true,
+    "liveProviderVerified": false,
+    "scope": "Isolated demo bundle differs from the released app only by its public gateway configuration; no provider credential is bundled."
+  },
+  "completedAt": "2026-10-08T14:15:53.899Z",
   "status": "passed",
-  "individualPassed": 16,
+  "individualPassed": 18,
   "pageErrors": [],
   "checks": [
     "1440: five named sample accounts preserve phone selection, OTP and both copy controls",
@@ -25,7 +35,9 @@
     "wide urgent guidance uses three columns without unnecessary body scrolling; call and exit stay reachable on phones",
     "city hospitals appear automatically and loading, failure, retry and empty results retain one fixed result panel",
     "changing the current search city cancels stale results and sends no health data or device location",
-    "a missing profile city keeps 115 available and performs no lookup until the current city is entered"
+    "a missing profile city keeps 115 available and performs no lookup until the current city is entered",
+    "a configured gateway reporting absent provider credentials is distinct from empty results and a retryable outage",
+    "the actual released default-null app states the missing connection without any external lookup or a false empty list"
   ],
   "measurements": [
     {
@@ -190,6 +202,45 @@
       }
     },
     {
+      "label": "facility CORS failure",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
       "label": "empty facility search",
       "deltas": {
         "results": {
@@ -231,90 +282,100 @@
   ],
   "externalRequests": [
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2",
       "method": "GET",
       "body": ""
     },
     {
-      "url": "https://nominatim.openstreetmap.org/search?q=%5Bhospital%5D+%D8%AA%D9%87%D8%B1%D8%A7%D9%86%D8%8C+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86&countrycodes=ir&format=jsonv2&limit=6&addressdetails=1&extratags=1&namedetails=1&accept-language=fa",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     }
   ],
-  "limitations": "Facility responses are controlled synthetic fixtures; this suite does not claim live provider availability or clinical validation."
+  "limitations": "Configured gateway responses are controlled synthetic Neshan-contract fixtures. Released app default-null configuration is tested separately. No live key, provider availability, completeness or clinical validation is claimed. Configured urgent screenshots show synthetic facilities, not live results."
 }

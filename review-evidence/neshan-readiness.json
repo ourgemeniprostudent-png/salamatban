@@ -1,0 +1,124 @@
+{
+  "version": "2.3.1",
+  "checkedAt": "2026-10-08T14:14:40.754006+00:00",
+  "implementation": "source-ready; gateway and provider activation pending",
+  "provider": "neshan",
+  "liveProviderVerified": false,
+  "configuredGateway": false,
+  "providerCredentialsPresent": false,
+  "publicAppVersion": "2.3",
+  "newVersionPublished": false,
+  "network": {
+    "docsProbe": "Proxy CONNECT 403 for platform.neshan.org",
+    "runtimePolicyChanged": false,
+    "configurationDraftSaved": true,
+    "draftDomains": [
+      "platform.neshan.org",
+      "api.neshan.org",
+      "neshan.org",
+      "nshn.ir"
+    ],
+    "secretRequirement": "NESHAN_API_KEY; no secret value provided"
+  },
+  "localVinextRoute": {
+    "checkedAt": "2026-10-08T14:08:17.187Z",
+    "cases": [
+      {
+        "origin": null,
+        "status": 503,
+        "error": "NESHAN_NOT_CONFIGURED"
+      },
+      {
+        "origin": "http://localhost:4173",
+        "status": 503,
+        "error": "NESHAN_NOT_CONFIGURED"
+      }
+    ],
+    "liveProviderCalled": false,
+    "crossOriginDev": {
+      "status": 403,
+      "body": "Forbidden",
+      "attributed": true,
+      "investigation": "framework or dev middleware rejects external Origin before API handler; do not claim public CORS validated",
+      "cause": "Vinext development-only validateDevRequestOrigin rejects external origins before routes; production skips this branch. Application CSRF settings were not weakened.",
+      "source": "vinext/dist/server/app-rsc-handler.js:229 and dev-origin-check.js:99"
+    }
+  },
+  "verification": {
+    "frontendBuild": "passed; server map imports excluded from bundle",
+    "typecheck": "passed",
+    "lint": "passed",
+    "serverBuild": "passed",
+    "providerContractTests": "10 synthetic checks passed; see neshan-proxy-tests.json",
+    "clientLifecycleTests": "8 synthetic checks passed; see facility-lookup-tests.json",
+    "publicGatewayConfigTests": "2 passed; see maps-config-tests.json",
+    "browserChecks": "26 passed using synthetic configured gateway plus actual unconfigured release",
+    "package": "Integrity, source/build equality, links and extracted-source packaging verified"
+  },
+  "limitations": [
+    "No authenticated live Neshan response or medical category coverage verified",
+    "Search v1 contract from official SDK; current service availability requires actual provider check",
+    "HTTPS point links sourced from official Neshan repository; real-device navigation not checked",
+    "GitHub Pages cannot execute the server gateway",
+    "Home-visit address picker still uses OpenStreetMap; urgent center lookup has no alternate-provider fallback"
+  ],
+  "nextRequired": [
+    "Neshan Search/Geocoding key in server secret store",
+    "Deployed gateway URL and independent D1 quota table",
+    "Authorized provider and browser CORS check before updating public site"
+  ],
+  "standaloneWorkerLocal": {
+    "status": "passed",
+    "verifiedAt": "2026-10-08T14:14:58.925Z",
+    "scope": "Dedicated Worker via local Wrangler on127.0.0.1; no API key, remote deploy or live provider call",
+    "checks": [
+      {
+        "name": "same-origin missing key",
+        "status": 503,
+        "allowOrigin": null,
+        "contentType": "application/json",
+        "body": "{\"error\":\"NESHAN_NOT_CONFIGURED\"}"
+      },
+      {
+        "name": "allowed public origin missing key",
+        "status": 503,
+        "allowOrigin": "https://ourgemeniprostudent-png.github.io",
+        "contentType": "application/json",
+        "body": "{\"error\":\"NESHAN_NOT_CONFIGURED\"}"
+      },
+      {
+        "name": "disallowed origin",
+        "status": 403,
+        "allowOrigin": null,
+        "contentType": "application/json",
+        "body": "{\"error\":\"NESHAN_BAD_ORIGIN\"}"
+      },
+      {
+        "name": "allowed preflight",
+        "status": 204,
+        "allowOrigin": "https://ourgemeniprostudent-png.github.io",
+        "contentType": null,
+        "body": ""
+      },
+      {
+        "name": "health API is absent",
+        "status": 404,
+        "allowOrigin": null,
+        "contentType": "application/json",
+        "body": "{\"error\":\"NOT_FOUND\"}"
+      },
+      {
+        "name": "write method rejected",
+        "status": 405,
+        "allowOrigin": "https://ourgemeniprostudent-png.github.io",
+        "contentType": "application/json",
+        "body": "{\"error\":\"NESHAN_METHOD_NOT_ALLOWED\"}"
+      }
+    ]
+  },
+  "publicReadback": {
+    "status": 200,
+    "version": "2.3",
+    "newVersionPublished": false
+  }
+}

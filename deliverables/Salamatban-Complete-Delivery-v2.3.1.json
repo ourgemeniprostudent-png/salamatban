@@ -1,0 +1,158 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.3.1.zip",
+  "bytes": 33643256,
+  "sha256": "e71f1f64ea5954b79ca8a763da0391a182273f0875817cde635d8f3f5f0d98fe",
+  "fileCount": 405,
+  "version": "2.3.1",
+  "appVersion": "2.3.1",
+  "sourceBaseCommit": "691109fc833bc714b620947109530a71442e84ed",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.3.1",
+    "date": "2026-10-08T14:17:52.327643+00:00",
+    "workflow": "Neshan-only urgent center search gateway and official point links; source ready, activation pending credentials and hosted gateway.",
+    "checks": {
+      "referenceExperience": {
+        "individualPassed": 18,
+        "failed": 0,
+        "evidence": "reference-experience-tests.json"
+      },
+      "urgentAndMotion": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "urgent-experience-tests.json"
+      },
+      "facilityLookup": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "facility-lookup-tests.json"
+      },
+      "neshanGateway": {
+        "individualPassed": 10,
+        "failed": 0,
+        "evidence": "neshan-proxy-tests.json"
+      },
+      "mapsConfig": {
+        "individualPassed": 2,
+        "failed": 0,
+        "evidence": "maps-config-tests.json"
+      },
+      "persianCalendar": {
+        "individualPassed": 5,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "totalIndividualPassed": 51,
+      "standaloneWorker": {
+        "status": "passed",
+        "httpChecks": 6,
+        "evidence": "neshan-readiness.json",
+        "scope": "Actual local Wrangler HTTP boundary without a key; no live provider"
+      },
+      "geometry": {
+        "measuredTransitions": 5,
+        "maximumMeasuredMovementPx": 0,
+        "scope": "Facility loading/success/empty/error/CORS/unconfigured checks at tested viewport, not a universal zero-CLS claim"
+      },
+      "package": {
+        "integrity": "passed",
+        "sourceAndBuildEquality": "passed",
+        "links": "passed",
+        "extractedSourceRebuild": "passed",
+        "scope": "405-file complete package; 296 source and32 built files matched;388 local links and22 document mirrors checked. Broken links/anchors rejected. Package rebuilt from extracted source independently of Git."
+      },
+      "showcase": {
+        "packageVersion": "2.3.1",
+        "appVersion": "2.3.1",
+        "publicAppVersion": "2.3",
+        "baseUrl": "http://127.0.0.1:4294/",
+        "checkedAt": "2026-10-08T14:19:47.053Z",
+        "viewports": [
+          {
+            "width": 320,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 390,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 768,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 1440,
+            "panes": 6,
+            "horizontalOverflow": false
+          }
+        ],
+        "checks": [
+          "four role walkthroughs",
+          "packaged v2.3.1 and unchanged public v2.3 are distinguished",
+          "current role architecture is directly reachable from product experience",
+          "six recovered diagrams load, zoom, close and expose PNG/SVG files",
+          "current/target filters",
+          "eleven product screenshots and viewer",
+          "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
+          "feedback works when browser storage is blocked",
+          "keyboard skip link and concise guide"
+        ],
+        "pageErrors": []
+      }
+    },
+    "builtAssets": {
+      "index.html": "aad580bb8a0cf6fd7ce498b54e95511288118b99ed34313e79eae901086579f6",
+      "app.js": "ab0ced5420afee92adf4319000e41798bcb5bcde4794567448bc13a699599834",
+      "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
+    },
+    "maps": {
+      "provider": "neshan",
+      "gatewayConfigured": false,
+      "lookupEndpoint": null,
+      "liveProviderVerified": false
+    },
+    "features": [
+      "Urgent city search uses a dedicated Neshan server gateway with no service key or medical answers in the browser request",
+      "Fixed hospital and clinic queries follow city geocoding; unverified name-matched results remain explicitly distinguished from verified appropriate emergency care",
+      "Official Neshan HTTPS point links replace Google directions; patient origin is never invented",
+      "Missing configuration, network failure, unsupported response and genuine empty success remain distinct",
+      "Bounded responses, timeouts, cache, cancellation, quota limits and exact-origin CORS preserve usable independent 115 guidance",
+      "Independent Cloudflare Worker with its own D1 quota migration is included; deploying the patient application is not required",
+      "Existing blue entry, city catalog, symptom scripts, forms and clinical gates remain intact"
+    ],
+    "publication": {
+      "status": "not published",
+      "success": false,
+      "reason": "Neshan key, gateway hostname and authenticated provider verification are unavailable. Public 2.3 kept in place.",
+      "publicAppVersion": "2.3",
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/?v=2.3",
+      "lastPublicEvidence": "ux-publication.json"
+    },
+    "limitations": [
+      "No live Neshan API compatibility, result coverage or real-device deep-link check",
+      "Configured browser and provider success paths use clearly labeled synthetic fixtures",
+      "Source-backed legacy Search v1 and tolerated geocoder fields need actual authenticated validation before activation",
+      "Home-visit address picker still uses OpenStreetMap and is outside the urgent-center provider migration",
+      "Static demo uses browser-local data; real SMS/bank/shared clinical operations remain unconnected"
+    ],
+    "baseline": {
+      "version": "2.3",
+      "file": "ux-baseline-v2.3.json",
+      "individualPassed": 187,
+      "scope": "Previous release checks retained for unchanged components; not counted as reruns in2.3.1. Old OSM live/browser probes are baseline only."
+    },
+    "scopedValidation": "51 individual checks: 26 browser, 8 client lifecycle,10 gateway,2 public configuration,5calendar; parent containers/repeats and6localHTTPchecks excluded from total. Lint/type/server/staticbuild passed.",
+    "artifacts": {
+      "package": "Salamatban-Complete-Delivery-v2.3.1.zip",
+      "scope": "Code-ready complete delivery; public site remains2.3",
+      "deploymentSha256": "480a1c9265954fa2847a2601fddfade6812c49715478b3f798690cc20165826b"
+    }
+  },
+  "archiveIntegrity": "passed"
+}

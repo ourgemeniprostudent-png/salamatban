@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'2.3',appVersion:'2.3',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'2.3.1',appVersion:'2.3.1',publicAppVersion:'2.3',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -23,6 +23,9 @@ try{
  await p.locator('[data-nav="experience"]').click();await p.locator('#experience').waitFor({state:'visible'});
  for(const role of ['member','doctor','coordinator','admin']){await p.locator(`[data-role="${role}"]`).click();assert(await p.locator(`[data-role-panel="${role}"]`).isVisible());assert.equal(await p.locator('[data-role-panel]:visible').count(),1)}
  report.checks.push('four role walkthroughs');
+ assert(await p.locator('#overview').innerText().then(text=>text.includes('سایت عمومی: ۲٫۳')&&text.includes('بسته و برنامهٔ داخل آن: ۲٫۳٫۱')));
+ assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/?v=2.3');
+ report.checks.push('packaged v2.3.1 and unchanged public v2.3 are distinguished');
  const mapLink=p.locator('#experience a[href="presentation/assets/workflow-v2.2/index.html"]');assert(await mapLink.isVisible());const mapResponse=await context.request.get(new URL(await mapLink.getAttribute('href'),base).href);assert.equal(mapResponse.status(),200);assert((await mapResponse.text()).includes('پزشک'));report.checks.push('current role architecture is directly reachable from product experience');
  await p.locator('[data-nav="architecture"]').click();await p.locator('#architecture').waitFor({state:'visible'});assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),6);
  await p.locator('[data-filter="target"]').click();assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),3);

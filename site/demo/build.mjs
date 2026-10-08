@@ -4,22 +4,26 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { demoBindings, publicFontAssets } from './bundle.mjs';
+import { mapsGatewayUrl } from './maps-config.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'dist-demo');
+const hospitalLookupEndpoint = mapsGatewayUrl(process.env.SALAMATBAN_MAPS_GATEWAY_URL);
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-await build({
+const bundle = await build({
   absWorkingDir: root, entryPoints: ['demo/main.tsx'], outdir: output,
   entryNames: 'app', assetNames: 'assets/[name]-[hash]', bundle: true,
   format: 'esm', platform: 'browser', target: ['es2022'], minify: true,
-  define: { 'process.env.NODE_ENV': '"production"' },
+  define: { 'process.env.NODE_ENV': '"production"', __SALAMATBAN_MAPS_GATEWAY_URL__: JSON.stringify(hospitalLookupEndpoint) },
+  metafile: true,
   loader: { '.sql': 'text', '.woff2': 'file', '.png': 'file' },
   alias: { '@': root },
   plugins: [demoBindings(root), publicFontAssets(root)],
 });
+if (Object.keys(bundle.metafile.inputs).some(name => /(?:^|\/)lib\/maps\//.test(name))) throw new Error('Server map provider code must never enter the static browser bundle.');
 await cp(path.join(root, 'node_modules/sql.js/dist/sql-wasm.wasm'), path.join(output, 'sql-wasm.wasm'));
-await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8')+'\n\nIran city catalog — Ahmad Azizi v3.0 (1399 snapshot)\n'+await readFile(path.join(root, 'lib/data/iran-cities/LICENSE.md'), 'utf8')+'\n\nHospital map results: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright\nSearch service: https://nominatim.openstreetmap.org/\n');
+await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8')+'\n\nIran city catalog — Ahmad Azizi v3.0 (1399 snapshot)\n'+await readFile(path.join(root, 'lib/data/iran-cities/LICENSE.md'), 'utf8')+'\n\nHome-visit address picker: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright\nAddress search service: https://nominatim.openstreetmap.org/\n\nUrgent care center search and destination links: Neshan. https://neshan.org/\nSearch requires a configured server gateway and provider credentials; no provider key is included in this build.\n');
 await cp(path.join(root, 'public/favicon.svg'), path.join(output, 'favicon.svg'));
 await cp(path.join(root, 'public/og.png'), path.join(output, 'og.png'));
 await cp(path.join(root, 'public/brand'), path.join(output, 'brand'), { recursive: true });
@@ -66,5 +70,5 @@ const releaseAssets = {};
 for (const name of ['index.html', 'app.js', 'app.css']) {
   releaseAssets[name] = createHash('sha256').update(await readFile(path.join(output, name))).digest('hex');
 }
-await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.3', assets: releaseAssets }, null, 2) + '\n');
+await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.3.1', maps: { provider: 'neshan', gatewayConfigured: !!hospitalLookupEndpoint, lookupEndpoint: hospitalLookupEndpoint, liveProviderVerified: false }, assets: releaseAssets }, null, 2) + '\n');
 console.log('Static presentation built in site/dist-demo. Upload its contents to a dedicated HTTPS folder.');

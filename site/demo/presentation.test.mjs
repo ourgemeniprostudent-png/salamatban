@@ -118,8 +118,8 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
   });
   await check('Persian birth-date picker supports mobile selection, invalid input and ISO persistence', async () => {
     await navigate('تکمیل پرونده');
-    await page.getByRole('checkbox', { name: 'متن را خواندم و با تشکیل پرونده و بررسی پزشک موافقم.', exact: true }).check();
-    await page.getByRole('button', { name: 'ذخیره و مرحله بعد ←', exact: true }).click();
+    await page.getByRole('checkbox', { name: 'پذیرش قوانین و بررسی پزشک', exact: true }).check();
+    await page.getByRole('button', { name: 'موافقم، ادامه بده', exact: true }).click();
     await completeDiscovery(page);await profileField(page,'birthDate');
     const birth = page.getByLabel('تاریخ تولد (شمسی)', { exact: true });
     await birth.waitFor();
@@ -302,7 +302,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', { name: 'دیدن برنامه و قدم‌های من', exact: true }).click();
     await page.getByRole('heading', { name: 'برنامه پیگیری شما' }).waitFor();
     await page.getByRole('heading', { name: 'نقشه مسیر پیگیری', exact: true }).waitFor();
-    assert.equal(await page.locator('.mv-timeline-action h3').innerText(), 'اقدام ساختگی برای نمایش');
+    assert.equal(await page.locator('.mv-timeline-action .care-action-check strong').innerText(), 'اقدام ساختگی برای نمایش');
     const result = await page.evaluate(async () => {
       const plan = (await window.demoRequest('record')).data.plans[0];
       const updated = await window.demoRequest('actions', { planId: plan.id, actionId: plan.actions[0].id, done: true, evidence: 'نمایش' });

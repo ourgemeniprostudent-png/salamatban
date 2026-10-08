@@ -41,6 +41,9 @@ next-env.d.ts
 
 /.test-build/
 /.dev.vars
+/wrangler.maps.local.jsonc
 
 # Browser-only presentation build
 /dist-demo/
+/dist-maps-server/
+/.maps-data/

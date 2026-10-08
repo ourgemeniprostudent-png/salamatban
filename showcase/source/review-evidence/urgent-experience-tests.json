@@ -1,6 +1,22 @@
 {
-  "version": "2.3",
-  "completedAt": "2026-10-08T13:18:47.463Z",
+  "version": "2.3.2",
+  "builtAssets": {
+    "index.html": "250587148b51d0dd916f3edfae982cd2e6ec0c37c639e01ab96c4443c7f6e606",
+    "app.js": "766aa23fb97c1462acd4dabc41a2c9a7e7530c86de0446a30402fafd7d6f41d1",
+    "app.css": "acacb87d16471c99ddae4052995e1c1089c368d5e0931724b4597c0bca7d7e84",
+    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d"
+  },
+  "configuredFixture": {
+    "endpoint": "https://maps.salamatban.example/api/maps/hospitals",
+    "assets": {
+      "app.js": "03afce21e985707576de6823dddc1ec1f36eed28db249bcacab5b0540cf2c72f",
+      "app.css": "acacb87d16471c99ddae4052995e1c1089c368d5e0931724b4597c0bca7d7e84"
+    },
+    "mockedGateway": true,
+    "liveProviderVerified": false,
+    "scope": "Isolated demo bundle differs from the released app only by its public gateway configuration; no provider credential is bundled."
+  },
+  "completedAt": "2026-10-08T16:23:34.049Z",
   "status": "passed",
   "individualPassed": 8,
   "pageErrors": [],
@@ -14,5 +30,5 @@
     "rapid correction behind an existing autosave retains the urgent review flag after reload",
     "failed urgent persistence preserves guidance and retries the positive snapshot before a correction"
   ],
-  "lookupFixture": "Deterministic synthetic hospital response; no live external request is made. External request URLs are inspected for city-only public lookup data."
+  "lookupFixture": "Deterministic synthetic Geoapify gateway contract; no live key or provider request. Administrative place names only. Configured urgent screenshots show synthetic results; released static snapshot behavior is covered separately by reference-experience.test.mjs."
 }

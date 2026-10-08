@@ -1,0 +1,11 @@
+{
+  "version": "2.3.2",
+  "completedAt": "2026-10-08T16:23:35.424147+00:00",
+  "status": "passed",
+  "individualPassed": 2,
+  "scope": "Static endpoint configuration validation: unset is explicit; HTTPS gateway only, direct provider endpoints rejected",
+  "sourceFiles": {
+    "demo/maps-config.mjs": "776552a758fd28ea793ab5ddb077563e6848abf617fac6a05d6bb4a36d89a578",
+    "demo/maps-config.test.mjs": "d0d3210a35132c3edfe9c7736622139484fee05299087797d321e0217ccf4ac3"
+  }
+}

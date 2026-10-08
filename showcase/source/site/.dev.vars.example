@@ -2,6 +2,14 @@
 PILOT_MODE=demo
 PILOT_ORIGIN=http://localhost:4173
 
+# Optional server-side Geoapify integration. Set real values in the API host's secret store.
+# The DB binding and pilot_rate_limits migration are required for durable rate limits.
+# GEOAPIFY_API_KEY=<Places and Geocoding service key; never put it in browser code>
+# GEOAPIFY_RATE_LIMIT_SECRET=<independent random HMAC secret; defaults to provider key>
+# GEOAPIFY_ALLOWED_ORIGINS=https://ourgemeniprostudent-png.github.io
+# Static demo build only (public URL, not a secret). Export before npm run build:demo:
+# SALAMATBAN_MAPS_GATEWAY_URL=https://your-api-host.example/api/maps/hospitals
+
 # Live values belong in the selected host's secret store, never this file.
 # PILOT_MODE=live
 # PILOT_ORIGIN=https://your-approved-domain.example

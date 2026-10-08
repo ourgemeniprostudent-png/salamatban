@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "completedAt": "2026-10-08T14:15:43.996Z",
+  "individualPassed": 10,
+  "checks": [
+    "missing key or durable limiter is explicitly not configured and makes no upstream request",
+    "input is bounded, duplicate and unrelated parameters are rejected, and city IDs own canonical labels",
+    "CORS permits exact same/public/configured origins without credentials and blocks other origins before quota",
+    "fixed geocode and hospital/clinic searches expose only administrative location and the server key header",
+    "unsupported schemas and coordinates fail explicitly; name matching never upgrades roads to verified care",
+    "upstream status errors and malformed JSON never echo provider secrets or raw errors",
+    "announced and streamed upstream responses are bounded before parsing",
+    "hung providers time out, abort, and leave emergency guidance independent",
+    "durable atomic quotas limit concurrent callers and store only hashed IP buckets",
+    "Cloudflare app route and isolated Worker read server bindings without clinical readiness or patient routes"
+  ],
+  "sourceFiles": {
+    "app/api/maps/hospitals/route.ts": "af21769bd274f9bcb1b6e9d09f9f59f6f83b0c096fc324b431c9f3c7e23c965d",
+    "lib/data/cities.ts": "e90fb3482ad228483c68b7e4bda1e8c6550220ee2cba15ac089de09808f2038f",
+    "lib/data/iran-cities/catalog.json": "d35f3ea6c2cf172e519d40d0823a262e12fff6bcf582b5620ce7245428e6e6ba",
+    "lib/maps/hospital-handler.ts": "e4e1a840dcee297725e98db631ff5a4363d34a861bf9bc9dbeac5fc90cce2cd2",
+    "lib/maps/neshan.ts": "3caca0c00eed11c420987474bffe109bc259586bc795190976c220f051901463",
+    "lib/maps/rate-limit.ts": "7170ce496c33b260bafd62b25d06813ad46b4e294c48286ab82994c4a1ef3aa8",
+    "maps-worker/index.ts": "956cff4ae419e3be04890f417d3b3904df1a8d5d60e6080a9e449ed29e4b4eba",
+    "maps-worker/migrations/0001_maps_rate_limits.sql": "491387186e19c68dad51b98a1e5d9a2187a027a91f4e5b134215ab9bd99ecd58",
+    "tests/neshan-proxy.test.mjs": "ac7e4ee9fea531eecf4ba9dca9b0edfe16b8dd6080306c1314799c7958fe87ca",
+    "wrangler.maps.example.jsonc": "19cb496778588a1a28c40f61d0cdaf80afb5d3e3c3794f1e549495f21be0b827"
+  },
+  "sourceSha256": "4b683e36609d578e85ca3ea5c7779e22f3aca1bb4ce0f9e7a61e7ff53ecd7546",
+  "limitations": "Synthetic provider responses and ephemeral Miniflare D1 only. No live Neshan key, current response schema, medical-category coverage, capacity, ranking, gateway hosting or publication has been validated. Search results are explicitly name-matched, not verified facility types."
+}

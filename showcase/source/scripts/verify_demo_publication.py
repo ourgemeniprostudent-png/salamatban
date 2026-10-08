@@ -6,13 +6,14 @@ root=Path(__file__).resolve().parent.parent
 base='https://ourgemeniprostudent-png.github.io/salamatban/'
 build=root/'site/dist-demo'
 commit=subprocess.check_output(['git','ls-remote','origin','refs/heads/gh-pages'],cwd=root).decode().split()[0]
-files=['index.html','app.js','app.css','release.json','sql-wasm.wasm','brand/index.html','media/care-team.webp','THIRD-PARTY-NOTICES.txt']
+version=json.loads((build/'release.json').read_text())['version']
+files=['index.html','app.js','app.css','release.json','sql-wasm.wasm','brand/index.html','media/care-team.webp','THIRD-PARTY-NOTICES.txt','data/care-facilities.geoapify.json']
 report={'url':base,'pagesCommit':commit,'success':False,'assets':[]}
 for attempt in range(24):
  results=[]
  for name in files:
   try:
-   with urllib.request.urlopen(urllib.request.Request(base+name+'?v=2.3-'+commit[:12],headers={'Cache-Control':'no-cache','User-Agent':'Salamatban-Release-Verification/2.3'}),timeout=20) as response:
+   with urllib.request.urlopen(urllib.request.Request(base+name+'?v='+version+'-'+commit[:12],headers={'Cache-Control':'no-cache','User-Agent':'Salamatban-Release-Verification/'+version}),timeout=20) as response:
     actual=hashlib.sha256(response.read()).hexdigest()
     expected=hashlib.sha256((build/name).read_bytes()).hexdigest()
     results.append({'file':name,'status':response.status,'sha256':actual,'matches':actual==expected})

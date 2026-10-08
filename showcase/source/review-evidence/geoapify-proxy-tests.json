@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "completedAt": "2026-10-08T16:16:32.882Z",
+  "individualPassed": 12,
+  "checks": [
+    "missing key or durable limiter is explicit and makes no upstream request",
+    "bounded administrative inputs reject duplicate and unrelated data; canonical city IDs own labels",
+    "exact-origin CORS rejects impostor/null origins before quota and never permits credentials",
+    "fixed provider requests transmit only administrative query and server key; no patient auth or health payload",
+    "city identity and administrative prefixes are checked; wrong, missing or ambiguous settlements cannot default",
+    "primary list excludes unnamed, specialty, dental, maternity, addiction and non-care listings without claiming suitability",
+    "radius bounds, numeric coordinates, deduplication and six-card cap are independently enforced",
+    "20km expansion is at most one call, only after zero eligible 10km results, without unbounded pagination",
+    "upstream errors, raw URLs and key echoes never escape; public fields remain bounded",
+    "response size and latency bounds cover announced bytes, streaming and ignored abort signals",
+    "atomic quota ordering caps concurrent callers and prevents denied IPs from exhausting shared budget",
+    "Cloudflare route and isolated Worker read only geographic bindings and reject patient endpoints"
+  ],
+  "sourceFiles": {
+    "app/api/maps/hospitals/route.ts": "1b1c09faf8b4749c8728207e2d5df2e34fdaa4bc403a6b7775f425749c733422",
+    "lib/data/cities.ts": "e90fb3482ad228483c68b7e4bda1e8c6550220ee2cba15ac089de09808f2038f",
+    "lib/data/iran-cities/catalog.json": "d35f3ea6c2cf172e519d40d0823a262e12fff6bcf582b5620ce7245428e6e6ba",
+    "lib/maps/geoapify.ts": "4e02d980709eb48e5fb9b9b2c10317a327e2e025b073bf5c0a9e376d47fb6120",
+    "lib/maps/hospital-handler.ts": "4781f55e3e0be798dc98762251f64be1f49a74173a5764dcf38adbefae92ce35",
+    "lib/maps/rate-limit.ts": "09fcb0be0fb34e044ae9fcf99602b099c9a7da6d32bc7195d144a81157c47d2c",
+    "maps-worker/index.ts": "86c3e13582bd96d240cd089ad4a1ea1f64332679357eb316df804347643ab67a",
+    "maps-worker/migrations/0001_maps_rate_limits.sql": "491387186e19c68dad51b98a1e5d9a2187a027a91f4e5b134215ab9bd99ecd58",
+    "tests/geoapify-proxy.test.mjs": "440a1077d84f7af5edfb0b27292832f5bdd44b710e1b85af32158fa691996026",
+    "wrangler.maps.example.jsonc": "7fd66a7320a9e68278b28d45e64b2e89a6bdabe4b76898f090b9c12bb87d8845"
+  },
+  "sourceSha256": "96c33cc6a17fe4ef22f0d80c08cd2de435eda6091b971f5634d6f329004df414",
+  "limitations": "Synthetic Geoapify responses and ephemeral Miniflare D1 only. This report does not validate live coverage, clinical suitability, emergency capacity, opening hours, public gateway hosting, or publication. Category-based records remain explicitly unverified. Separate real provider checks/snapshots require separate dated evidence."
+}

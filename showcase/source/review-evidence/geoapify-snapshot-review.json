@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "reviewedAt": "2026-10-08T16:24:53.672Z",
+  "scope": "Focused final acceptance of the actual dated public snapshot and its current display contract; no live API calls or application-source edits.",
+  "snapshot": {
+    "path": "site/public/data/care-facilities.geoapify.json",
+    "sha256": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+    "bytes": 128105,
+    "providerRevision": "b514b69c7f056afa269b3a790f5bdd404d4dd76598e8b009512ccdfee104b62f",
+    "generatedAt": "2026-10-08T16:22:30.184Z",
+    "earliestRetrievedAt": "2026-10-08T16:20:30.736Z",
+    "latestRetrievedAt": "2026-10-08T16:22:28.407Z",
+    "cities": 39,
+    "facilities": 169
+  },
+  "sourceFiles": {
+    "site/lib/maps/geoapify.ts": "4e02d980709eb48e5fb9b9b2c10317a327e2e025b073bf5c0a9e376d47fb6120",
+    "site/lib/data/cities.ts": "e90fb3482ad228483c68b7e4bda1e8c6550220ee2cba15ac089de09808f2038f",
+    "site/app/pilot/facility-lookup.ts": "642920f498980bf8ca5f6f9701f837ad2de731e10639205e88e42c2f6688b66d",
+    "site/app/pilot/nearby-care.tsx": "8c25c12ae046ad463dda243dfdd192a73fefc3bb2171e0bb45d7fa41dc8913a4",
+    "site/scripts/refresh-care-snapshot.mjs": "34830aea44e33228fad68f37d543640be1614b69c922b36e1eafe25f0c755c9e",
+    "site/demo/build.mjs": "005f77c44ef4b40029c4ddbce703be2c69d054b075ac0d0aec233284e490743d"
+  },
+  "assertionGroupsPassed": 9,
+  "checks": [
+    {
+      "name": "Dated provenance matches the final provider and catalog revision",
+      "status": "passed",
+      "details": {
+        "providerRevision": "b514b69c7f056afa269b3a790f5bdd404d4dd76598e8b009512ccdfee104b62f",
+        "generatedAt": "2026-10-08T16:22:30.184Z",
+        "attribution": {
+          "provider": "Geoapify",
+          "providerUrl": "https://www.geoapify.com/",
+          "data": "© OpenStreetMap contributors",
+          "licenseUrl": "https://www.openstreetmap.org/copyright"
+        }
+      }
+    },
+    {
+      "name": "Bounded manifest parses and counts match declared selected-city coverage",
+      "status": "passed",
+      "details": {
+        "bytes": 128105,
+        "cities": 39,
+        "facilities": 169,
+        "coverage": {
+          "selectedCities": 45,
+          "includedCities": 39,
+          "omittedCities": 6
+        }
+      }
+    },
+    {
+      "name": "Every city is canonical and every card remains inside its declared city-center search radius",
+      "status": "passed",
+      "details": {
+        "minMeters": 58,
+        "maxMeters": 9730,
+        "radiusMeters": [
+          10000
+        ]
+      }
+    },
+    {
+      "name": "All retained cards satisfy the final conservative provider filter and unverified category contract",
+      "status": "passed",
+      "details": {
+        "retainedCards": 169,
+        "maxCardsPerCity": 6,
+        "classification": "provider-category-unverified"
+      }
+    },
+    {
+      "name": "The final nine concrete specialty, diagnostic, blood-donation and administrative findings are absent",
+      "status": "passed",
+      "details": {
+        "excludedTitles": [
+          "کلینیک جراحی دکتر شیرویه",
+          "کلینیک تشخیص اختلالات ژنتیکی",
+          "گروه تشخیصی فرجاد",
+          "مرکز مدیریت حوادث و فوریت‌های پزشکی استان",
+          "کلینیک درد دکتر قدرت اخوان اکبری",
+          "مرکز جراحی محدود امام علی (ع)",
+          "کلینیک تغدیه و رژیم درمانی رویا اقمشه",
+          "کلینیک طب سوزنی دکتر شهریار بهنام فر",
+          "پایگاه انتقال خون"
+        ]
+      }
+    },
+    {
+      "name": "Every destination is an official Neshan coordinate link without a provider key",
+      "status": "passed",
+      "details": {
+        "destinations": 169,
+        "origin": "https://nshn.ir",
+        "parameters": [
+          "lat",
+          "lng"
+        ]
+      }
+    },
+    {
+      "name": "Local lookup does not transmit the city and never substitutes a wrong or ambiguous city",
+      "status": "passed",
+      "details": {
+        "localRequests": [
+          {
+            "url": "./data/care-facilities.geoapify.json",
+            "method": "GET",
+            "credentials": "omit"
+          }
+        ],
+        "safadashtCards": 5,
+        "rejectedCases": 4
+      }
+    },
+    {
+      "name": "Current card copy is neutral, dated and explicit about unverified clinical suitability",
+      "status": "passed",
+      "details": {
+        "method": "Current component source inspection; browser visual checks belong to the release suites",
+        "clinicLabel": "درمانگاه / کلینیک",
+        "nearestClaim": false,
+        "generalCareClaim": false
+      }
+    },
+    {
+      "name": "Public JSON has only the expected geographic schema and no credential fields or authenticated provider URL",
+      "status": "passed",
+      "details": {
+        "method": "Schema whitelist, credential markers and URL inspection; no live credential was read",
+        "serverCodeBundleGuard": true
+      }
+    }
+  ],
+  "limitations": [
+    "No live gateway deployment or provider API was exercised in this review.",
+    "The snapshot covers selected cities and can become stale; public map categories do not verify emergency service, opening hours, capacity, nearest distance to a person, or clinical suitability.",
+    "Credential inspection checks public schema and output markers; the actual private API key was neither accessed nor logged.",
+    "Final browser layout and deployed-asset checks are tracked by the release suites."
+  ]
+}

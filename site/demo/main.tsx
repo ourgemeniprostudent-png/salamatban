@@ -1,36 +1,50 @@
+import {useEffect,useRef,useState} from 'react';
 import { createRoot } from 'react-dom/client';
 import Pilot from '../app/pilot/pilot';
-import { createDemoBackend } from './backend';
+import {Icon,BrandMark} from '../app/pilot/brand';
+import { createDemoBackend, type DemoLane } from './backend';
+import {demoCases,completeAccounts} from './fixtures';
 import './presentation.css';
 import '../app/pilot/pilot.css';
 import '../app/pilot/visual-language.css';
 
 declare const __SALAMATBAN_MAPS_GATEWAY_URL__: string | null;
-
-async function main() {
-  let timer: ReturnType<typeof setTimeout> | undefined;
-  const backend = await Promise.race([
-    createDemoBackend(),
-    new Promise<never>((_, reject) => { timer = setTimeout(() => reject(new Error('دریافت برنامه یا دسترسی به ذخیره‌سازی بیش از حد طول کشید.')), 45000); }),
-  ]).finally(() => clearTimeout(timer));
-  createRoot(document.getElementById('app')!).render(<div className="presentation-mode">
-    <aside className="presentation-note" aria-label="راهنمای نسخه نمایشی">
-      <div><strong>نسخهٔ نمایشی برای بررسی کارفرما</strong><p>اطلاعات فقط در همین مرورگر ذخیره می‌شوند. برای بررسی نقش‌ها از حساب‌های ساختگی استفاده کنید؛ اطلاعات واقعی وارد نکنید.</p></div>
-      <button type="button" onClick={() => {
-        if (confirm('اطلاعات ساختگی همین نسخه پاک شود و نمایش از ابتدا شروع شود؟')) {
-          void backend.reset().catch(() => alert('پاک‌کردن اطلاعات انجام نشد؛ دوباره تلاش کنید.'));
-        }
-      }}>شروع دوبارهٔ نمایش</button>
-    </aside>
-    <Pilot transport={backend.fetch} hospitalLookupEndpoint={__SALAMATBAN_MAPS_GATEWAY_URL__} hospitalSnapshotUrl="./data/care-facilities.geoapify.json" homeHref="./" loginImageHref="./media/care-team.webp" brandHref="./brand/index.html" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
-  </div>);
+type Backend=Awaited<ReturnType<typeof createDemoBackend>>;
+const laneKey=`salamatban-selected-lane:${new URL('.',document.baseURI).pathname}`;
+function chosenLane():DemoLane{try{return new URLSearchParams(location.search).get('lane')==='complete'||localStorage.getItem(laneKey)==='complete'?'complete':'practice';}catch{return 'practice';}}
+const stateNames:Record<string,string>={completed:'دوره کامل‌شده',active:'در حال پیگیری',submitted:'در انتظار پزشک',needs_information:'نیاز به مدرک کامل‌تر',draft:'پیش از پرداخت',urgent:'گزارش علامت هشدار'};
+const fa=(n:number)=>n.toLocaleString('fa-IR');
+function CaseCatalog({busy,onEnter,onPreview}:{busy:boolean;onEnter:(phone:string)=>void;onPreview:()=>void}){
+ return <main className="demo-catalog"><div className="demo-catalog-heading"><div><span className="demo-eyebrow">۱۰ عضو فرضی · یک گردش کار قابل تجربه</span><h1>برای ارائه، از یک داستان شروع کنید.</h1><p>سه عضو با سابقه یک سال، سه دوره کامل‌شده و سه برنامه در حال پیگیری؛ از حساب عضو تا میز کار پزشک، کارشناس و مدیر.</p></div><BrandMark/></div><div className="demo-role-entry"><div><strong>پشت صحنهٔ همین پرونده‌ها</strong><p>در این فضا می‌توانید اقدام‌ها را ادامه دهید. تغییرات فقط در همین مرورگر می‌مانند.</p></div>{completeAccounts.filter(a=>a.role!=='member').map(account=><button className="p-secondary" key={account.phone} disabled={busy} onClick={()=>onEnter(account.phone)}><Icon name={account.role==='clinician'?'doctor':account.role==='coordinator'?'calendar':'settings'} size={18}/>{account.name}</button>)}</div><section className="demo-case-grid" aria-label="پرونده‌های فرضی">{demoCases.map(person=><article className="demo-case" key={person.id}><header><span className="demo-case-avatar">{person.name.slice(0,1)}</span><div><h2>{person.name}</h2><small>{person.profile.city} · {person.ageDays>=365?'سابقهٔ یک سال':person.ageDays===60?'دو ماه':person.ageDays===7?'یک هفته':`${fa(person.ageDays)} روز`}</small></div><span className="demo-case-state">{stateNames[person.state]}</span></header><p className="demo-case-goal">{person.profile.goal}</p><p>{person.story}</p><div className="demo-case-measures"><span><b>{fa(person.plans.length)}</b> نسخه برنامه</span><span><b>{fa(person.documents.length)}</b> مدرک</span><span><b>{person.initialProgress===null?'—':`${fa(person.initialProgress)}٪`}</b> دورهٔ جاری</span></div>{person.initialProgress!==null&&<div className="demo-case-bar"><span style={{width:`${person.initialProgress}%`}}/></div>}<button className="p-primary" disabled={busy} onClick={()=>onEnter(person.phone)}>ورود به پروندهٔ {person.profile.firstName}<Icon name="arrow" size={17}/></button></article>)}</section><aside className="demo-catalog-foot"><p>وضعیت کارت‌ها، نقطهٔ شروع سناریوها در ۱۶ مهر ۱۴۰۵ است؛ وضعیت جاری و تغییرات در خود پرونده دیده می‌شوند. درصدها شمارش اقدام‌ها هستند، نه نمره سلامت. اسناد، نام‌ها، پرداخت‌ها و مراکز هماهنگی این ده پرونده ساختگی‌اند.</p><button className="p-secondary" disabled={busy} onClick={onPreview}>مشاهده نمونه بعد از خرید، فقط خواندنی</button></aside></main>;
 }
-void main().catch((error: Error) => {
-  const root = document.getElementById('app')!;
-  root.textContent = `نسخهٔ نمایشی بارگذاری نشد. ${error.message} اگر ذخیره‌سازی مرورگر مسدود است، آن را برای این سایت فعال کنید.`;
-  root.setAttribute('role', 'alert');
-  const retry = document.createElement('button');
-  retry.textContent = 'تلاش دوباره برای بارگذاری';
-  retry.onclick = () => location.reload();
-  root.appendChild(retry);
-});
+function PaidPreview({onClose}:{onClose:()=>void}){
+ const [phone,PH]=useState(demoCases.find(p=>p.preview)!.phone),[backend,B]=useState<Backend|null>(null),[error,E]=useState('');
+ const title=useRef<HTMLHeadingElement>(null);
+ useEffect(()=>{title.current?.focus();},[]);
+ useEffect(()=>{let active=true;let instance:Backend|undefined;
+  void (async()=>{instance=await createDemoBackend({lane:'complete',preview:true});await instance.enterSample(phone);if(active)B(instance);else instance.dispose();})().catch(e=>{if(active)E(e.message);});
+  return()=>{active=false;instance?.dispose();};
+ },[phone]);
+ const person=demoCases.find(p=>p.phone===phone)!;
+ return <section className="demo-preview preview-readonly" aria-label="نمونهٔ کامل بعد از پرداخت"><header className="demo-preview-bar"><div><h1 tabIndex={-1} ref={title}>نمونهٔ بعد از خرید · {person.name}</h1><p>عضو و تمام اطلاعاتش فرضی‌اند. بازدید فقط خواندنی است و پرونده شما تغییر نمی‌کند.</p></div><button className="p-secondary" onClick={onClose}><Icon name="arrow" size={18}/> بازگشت به پروندهٔ من</button></header><nav className="demo-preview-people" aria-label="انتخاب نمونه"><span>داستان دیگری را ببینید:</span>{demoCases.filter(p=>p.preview).map(p=><button key={p.phone} aria-pressed={p.phone===phone} onClick={()=>{if(p.phone===phone)return;B(null);E('');PH(p.phone);}}><Icon name={p.state==='completed'?'check':'route'} size={17}/>{p.name}<small>{p.state==='completed'?'دوره کامل‌شده':'در حال پیگیری'}</small></button>)}</nav>{error?<div className="demo-operation-error" role="alert"><p>{error}</p><button className="p-secondary" onClick={()=>{B(null);E('');PH(demoCases.find(p=>p.phone!==phone&&p.preview)!.phone);}}>تلاش با نمونهٔ دیگر</button></div>:backend?<Pilot key={phone} {...pilotProps(backend)} previewOnly mainId="paid-demo-main"/>:<div className="demo-loading" role="status"><BrandMark/><p>در حال آماده‌سازی نمونهٔ برنامه و مدارک…</p></div>}</section>;
+}
+function pilotProps(backend:Backend){return {transport:backend.fetch,hospitalLookupEndpoint:__SALAMATBAN_MAPS_GATEWAY_URL__,hospitalSnapshotUrl:'./data/care-facilities.geoapify.json',homeHref:'./',loginImageHref:'./media/care-team.webp',brandHref:'./brand/index.html',downloadFile:backend.downloadFile,saveMessage:'تغییرات در همین مرورگر ذخیره شد.'};}
+function Presentation({initial,initialLane}:{initial:Backend;initialLane:DemoLane}){
+ const [lane,L]=useState(initialLane),[backend,B]=useState(initial),[key,K]=useState(0),[catalog,CT]=useState(new URLSearchParams(location.search).get('lane')==='complete');
+ const [busy,S]=useState(false),[error,E]=useState(''),[preview,P]=useState(new URLSearchParams(location.search).get('demo')==='after-payment');
+ const cache=useRef<Partial<Record<DemoLane,Backend>>>({[initialLane]:initial});
+ const beforeLeave=useRef<()=>Promise<boolean>>(async()=>true),returnFocus=useRef<HTMLElement|null>(null),returnScroll=useRef(0);
+ const register=(guard:()=>Promise<boolean>)=>{beforeLeave.current=guard;};
+ async function operation(run:()=>Promise<void>){if(busy)return;S(true);E('');try{if(!await beforeLeave.current()){E('تغییر فضا انجام نشد؛ ابتدا ذخیره پاسخ‌ها را در همین پرونده کامل کنید.');return;}await run();}catch(e){E((e as Error).message);}finally{S(false);}}
+ function openPreview(){returnFocus.current=document.activeElement as HTMLElement;returnScroll.current=scrollY;P(true);window.scrollTo(0,0);}
+ function closePreview(){P(false);requestAnimationFrame(()=>{window.scrollTo(0,returnScroll.current);returnFocus.current?.focus({preventScroll:true});});}
+ async function switchLane(next:DemoLane){if(next===lane)return;await operation(async()=>{const instance=cache.current[next]||await createDemoBackend({lane:next});cache.current[next]=instance;await instance.fetch('/api/pilot/meta').then(async r=>{if(!r.ok)throw new Error('فضای دمو آماده نشد. اتصال و ذخیره‌سازی مرورگر را بررسی کنید.');});B(instance);L(next);CT(next==='complete');K(k=>k+1);beforeLeave.current=async()=>true;try{localStorage.setItem(laneKey,next);}catch{}window.scrollTo(0,0);});}
+ async function enter(phone:string){await operation(async()=>{await backend.enterSample(phone);CT(false);K(k=>k+1);beforeLeave.current=async()=>true;window.scrollTo(0,0);});}
+ return <><div className={`presentation-mode lane-${lane}`} hidden={preview} inert={preview?true:undefined}><aside className="presentation-note" aria-label="انتخاب فضای نمایش"><div className="presentation-lanes" role="group" aria-label="دو فضای مستقل"><button aria-pressed={lane==='practice'} disabled={busy} onClick={()=>void switchLane('practice')}>فضای ثبت و آزمون</button><button aria-pressed={lane==='complete'} disabled={busy} onClick={()=>void switchLane('complete')}>دموی کامل</button></div><p>{lane==='practice'?'ثبت از ابتدا · داده‌های ساختگی، فقط در همین مرورگر':'۱۰ پرونده ساختگی · مستقل از فضای آزمون'}</p><div className="presentation-tools">{lane==='complete'&&<button disabled={busy} onClick={()=>void operation(async()=>{CT(c=>!c);beforeLeave.current=async()=>true;})}>{catalog?'بازگشت به پنل':'فهرست پرونده‌ها و نقش‌ها'}</button>}<button disabled={busy} onClick={()=>{if(confirm(`فقط اطلاعات ${lane==='practice'?'فضای ثبت و آزمون':'دموی کامل'} پاک شود؟ ${lane==='complete'?'پرونده‌های اولیه دوباره ساخته می‌شوند.':'فضای دیگر دست‌نخورده می‌ماند.'}`))void backend.reset().catch(()=>E('پاک‌کردن این فضا انجام نشد.'));}}>بازنشانی این فضا</button></div></aside><div className="demo-operation-status" aria-live="polite">{busy?'در حال آماده‌سازی فضا…':error}</div>{catalog&&lane==='complete'?<CaseCatalog busy={busy} onEnter={phone=>void enter(phone)} onPreview={openPreview}/>:<Pilot key={`${lane}-${key}`} {...pilotProps(backend)} onPaidDemo={openPreview} onBeforeLeave={register}/>}</div>{preview&&<PaidPreview onClose={closePreview}/>}</>;
+}
+async function main(){
+ const lane=chosenLane();let timer:ReturnType<typeof setTimeout>|undefined;
+ const backend=await Promise.race([createDemoBackend({lane}),new Promise<never>((_,reject)=>{timer=setTimeout(()=>reject(new Error('دریافت برنامه یا دسترسی به ذخیره‌سازی بیش از حد طول کشید.')),45000);})]).finally(()=>clearTimeout(timer));
+ createRoot(document.getElementById('app')!).render(<Presentation initial={backend} initialLane={lane}/>);
+}
+void main().catch((error:Error)=>{const root=document.getElementById('app')!;root.textContent=`نسخهٔ نمایشی بارگذاری نشد. ${error.message}`;root.setAttribute('role','alert');const retry=document.createElement('button');retry.textContent='تلاش دوباره';retry.onclick=()=>location.reload();root.appendChild(retry);});

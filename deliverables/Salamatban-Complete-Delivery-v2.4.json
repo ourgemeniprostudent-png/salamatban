@@ -1,0 +1,94 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.4.zip",
+  "bytes": 44569679,
+  "sha256": "6b3e73e73cd50692492a26f45666fd6a79f034a61af2ffae741a9e2e5b5299c4",
+  "fileCount": 505,
+  "version": "2.4",
+  "appVersion": "2.4",
+  "sourceBaseCommit": "b28ff1d2229814279f019d0e5e8b496e0fd597cb",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.4",
+    "date": "2026-10-08T19:02:15.321483+00:00",
+    "workflow": "Two independent browser-local lanes, ten coherent fictional cases and genuine watermarked document files. Ephemeral read-only customer preview uses an independent session and leaves the current draft untouched.",
+    "builtAssets": {
+      "index.html": "051bbabcaa15d75458e40083acc5b2138eab105c89e8503a7bb7cbeb51a3142d",
+      "app.js": "eed0a16e4054a8863339bf0f457f5499e5bc9f43ef79eee681281ee7816d431e",
+      "app.css": "11b50c5fcbf325c48cee8638914afbe79d8bed25d7842e00c5c3648964ef6d45",
+      "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+      "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159"
+    },
+    "checks": {
+      "completeDemo": {
+        "individualPassed": 11,
+        "failed": 0,
+        "evidence": "complete-demo-tests.json"
+      },
+      "api": {
+        "individualPassed": 41,
+        "failed": 0,
+        "evidence": "api-tests.json"
+      },
+      "roleWorkflow": {
+        "individualPassed": 6,
+        "failed": 0,
+        "evidence": "workflow-tests.json"
+      },
+      "staticPresentation": {
+        "individualPassed": 12,
+        "failed": 0,
+        "evidence": "ux-tests.json"
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "fictionalDocumentCorpus": {
+        "status": "passed",
+        "pdfs": 25,
+        "images": 7,
+        "evidence": "demo-document-review.json"
+      },
+      "totalIndividualPassed": 70,
+      "publicBrowser": {
+        "passed": 5,
+        "evidence": "demo-public-browser.json"
+      },
+      "extractedSource": {
+        "status": "passed",
+        "evidence": "delivery-source-rebuild.json"
+      },
+      "showcaseBrowser": {
+        "status": "passed",
+        "evidence": "showcase-browser.json"
+      }
+    },
+    "countScope": "Independent functional assertions; Node parent tests, build/type checks, corpus review and archive/publication checks are counted separately.",
+    "retainedComponentEvidence": {
+      "scope": "Unchanged geographic integration, urgent guidance, motion, grouping, layout stability and provider preparation retain v2.3.2/v2.3 evidence. They were not all rerun in this release; representative actual API/workflow/static UI checks were rerun.",
+      "previousRelease": "ux-baseline-v2.3.2.json"
+    },
+    "demo": {
+      "lanes": [
+        "practice",
+        "complete"
+      ],
+      "fixtureVersion": "complete-demo-v1",
+      "cases": 10,
+      "yearHistoryCases": 3,
+      "documents": 32,
+      "preview": "isolated ephemeral read-only",
+      "asOf": "2026-10-08"
+    },
+    "limits": [
+      "Fictional case calendar is fixed at 2026-10-08; completion percentages count actions, not health improvement.",
+      "Data is local to each browser. Payment, OTP, clinicians, specimen documents and coordination institutions are synthetic.",
+      "Customer preview is read-only and ephemeral; complete demo permits normal role workflow mutations in its separate local store.",
+      "Public facility data remains a dated real Geoapify/OpenStreetMap snapshot, with Neshan directions; live gateway is not deployed.",
+      "No real-device, exhaustive security, load-test or clinical-validation claim."
+    ],
+    "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+    "packageValidation": "Archive integrity, source rebuild and link/mirror checks are performed separately; see ux-archive-validation.json."
+  },
+  "archiveIntegrity": "passed"
+}

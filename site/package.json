@@ -27,7 +27,9 @@
     "test:workspace": "node --test demo/workspace.test.mjs",
     "maps:build": "node maps-server/build.mjs",
     "maps:start": "node dist-maps-server/server.mjs",
-    "maps:test": "node --test maps-server/server.test.mjs"
+    "maps:test": "node --test maps-server/server.test.mjs",
+    "test:complete-demo": "node --test demo/complete-demo.test.mjs",
+    "demo:documents": "node demo/generate-documents.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

@@ -69,6 +69,25 @@ with zipfile.ZipFile(archive) as z:
     catalog=json.loads(z.read(prefix+'CONTENTS.json'))
     assert manifest['version']==catalog['packageVersion']==VERSION
     assert manifest['appVersion']==catalog['appVersion']==json.loads(z.read(prefix+'website/release.json'))['version']==json.loads(z.read(prefix+'technical/ux-release.json'))['version']==APP_VERSION
+    demo=catalog['demo'];fixtures=json.loads(z.read(prefix+demo['sourceScenarios']))
+    corpus=json.loads(z.read(prefix+demo['documentsManifest']))
+    release_demo=json.loads(z.read(prefix+'website/release.json'))['demo']
+    assert fixtures['fictional'] is corpus['fictional'] is True
+    assert fixtures['fixtureVersion']==corpus['fixtureVersion']==release_demo['fixtureVersion']
+    fixture_bytes=json.dumps(fixtures,ensure_ascii=False,separators=(',',':')).encode()
+    assert hashlib.sha256(fixture_bytes).hexdigest()==corpus['fixturesSha256'],'Demo fixtures do not match document manifest'
+    assert demo['asOf']==fixtures['asOf']==corpus['asOf']==release_demo['asOf']
+    assert len(fixtures['cases'])==demo['fictionalCases']==release_demo['cases']==10
+    assert sum(case['ageDays']>=365 for case in fixtures['cases'])==demo['yearHistoryCases']==release_demo['yearHistoryCases']==3
+    assert demo['lanes']==release_demo['lanes']==['practice','complete']
+    assert demo['customerPreview']==release_demo['preview']=='isolated ephemeral read-only'
+    assert len(corpus['files'])==release_demo['documents']==32
+    assert sum(file['mime']=='application/pdf' for file in corpus['files'].values())==demo['pdfs']==25
+    assert sum(file['mime']=='image/jpeg' for file in corpus['files'].values())==demo['images']==7
+    for filename,file in corpus['files'].items():
+        data=z.read(prefix+'website/'+filename)
+        assert data==z.read(prefix+'source/site/public/'+filename),'Demo document source/build mismatch: '+filename
+        assert len(data)==file['bytes'] and hashlib.sha256(data).hexdigest()==file['sha256'],'Demo document integrity mismatch: '+filename
     maps=catalog['mapsData']
     assert maps['mode']=='snapshot' and maps['provider']=='geoapify' and maps['directionsProvider']=='neshan' and maps['liveGatewayDeployed'] is False,'Snapshot mode metadata mismatch'
     assert maps['path']=='website/data/care-facilities.geoapify.json' and maps['source']=='source/site/public/data/care-facilities.geoapify.json','Snapshot path metadata mismatch'

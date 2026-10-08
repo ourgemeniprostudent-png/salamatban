@@ -1,0 +1,46 @@
+{
+  "appCompilation": "passed",
+  "comparedAssets": [
+    {
+      "file": "app.js",
+      "sha256": "eed0a16e4054a8863339bf0f457f5499e5bc9f43ef79eee681281ee7816d431e"
+    },
+    {
+      "file": "app.css",
+      "sha256": "11b50c5fcbf325c48cee8638914afbe79d8bed25d7842e00c5c3648964ef6d45"
+    },
+    {
+      "file": "index.html",
+      "sha256": "051bbabcaa15d75458e40083acc5b2138eab105c89e8503a7bb7cbeb51a3142d"
+    },
+    {
+      "file": "data/care-facilities.geoapify.json",
+      "sha256": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d"
+    },
+    {
+      "file": "release.json",
+      "sha256": "cb6d840a4c124062453037cc555a4cef482282fcd9c9f43eccc4656e9f83c8c9"
+    },
+    {
+      "file": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "1951c663fa76670412409f3f8617537b754fc4a3f827d80a12e35aa9d526a55b"
+    },
+    {
+      "file": "demo/documents/manifest.json",
+      "sha256": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159"
+    },
+    {
+      "file": "demo/documents/51-lab.pdf",
+      "sha256": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
+    },
+    {
+      "file": "demo/documents/51-image.jpg",
+      "sha256": "1988aaa2d78e2ebbad3cd617e3802c6e81b7b2d92fb7883abe8b45e5af7694b2"
+    }
+  ],
+  "archiveReconstruction": "passed",
+  "negativeChecks": 4,
+  "version": "2.4",
+  "checkedAt": "2026-10-08T19:06:20.925788+00:00",
+  "scope": "Actual source compilation and archive reconstruction from extracted v2.4 delivery; compared build hashes identify tested app assets independently of later evidence-only ZIP regeneration."
+}

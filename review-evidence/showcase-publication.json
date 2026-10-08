@@ -1,7 +1,7 @@
 {
-  "packageVersion": "2.3.2",
+  "packageVersion": "2.4",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "625656dc431a646cdeb749784c23ad4455c26f22",
+  "pagesCommit": "79e723f52e2fef25a042d0abacb60b96feb0ee8b",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "adc1ad7f481f9bae663cce0b6df431454205f1b8715ef7a61f2274f96b2ec8c0"
+      "sha256": "c6ea7292cffdea0c310b21b8a53de9df5051c020371f8a0bf2327ab4bb018503"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "c4f44923962188ce02f0a0b470f06d2751cdb57f6f53c9976b2036e50ed0c92f"
+      "sha256": "ec25844a6d4133a0d6c92e4de0491978019e6182306c0dea6d13652534d11002"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "5bca6a23723e7ea4505f0c1a538bb605d655d2bbe6ba7e1f91407d14f97c7e9a"
+      "sha256": "c2caacc193ff8e16ffd15325eb2caa0a7102e31437a699099083d06e72f48449"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -99,67 +99,85 @@
       "file": "presentation/assets/screen-admin.png",
       "status": 200,
       "matches": true,
-      "sha256": "4cf0ed1c83560eefb2b23e1011a9a1aca281ef85efc5ccf57629f65cac6197a9"
+      "sha256": "0e86a99363e9f6fdf05393a23a37da5f9659a5ce02df5cb823d660c99988c6ca"
     },
     {
       "file": "presentation/assets/screen-consent.png",
       "status": 200,
       "matches": true,
-      "sha256": "06ffe57e518a74883497d1b90045f1dc0179cdd043306cc7fb7c8a36fdd50750"
+      "sha256": "d205462c3b20ad3545d38317eeccaf12a2be6ba088069767910bcbc8f93343f5"
     },
     {
       "file": "presentation/assets/screen-coordinator.png",
       "status": 200,
       "matches": true,
-      "sha256": "9debfdee3449422b066a1c4efb4ba461751c5e9221da00bf8cef3883e19ed0b7"
+      "sha256": "e32fba36497679131324f6c8ed56c18710b7e1cbe6ce63760dd23e2a768e548b"
+    },
+    {
+      "file": "presentation/assets/screen-demo-catalog.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "99ba5cef2ef0b8a20fa36ebe542ee5b2a66b3c9071583046fb23416fc34f5ab2"
     },
     {
       "file": "presentation/assets/screen-doctor.png",
       "status": 200,
       "matches": true,
-      "sha256": "4ed2109d017b984723c76f6159248c0392421a92236a4f31034db52ffec531fd"
+      "sha256": "cf3c96c225c408c0ca998ad73d4bdef896fa2df39ddfbc785db46f3357b683e7"
     },
     {
       "file": "presentation/assets/screen-form.png",
       "status": 200,
       "matches": true,
-      "sha256": "d2bb8ae791c19f773fc56bb677c3165ae3a1c4244fd3ab75fbeb372ef7f99fac"
+      "sha256": "5b22dd492d94fb91d0365d7fb8e2ddef1f766e106eae66d99202c6c443fc55bf"
     },
     {
       "file": "presentation/assets/screen-home.png",
       "status": 200,
       "matches": true,
-      "sha256": "2d824597fbe312f5dbb18a915dbbffc24abe35719c7da3f12154a40a4bde3773"
+      "sha256": "c78bdf8426e499fed91e0d8a962340759f46dc8e356f5947fd464d18ac27881c"
     },
     {
       "file": "presentation/assets/screen-login.png",
       "status": 200,
       "matches": true,
-      "sha256": "5fa8696f5bd4906078fc93e5c8ef29c10e8da3cd0ed6d55428a501641fe56c72"
+      "sha256": "53336e95ffe11eebcab85636b088e7f4a8ed91e6a98e771a307b389b452cbfad"
+    },
+    {
+      "file": "presentation/assets/screen-paid-preview.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "25c5b17b19eadb38a39099ed7f75c771786033b6711d366d6d4a59dd677ea038"
     },
     {
       "file": "presentation/assets/screen-payment.png",
       "status": 200,
       "matches": true,
-      "sha256": "bfb5fbad5a5762317a0dfce895657e6fb92adefd8da241709867d596e3bcce75"
+      "sha256": "52627869df0154dff821e9dfa712f81922e83d6a655a1ab72d02f90f19c84553"
     },
     {
       "file": "presentation/assets/screen-program.png",
       "status": 200,
       "matches": true,
-      "sha256": "b100dddc4e338242ca5c36c2edd529e2a12213bc4d1354fb06e34389b48464d4"
+      "sha256": "f5f345444df25af83a37acd712259d0a388ed5d30393c701beae671b27dd8d1b"
     },
     {
       "file": "presentation/assets/screen-urgent.png",
       "status": 200,
       "matches": true,
-      "sha256": "07a701584ff62b2a9ffd10ca8d204241e53a748f10b467cef80027e20119a680"
+      "sha256": "f03d97d4155cbec21b679a16aace378b88a128c945b7c8db45c6397fca50ed3b"
     },
     {
       "file": "presentation/assets/screen-welcome.png",
       "status": 200,
       "matches": true,
-      "sha256": "9ff7b8f6aee5475f2279a18bd02ac2e696f3ea48286f4e52fe4d2f3a42e55f26"
+      "sha256": "92b560f64e88923a0ed384553c72316d216edc4eac6b3ab30df4c49d7b4227f8"
+    },
+    {
+      "file": "presentation/assets/screen-year-history.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "7b5151bbbabad32dbc2c4b889953d67486c787fb0b79d7fe70645062c0b24eaa"
     },
     {
       "file": "presentation/assets/user-flow/MANIFEST.json",
@@ -276,5 +294,5 @@
       "sha256": "19e2c86bfae66c93e975cf515bcb5d6f228c7310126c1a1b109ebce1ac9dd4b3"
     }
   ],
-  "verifiedAt": "2026-10-08T16:30:34Z"
+  "verifiedAt": "2026-10-08T19:07:08Z"
 }

@@ -7,7 +7,7 @@ base='https://ourgemeniprostudent-png.github.io/salamatban/'
 build=root/'site/dist-demo'
 commit=subprocess.check_output(['git','ls-remote','origin','refs/heads/gh-pages'],cwd=root).decode().split()[0]
 version=json.loads((build/'release.json').read_text())['version']
-files=['index.html','app.js','app.css','release.json','sql-wasm.wasm','brand/index.html','media/care-team.webp','THIRD-PARTY-NOTICES.txt','data/care-facilities.geoapify.json']
+files=['index.html','app.js','app.css','release.json','sql-wasm.wasm','brand/index.html','media/care-team.webp','THIRD-PARTY-NOTICES.txt','data/care-facilities.geoapify.json','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg']
 report={'url':base,'pagesCommit':commit,'success':False,'assets':[]}
 for attempt in range(24):
  results=[]

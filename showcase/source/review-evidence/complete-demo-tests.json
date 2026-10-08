@@ -1,6 +1,6 @@
 {
-  "version": "2.4.2",
-  "completedAt": "2026-10-08T21:22:45.430Z",
+  "version": "2.4.4",
+  "completedAt": "2026-10-08T21:56:05.872Z",
   "checks": 11,
   "passed": [
     "the unchanged practice namespace accepts an independent record",

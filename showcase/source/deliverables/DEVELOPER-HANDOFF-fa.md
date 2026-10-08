@@ -261,6 +261,6 @@ python3 scripts/publish_demo_pages.py
 
 شواهد رفتار مرجع در `reference-experience-tests.json`، اعتبار کاتالوگ و رفتار انتخاب شهر در `city-catalog-tests.json` و `city-input-tests.json` و مسیر درخواست مراکز در `facility-lookup-tests.json` ثبت می‌شوند. `geoapify-proxy-tests.json`، `maps-config-tests.json` و `geoapify-readiness.json` شواهد Geoapify و حالت دادهٔ نسخهٔ جاری‌اند. `facility-live-probe.json` و `facility-browser-probe.json` به OSM/Nominatim نسخهٔ قبلی ۲٫۳ تعلق دارند؛ شواهد نشانِ ۲٫۳٫۱ نیز تاریخی‌اند. بررسی‌های پایداری و فوریت در `layout-stability-tests.json`، `controls-stability-tests.json` و `urgent-experience-tests.json` کنار `ux-release.json` قرار می‌گیرند. دادهٔ کنترل‌شدهٔ آزمون، دریافت دوره‌ای واقعی و جست‌وجوی زندهٔ عمومی سه وضعیت متفاوت‌اند؛ نتیجهٔ مرورگر و HTTPS جدا ثبت می‌شوند. گزارش اصلی، نتیجهٔ واقعی اجرا، دامنهٔ سناریوها و محدودیت‌ها را مشخص می‌کند؛ این بخش خودِ نتیجهٔ قبولی آزمون نیست.
 
-### مسیر و موبایل — ۲٫۴٫۳
+### مسیر و موبایل — ۲٫۴٫۴
 
 `member-navigation.tsx` ناوبری واحد دسکتاپ/موبایل و dialog بخش‌های دیگر را می‌سازد. `care-path.css` مسیر `JourneyTimeline` را به دادهٔ موجود برنامه/updates متصل می‌کند؛ درصد همچنان شمار اقدام‌های ثبت‌شده است. `mobile-workspace.css` پس از سبک‌های موجود وارد می‌شود و قواعد اندازه/لمس مشترک نقش‌ها را دارد. `care-mobile.test.mjs` ثبت واقعی یک اقدام عضو، ماندگاری پس از reload، حفاظت اقدام تیم، ناوبری و بازگشت تمرکز پنجره را بررسی می‌کند.

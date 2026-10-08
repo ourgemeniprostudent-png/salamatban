@@ -1,15 +1,14 @@
 {
-  "version": "2.4.4",
-  "date": "2026-10-08T21:58:28.923864+00:00",
-  "workflow": "Two-band photographic entry: login and short introduction on the right, full-height professional doctor/patient illustration on the left; named sample accounts grouped by member, doctor, coordinator and admin below. Common desktop sizes fit one viewport in phone and OTP phases; phones retain readable scrollable role groups. Existing care journeys and workspaces are retained and regression-tested.",
+  "version": "2.4.3",
+  "date": "2026-10-08T21:26:37.634533+00:00",
+  "workflow": "Illustrated care journey with real action status, ownership and due dates; touch member navigation and secondary dialog; readable mobile entry, grouped forms, dashboards and operational role workspaces. Actual personal action completion persists; team completion and read-only preview remain protected.",
   "builtAssets": {
-    "index.html": "53bc5594b61fd870aad59843d78fac86a68e7bbd3a7748611fc268b1676907b3",
-    "app.js": "f507581c687c57127a58cc36820e1d0207c51a17b3321b76daf05d11b10bba6d",
-    "app.css": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298",
+    "index.html": "cfec562d0bb21cf9e6a82cc608d1897d21f1efe2584386fe0b52ad4ec647b236",
+    "app.js": "318f526dc67c9a427926d2501825336a0e00cf20ecc55a50c93f65645a28de32",
+    "app.css": "563ec33531a74c0a955fb410fa4b39c266e3728575ab079481f08704024fbf86",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "27d467b7d59a6e2fc118e5c02de84a9d9e7f82410385a81c32fade11fcda7302",
-    "media/care-consultation.webp": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
+    "previews/value-before-payment/index.html": "9a668e65fd94bec8411fd6d15d01f9e89ed4cdc074321d1bf7fbba5c035d9969"
   },
   "checks": {
     "completeDemo": {
@@ -48,7 +47,7 @@
     "serverBuild": "passed",
     "staticBuild": "passed",
     "publicBrowser": {
-      "completed": 10,
+      "completed": 9,
       "evidence": "demo-public-browser.json",
       "status": "passed"
     },
@@ -65,12 +64,12 @@
       "failed": 0,
       "evidence": "care-mobile-tests.json",
       "viewports": [
-        "320×740",
-        "360×844",
-        "390×844",
-        "430×932",
-        "844×390",
-        "1440×1050"
+        "320\u00d7740",
+        "360\u00d7844",
+        "390\u00d7844",
+        "430\u00d7932",
+        "844\u00d7390",
+        "1440\u00d71050"
       ],
       "engine": "managed Chromium",
       "physicalMobileSafariTested": false
@@ -91,33 +90,15 @@
       "evidence": "urgent-experience-tests.json"
     },
     "browserRegression": {
-      "individualPassed": 57,
-      "parentTestsPassed": 8,
+      "individualPassed": 52,
+      "parentTestsPassed": 7,
       "failed": 0,
-      "runnerEvidence": "presentation-tests.json",
-      "scope": "Seven suites passed combined; presentation screenshot timeout was rerun in isolation and all twelve presentation checks passed."
-    },
-    "loginLayout": {
-      "individualPassed": 5,
-      "failed": 0,
-      "evidence": "login-layout-tests.json",
-      "desktopSizes": [
-        "1366×768",
-        "1440×900",
-        "1920×1080"
-      ],
-      "phoneTabletLandscapeSizes": [
-        "320×740",
-        "390×844",
-        "430×932",
-        "844×390",
-        "768×1024"
-      ]
+      "runnerEvidence": "presentation-tests.json"
     }
   },
   "retainedComponentEvidence": {
-    "previousRelease": "ux-baseline-v2.4.3.json",
-    "scope": "Older component evidence stays labeled. Entry, existing role workflows, grouped intake, paid workspace, font startup, urgent assistance, lane isolation and mobile care were executed for v2.4.4."
+    "previousRelease": "ux-baseline-v2.4.2.json",
+    "scope": "Earlier before-payment design and unaffected APIs/location integration keep labeled historical evidence. Member and staff workflows, grouped forms, urgent safety, preview isolation, font loading and mobile journey were rerun for 2.4.3."
   },
   "demo": {
     "lanes": [

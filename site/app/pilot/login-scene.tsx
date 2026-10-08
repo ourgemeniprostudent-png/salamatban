@@ -4,14 +4,9 @@ import { BrandMark, Icon } from './brand';
 import './login-scene.css';
 
 /** A visual introduction; the floating labels describe the existing care journey. */
-export function LoginScene({ imageSrc = './media/care-team.webp' }: { imageSrc?: string }) {
+export function LoginScene({ imageSrc = './media/care-consultation.webp' }: { imageSrc?: string }) {
   const [paused, setPaused] = useState(false);
   return <section className={`login-scene ${paused ? 'is-paused' : ''}`} aria-label="همراهی سلامت‌بان">
-    <div className="login-scene-copy">
-      <span className="login-scene-eyebrow"><span/> یک همراه، برای تمام قدم‌ها</span>
-      <h1>سلامت شما،<br/><em>از همین‌جا شروع می‌شود.</em></h1>
-      <p>از دغدغهٔ شما شروع می‌کنیم؛<br/>با شناخت، بررسی پزشک و همراهی در قدم بعد.</p>
-    </div>
     <div className="login-scene-art">
       <div className="login-scene-media" aria-hidden="true">
         <svg className="login-scene-fallback" viewBox="0 0 600 580" fill="none">
@@ -32,7 +27,7 @@ export function LoginScene({ imageSrc = './media/care-team.webp' }: { imageSrc?:
         </svg>
         {/* Fixed intrinsic dimensions reserve the photograph before decoding. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="login-scene-photo" src={imageSrc} width="1122" height="1402" alt="" fetchPriority="high" decoding="async" onError={event => { event.currentTarget.style.visibility = 'hidden'; }}/>
+        <img className="login-scene-photo" src={imageSrc} width="1672" height="941" alt="" fetchPriority="high" decoding="async" onError={event => { event.currentTarget.style.visibility = 'hidden'; }}/>
         <span className="login-scene-photo-wash"/>
       </div>
       <div className="login-scene-chip login-scene-chip-doctor" aria-hidden="true"><span className="login-scene-chip-icon"><Icon name="doctor" size={22}/></span><div><strong>با همراهی پزشک</strong><small>از شناخت تا قدم بعد</small></div><span className="login-scene-chip-check"><Icon name="check" size={13}/></span></div>
@@ -41,6 +36,6 @@ export function LoginScene({ imageSrc = './media/care-team.webp' }: { imageSrc?:
       <span className="login-scene-spark login-scene-spark-one" aria-hidden="true">+</span><span className="login-scene-spark login-scene-spark-two" aria-hidden="true">+</span>
       <button type="button" className="login-scene-motion" aria-pressed={paused} aria-label={paused ? 'پخش حرکت گرافیکی' : 'توقف حرکت گرافیکی'} onClick={() => setPaused(value => !value)}><svg viewBox="0 0 20 20" aria-hidden="true">{paused ? <path d="m6 3 10 7-10 7Z" fill="currentColor"/> : <path d="M7 4v12m6-12v12" stroke="currentColor" strokeWidth="2"/>}</svg><span>{paused ? 'پخش حرکت' : 'توقف حرکت'}</span></button>
     </div>
-    <ol className="login-scene-steps"><li><span>۱</span>شناخت شما</li><li><span>۲</span>بررسی پزشک</li><li><span>۳</span>همراهی و پیگیری</li></ol>
+
   </section>;
 }

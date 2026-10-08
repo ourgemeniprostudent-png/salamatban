@@ -1,0 +1,14 @@
+{
+  "version": "2.4.4",
+  "date": "2026-10-08T21:56:24.486Z",
+  "individualPassed": 5,
+  "failed": 0,
+  "checks": [
+    "desktop upper split and all categorized accounts fit one viewport, including OTP",
+    "each role selects its phone without moving the account directory; code copies and actual login works",
+    "ten complete-demo members remain categorized, reachable and within desktop viewport",
+    "phone and landscape layouts keep controls readable and reachable without horizontal overflow",
+    "validation does not shift entry; unavailable photo and reduced motion preserve login"
+  ],
+  "scope": "Built static entry, role selections, OTP copy and real role login; desktop one viewport, complete members, phone/tablet/landscape, validation stability, photo failure and reduced motion."
+}

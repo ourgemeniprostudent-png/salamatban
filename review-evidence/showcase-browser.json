@@ -1,9 +1,9 @@
 {
-  "packageVersion": "2.4.3",
-  "appVersion": "2.4.3",
-  "publicAppVersion": "2.4.3",
+  "packageVersion": "2.4.4",
+  "appVersion": "2.4.4",
+  "publicAppVersion": "2.4.4",
   "baseUrl": "http://127.0.0.1:4203/",
-  "checkedAt": "2026-10-08T21:28:14.666Z",
+  "checkedAt": "2026-10-08T21:59:33.111Z",
   "viewports": [
     {
       "width": 320,
@@ -28,7 +28,7 @@
   ],
   "checks": [
     "four role walkthroughs",
-    "package/app/public target are v2.4.3 and snapshot mode is distinguished from live search",
+    "package/app/public target are v2.4.4 and snapshot mode is distinguished from live search",
     "current role architecture is directly reachable from product experience",
     "six recovered diagrams load, zoom, close and expose PNG/SVG files",
     "current/target filters",

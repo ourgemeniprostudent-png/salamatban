@@ -7,7 +7,7 @@ base='https://ourgemeniprostudent-png.github.io/salamatban/'
 build=root/'site/dist-demo'
 commit=subprocess.check_output(['git','ls-remote','origin','refs/heads/gh-pages'],cwd=root).decode().split()[0]
 version=json.loads((build/'release.json').read_text())['version']
-files=['index.html','app.js','app.css','release.json','sql-wasm.wasm','brand/index.html','media/care-team.webp','THIRD-PARTY-NOTICES.txt','data/care-facilities.geoapify.json','previews/value-before-payment/index.html','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg'] + [f'fonts/PeydaWebFaNum-{weight}.woff2' for weight in ['Regular','Medium','SemiBold','Bold','ExtraBold','Black']]
+files=['index.html','app.js','app.css','release.json','sql-wasm.wasm','brand/index.html','media/care-consultation.webp','THIRD-PARTY-NOTICES.txt','data/care-facilities.geoapify.json','previews/value-before-payment/index.html','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg'] + [f'fonts/PeydaWebFaNum-{weight}.woff2' for weight in ['Regular','Medium','SemiBold','Bold','ExtraBold','Black']]
 report={'url':base,'pagesCommit':commit,'success':False,'assets':[]}
 for attempt in range(24):
  results=[]

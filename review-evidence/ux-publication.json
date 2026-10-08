@@ -1,30 +1,30 @@
 {
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-  "pagesCommit": "15639f4e2689d7c152114f8a6491d0133c1605bb",
+  "pagesCommit": "df7fe8ba1b113207ddafd29c74d846f1f6bd809a",
   "success": true,
   "assets": [
     {
       "file": "index.html",
       "status": 200,
-      "sha256": "cfec562d0bb21cf9e6a82cc608d1897d21f1efe2584386fe0b52ad4ec647b236",
+      "sha256": "53bc5594b61fd870aad59843d78fac86a68e7bbd3a7748611fc268b1676907b3",
       "matches": true
     },
     {
       "file": "app.js",
       "status": 200,
-      "sha256": "318f526dc67c9a427926d2501825336a0e00cf20ecc55a50c93f65645a28de32",
+      "sha256": "f507581c687c57127a58cc36820e1d0207c51a17b3321b76daf05d11b10bba6d",
       "matches": true
     },
     {
       "file": "app.css",
       "status": 200,
-      "sha256": "563ec33531a74c0a955fb410fa4b39c266e3728575ab079481f08704024fbf86",
+      "sha256": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298",
       "matches": true
     },
     {
       "file": "release.json",
       "status": 200,
-      "sha256": "06a157906b2fc3a0c8ef4a6e13045c9627a58d2349e40c5e2a48e74b460e40fc",
+      "sha256": "2b4f47b691d9fed3ff04310cee3c4f1e60383dbf275fa78a9520da9845761feb",
       "matches": true
     },
     {
@@ -40,9 +40,9 @@
       "matches": true
     },
     {
-      "file": "media/care-team.webp",
+      "file": "media/care-consultation.webp",
       "status": 200,
-      "sha256": "10ba13eada75bfa3816baa2d2919fe4e2aa57efb3a0455ba103e24197b96997c",
+      "sha256": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037",
       "matches": true
     },
     {
@@ -60,7 +60,7 @@
     {
       "file": "previews/value-before-payment/index.html",
       "status": 200,
-      "sha256": "9a668e65fd94bec8411fd6d15d01f9e89ed4cdc074321d1bf7fbba5c035d9969",
+      "sha256": "27d467b7d59a6e2fc118e5c02de84a9d9e7f82410385a81c32fade11fcda7302",
       "matches": true
     },
     {
@@ -118,5 +118,5 @@
       "matches": true
     }
   ],
-  "verifiedAt": "2026-10-08T21:25:05Z"
+  "verifiedAt": "2026-10-08T21:56:47Z"
 }

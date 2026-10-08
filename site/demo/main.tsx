@@ -7,6 +7,7 @@ import {demoCases,completeAccounts} from './fixtures';
 import './presentation.css';
 import '../app/pilot/pilot.css';
 import '../app/pilot/visual-language.css';
+import '../app/pilot/login-layout.css';
 
 declare const __SALAMATBAN_MAPS_GATEWAY_URL__: string | null;
 type Backend=Awaited<ReturnType<typeof createDemoBackend>>;
@@ -28,7 +29,7 @@ function PaidPreview({onClose}:{onClose:()=>void}){
  const person=demoCases.find(p=>p.phone===phone)!;
  return <section className="demo-preview preview-readonly" aria-label="نمونهٔ کامل بعد از پرداخت"><header className="demo-preview-bar"><div><h1 tabIndex={-1} ref={title}>نمونهٔ بعد از خرید · {person.name}</h1><p>اطلاعات فرضی · بازدید فقط‌خواندنی · پروندهٔ شما محفوظ است.</p></div><button className="p-secondary" onClick={onClose}><Icon name="arrow" size={18}/> بازگشت به پروندهٔ من</button></header><nav className="demo-preview-people" aria-label="انتخاب نمونه"><span>داستان دیگری را ببینید:</span>{demoCases.filter(p=>p.preview).map(p=><button key={p.phone} aria-pressed={p.phone===phone} onClick={()=>{if(p.phone===phone)return;B(null);E('');PH(p.phone);}}><Icon name={p.state==='completed'?'check':'route'} size={17}/>{p.name}<small>{p.state==='completed'?'دوره کامل‌شده':'در حال پیگیری'}</small></button>)}</nav>{error?<div className="demo-operation-error" role="alert"><p>{error}</p><button className="p-secondary" onClick={()=>{B(null);E('');PH(demoCases.find(p=>p.phone!==phone&&p.preview)!.phone);}}>تلاش با نمونهٔ دیگر</button></div>:backend?<Pilot key={phone} {...pilotProps(backend)} previewOnly mainId="paid-demo-main"/>:<div className="demo-loading" role="status"><BrandMark/><p>در حال آماده‌سازی نمونهٔ برنامه و مدارک…</p></div>}</section>;
 }
-function pilotProps(backend:Backend){return {transport:backend.fetch,hospitalLookupEndpoint:__SALAMATBAN_MAPS_GATEWAY_URL__,hospitalSnapshotUrl:'./data/care-facilities.geoapify.json',homeHref:'./',loginImageHref:'./media/care-team.webp',brandHref:'./brand/index.html',downloadFile:backend.downloadFile,saveMessage:'تغییرات در همین مرورگر ذخیره شد.'};}
+function pilotProps(backend:Backend){return {transport:backend.fetch,hospitalLookupEndpoint:__SALAMATBAN_MAPS_GATEWAY_URL__,hospitalSnapshotUrl:'./data/care-facilities.geoapify.json',homeHref:'./',loginImageHref:'./media/care-consultation.webp',brandHref:'./brand/index.html',downloadFile:backend.downloadFile,saveMessage:'تغییرات در همین مرورگر ذخیره شد.'};}
 function Presentation({initial,initialLane}:{initial:Backend;initialLane:DemoLane}){
  const [lane,L]=useState(initialLane),[backend,B]=useState(initial),[key,K]=useState(0),[catalog,CT]=useState(new URLSearchParams(location.search).get('lane')==='complete');
  const [busy,S]=useState(false),[error,E]=useState(''),[preview,P]=useState(new URLSearchParams(location.search).get('demo')==='after-payment');

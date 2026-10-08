@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Icon } from './brand';
 import './demo-login.css';
 
@@ -8,16 +8,18 @@ const roleNames:Record<string,string>={member:'عضو',clinician:'پزشک',coor
 const roleIcons:Record<string,string>={member:'users',clinician:'doctor',coordinator:'calendar',admin:'settings'};
 
 export function DemoAccounts({samples,phone,busy,onChoose}:{samples:Sample[];phone:string;busy:boolean;onChoose:(phone:string)=>void}){
- return <aside className="p-card p-demo-accounts" aria-labelledby="demo-accounts-title">
-  <span className="p-eyebrow">ورود سریع برای تجربهٔ نقش‌ها</span>
-  <h2 id="demo-accounts-title">حساب‌های نمونه</h2>
-  <p id="demo-accounts-help">یک حساب را انتخاب کنید تا شماره‌اش در فرم ورود قرار بگیرد.</p>
-  <div className="p-demo-account-list">{samples.map(sample=><button type="button" key={sample.phone} className="p-demo-account" aria-pressed={phone===sample.phone} aria-describedby="demo-accounts-help" disabled={busy} onClick={()=>onChoose(sample.phone)}>
-   <span className="p-demo-account-icon"><Icon name={roleIcons[sample.role]||'users'}/></span>
-   <span className="p-demo-account-copy"><strong>{sample.name}</strong><bdi>{sample.phone}</bdi></span>
-   <span className="p-demo-account-role"><span>{roleNames[sample.role]||sample.role}</span><span className="p-demo-account-check" aria-hidden="true" style={{visibility:phone===sample.phone?'visible':'hidden'}}><Icon name="check" size={16}/></span></span>
-  </button>)}</div>
-  <p className="p-demo-account-note"><Icon name="shield" size={15}/>فقط برای بررسی با اطلاعات ساختگی</p>
+ const id=useId();
+ const roles=['member','clinician','coordinator','admin'];
+ return <aside className="p-card p-demo-accounts" aria-labelledby={`${id}-title`}>
+  <header className="p-demo-accounts-heading"><div><h2 id={`${id}-title`}>حساب‌های نمونه</h2><p id={`${id}-help`}>یک نام را انتخاب کنید؛ شمارهٔ آن در فرم بالا قرار می‌گیرد.</p></div><span className="p-demo-account-note"><Icon name="shield" size={15}/>اطلاعات ساختگی، برای تجربهٔ نقش‌ها</span></header>
+  <div className="p-demo-role-groups">{roles.filter(role=>samples.some(sample=>sample.role===role)).map(role=><section className={`p-demo-role-group p-demo-role-${role}`} key={role} aria-labelledby={`${id}-${role}`}>
+   <h3 id={`${id}-${role}`}><Icon name={roleIcons[role]} size={16}/>{role==='member'?'اعضا':roleNames[role]}<span>{samples.filter(sample=>sample.role===role).length.toLocaleString('fa-IR')}</span></h3>
+   <div className="p-demo-account-list">{samples.filter(sample=>sample.role===role).map(sample=><button type="button" key={sample.phone} className="p-demo-account" aria-pressed={phone===sample.phone} aria-describedby={`${id}-help`} disabled={busy} onClick={()=>onChoose(sample.phone)}>
+    <span className="p-demo-account-icon" aria-hidden="true">{sample.name.replace(/^(دکتر|کارشناس|مدیر)\s+/,'').slice(0,1)}</span>
+    <span className="p-demo-account-copy"><strong>{sample.name}</strong><bdi>{sample.phone}</bdi></span>
+    <span className="p-demo-account-check" aria-hidden="true" style={{visibility:phone===sample.phone?'visible':'hidden'}}><Icon name="check" size={16}/></span>
+   </button>)}</div>
+  </section>)}</div>
  </aside>;
 }
 

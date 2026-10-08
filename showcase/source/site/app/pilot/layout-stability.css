@@ -1,0 +1,37 @@
+/* Reserve feedback geometry before a request starts, including the empty state. */
+html{scrollbar-gutter:stable;background:#fff}
+@supports not (scrollbar-gutter:stable){html{overflow-y:scroll}}
+.pilot .feedback-slot{height:54px;margin:0 0 12px;flex:none;min-width:0}
+.pilot .feedback-row{display:grid;grid-template-columns:minmax(0,1fr) 180px;align-items:center;gap:12px;height:100%;margin:0;padding:4px 0;border:0;background:transparent;border-radius:0;font-size:12px;box-shadow:none}
+.pilot .feedback-row[data-empty]{visibility:hidden}
+.pilot .feedback-message{margin:0;line-height:1.8;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#526984}
+.pilot .feedback-row.failed .feedback-message,.pilot .feedback-row.conflict .feedback-message,.pilot .feedback-row.danger .feedback-message,.pilot .feedback-row.auth .feedback-message{color:#805918}
+.pilot .feedback-commands{display:flex;gap:4px;align-items:center;justify-content:flex-end;min-width:0;width:180px}
+.pilot .feedback-commands .p-link{padding:5px 8px;font-size:12px!important;min-height:44px;white-space:nowrap}
+.pilot .feedback-details{display:grid;place-items:center;flex:none;width:36px;min-width:36px;padding:0;background:transparent;color:#346ed1}
+.feedback-dialog{width:min(600px,calc(100vw - 28px));max-height:calc(100dvh - 48px);padding:0;border:1px solid #dce5f2;border-radius:18px;background:#fff;color:#18344d;font-family:Peyda,Tahoma,sans-serif;line-height:1.9;box-shadow:0 18px 65px #16365326}
+.feedback-dialog::backdrop{background:#18344d45}
+.feedback-dialog[open]{display:flex;flex-direction:column}
+.feedback-dialog header,.feedback-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;flex:none}
+.feedback-dialog h2{font-size:19px;margin:0}
+.feedback-dialog button{font:inherit;min-height:44px;cursor:pointer;border:0;border-radius:9px;background:#edf3ff;color:#245baa;padding:8px 12px}
+.feedback-dialog button:focus-visible{outline:none;background:#dce9ff;text-decoration:underline;text-underline-offset:4px}
+.feedback-dialog-body{padding:0 20px;overflow:auto;overflow-wrap:anywhere;min-height:0}
+.feedback-dialog-body p{white-space:pre-wrap}
+.feedback-dialog footer{border-top:1px solid #edf1f7;flex-wrap:wrap}
+.pilot .ux-field-feedback{display:block;min-height:3.6em;line-height:1.8;margin:0;font-size:11px}
+.pilot .ux-field-feedback:empty::after{content:'\00a0'}
+.pilot .p-field:has(.ux-field-feedback){row-gap:6px}
+.pilot .p-boot{min-height:70svh;display:grid;place-items:center;font-size:14px;color:#5c7290}
+.pilot .p-button-labels{display:inline-grid;place-items:center}
+.pilot .p-button-labels>span{grid-area:1/1}
+.pilot .p-button-labels>[aria-hidden=true]{visibility:hidden}
+@media(max-width:760px){.pilot .feedback-slot{height:84px;margin-bottom:10px}.pilot .feedback-row{grid-template-columns:minmax(0,1fr) 126px;gap:6px;font-size:11px}.pilot .feedback-message{-webkit-line-clamp:3}.pilot .feedback-commands{width:126px}.pilot .feedback-commands .p-link{font-size:10px!important;padding:5px}.feedback-dialog header,.feedback-dialog footer{padding:12px 16px}}
+@media print{.pilot .feedback-slot{display:none}}
+
+.pilot .ux-payment-feedback{height:116px;overflow:auto;box-sizing:border-box;margin-block:16px}.pilot .ux-payment-feedback[data-empty]{visibility:hidden}
+@media(max-width:760px){.pilot .ux-payment-feedback{height:156px}}
+
+@media(max-width:560px){.pilot.p-authenticated:not(.j-member-shell) .feedback-slot{height:44px;margin-bottom:0}.pilot.p-authenticated:not(.j-member-shell) .feedback-message{-webkit-line-clamp:2}.pilot.p-authenticated:not(.j-member-shell) .p-main{padding-top:10px}}
+
+@media(max-width:560px){.pilot.p-authenticated:not(.j-member-shell) .p-header{min-height:60px;padding-block:8px}.pilot.p-authenticated:not(.j-member-shell) .sw-role-guide{margin-bottom:8px}}

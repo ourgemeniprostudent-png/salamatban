@@ -1,6 +1,6 @@
 {
-  "version": "2.2.1",
-  "completedAt": "2026-10-08T11:31:37.296Z",
+  "version": "2.2.2",
+  "completedAt": "2026-10-08T12:24:58.251Z",
   "status": "passed",
   "individualPassed": 8,
   "data": "synthetic local demo accounts only",
@@ -8,8 +8,8 @@
   "measurements": {
     "doctorFirstCaseOnPhone": {
       "viewport": "390×844",
-      "top": 660.8125,
-      "bottom": 776.390625,
+      "top": 699.765625,
+      "bottom": 815.34375,
       "maximumAllowedTop": 700
     }
   },

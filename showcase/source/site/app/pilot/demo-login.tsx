@@ -15,7 +15,7 @@ export function DemoAccounts({samples,phone,busy,onChoose}:{samples:Sample[];pho
   <div className="p-demo-account-list">{samples.map(sample=><button type="button" key={sample.phone} className="p-demo-account" aria-pressed={phone===sample.phone} aria-describedby="demo-accounts-help" disabled={busy} onClick={()=>onChoose(sample.phone)}>
    <span className="p-demo-account-icon"><Icon name={roleIcons[sample.role]||'users'}/></span>
    <span className="p-demo-account-copy"><strong>{sample.name}</strong><bdi>{sample.phone}</bdi></span>
-   <span className="p-demo-account-role">{phone===sample.phone?<Icon name="check" size={16}/>:roleNames[sample.role]||sample.role}</span>
+   <span className="p-demo-account-role"><span>{roleNames[sample.role]||sample.role}</span><span className="p-demo-account-check" aria-hidden="true" style={{visibility:phone===sample.phone?'visible':'hidden'}}><Icon name="check" size={16}/></span></span>
   </button>)}</div>
   <p className="p-demo-account-note"><Icon name="shield" size={15}/>فقط برای بررسی با اطلاعات ساختگی</p>
  </aside>;
@@ -43,11 +43,10 @@ export function DemoCode({value}:{value:string}){
  }
  return <div className="p-sample-code p-copyable-code">
   <span>کد نمایشی این ورود</span>
-  <div className={`p-code-copy-actions ${state==='copied'?'is-copied':''}`}>
+  <div className={`p-code-copy-actions ${state==='copied'?'is-copied':state==='failed'?'is-failed':''}`}>
    <button type="button" className="p-code-value" onClick={copy} aria-label={`کپی کد ${value}`} aria-disabled={state==='copying'}><b dir="ltr">{value}</b></button>
    <button type="button" className="p-code-icon" onClick={copy} aria-label="کپی کد نمایشی" aria-disabled={state==='copying'}><Icon name={state==='copied'?'check':'copy'} size={19}/></button>
-   <span className="p-copy-tooltip" role="status" aria-live="polite">{state==='copied'?'کپی شد':state==='copying'?'در حال کپی…':'کپی کد'}</span>
+   <span className={`p-copy-tooltip ${state==='failed'?'p-copy-error':''}`} role={state==='failed'?'alert':'status'} aria-live={state==='failed'?'assertive':'polite'}>{state==='failed'?'کپی خودکار ممکن نشد؛ کد را دستی وارد کنید.':state==='copied'?'کپی شد':state==='copying'?'در حال کپی…':'کپی کد'}</span>
   </div>
-  {state==='failed'&&<small className="p-copy-error" role="alert">کپی خودکار ممکن نشد؛ کد را دستی وارد کنید.</small>}
  </div>;
 }

@@ -1,0 +1,19 @@
+/* Async feedback occupies its existing component slot; controls stay under the pointer. */
+.pilot .ux-stable-feedback{box-sizing:border-box;min-block-size:3.6em;max-block-size:3.6em;overflow:auto;line-height:1.8;margin:12px 0;font-size:12px;overflow-wrap:anywhere;scrollbar-width:thin}
+.pilot .ux-stable-feedback.ux-error{color:#a22935}
+.pilot button.ux-stable-button{display:grid;align-items:center;justify-items:center}
+.ux-stable-button>span{grid-area:1/1;white-space:normal}
+.ux-stable-button>.ux-button-measure{visibility:hidden;pointer-events:none}
+.pilot .ux-upload-item img{flex:0 0 96px;inline-size:96px;block-size:96px}
+.ux-upload-item .ux-upload-feedback{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;min-inline-size:0}
+.ux-upload-item .ux-upload-message{block-size:3.6em;overflow:auto;line-height:1.8;margin:4px 0;font-size:12px;scrollbar-width:thin;overflow-wrap:anywhere}
+.pilot .ux-upload-feedback .ux-upload-retry{min-block-size:44px;min-inline-size:82px;padding:7px 9px;font-size:11px!important}
+.ux-map-dialog .ux-map-search{position:relative;z-index:1100}
+.ux-map-dialog .ux-map-results{position:absolute;inset-inline:0;top:calc(100% + 6px);margin:0;background:white;border-radius:10px;box-shadow:0 8px 24px #203f601a;z-index:1100}
+.ux-map-dialog .ux-map-results:has(button){border:1px solid #d7e3f2}
+.ux-map-dialog .ux-map-feedback{box-sizing:border-box;block-size:3.6em;overflow:auto;line-height:1.8;font-size:12px;margin:12px 0;scrollbar-width:thin}
+.ux-map-dialog .ux-map-coordinate-preview{min-block-size:1.8em;line-height:1.8;font-size:12px;margin:8px 0;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.pilot .ux-upload-item img{flex-basis:64px;inline-size:64px;block-size:64px}.ux-upload-item{gap:10px}.ux-upload-item .ux-upload-feedback{gap:7px}.pilot .ux-upload-feedback .ux-upload-retry{min-inline-size:72px;padding-inline:6px;font-size:10px!important}}
+
+/* Feedback spans the attachment width, including on narrow phones. */
+.pilot .ux-upload-item{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start}.ux-upload-item .ux-upload-feedback{grid-column:1/-1}.ux-upload-item:not(:has(img)) .ux-upload-details{grid-column:1/-1}

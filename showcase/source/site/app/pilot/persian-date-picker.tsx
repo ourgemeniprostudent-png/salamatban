@@ -17,12 +17,13 @@ type Props = {
   min?: string;
   max?: string;
   disabled?: boolean;
+  validationError?: string;
 };
 
 const WEEKDAYS = ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه'];
 const WEEKDAY_INITIALS = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
 
-export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', max = '2100-12-31', disabled = false }: Props) {
+export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', max = '2100-12-31', disabled = false, validationError = '' }: Props) {
   const id = useId();
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLButtonElement>(null);
@@ -42,11 +43,12 @@ export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', 
   const [view, setView] = useState(() => isoToPersian(initial)!);
   const text = draft?.value === value ? draft.text : toPersianInput(value);
   const parsed = parsePersianInput(text);
-  const error = text.trim() && !parsed
+  const localError = text.trim() && !parsed
     ? 'تاریخ شمسی معتبر وارد کنید؛ مانند ۱۳۷۰/۰۱/۰۱.'
     : parsed && !inRange(parsed)
       ? `تاریخ باید از ${formatPersianDate(lower)} تا ${formatPersianDate(upper)} باشد.`
       : '';
+  const error = localError || validationError;
   const first = persianToIso({ ...view, day: 1 })!;
   const monthLength = persianMonthLength(view.year, view.month);
   const last = persianToIso({ ...view, day: monthLength })!;
@@ -135,7 +137,7 @@ export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', 
         aria-controls={`${id}-dialog`} onClick={showCalendar}><Icon name="calendar" size={20} /></button>
     </div>
     <small id={`${id}-hint`} className="p-date-hint">شمسی؛ سال/ماه/روز — می‌توانید از تقویم انتخاب کنید.</small>
-    {error && <small id={`${id}-error`} className="p-date-error" role="status">{error}</small>}
+    <small id={`${id}-error`} className="p-date-error" role="status">{error}</small>
     <dialog ref={dialog} id={`${id}-dialog`} className="p-date-dialog" dir="rtl"
       aria-labelledby={`${id}-title`} aria-describedby={`${id}-keyboard`}
       onClose={() => { setOpen(false); opener.current?.focus(); }}
@@ -167,7 +169,7 @@ export function PersianDatePicker({ label, value, onChange, min = '1900-01-01', 
       <p className="p-date-month" aria-live="polite">{PERSIAN_MONTHS[view.month - 1]} {persianDigits(view.year)}</p>
       <table className="p-date-grid" role="grid" aria-label={`${PERSIAN_MONTHS[view.month - 1]} ${persianDigits(view.year)}`}>
         <thead><tr>{WEEKDAYS.map((day, index) => <th key={day} scope="col" aria-label={day}>{WEEKDAY_INITIALS[index]}</th>)}</tr></thead>
-        <tbody>{Array.from({ length: Math.ceil((offset + monthLength) / 7) }, (_, row) => <tr key={row}>
+        <tbody>{Array.from({ length: 6 }, (_, row) => <tr key={row}>
           {Array.from({ length: 7 }, (_, column) => {
             const day = row * 7 + column - offset + 1;
             if (day < 1 || day > monthLength) return <td key={column} />;

@@ -1,8 +1,8 @@
 {
-  "packageVersion": "2.2.1",
-  "appVersion": "2.2.1",
-  "baseUrl": "http://127.0.0.1:4203/",
-  "checkedAt": "2026-10-08T11:33:26.292Z",
+  "packageVersion": "2.2.2",
+  "appVersion": "2.2.2",
+  "baseUrl": "http://127.0.0.1:4292/",
+  "checkedAt": "2026-10-08T12:31:42.662Z",
   "viewports": [
     {
       "width": 320,

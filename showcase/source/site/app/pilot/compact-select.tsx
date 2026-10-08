@@ -48,7 +48,7 @@ export function CompactSelect({ value, onValueChange, children, disabled, 'aria-
       onClick={show} onKeyDown={event => { if (['ArrowDown', 'ArrowUp'].includes(event.key)) { event.preventDefault(); show(); } }}>
       <span>{selected?.label || 'انتخاب کنید'}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </button>
-    {open && createPortal(<dialog ref={mount} id={`${id}-dialog`} className="cs-dialog" dir="rtl" aria-labelledby={`${id}-title`}
+    {open && createPortal(<dialog ref={mount} id={`${id}-dialog`} className="cs-dialog" data-searchable={options.length > 8 ? 'true' : undefined} dir="rtl" aria-labelledby={`${id}-title`}
       onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); close(); } }}
       onCancel={event => { event.preventDefault(); event.stopPropagation(); close(); }}
       onClick={event => { if (event.target !== event.currentTarget) return; const box = event.currentTarget.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) close(); }}>

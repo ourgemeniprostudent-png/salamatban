@@ -107,3 +107,21 @@ html:has(.pilot.j-member-shell .p-intake),html:has(.pilot .gi-discovery){scroll-
 .pilot .gi-safety>.gi-question{padding:18px}
 @media(min-width:1700px){.pilot .gi-safety{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:760px){.pilot.j-member-shell .p-intake:has(.gi-flow)>.p-statusline h2,.pilot.j-member-shell .p-intake:has(.gi-profile)>.p-statusline h2{font-size:19px}.pilot .gi-flow>.gi-section-heading h3,.pilot .gi-profile>.gi-section-heading h3{font-size:18px}.pilot .gi-flow>.gi-section-heading,.pilot .gi-profile>.gi-section-heading{gap:10px;margin-bottom:14px}.pilot .gi-safety>.gi-question{padding:15px}}
+/* Validation and completion update reserved text/mark slots without moving the questions. */
+.pilot .gi-feedback-copy,.pilot .gi-discovery-feedback{display:grid;grid-template-columns:minmax(0,1fr)}
+.pilot .gi-feedback-copy>span,.pilot .gi-discovery-feedback>p{grid-area:1/1;min-width:0}
+.pilot .gi-feedback-size,.pilot .gi-feedback-copy.has-feedback>.gi-description-copy,.pilot .gi-group-nav .gi-incomplete{visibility:hidden}
+.pilot .gi-feedback-copy>.gi-feedback-error,.pilot .gi-discovery-feedback>.gi-feedback-error{color:#a22935}
+.pilot .gi-discovery-feedback{margin-top:4px;margin-bottom:8px}
+.pilot .gi-discovery-feedback>p{font-size:12px;line-height:1.9;margin:0}
+.pilot .gi-group-nav b{display:inline-block;flex:none;inline-size:14px;text-align:center}
+.pilot .gi-group-nav button,.pilot .gi-group-nav button[aria-current]{font-weight:600}
+.pilot .gi-count{display:inline-block;min-inline-size:2ch;text-align:center;font-variant-numeric:tabular-nums}
+.pilot .gi-question .p-choice,.pilot .gi-question .p-choice:has(input:checked){font-weight:500}
+.pilot .gi-discovery .j-selection{inline-size:24px;min-inline-size:24px;text-align:center;flex:none}
+.pilot .gi-discovery .j-reason:hover{transform:none}
+
+.pilot .gi-feedback-size::before{content:attr(data-reserve)}
+.pilot .gi-question:has(.p-question[aria-invalid=true]){border-color:#d6a8ab}
+/* Make room for persistent validation hints without pushing the final profile field under the bar. */
+@media(min-width:761px){.pilot .gi-profile-grid{gap:12px}.pilot .gi-profile-field{padding:12px 16px}.pilot .gi-profile-field h4{margin-bottom:8px}.pilot .gi-profile>.gi-section-heading{margin-bottom:12px}}

@@ -1,0 +1,201 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.0.zip",
+  "bytes": 21117250,
+  "sha256": "2855d8d3fcb4efa7b56aa125235028a0b078c6f78d1300a295d24fd6807dbc56",
+  "fileCount": 287,
+  "version": "2.0",
+  "appVersion": "2.0",
+  "sourceBaseCommit": "51237736a32d4bba62bdb9af8e1423cbe84f301d",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.0",
+    "date": "2026-10-08T09:49:24.547302+00:00",
+    "workflow": "Synthetic API and Chromium tests of conversational entry, clinical workflows and progressive member panel",
+    "checks": {
+      "api": {
+        "individualPassed": 41,
+        "failed": 0
+      },
+      "journey": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "journey-tests.json"
+      },
+      "ux": {
+        "individualPassed": 9,
+        "failed": 0,
+        "evidence": "ux-tests.json"
+      },
+      "rolesAndMemberFollowup": {
+        "individualPassed": 6,
+        "failed": 0,
+        "evidence": "workflow-tests.json"
+      },
+      "edgeFlows": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "edge-tests.json"
+      },
+      "presentation": {
+        "individualPassed": 12,
+        "failed": 0
+      },
+      "login": {
+        "individualPassed": 7,
+        "failed": 0,
+        "evidence": "login-browser.json"
+      },
+      "startup": {
+        "individualPassed": 2,
+        "failed": 0
+      },
+      "persianCalendar": {
+        "individualPassed": 5,
+        "failed": 0
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "localFinalBrowser": {
+        "scope": "local final build",
+        "url": "http://127.0.0.1:4198/",
+        "verifiedAt": "2026-10-08T09:49:09.944Z",
+        "status": "passed",
+        "checks": [
+          "public page HTTP 200",
+          "synthetic OTP login",
+          "v2.0 marker",
+          "city selection",
+          "draft save",
+          "reload preserves stored draft"
+        ],
+        "pageErrors": []
+      },
+      "package": {
+        "integrity": "passed",
+        "sourceAndBuildEquality": "passed",
+        "links": "passed",
+        "extractedSourceRebuild": "passed"
+      },
+      "showcase": {
+        "packageVersion": "2.0",
+        "appVersion": "2.0",
+        "baseUrl": "http://127.0.0.1:4199/",
+        "checkedAt": "2026-10-08T09:50:25.883Z",
+        "viewports": [
+          {
+            "width": 320,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 390,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 768,
+            "panes": 6,
+            "horizontalOverflow": false
+          },
+          {
+            "width": 1440,
+            "panes": 6,
+            "horizontalOverflow": false
+          }
+        ],
+        "checks": [
+          "four role walkthroughs",
+          "six recovered diagrams load, zoom, close and expose PNG/SVG files",
+          "current/target filters",
+          "four product screenshots and viewer",
+          "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
+          "feedback works when browser storage is blocked",
+          "keyboard skip link and concise guide"
+        ],
+        "pageErrors": []
+      }
+    },
+    "features": [
+      "Focused welcome without sidebar or empty dashboard metrics",
+      "Six visit reasons, multiple concerns with one primary, persisted contextual questions",
+      "User-selected goals including clinician-assisted choice; no inferred diagnosis or health score",
+      "Profile conversation and preserved mandatory safety/history questions",
+      "Calm state-driven home; program navigation appears after actual publication",
+      "Member-initiated followup keeps prior plan, rechecks safety and permits same-record resubmission without another payment",
+      "Finite motion with reduced-motion support and responsive 320–1440px layout",
+      "Complete target flowchart viewer included in showcase and archive with target labeling"
+    ],
+    "limitations": [
+      "Real Android/iPhone camera and GPS not tested",
+      "5–8 participant usability study not performed",
+      "Home visits remain demo-only; production provider/retention agreements not implemented",
+      "City starter catalog is not a nationwide official dataset",
+      "Public site uses browser-local storage; no shared cross-device patient database",
+      "SMS, banking, provider appointment confirmation and live medical operation remain unconnected",
+      "Startup improvement verified with controlled delays, not measured on user network",
+      "Safari and Firefox not tested; no comprehensive security/load audit or clinical validation",
+      "Goals are reason-based conversation prompts, not validated disease-specific care targets",
+      "Target diagram includes future integrations and operational decisions; implemented scope is documented in JOURNEY-v2.0-fa.md"
+    ],
+    "publicBrowser": {
+      "status": "blocked",
+      "reason": "Chromium does not trust the environment proxy CA; automatic approval review rejected a persistent trust-store addition. TLS verification was not disabled. Public HTTPS byte comparison succeeded; browser behavior was tested locally."
+    },
+    "publication": {
+      "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
+      "pagesCommit": "ad12decb913fc3945f463c106850bdd8db1def63",
+      "success": true,
+      "assets": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "36b1e53612d57c091cddeece76c5dc5fb42a03f40d02b2122617ed4979c7c559",
+          "matches": true
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "b88f55aaed6d120981f4bc1c7d8c7f5117cccd50a46834bcfc1b9742bddf79b9",
+          "matches": true
+        },
+        {
+          "file": "app.css",
+          "status": 200,
+          "sha256": "a5b38f2b4251810d603bdf18a7be554073cba999556947392f5a13263ee505c5",
+          "matches": true
+        },
+        {
+          "file": "release.json",
+          "status": 200,
+          "sha256": "f1b2450af128fabb18ff7eb5ce11b29a3f822ec877c45aa98e50837907e19f94",
+          "matches": true
+        },
+        {
+          "file": "sql-wasm.wasm",
+          "status": 200,
+          "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+          "matches": true
+        },
+        {
+          "file": "brand/index.html",
+          "status": 200,
+          "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08",
+          "matches": true
+        }
+      ],
+      "verifiedAt": "2026-10-08T09:50:26Z"
+    },
+    "baseline": {
+      "version": "1.7",
+      "file": "ux-baseline-v1.7.json",
+      "executedAt": "2026-10-06T13:56:19.707055+00:00",
+      "scope": "78 individual API/calendar/UX/roles/edge/presentation/startup checks. These are historical baseline results, not rerun totals for 1.9."
+    },
+    "artifacts": {
+      "deploymentSha256": "aa4e4d954afa58c016b62fc0fb502e92ade24a6396c9a04720cb39499b3db271"
+    }
+  },
+  "archiveIntegrity": "passed"
+}

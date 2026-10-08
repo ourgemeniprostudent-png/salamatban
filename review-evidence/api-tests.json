@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T13:49:18.649Z",
+  "generatedAt": "2026-10-08T09:43:07.102Z",
   "environment": "ephemeral Miniflare D1/R2; synthetic data only; no real provider calls",
   "tests": [
     {
@@ -144,6 +144,10 @@
     },
     {
       "name": "Suspension revokes access and reassigning changes clinician access",
+      "status": "pass"
+    },
+    {
+      "name": "Member followup preserves the plan, enforces ownership/version and rechecks safety without another payment",
       "status": "pass"
     },
     {

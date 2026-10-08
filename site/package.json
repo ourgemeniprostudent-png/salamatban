@@ -20,7 +20,8 @@
     "test:ux": "node --test demo/ux.test.mjs",
     "test:workflow": "node --test demo/workflow.test.mjs",
     "test:startup": "node --test demo/startup.test.mjs",
-    "test:edges": "node --test demo/edge-flows.test.mjs"
+    "test:edges": "node --test demo/edge-flows.test.mjs",
+    "test:journey": "node --test demo/journey.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

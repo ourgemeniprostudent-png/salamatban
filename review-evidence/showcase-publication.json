@@ -1,7 +1,7 @@
 {
-  "packageVersion": "1.9",
+  "packageVersion": "2.0",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "6ab8e3ac059bc358da181efacd6e47088cefcc15",
+  "pagesCommit": "dd53e4298ee9ef4ce69bb8bb8d6b8d715366152f",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "5b58213a97bdff4cd9d9ca81249d624f00d176d1fbc4f2d70cafffaa670b7436"
+      "sha256": "183db6068cc4c1e7afc7d5fe8245b7c65b6bf31ba1aaf0b41b8044bde661888d"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "aa1d9d18b4469773f2bec61197dc8f294b9c273ffb24c63b6cbd6d34eda28f27"
+      "sha256": "70fdae8e31774de25f1c5350e2e38fbcb218f43baa38a5ab0c3b679e12df23f3"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "da622d6f5bdf39c97ab3de234d788412b1a465eb37791dc9e0a24031327fc8cb"
+      "sha256": "f292c02799e5949c579243271652bd0135eff28aecf448f7f5c1e0d3a088dc6d"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -99,26 +99,68 @@
       "file": "presentation/assets/screen-coordinator.png",
       "status": 200,
       "matches": true,
-      "sha256": "bf068800486b8cc84a940f1b322caba8da7eccd443aaf726d84aae2f35f8bf8d"
+      "sha256": "3478a7080cf6324e2d993b2cd4fc99e19e488b79d89aa69facb665d4e468e6d4"
     },
     {
       "file": "presentation/assets/screen-doctor.png",
       "status": 200,
       "matches": true,
-      "sha256": "1f66e3639d6b68859cf8c5f284c6569449bff54c1d57e1f4768410dd45a45557"
+      "sha256": "651ec27aebf8dd3b484f4caf6efe008b9134e81d71bea02734060e93b9a7fdce"
     },
     {
       "file": "presentation/assets/screen-form.png",
       "status": 200,
       "matches": true,
-      "sha256": "4d6c00c1708a9c09452848b5e62853efc52531e2012d5da6712465faa7f0f4d7"
+      "sha256": "46fd69d2ec17007ca3c4e4b449dc3fc09846494cf339ffbc6f2c67b11a5e740f"
     },
     {
       "file": "presentation/assets/screen-payment.png",
       "status": 200,
       "matches": true,
-      "sha256": "6be5f8c0c8dc85101ee73c52f15b8f4346b830334113698757a0bc1155d99eb9"
+      "sha256": "a27cec3f507eaa04065406267487bec1ab586023c5be6a71199059259331f4fa"
+    },
+    {
+      "file": "presentation/assets/user-flow/MANIFEST.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "1937bfed60b6272f8d350386d0217cc60d6d388593c01383771e014cf4b0c1d3"
+    },
+    {
+      "file": "presentation/assets/user-flow/Salamatban-Complete-User-Flow.pdf",
+      "status": 200,
+      "matches": true,
+      "sha256": "073b90eacf386c54c7485209f80638268c3ccc8908d3d54d453a55042c8ca491"
+    },
+    {
+      "file": "presentation/assets/user-flow/Salamatban-Complete-User-Flow.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "e85403d1b383d8721d9d1d7ac59ed4109c472e8023baabe66da5a2f61dd40c08"
+    },
+    {
+      "file": "presentation/assets/user-flow/Salamatban-Complete-User-Flow.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "f1cc50f331175427ff5618d3948c7df23b37045b069105fec2cfa6e6d232fad4"
+    },
+    {
+      "file": "presentation/assets/user-flow/Salamatban-Complete-User-Flow.zip",
+      "status": 200,
+      "matches": true,
+      "sha256": "34420e742732f3fdb1d886c53f3821f6e55d76ce9e5a3be616bc262927d1fb53"
+    },
+    {
+      "file": "presentation/assets/user-flow/flow-model.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "db5cd55645df0738f9bec5d1ce3024b2e067a3c37d1679c0ace97c46987376a1"
+    },
+    {
+      "file": "presentation/assets/user-flow/index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "232e31356f4f8dba6fcdf0cf3eec6e98c06b4eda7228cb451721ec39d0436410"
     }
   ],
-  "verifiedAt": "2026-10-06T15:57:50Z"
+  "verifiedAt": "2026-10-08T09:52:17Z"
 }

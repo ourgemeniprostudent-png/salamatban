@@ -1,5 +1,5 @@
 import { assessmentDefinition } from '../../lib/assessment-definition';
-export const flowErrors:Record<string,string>={COORDINATION_CONSENT_REQUIRED:'رضایت تماس کارشناس ثبت نشده است. کاربر باید در مرحلهٔ رضایت آگاهانه اجازهٔ هماهنگی را ثبت کند؛ اگر پرونده قفل است، پزشک آن را برای تکمیل بازگرداند. بدون رضایت، اقدام را به تیم ارجاع ندهید.',
+export const flowErrors:Record<string,string>={INVALID_FOLLOWUP:'موضوع بازبینی را انتخاب کنید و با چند کلمه توضیح دهید.',COORDINATION_CONSENT_REQUIRED:'رضایت تماس کارشناس ثبت نشده است. کاربر باید در مرحلهٔ رضایت آگاهانه اجازهٔ هماهنگی را ثبت کند؛ اگر پرونده قفل است، پزشک آن را برای تکمیل بازگرداند. بدون رضایت، اقدام را به تیم ارجاع ندهید.',
   FILE_LIMIT:'حداکثر ۱۰ مدرک در این پرونده قابل ثبت است.',
   LOCATION_CONFIRMATION_REQUIRED:'آدرس دقیق را وارد و تأیید کنید.',
   INVALID_LOCATION:'آدرس یا مختصات معتبر نیست.',

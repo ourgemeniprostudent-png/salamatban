@@ -1,0 +1,26 @@
+{
+  "index.html": {
+    "bytes": 344337,
+    "sha256": "232e31356f4f8dba6fcdf0cf3eec6e98c06b4eda7228cb451721ec39d0436410"
+  },
+  "Salamatban-Complete-User-Flow.png": {
+    "bytes": 2986178,
+    "sha256": "e85403d1b383d8721d9d1d7ac59ed4109c472e8023baabe66da5a2f61dd40c08"
+  },
+  "Salamatban-Complete-User-Flow.svg": {
+    "bytes": 331256,
+    "sha256": "f1cc50f331175427ff5618d3948c7df23b37045b069105fec2cfa6e6d232fad4"
+  },
+  "Salamatban-Complete-User-Flow.pdf": {
+    "bytes": 290003,
+    "sha256": "073b90eacf386c54c7485209f80638268c3ccc8908d3d54d453a55042c8ca491"
+  },
+  "flow-model.json": {
+    "bytes": 39649,
+    "sha256": "db5cd55645df0738f9bec5d1ce3024b2e067a3c37d1679c0ace97c46987376a1"
+  },
+  "README-fa.txt": {
+    "bytes": 1388,
+    "sha256": "d547c27f4111882e28db4d891387e5d0b48b6b8006f4cd23d77f10b3351dee02"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "version": "2.4.3",
+  "version": "2.4.4",
   "demo": {
     "lanes": [
       "practice",
@@ -25,11 +25,11 @@
     "liveGatewayVerified": false
   },
   "assets": {
-    "index.html": "cfec562d0bb21cf9e6a82cc608d1897d21f1efe2584386fe0b52ad4ec647b236",
-    "app.js": "318f526dc67c9a427926d2501825336a0e00cf20ecc55a50c93f65645a28de32",
-    "app.css": "563ec33531a74c0a955fb410fa4b39c266e3728575ab079481f08704024fbf86",
+    "index.html": "53bc5594b61fd870aad59843d78fac86a68e7bbd3a7748611fc268b1676907b3",
+    "app.js": "f507581c687c57127a58cc36820e1d0207c51a17b3321b76daf05d11b10bba6d",
+    "app.css": "1651edf56e4b0e0c415cc85b7eab0b096c3f4d9a1dde10351aa4dd7ccd8e9298",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "9a668e65fd94bec8411fd6d15d01f9e89ed4cdc074321d1bf7fbba5c035d9969"
+    "previews/value-before-payment/index.html": "27d467b7d59a6e2fc118e5c02de84a9d9e7f82410385a81c32fade11fcda7302"
   }
 }

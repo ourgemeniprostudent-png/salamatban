@@ -2,45 +2,65 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { AssessmentQuestion } from '../../lib/assessment-definition';
 import type { Answer } from '../../lib/pilot/domain';
+import './grouped-intake.css';
+
 const fa = (n: number) => n.toLocaleString('fa-IR');
 const answered = (value: Answer | undefined) => Array.isArray(value) ? value.length > 0 : typeof value === 'string' && value.trim().length > 0;
+const definitions = [
+  { id: 'safety', title: 'وضعیت همین روزهای شما', description: 'برای هر مورد پاسخ جداگانه بدهید تا پزشک از وضعیت فعلی شما مطلع شود.', sections: ['safety'] },
+  { id: 'history', title: 'سوابق و اطلاعات پزشکی', description: 'اطلاعات مرتبط را کنار هم کامل کنید. نام داروها و حساسیت‌ها اختیاری است.', sections: ['context', 'history'] },
+  { id: 'lifestyle', title: 'عادت‌های روزانه', description: 'سه پاسخ کوتاه دربارهٔ دخانیات، فعالیت و خواب شما.', sections: ['lifestyle'] },
+];
 
-export function QuestionFlow({ questions, answers, render, busy, onComplete, onBack, returning }: {
+export function QuestionFlow({ questions, answers, render, busy, onComplete, onBack, onPause, returning }: {
   questions: AssessmentQuestion[]; answers: Record<string, Answer>; render: (q: AssessmentQuestion) => ReactNode;
-  busy: boolean; onComplete: () => void; onBack: () => void; returning: boolean;
+  busy: boolean; onComplete: () => void; onBack: () => void; onPause?: () => void; returning: boolean;
 }) {
-  const [index, setIndex] = useState(() => Math.max(0, questions.findIndex(q => q.required && !answered(answers[q.id]))));
+  const groups = definitions.map(group => ({ ...group, questions: questions.filter(q => group.sections.includes(q.section)) })).filter(group => group.questions.length);
+  const [index, setIndex] = useState(() => Math.max(0, groups.findIndex(group => group.questions.some(q => q.required && !answered(answers[q.id])))));
   const [invalid, setInvalid] = useState(false);
   const region = useRef<HTMLDivElement>(null);
-  const current = questions[index];
+  const current = groups[Math.min(index, groups.length - 1)];
   const required = questions.filter(q => q.required);
   const completed = required.filter(q => answered(answers[q.id])).length;
   useEffect(() => {
-    const element = region.current;
-    element?.focus({ preventScroll: true });
-    element?.scrollIntoView({ block: 'start', behavior: 'auto' });
+    region.current?.focus({ preventScroll: true });
+    region.current?.scrollIntoView({ block: 'start', behavior: 'auto' });
   }, [index]);
+
+  function focusQuestion(id: string) {
+    requestAnimationFrame(() => {
+      const question = region.current?.querySelector<HTMLElement>(`[data-question="${id}"]`);
+      question?.querySelector<HTMLInputElement>('input,textarea')?.focus({ preventScroll: true });
+      question?.scrollIntoView({ block: 'center', behavior: 'auto' });
+    });
+  }
   function go(next: number) { setInvalid(false); setIndex(next); }
-  function next() {
-    if (current.required && !answered(answers[current.id])) {
+  function finish() {
+    const missing = questions.find(q => q.required && !answered(answers[q.id]));
+    if (missing) {
+      setIndex(groups.findIndex(group => group.questions.some(q => q.id === missing.id)));
       setInvalid(true);
-      region.current?.querySelector<HTMLInputElement>('input,textarea')?.focus();
-      return;
-    }
-    if (index < questions.length - 1) go(index + 1);
+      focusQuestion(missing.id);
+    } else onComplete();
+  }
+  function next() {
+    const missing = current.questions.find(q => q.required && !answered(answers[q.id]));
+    if (missing) { setInvalid(true); focusQuestion(missing.id); return; }
+    if (index < groups.length - 1) go(index + 1);
     else finish();
   }
-  function finish() {
-      const missing = questions.findIndex(q => q.required && !answered(answers[q.id]));
-      if (missing >= 0) { go(missing); setInvalid(true); }
-      else onComplete();
-  }
-  return <div className="ux-question-flow" ref={region} tabIndex={-1} aria-label="پرسش‌های این بخش">
-    <div className="ux-question-progress"><strong aria-live="polite">پرسش {fa(index + 1)} از {fa(questions.length)}</strong><span>{fa(completed)} از {fa(required.length)} پاسخ الزامی</span></div>
+  if (!current) return null;
+
+  return <div className="ux-question-flow gi-flow" ref={region} tabIndex={-1} aria-label="پرسش‌های این بخش">
+    <header className="gi-section-heading"><div><span className="gi-kicker">{groups.length > 1 ? `بخش ${fa(index + 1)} از ${fa(groups.length)}` : 'پرسش‌های مرتبط، در یک صفحه'}</span><h3>{current.title}</h3><p>{current.description}</p></div><span className="gi-completion" aria-live="polite">{fa(completed)} از {fa(required.length)} پاسخ الزامی</span></header>
     <progress aria-label="پیشرفت پاسخ‌های الزامی" value={completed} max={required.length}/>
-    <details className="ux-question-jump"><summary>رفتن به پرسش دیگر</summary><nav aria-label="انتخاب پرسش">{questions.map((q, i) => <button type="button" className={i === index ? 'is-current' : ''} aria-current={i === index ? 'step' : undefined} aria-label={`پرسش ${fa(i + 1)}: ${q.label}${answered(answers[q.id]) ? '؛ پاسخ داده شده' : ''}`} onClick={() => go(i)} key={q.id}>{fa(i + 1)}{answered(answers[q.id]) && ' ✓'}</button>)}</nav></details>
-    <div className="ux-current-question" key={current.id}>{!current.required && <span className="p-muted">اختیاری؛ می‌توانید بدون پاسخ ادامه دهید.</span>}{current.type === 'multi' && <p className="p-muted">می‌توانید چند گزینه انتخاب کنید.</p>}{render(current)}{invalid && !answered(answers[current.id]) && <p className="ux-error" role="alert">برای ادامه، پاسخ این پرسش را انتخاب کنید.</p>}</div>
-    {returning && index < questions.length - 1 && <button type="button" className="p-link" disabled={busy} onClick={finish}>ذخیره و بازگشت به مرور نهایی</button>}
-    <div className="ux-question-actions"><button type="button" className="p-secondary" disabled={busy} onClick={() => index > 0 ? go(index - 1) : onBack()}>قبلی</button><button type="button" className="p-primary" disabled={busy} onClick={next}>{index === questions.length - 1 ? returning ? 'ذخیره و بازگشت به مرور نهایی' : 'ذخیره و مرحله بعد ←' : !current.required && !answered(answers[current.id]) ? 'ادامه بدون پاسخ' : 'پرسش بعدی ←'}</button></div>
+    {groups.length > 1 && <nav className="gi-group-nav" aria-label="بخش‌های پرسشنامه">{groups.map((group, i) => <button type="button" key={group.id} aria-current={i === index ? 'step' : undefined} onClick={() => go(i)} disabled={busy}><span>{fa(i + 1)}</span>{group.title}{group.questions.every(q => !q.required || answered(answers[q.id])) && <b aria-label="کامل شده">✓</b>}</button>)}</nav>}
+    <div className={`gi-question-grid gi-${current.id}`} key={current.id}>{current.questions.map(q => <div key={q.id} className={`gi-question ${invalid && q.required && !answered(answers[q.id]) ? 'gi-invalid' : ''}`} data-question={q.id}>
+      {!q.required && <small className="gi-optional">اختیاری؛ می‌توانید خالی بگذارید.</small>}
+      {render(q)}
+      {invalid && q.required && !answered(answers[q.id]) && <p className="ux-error" role="alert">برای ادامه، پاسخ این پرسش را انتخاب کنید.</p>}
+    </div>)}</div>
+    <div className="gi-action-bar ux-question-actions"><div className="gi-action-secondary"><button type="button" className="p-secondary" disabled={busy} onClick={() => index > 0 ? go(index - 1) : onBack()}>قبلی</button>{onPause && <button type="button" className="p-link gi-save-later" disabled={busy} onClick={onPause}>ذخیره و ادامه در فرصتی دیگر</button>}</div><div className="gi-action-primary">{returning && index < groups.length - 1 && <button type="button" className="p-link" disabled={busy} onClick={finish}>ذخیره و بازگشت به مرور نهایی</button>}<button type="button" className="p-primary" disabled={busy} onClick={next}>{index === groups.length - 1 ? returning ? 'ذخیره و بازگشت به مرور نهایی' : 'ذخیره و مرحله بعد ←' : `ادامه به ${groups[index + 1].title} ←`}</button></div></div>
   </div>;
 }

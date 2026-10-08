@@ -274,6 +274,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByRole('button', {name:'پاک‌کردن فیلترها',exact:true}).click();
     assert.equal(await page.getByLabel('جست‌وجوی پرونده',{exact:true}).inputValue(),'');
     await page.locator('.p-queue-row').first().click();
+    await page.getByRole('button',{name:'ثبت نتیجه بررسی',exact:false}).click();
     await page.getByLabel('جمع‌بندی قابل نمایش به کاربر', { exact: true }).fill('این جمع‌بندی صرفاً برای نمایش نرم‌افزار و با اطلاعات کاملاً ساختگی است.');
     await page.getByLabel('عنوان', { exact: true }).fill('اقدام ساختگی برای نمایش');
     await page.getByLabel('دلیل', { exact: true }).fill('بررسی روند پیگیری در نسخه نمایشی');
@@ -324,6 +325,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await page.getByText('خدمت ساختگی', { exact: false }).first().waitFor();
     const forbidden = await page.evaluate(id => window.demoRequest('files/' + id), fileId);
     assert.equal(forbidden.status, 404);
+    await page.locator('.sw-queue .p-queue-row').filter({hasText:'خدمت ساختگی'}).click();
     const task = page.locator('.p-task').filter({ has: page.getByRole('heading', { name: /خدمت ساختگی/ }) });
     await task.getByRole('button', { name: 'ثبت تماس و شروع هماهنگی', exact: true }).click();
     await task.getByLabel('مرکز', { exact: true }).fill('مرکز ساختگی برای نمایش');
@@ -334,6 +336,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await task.getByRole('button', { name: 'تأیید نوبت', exact: true }).click();
     await task.locator('.p-tag.confirmed').waitFor();
     await selectValue(page.getByRole('combobox', { name: /^وضعیت هماهنگی/ }), 'confirmed');
+    await page.locator('.sw-queue .p-queue-row').filter({hasText:'خدمت ساختگی'}).click();
     await task.waitFor();
     await assertLayout();
     await screenshot('coordinator-1440.png');
@@ -380,11 +383,11 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
   });
   await check('admin overview and membership page load with role restrictions', async () => {
     await logout(); await login('09000000013');
-    await page.getByRole('heading', { name: 'بازخوردها و درخواست‌ها', exact: true }).waitFor();
+    await page.locator('.sw-metrics').waitFor();
     await assertLayout();
     await screenshot('admin-1440.png');
     await navigate('اعضا و دسترسی‌ها');
-    await page.getByRole('heading', { name: 'افزودن عضو دعوتی', exact: true }).waitFor();
+    await page.getByText('افزودن عضو دعوتی', { exact: true }).click();await page.getByLabel('نام نمایشی', { exact: true }).waitFor();
   });
   await check('public brand guide, nine supplied Peyda weights and logo downloads work under the same subdirectory', async () => {
     await logout();

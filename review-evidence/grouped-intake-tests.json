@@ -1,0 +1,14 @@
+{
+  "version": "2.2",
+  "completedAt": "2026-10-08T11:03:03.259Z",
+  "status": "passed",
+  "pageErrors": [],
+  "checks": [
+    "all 12 context questions across three pages",
+    "compatible older cursor and persisted optional text",
+    "all profile fields together",
+    "stable action bar through validation",
+    "all 15 clinical questions and required answer gates",
+    "320/390/768/1440 responsive grouped context"
+  ]
+}

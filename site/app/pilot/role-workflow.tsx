@@ -8,11 +8,11 @@ const steps = [
 ];
 const messages: Record<Role, string> = {
   member: 'پرداخت به‌تنهایی پرونده را ارسال نمی‌کند؛ پس از پرداخت، «ارسال برای بررسی پزشک» را بزنید.',
-  clinician: 'پرونده را انتخاب کنید؛ نتیجهٔ بررسی و مسئول هر اقدام را ثبت کنید. اقدام با مسئول «تیم هماهنگی» وارد صف کارشناس می‌شود.',
-  coordinator: 'صف شما از اقدامات ارجاع‌شدهٔ پزشک و درخواست‌های هماهنگی کاربر تشکیل می‌شود. پاسخ‌های پزشکی و مدارک خصوصی در این صف نمایش داده نمی‌شوند.',
-  admin: 'مدیر دسترسی‌ها و درخواست‌های پشتیبانی را مدیریت می‌کند؛ بررسی و انتشار برنامه بر عهده پزشک تعیین‌شده است.',
+  clinician: 'از فهرست یک پرونده را باز کنید؛ اطلاعات را ببینید، نتیجهٔ بررسی را ثبت کنید و پیگیری را همان‌جا ببینید.',
+  coordinator: 'یک درخواست را باز کنید؛ تماس، تأیید نوبت و نتیجهٔ انجام را به ترتیب ثبت کنید. نتیجه به عضو نمایش داده می‌شود.',
+  admin: 'یک صف را باز کنید: اعضا و دسترسی‌ها، پرداخت‌های نامشخص یا درخواست‌های پشتیبانی؛ سپس مورد موردنظر را انتخاب کنید.',
 };
 export function RoleWorkflow({role,demo,memberState}:{role:Role;demo:boolean;memberState?:string}) {
   const memberMessages:Record<string,string>={urgent:'قدم بعدی بر عهده پزشک است: بررسی علامت هشدار. راهنمای دقیق ادامه در همین صفحه آمده است؛ پرداخت پیش از بررسی لازم نیست.',needs_information:'پزشک تکمیل اطلاعات را خواسته است. پرونده را اصلاح و دوباره ارسال کنید؛ پرداخت قبلی شما حفظ می‌شود.',submitted:'پرونده در صف پزشک مسئول است؛ برای پیگیری از پشتیبانی اقدام کنید. پرداخت یا ارسال دوباره لازم نیست.',published:'برنامه پزشک آماده است. اقدام‌های خودتان را پیگیری کنید؛ نتیجهٔ اقدامات تیم را کارشناس ثبت می‌کند.'};
-  return <aside className="ux-role-workflow"><p>{role==='member'&&memberState&&memberMessages[memberState]||messages[role]}</p><details><summary>جریان کار و مسئول هر مرحله</summary><ol>{steps.map(([name,description,phone])=><li key={name}><strong>{name}</strong><span>{description}</span>{demo&&<small>حساب نمونه: <bdi>{phone}</bdi></small>}</li>)}</ol>{demo&&<p>برای تجربهٔ نقش بعدی، خارج شوید و با حساب نمونهٔ همان نقش وارد شوید. پرونده‌ها در همین مرورگر و همین آدرس حفظ می‌شوند؛ مرورگر یا دستگاه دیگر دادهٔ مشترک ندارد.</p>}</details></aside>;
+  return <aside className="ux-role-workflow sw-role-guide"><details><summary>جریان کار و مسئول هر مرحله</summary><p>{role==='member'&&memberState&&memberMessages[memberState]||messages[role]}</p><ol>{steps.map(([name,description,phone])=><li key={name}><strong>{name}</strong><span>{description}</span>{demo&&<small>حساب نمونه: <bdi>{phone}</bdi></small>}</li>)}</ol>{demo&&<p>برای تجربهٔ نقش بعدی، خارج شوید و با حساب نمونهٔ همان نقش وارد شوید. پرونده‌ها در همین مرورگر و همین آدرس حفظ می‌شوند؛ مرورگر یا دستگاه دیگر دادهٔ مشترک ندارد.</p>}</details></aside>;
 }

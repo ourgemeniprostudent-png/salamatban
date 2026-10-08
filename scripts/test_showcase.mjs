@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'2.1',appVersion:'2.1',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'2.2',appVersion:'2.2',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -23,6 +23,7 @@ try{
  await p.locator('[data-nav="experience"]').click();await p.locator('#experience').waitFor({state:'visible'});
  for(const role of ['member','doctor','coordinator','admin']){await p.locator(`[data-role="${role}"]`).click();assert(await p.locator(`[data-role-panel="${role}"]`).isVisible());assert.equal(await p.locator('[data-role-panel]:visible').count(),1)}
  report.checks.push('four role walkthroughs');
+ const mapLink=p.locator('#experience a[href="presentation/assets/workflow-v2.2/index.html"]');assert(await mapLink.isVisible());const mapResponse=await context.request.get(new URL(await mapLink.getAttribute('href'),base).href);assert.equal(mapResponse.status(),200);assert((await mapResponse.text()).includes('پزشک'));report.checks.push('current role architecture is directly reachable from product experience');
  await p.locator('[data-nav="architecture"]').click();await p.locator('#architecture').waitFor({state:'visible'});assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),6);
  await p.locator('[data-filter="target"]').click();assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),3);
  await p.locator('[data-filter="current"]').click();assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),3);
@@ -36,8 +37,8 @@ try{
  }
  report.checks.push('six recovered diagrams load, zoom, close and expose PNG/SVG files','current/target filters');
  await p.locator('[data-nav="gallery"]').click();await p.locator('#gallery').waitFor({state:'visible'});
- for(const key of ['welcome','consent','home','program','form','payment','doctor','coordinator']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
- report.checks.push('eight product screenshots and viewer');
+ for(const key of ['welcome','consent','home','program','form','payment','doctor','coordinator','admin']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
+ report.checks.push('nine product screenshots and viewer');
  await p.locator('[data-nav="feedback"]').click();await p.locator('#feedback').waitFor({state:'visible'});
  await p.locator('#comment').fill('   ');await p.getByRole('button',{name:'آماده‌کردن بازخورد'}).click();assert(!(await p.locator('#feedback-result').isVisible()));
  const note='در بخش معماری، تفکیک نسخهٔ فعلی و طرح هدف روشن است. پیشنهاد: نمونهٔ بیشتری از مسیر کارشناس.';

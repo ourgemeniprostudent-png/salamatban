@@ -17,10 +17,10 @@ export async function navigateProduct(page,name){
 export async function completeDiscovery(page){
  await page.getByRole('heading',{name:'برای چه چیزی کمک می‌خواهید؟',exact:true}).waitFor();
  await page.getByRole('button',{name:/هنوز دقیق نمی‌دانم/}).click();await page.getByRole('button',{name:'ادامه ←',exact:true}).click();
- for(let i=0;i<2;i++)await page.getByRole('button',{name:'ادامه بدون پاسخ',exact:true}).click();
+ await page.getByRole('button',{name:'ادامه به انتخاب هدف ←',exact:true}).click();
  await page.getByRole('button',{name:'برای انتخاب هدف از پزشک کمک می‌خواهم',exact:true}).click();await page.getByRole('button',{name:'ادامه به مشخصات من',exact:true}).click();
 }
-export async function profileField(page,id){const titles={name:'چه اسمی صدایتان کنیم؟',birthDate:'تاریخ تولد شما چیست؟',city:'در کدام شهر زندگی می‌کنید؟',insurance:'وضعیت بیمهٔ شما چطور است؟',goal:'خواستهٔ شما را درست فهمیدیم؟'};await page.getByRole('button',{name:titles[id],exact:true}).click();}
+export async function profileField(page,id){await page.locator(`[data-profile-field="${id}"]`).scrollIntoViewIfNeeded();}
 // waitForFunction treats a Promise as truthy; poll completed API reads explicitly.
 export async function waitForAsync(page,predicate,arg){
  const deadline=Date.now()+15000;

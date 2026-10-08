@@ -22,7 +22,9 @@
     "test:startup": "node --test demo/startup.test.mjs",
     "test:edges": "node --test demo/edge-flows.test.mjs",
     "test:visual": "node --test demo/visual.test.mjs",
-    "test:journey": "node --test demo/journey.test.mjs"
+    "test:journey": "node --test demo/journey.test.mjs",
+    "test:grouped": "node --test demo/grouped-intake.test.mjs",
+    "test:workspace": "node --test demo/workspace.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

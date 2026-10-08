@@ -1,7 +1,7 @@
 {
-  "packageVersion": "2.1",
+  "packageVersion": "2.2",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "56fb8971bebc9df253811d42b5f442e422c6eddd",
+  "pagesCommit": "d1419553270997eacc1054e07fc3467cd6ecfc40",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "f22b0aa9fce7c6a65989b99af6cd70ecb5d8f301a8317bf4c50df9cb6354617d"
+      "sha256": "6d25c8185acc12be2a4b5580c66c4201ae2151dc0bed7a089f275040e6822114"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "88b7753f8f936089c4c2d3ec6018f43379f4880621d100eb4c5fd3017dbd21d8"
+      "sha256": "1b8e30929c3ddcace7c40aaf124de05685cb179fc3d2d1831d7c3909e0f645e8"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "8c1717d50c314ed102be4c9e5057572b84e7e200a2e830c0dfe1a081c5736eba"
+      "sha256": "5bc83880e3f69cf3e5d568b011f13d30f5a780dd713d1235d7828f52acf19b35"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -96,52 +96,58 @@
       "sha256": "b6de18394ddcbfaee34e4bd31fb80d749aa9ea12254391de44573749c25252d5"
     },
     {
+      "file": "presentation/assets/screen-admin.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "ee5898db5d238f53f9962bc6629a3c87fff9e82d96b57dd80a0e89e9e835d960"
+    },
+    {
       "file": "presentation/assets/screen-consent.png",
       "status": 200,
       "matches": true,
-      "sha256": "268d36c93bea7ca4163531391861a74f03e7ad5226fd02f660d76769c033a872"
+      "sha256": "9a6847529ff12731bb71218be907a94253cc333ae44696d385c007bdfaf3d9b5"
     },
     {
       "file": "presentation/assets/screen-coordinator.png",
       "status": 200,
       "matches": true,
-      "sha256": "c206384949ff5884036ba5697c421e665e0b798c3bacdc7e2bbf95f797b9aa8c"
+      "sha256": "abac59d14c689fe09f0302b3f3c28dde35dfd69501cc48a0622a4843a15b703a"
     },
     {
       "file": "presentation/assets/screen-doctor.png",
       "status": 200,
       "matches": true,
-      "sha256": "073a99f5befc25baf6fe8e9a16feb093f545549d9d6fa9942cd0675578689723"
+      "sha256": "680c3c98233f80e7d0bbaa6282dc47d4aa74e61d85b5fea80f32aa30858d1e72"
     },
     {
       "file": "presentation/assets/screen-form.png",
       "status": 200,
       "matches": true,
-      "sha256": "874cebc7cd22129196275e82b584181f8c0dbebee906df72c3d601c396de4163"
+      "sha256": "b6af22a445e602a20afba0756b37f633a34b74fef91829e89f987d663c235295"
     },
     {
       "file": "presentation/assets/screen-home.png",
       "status": 200,
       "matches": true,
-      "sha256": "60d87b47facdc2b115ee176dee40e24d4467a60adf109b0fad2de5f7d65f7449"
+      "sha256": "6c52d942ed2e82959e38ecf2a520bfce01fd49a4f8fccc6f7ffe61e456fbe350"
     },
     {
       "file": "presentation/assets/screen-payment.png",
       "status": 200,
       "matches": true,
-      "sha256": "942eda1e887ae86e6cdcd300f177542321aa2e4e6ce50de082897d12e7a8dd7b"
+      "sha256": "d7648d5e03ddf03c3e369f31b27f7abd3e650a56c7ad617880c6a20834f9cf32"
     },
     {
       "file": "presentation/assets/screen-program.png",
       "status": 200,
       "matches": true,
-      "sha256": "09e98d5f8c5f4f9099234223bec1a3aecfca4f1cbfbe7c7a9c91f9277c52febc"
+      "sha256": "dd95a80c8c8609b49c2ffeb4fb19522eb74a7a113bc32e4e4ba3ede751e5da42"
     },
     {
       "file": "presentation/assets/screen-welcome.png",
       "status": 200,
       "matches": true,
-      "sha256": "2d600b71b4368acf261ba34a6289c9c97e3103897a674ad5686e7163c366400d"
+      "sha256": "89115912bd13d3dfed9f793cf27c958a30b9ae9e414a7d8b03ba82c022027c1a"
     },
     {
       "file": "presentation/assets/user-flow/MANIFEST.json",
@@ -184,7 +190,79 @@
       "status": 200,
       "matches": true,
       "sha256": "232e31356f4f8dba6fcdf0cf3eec6e98c06b4eda7228cb451721ec39d0436410"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/admin.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "7629051845ccb8a0052767616badd07c77501f04d1b2b769789fd0f9c622e3c6"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/admin.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "598fea15c659bd1f977f559e6871ea1b03756859437a9e209d73fc9040983c7a"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/clinician.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "3ae9f87a6e83a8f830dc759ecff60dc120c99d554fe6206c1e211cdd78c7e49e"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/clinician.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "d5e19049dafdccdf21886e4895da59521bfd042520f36c23af5c6f3e78435ab0"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/coordinator.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "8d239dafef08e80be8c2643ce2f533d64c28a359ba7b479978e8b506147d38de"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/coordinator.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "1b83ca8a0041acd31c2c53ff313b7556472915ee7131a0a2a088ca9b19a1ccc2"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/index.html",
+      "status": 200,
+      "matches": true,
+      "sha256": "a460f8a5902bdba73becced6352b100d2b86e278379e5e5c97f689809c9d9334"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/member.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "8a4b545ca1931d57bc15c52972a6058fb85172ca456e296817af8d159fdf24f3"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/member.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "9759dbd435383d7407be3666a5846fb40abe23a0f693d3ef1ab749a638e3e764"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/overview.png",
+      "status": 200,
+      "matches": true,
+      "sha256": "eaa4423b0e5c99d3b3115932a3586ca27793769fe4666734db8dbf0c515e8a35"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/overview.svg",
+      "status": 200,
+      "matches": true,
+      "sha256": "dacae7dc22287a14674d15bec00031c16ec3d6bd205db10ee3bec002e641741f"
+    },
+    {
+      "file": "presentation/assets/workflow-v2.2/validation.json",
+      "status": 200,
+      "matches": true,
+      "sha256": "19e2c86bfae66c93e975cf515bcb5d6f228c7310126c1a1b109ebce1ac9dd4b3"
     }
   ],
-  "verifiedAt": "2026-10-08T10:25:02Z"
+  "verifiedAt": "2026-10-08T11:08:12Z"
 }

@@ -1,8 +1,8 @@
 /* Focus uses the existing surface, never a second frame. Keyboard location remains visible. */
 .pilot :focus,.cs-dialog :focus,.consent-dialog :focus{outline:none}
-.pilot :is(input,select,textarea):focus,.cs-dialog input:focus{border-color:#819a93;box-shadow:none;background-color:#fcfefb}
+.pilot :is(input,select,textarea):focus,.cs-dialog input:focus{border-color:#7c899f;box-shadow:none;background-color:#fbfcfe}
 .pilot :is(button,a):focus-visible,.cs-dialog :is(button,a):focus-visible,.consent-dialog :is(button,a):focus-visible{outline:none;box-shadow:none;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;filter:brightness(.94)}
-.pilot :is(.p-choice,.consent-choice label):has(input:focus-visible){background-color:#edf3e9;border-color:#96ab98}
+.pilot :is(.p-choice,.consent-choice label):has(input:focus-visible){background-color:#e9edf3;border-color:#929daf}
 .pilot input[type=checkbox]:focus-visible,.pilot input[type=radio]:focus-visible{filter:brightness(.8)}
-.pilot .mv-upload-zone:focus-within{outline:none;border-color:#819a93;background:#eff5ed}
-.pilot .p-queue-row.active,.pilot .ux-question-jump .is-current{outline:none;border-color:#839f92;background:#edf4ef}
+.pilot .mv-upload-zone:focus-within{outline:none;border-color:#7c899f;background:#edf0f5}
+.pilot .p-queue-row.active,.pilot .ux-question-jump .is-current{outline:none;border-color:#808da2;background:#edf0f4}

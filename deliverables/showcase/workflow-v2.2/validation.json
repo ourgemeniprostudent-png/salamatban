@@ -1,0 +1,168 @@
+{
+  "version": "2.2",
+  "date": "2026-10-08",
+  "status": "passed",
+  "artifact": "role-workflow-architecture",
+  "checks": {
+    "renderedDiagrams": 5,
+    "diagramTextWithinBounds": true,
+    "viewports": [
+      {
+        "width": 320,
+        "role": "overview",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 320,
+        "role": "member",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 320,
+        "role": "clinician",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 320,
+        "role": "coordinator",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 320,
+        "role": "admin",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 390,
+        "role": "overview",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 390,
+        "role": "member",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 390,
+        "role": "clinician",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 390,
+        "role": "coordinator",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 390,
+        "role": "admin",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 768,
+        "role": "overview",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 768,
+        "role": "member",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 768,
+        "role": "clinician",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 768,
+        "role": "coordinator",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 768,
+        "role": "admin",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1440,
+        "role": "overview",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1440,
+        "role": "member",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1440,
+        "role": "clinician",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1440,
+        "role": "coordinator",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1440,
+        "role": "admin",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1920,
+        "role": "overview",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1920,
+        "role": "member",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1920,
+        "role": "clinician",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1920,
+        "role": "coordinator",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      },
+      {
+        "width": 1920,
+        "role": "admin",
+        "bodyOverflow": false,
+        "tabAndDownload": true
+      }
+    ],
+    "keyboardTabs": true,
+    "deepLinks": true,
+    "offlineAssetsEmbedded": true,
+    "allInitialLinksExist": true,
+    "pageErrors": []
+  },
+  "limitation": "Native file:// navigation is blocked by the managed browser policy; local HTTP rendering and self-contained asset/link checks passed."
+}

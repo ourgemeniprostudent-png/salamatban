@@ -1,0 +1,26 @@
+{
+  "version": "2.2",
+  "completedAt": "2026-10-08T11:04:23.430Z",
+  "status": "passed",
+  "individualPassed": 8,
+  "data": "synthetic local demo accounts only",
+  "pageErrors": [],
+  "measurements": {
+    "doctorFirstCaseOnPhone": {
+      "viewport": "390×844",
+      "top": 660.8125,
+      "bottom": 776.390625,
+      "maximumAllowedTop": 700
+    }
+  },
+  "checks": [
+    "doctor metrics are keyboard-operable filters; counts and actual cases agree and changing filter clears stale detail",
+    "a queue failure after a new case loads cannot leave the previous selected identity attached to the new record",
+    "doctor opens one case on mobile and the information-to-decision path offers an explicit request-information action",
+    "member sees the exact requested clarification and a direct next action, resubmitting without a second payment",
+    "doctor publishes member and team actions from the decision pane; tracking shows one automatic team handoff",
+    "coordinator queue metrics open a request and expose only the current stage, with restricted clinical access",
+    "member sees the remaining personal step and the completed team result; member cannot change team completion",
+    "admin metrics route to active, suspended, support and payment lists; list selection makes its action explicit without clinical access"
+  ]
+}

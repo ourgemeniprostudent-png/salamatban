@@ -42,35 +42,40 @@ test('UX v1.6.1: real browser drafts, validation, documents and optional locatio
   await page.evaluate(async()=>{const r=(await window.request('record')).data.record;const result=await window.request('record',{version:r.version,profile:{...r.profile,goal:'نسخه ثبت‌شده در پنجره دیگر'},answers:r.answers,consent:true,coordination:true,step:1},'PUT');if(result.status!==200)throw new Error('fixture save failed');});
   await page.getByLabel('هدف شما از همراهی').fill('ویرایش محلی ناسازگار');await page.getByText('ذخیره متوقف شد؛ نسخه جدیدتری وجود دارد.',{exact:true}).waitFor();assert.equal(await page.getByLabel('هدف شما از همراهی').inputValue(),'ویرایش محلی ناسازگار');await stored('goal','نسخه ثبت‌شده در پنجره دیگر');page.once('dialog',d=>d.dismiss());await page.getByRole('button',{name:'بارگذاری نسخه تازه با تأیید شما'}).click();assert.equal(await page.getByLabel('هدف شما از همراهی').inputValue(),'ویرایش محلی ناسازگار');page.once('dialog',d=>d.accept());await page.getByRole('button',{name:'بارگذاری نسخه تازه با تأیید شما'}).click();await page.waitForFunction(()=>document.querySelector('textarea').value==='نسخه ثبت‌شده در پنجره دیگر');
  });
- await check('single-question flow keeps every clinical question, validates and fits mobile options',async()=>{
+ await check('grouped clinical sections retain every answer, validate, resume and fit mobile options',async()=>{
   await page.setViewportSize({width:390,height:844});
   await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'علائم مهم',exact:true}).waitFor();
-  assert.equal(await page.locator('.p-question').count(),1);
-  assert.equal(await page.getByRole('radio').count(),2);
-  await page.getByRole('button',{name:'پرسش بعدی ←',exact:true}).click();await page.getByText('برای ادامه، پاسخ این پرسش را انتخاب کنید.',{exact:true}).waitFor();
+  assert.equal(await page.locator('.p-question').count(),7);
+  assert.equal(await page.getByRole('radio').count(),14);
+  assert.equal(await page.getByRole('button',{name:'پرسش بعدی ←',exact:true}).count(),0);
+  await page.getByRole('button',{name:'ذخیره و مرحله بعد ←',exact:true}).click();await page.getByText('برای ادامه، پاسخ این پرسش را انتخاب کنید.',{exact:true}).first().waitFor();
   assert.equal(await page.locator('.p-question input').first().evaluate(e=>e===document.activeElement),true);
-  const seen=[];
-  for(let i=0;i<7;i++){
-    seen.push(await page.locator('.p-question').getAttribute('data-field'));
-    await page.getByRole('radio',{name:'خیر',exact:true}).check();
-    if(i===0){await page.getByRole('button',{name:'پرسش بعدی ←',exact:true}).click();await page.getByRole('button',{name:'قبلی',exact:true}).click();assert.equal(await page.getByRole('radio',{name:'خیر',exact:true}).isChecked(),true);await page.screenshot({path:'.test-build/ux-question-390.png'});}
-    await page.getByRole('button',{name:i===6?'ذخیره و مرحله بعد ←':'پرسش بعدی ←',exact:true}).click();
-  }
-  assert.equal(new Set(seen).size,7);
+  const seen=await page.locator('.p-question').evaluateAll(fields=>fields.map(field=>field.dataset.field));assert.equal(new Set(seen).size,7);
+  for(const no of await page.getByRole('radio',{name:'خیر',exact:true}).all())await no.check();
+  await waitForAsync(page,async() => Object.values((await window.request('record')).data.record.answers).filter(value=>value==='no').length===7);
+  await page.reload();await page.getByRole('button',{name:'خروج',exact:true}).waitFor();await driver();await nav('تکمیل پرونده');
+  assert.equal(await page.getByRole('radio',{name:'خیر',exact:true}).count(),7);
+  for(const no of await page.getByRole('radio',{name:'خیر',exact:true}).all())assert.equal(await no.isChecked(),true);
+  await page.screenshot({path:'.test-build/ux-question-390.png',fullPage:true});
+  await page.getByRole('button',{name:'ذخیره و مرحله بعد ←',exact:true}).click();
   await page.getByRole('heading',{name:'سوابق و سبک زندگی',exact:true}).waitFor();
-  await page.getByRole('radio',{name:'برای من مطرح نیست'}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
+  assert.equal(await page.locator('.p-question').count(),5);
+  await page.getByRole('radio',{name:'برای من مطرح نیست'}).check();
   await page.setViewportSize({width:320,height:740});await page.getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).check();
   await page.getByRole('checkbox',{name:'فشارخون',exact:true}).check();assert.equal(await page.getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).isChecked(),false);
   await page.getByRole('checkbox',{name:'هیچ‌کدام',exact:true}).check();assert.equal(await page.getByRole('checkbox',{name:'فشارخون',exact:true}).isChecked(),false);
-  assert.equal(await page.getByRole('checkbox').count(),10);
+  assert.equal(await page.locator('[data-field="known_conditions"]').getByRole('checkbox').count(),10);
   for(const option of await page.locator('.p-question .p-choice').all()){const rect=await option.boundingBox();assert.ok(rect.height>=44);assert.ok(rect.x>=0&&rect.x+rect.width<=320);}
-  const options=await page.locator('.p-options').boundingBox();assert.ok(options.height<400,JSON.stringify(options));
-  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'.test-build/ux-options-320.png'});
-  await page.getByRole('button',{name:'پرسش بعدی ←'}).click();await page.getByLabel('داروها و مکمل‌های فعلی',{exact:true}).fill('نام داروی ساختگی برای آزمون');await page.getByRole('button',{name:'پرسش بعدی ←'}).click();await page.getByRole('button',{name:'ادامه بدون پاسخ'}).click();
-  await page.getByRole('checkbox',{name:'هیچ‌کدام/نمی‌دانم',exact:true}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
-  await page.getByRole('radio',{name:'هرگز',exact:true}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
-  await page.getByRole('radio',{name:'۱ تا ۲ روز در هفته'}).check();await page.getByRole('button',{name:'پرسش بعدی ←'}).click();
-  await page.getByRole('radio',{name:'خوب',exact:true}).check();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();
+  const options=await page.locator('[data-field="known_conditions"] .p-options').boundingBox();assert.ok(options.height<450,JSON.stringify(options));
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'.test-build/ux-options-320.png',fullPage:true});
+  await page.getByLabel('داروها و مکمل‌های فعلی',{exact:true}).fill('نام داروی ساختگی برای آزمون');
+  await page.getByRole('checkbox',{name:'هیچ‌کدام/نمی‌دانم',exact:true}).check();
+  await page.getByRole('button',{name:'ادامه به عادت‌های روزانه ←',exact:true}).click();
+  assert.equal(await page.locator('.p-question').count(),3);
+  await page.getByRole('radio',{name:'هرگز',exact:true}).check();await page.getByRole('radio',{name:'۱ تا ۲ روز در هفته'}).check();await page.getByRole('radio',{name:'خوب',exact:true}).check();
+  await page.getByRole('button',{name:'قبلی',exact:true}).click();assert.equal(await page.getByLabel('داروها و مکمل‌های فعلی',{exact:true}).inputValue(),'نام داروی ساختگی برای آزمون');assert.equal(await page.getByLabel('حساسیت دارویی یا غذایی شناخته‌شده',{exact:true}).inputValue(),'');
+  await page.getByRole('button',{name:'ادامه به عادت‌های روزانه ←',exact:true}).click();assert.equal(await page.getByRole('radio',{name:'خوب',exact:true}).isChecked(),true);
+  await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();
   await page.getByRole('heading',{name:'مدارک',exact:true}).waitFor();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←'}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();
   await page.locator('.ux-review-section summary').filter({hasText:'مشخصات اولیه'}).click();await page.getByRole('button',{name:'ویرایش مشخصات اولیه'}).click();await profileField(page,'name');await page.getByLabel('نام',{exact:true}).fill('نام اصلاح‌شده');await page.getByRole('button',{name:'ذخیره و بازگشت به مرور نهایی'}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();
   await stored('firstName','نام اصلاح‌شده');await page.setViewportSize({width:1280,height:900});

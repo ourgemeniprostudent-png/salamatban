@@ -22,7 +22,7 @@ async function main() {
         }
       }}>شروع دوبارهٔ نمایش</button>
     </aside>
-    <Pilot transport={backend.fetch} hospitalLookupEndpoint={__SALAMATBAN_MAPS_GATEWAY_URL__} homeHref="./" loginImageHref="./media/care-team.webp" brandHref="./brand/index.html" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
+    <Pilot transport={backend.fetch} hospitalLookupEndpoint={__SALAMATBAN_MAPS_GATEWAY_URL__} hospitalSnapshotUrl="./data/care-facilities.geoapify.json" homeHref="./" loginImageHref="./media/care-team.webp" brandHref="./brand/index.html" downloadFile={backend.downloadFile} saveMessage="تغییرات در همین مرورگر ذخیره شد." />
   </div>);
 }
 void main().catch((error: Error) => {

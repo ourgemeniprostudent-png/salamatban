@@ -23,12 +23,15 @@ const bundle = await build({
 });
 if (Object.keys(bundle.metafile.inputs).some(name => /(?:^|\/)lib\/maps\//.test(name))) throw new Error('Server map provider code must never enter the static browser bundle.');
 await cp(path.join(root, 'node_modules/sql.js/dist/sql-wasm.wasm'), path.join(output, 'sql-wasm.wasm'));
-await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8')+'\n\nIran city catalog — Ahmad Azizi v3.0 (1399 snapshot)\n'+await readFile(path.join(root, 'lib/data/iran-cities/LICENSE.md'), 'utf8')+'\n\nHome-visit address picker: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright\nAddress search service: https://nominatim.openstreetmap.org/\n\nUrgent care center search and destination links: Neshan. https://neshan.org/\nSearch requires a configured server gateway and provider credentials; no provider key is included in this build.\n');
+await writeFile(path.join(output, 'THIRD-PARTY-NOTICES.txt'), 'Leaflet 1.9.4\n'+await readFile(path.join(root, 'node_modules/leaflet/LICENSE'), 'utf8')+'\n\nIran city catalog — Ahmad Azizi v3.0 (1399 snapshot)\n'+await readFile(path.join(root, 'lib/data/iran-cities/LICENSE.md'), 'utf8')+'\n\nHome-visit address picker: © OpenStreetMap contributors, ODbL. https://www.openstreetmap.org/copyright\nAddress search service: https://nominatim.openstreetmap.org/\n\nMedical center listings: Geoapify (https://www.geoapify.com/), based on OpenStreetMap contributors, ODbL (https://www.openstreetmap.org/copyright).\nDefault demo uses a dated local snapshot; its coverage and retrieval dates are in data/care-facilities.geoapify.json. An explicitly configured server gateway enables live search.\nDestination links: Neshan (https://neshan.org/). No provider key is included in this build.\n');
 await cp(path.join(root, 'public/favicon.svg'), path.join(output, 'favicon.svg'));
 await cp(path.join(root, 'public/og.png'), path.join(output, 'og.png'));
 await cp(path.join(root, 'public/brand'), path.join(output, 'brand'), { recursive: true });
 await cp(path.join(root, 'public/fonts'), path.join(output, 'fonts'), { recursive: true });
 await cp(path.join(root, 'public/media'), path.join(output, 'media'), { recursive: true });
+await cp(path.join(root, 'public/data'), path.join(output, 'data'), { recursive: true });
+const careSnapshot = JSON.parse(await readFile(path.join(output, 'data/care-facilities.geoapify.json'), 'utf8'));
+if(careSnapshot.schemaVersion !== 1 || careSnapshot.provider !== 'geoapify' || careSnapshot.mode !== 'snapshot' || !Array.isArray(careSnapshot.entries) || !careSnapshot.entries.length) throw new Error('A valid real geographic snapshot is required for this demo.');
 const jsVersion = createHash('sha256').update(await readFile(path.join(output, 'app.js'))).digest('hex').slice(0, 12);
 const cssVersion = createHash('sha256').update(await readFile(path.join(output, 'app.css'))).digest('hex').slice(0, 12);
 const fontPreloads = ['Regular', 'SemiBold', 'Bold'].map(weight => `<link rel="preload" href="./fonts/PeydaWebFaNum-${weight}.woff2" as="font" type="font/woff2" crossorigin>`).join('');
@@ -67,8 +70,8 @@ Header set Cache-Control "no-cache"
 </IfModule>
 `);
 const releaseAssets = {};
-for (const name of ['index.html', 'app.js', 'app.css']) {
+for (const name of ['index.html', 'app.js', 'app.css', 'data/care-facilities.geoapify.json']) {
   releaseAssets[name] = createHash('sha256').update(await readFile(path.join(output, name))).digest('hex');
 }
-await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.3.1', maps: { provider: 'neshan', gatewayConfigured: !!hospitalLookupEndpoint, lookupEndpoint: hospitalLookupEndpoint, liveProviderVerified: false }, assets: releaseAssets }, null, 2) + '\n');
+await writeFile(path.join(output, 'release.json'), JSON.stringify({ version: '2.3.2', maps: { provider: 'geoapify', directionsProvider: 'neshan', mode: hospitalLookupEndpoint ? 'live' : 'snapshot', gatewayConfigured: !!hospitalLookupEndpoint, lookupEndpoint: hospitalLookupEndpoint, snapshotUrl: './data/care-facilities.geoapify.json', snapshotGeneratedAt: careSnapshot.generatedAt, coveredCities: careSnapshot.entries.length, facilityCount: careSnapshot.entries.reduce((sum,entry)=>sum+entry.facilities.length,0), liveGatewayVerified: false }, assets: releaseAssets }, null, 2) + '\n');
 console.log('Static presentation built in site/dist-demo. Upload its contents to a dedicated HTTPS folder.');

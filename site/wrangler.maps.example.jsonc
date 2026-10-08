@@ -11,8 +11,8 @@
     "migrations_dir": "maps-worker/migrations"
   }],
   "vars": {
-    "NESHAN_ALLOWED_ORIGINS": "https://ourgemeniprostudent-png.github.io"
+    "GEOAPIFY_ALLOWED_ORIGINS": "https://ourgemeniprostudent-png.github.io"
   }
-  // NESHAN_API_KEY and optional NESHAN_RATE_LIMIT_SECRET are Worker secrets.
+  // GEOAPIFY_API_KEY and optional GEOAPIFY_RATE_LIMIT_SECRET are Worker secrets.
   // Never add them to vars, the demo build, public JSON or the delivery ZIP.
 }

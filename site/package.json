@@ -9,7 +9,7 @@
     "dev": "node node_modules/vinext/dist/cli.js dev",
     "build": "node node_modules/vinext/dist/cli.js build",
     "start": "node node_modules/vinext/dist/cli.js start",
-    "lint": "node node_modules/eslint/bin/eslint.js . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .test-build",
+    "lint": "node node_modules/eslint/bin/eslint.js . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .test-build --ignore-pattern dist-maps-server",
     "db:generate": "node node_modules/drizzle-kit/bin.cjs generate",
     "test": "node tests/pilot.test.mjs",
     "db:local": "node node_modules/wrangler/bin/wrangler.js d1 migrations apply DB --local --config wrangler.local.jsonc",
@@ -24,7 +24,10 @@
     "test:visual": "node --test demo/visual.test.mjs",
     "test:journey": "node --test demo/journey.test.mjs",
     "test:grouped": "node --test demo/grouped-intake.test.mjs",
-    "test:workspace": "node --test demo/workspace.test.mjs"
+    "test:workspace": "node --test demo/workspace.test.mjs",
+    "maps:build": "node maps-server/build.mjs",
+    "maps:start": "node dist-maps-server/server.mjs",
+    "maps:test": "node --test maps-server/server.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

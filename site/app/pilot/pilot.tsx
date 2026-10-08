@@ -43,8 +43,8 @@ const fa=(n:number)=>n.toLocaleString('fa-IR');
 const steps=['رضایت آگاهانه','مشخصات اولیه','علائم مهم','سوابق و سبک زندگی','مدارک','مرور و پرداخت'];
 function Field({label,children,error,name}:{label:string;children:ReactNode;error?:string;name?:string}){return <label className="p-field" data-field={name}><span>{label}</span>{children}{name!==undefined&&<small className={`ux-field-feedback ${error?'ux-error':''}`} role={error?'alert':undefined}>{error}</small>}</label>;}
 function Tag({value}:{value:string}){return <span className={`p-tag ${value}`}>{labels[value]||value}</span>;}
-type PilotProps = { transport?: typeof fetch; homeHref?: string; downloadFile?: (id: string, name: string) => Promise<void>; saveMessage?: string; brandHref?: string; loginImageHref?: string; hospitalLookupEndpoint?: string | null };
-export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,brandHref='/brand/index.html',loginImageHref='/media/care-team.webp',hospitalLookupEndpoint='/api/maps/hospitals',saveMessage='تغییرات روی سرور ذخیره شد.'}:PilotProps={}){
+type PilotProps = { transport?: typeof fetch; homeHref?: string; downloadFile?: (id: string, name: string) => Promise<void>; saveMessage?: string; brandHref?: string; loginImageHref?: string; hospitalLookupEndpoint?: string | null; hospitalSnapshotUrl?:string|null };
+export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,brandHref='/brand/index.html',loginImageHref='/media/care-team.webp',hospitalLookupEndpoint='/api/maps/hospitals',hospitalSnapshotUrl,saveMessage='تغییرات روی سرور ذخیره شد.'}:PilotProps={}){
   const today=new Date().toISOString().slice(0,10);
   const [mobileMenu,MM]=useState(false);
   const [booting,setBooting]=useState(true);
@@ -167,7 +167,7 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
       <button className="p-mobile-close p-icon-button" aria-label="بستن منو" onClick={()=>MM(false)}><Icon name="close"/></button>
       <div className="p-sidebar-caption">{{member:'فضای شخصی شما',clinician:'پنل پزشک',coordinator:'پنل همراهی',admin:'مدیریت سامانه'}[user.role as string]}</div>
       <nav className="p-side-nav" aria-label="بخش‌های پرونده">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?'page':undefined} className={tab===key?'active':''} onClick={()=>navigate(key)}><Icon name={icon}/><span>{label}</span>{key==='appointments'&&openTasks>0&&<b>{fa(openTasks)}</b>}{tab===key&&<i/>}</button>)}</nav>
-      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۳٫۱</span></div>
+      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۳٫۲</span></div>
     </aside>}
     {mobileMenu&&<button className="p-menu-scrim" aria-label="بستن منوی کناری" onClick={()=>MM(false)}/>}
     <div className="p-workspace" inert={mobileMenu?true:undefined}>
@@ -212,6 +212,6 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
   <StaffWorkspace key={user.id} role={user.role} tab={tab} queue={queue} data={data} selected={selected} busy={busy} fileList={fileList} api={api} refresh={refresh} run={act} onOpen={async id=>{S('');D(null);await refresh(id);S(id);}} onClear={()=>{S('');D(null);}} onNotice={N} onNavigate={navigate}/>
   </>}
   </>}
-  {user?.role==='member'&&<UrgentAssistance hospitalLookupEndpoint={hospitalLookupEndpoint} open={urgentOpen} city={String(profile.city||'')} province={selectedCity?.province} county={selectedCity?.county} cityId={selectedCity?.id} positiveQuestions={positiveUrgentQuestions} questionId={urgentContext?.id} questionLabel={urgentContext?.label} correctionLabel={urgentContext?undefined:'پاسخ‌های علائم را مرور می‌کنم'} onReturn={()=>setUrgentOpen(false)} onCorrect={locked?undefined:()=>{setUrgentOpen(false);ST(2);T('intake');focusField(urgentContext?.id||assessmentDefinition.questions.find(q=>q.redFlag)!.id);}}/>}
-  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۳٫۱</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
+  {user?.role==='member'&&<UrgentAssistance hospitalSnapshotUrl={hospitalSnapshotUrl} hospitalLookupEndpoint={hospitalLookupEndpoint} open={urgentOpen} city={String(profile.city||'')} province={selectedCity?.province} county={selectedCity?.county} cityId={selectedCity?.id} positiveQuestions={positiveUrgentQuestions} questionId={urgentContext?.id} questionLabel={urgentContext?.label} correctionLabel={urgentContext?undefined:'پاسخ‌های علائم را مرور می‌کنم'} onReturn={()=>setUrgentOpen(false)} onCorrect={locked?undefined:()=>{setUrgentOpen(false);ST(2);T('intake');focusField(urgentContext?.id||assessmentDefinition.questions.find(q=>q.redFlag)!.id);}}/>}
+  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۳٫۲</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
 }

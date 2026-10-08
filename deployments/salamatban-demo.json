@@ -1,18 +1,24 @@
 {
-  "version": "2.3.1",
+  "version": "2.3.2",
   "maps": {
-    "provider": "neshan",
+    "provider": "geoapify",
+    "directionsProvider": "neshan",
+    "mode": "snapshot",
     "gatewayConfigured": false,
     "lookupEndpoint": null,
-    "liveProviderVerified": false
+    "snapshotUrl": "./data/care-facilities.geoapify.json",
+    "snapshotGeneratedAt": "2026-10-08T16:22:30.184Z",
+    "coveredCities": 39,
+    "facilityCount": 169,
+    "liveGatewayVerified": false
   },
   "archive": "salamatban-demo.zip",
-  "bytes": 1311481,
-  "sha256": "480a1c9265954fa2847a2601fddfade6812c49715478b3f798690cc20165826b",
+  "bytes": 1332312,
+  "sha256": "c61f88c7e63cbce4c6274a56364be31d5b7336a7ec71525f3036c14b726e94b4",
   "targetDirectory": "gh-pages / (root)",
   "identityVersion": "salamatban-identity-v1",
   "pagesUrl": "https://ourgemeniprostudent-png.github.io/salamatban/",
   "pagesBranch": "gh-pages",
   "status": "built; verify hosting publication separately",
-  "backend": "browser-local synthetic records; optional isolated Neshan map gateway; configuration and activation recorded separately"
+  "backend": "browser-local synthetic records; dated Geoapify facility snapshot with Neshan destination links; optional isolated live Geoapify gateway configured separately"
 }

@@ -1,8 +1,8 @@
 {
-  "version": "2.3.1",
+  "version": "2.3.2",
   "status": "passed",
-  "completedAt": "2026-10-08T14:16:33.693Z",
-  "individualPassed": 8,
+  "completedAt": "2026-10-08T16:05:50.108Z",
+  "individualPassed": 11,
   "checks": [
     "only administrative location reaches the configured gateway, with no credentials or provider key",
     "missing gateway or server key is not-configured and never falls back to another map provider",
@@ -11,8 +11,10 @@
     "last-consumer cancellation aborts obsolete city work and prevents stale cache writes",
     "cache keys include gateway endpoint and city, with pacing and explicit refresh",
     "failed transport, rate limit and oversized JSON stay distinct from successful empty results",
-    "a hung gateway is aborted after fourteen seconds and remains a retryable timeout"
+    "snapshot uses one fixed local download across cities and never exposes city or health fields in its URL",
+    "cancelling one city preserves the shared snapshot consumer and configured live failures never use snapshot fallback",
+    "unconfirmed city, upstream invalid data and explicit Retry-After retain distinct recoverable errors",
+    "a hung gateway is aborted after twenty seconds and remains a retryable timeout"
   ],
-  "scope": "Client contract and request lifecycle with mocked gateway responses only; no live Neshan API or category coverage has been verified.",
-  "reportNote": "Release marker corrected from 2.3; tested behavior and execution unchanged."
+  "scope": "Client contract and lifecycle with mocked gateway/local snapshot responses only. Actual collected snapshot and released UI are checked separately; this suite makes no live provider request."
 }

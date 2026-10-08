@@ -1,21 +1,22 @@
 {
-  "version": "2.3.1",
+  "version": "2.3.2",
   "builtAssets": {
-    "index.html": "aad580bb8a0cf6fd7ce498b54e95511288118b99ed34313e79eae901086579f6",
-    "app.js": "ab0ced5420afee92adf4319000e41798bcb5bcde4794567448bc13a699599834",
-    "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
+    "index.html": "250587148b51d0dd916f3edfae982cd2e6ec0c37c639e01ab96c4443c7f6e606",
+    "app.js": "766aa23fb97c1462acd4dabc41a2c9a7e7530c86de0446a30402fafd7d6f41d1",
+    "app.css": "acacb87d16471c99ddae4052995e1c1089c368d5e0931724b4597c0bca7d7e84",
+    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d"
   },
   "configuredFixture": {
     "endpoint": "https://maps.salamatban.example/api/maps/hospitals",
     "assets": {
-      "app.js": "aa12869e889ddc89336a406763e256e30e0a321d917469043ef0ef6aa911b300",
-      "app.css": "0cdd8649ecadfcf4c3bb5c2c933db204e4b339e6ba161a872dbf3c24883bccd5"
+      "app.js": "03afce21e985707576de6823dddc1ec1f36eed28db249bcacab5b0540cf2c72f",
+      "app.css": "acacb87d16471c99ddae4052995e1c1089c368d5e0931724b4597c0bca7d7e84"
     },
     "mockedGateway": true,
     "liveProviderVerified": false,
     "scope": "Isolated demo bundle differs from the released app only by its public gateway configuration; no provider credential is bundled."
   },
-  "completedAt": "2026-10-08T14:15:53.899Z",
+  "completedAt": "2026-10-08T16:25:32.296Z",
   "status": "passed",
   "individualPassed": 18,
   "pageErrors": [],
@@ -37,7 +38,7 @@
     "changing the current search city cancels stale results and sends no health data or device location",
     "a missing profile city keeps 115 available and performs no lookup until the current city is entered",
     "a configured gateway reporting absent provider credentials is distinct from empty results and a retryable outage",
-    "the actual released default-null app states the missing connection without any external lookup or a false empty list"
+    "the released demo shows its real dated local snapshot without any API request and separates unsupported cities"
   ],
   "measurements": [
     {
@@ -278,6 +279,216 @@
         "x": 0,
         "y": 0
       }
+    },
+    {
+      "label": "invalid provider result",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "rate limited provider result",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "unconfirmed provider city",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "general clinic provider label",
+      "deltas": {
+        "results": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "title": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "retry": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "call": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "footer": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "1440: city suggestions preserve correction controls",
+      "deltas": {
+        "city": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "close": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "label": "390: city suggestions preserve correction controls",
+      "deltas": {
+        "city": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "submit": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "close": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "scrollDelta": {
+        "x": 0,
+        "y": 0
+      }
     }
   ],
   "externalRequests": [
@@ -357,17 +568,37 @@
       "body": ""
     },
     {
-      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2",
-      "method": "GET",
-      "body": ""
-    },
-    {
-      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84",
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
     {
       "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2&province=%D9%81%D8%A7%D8%B1%D8%B3&county=%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84&province=%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84&county=%D8%A7%D8%B1%D8%AF%D8%A8%DB%8C%D9%84",
+      "method": "GET",
+      "body": ""
+    },
+    {
+      "url": "https://maps.salamatban.example/api/maps/hospitals?city=%D8%AA%D9%87%D8%B1%D8%A7%D9%86&province=%D8%AA%D9%87%D8%B1%D8%A7%D9%86&county=%D8%AA%D9%87%D8%B1%D8%A7%D9%86",
       "method": "GET",
       "body": ""
     },
@@ -377,5 +608,5 @@
       "body": ""
     }
   ],
-  "limitations": "Configured gateway responses are controlled synthetic Neshan-contract fixtures. Released app default-null configuration is tested separately. No live key, provider availability, completeness or clinical validation is claimed. Configured urgent screenshots show synthetic facilities, not live results."
+  "limitations": "Configured gateway responses are controlled synthetic Geoapify-contract fixtures. Released app uses the real collected local snapshot, tested separately without external lookups; release screenshots show dated stored data, not live availability. No clinical suitability or complete coverage is claimed."
 }

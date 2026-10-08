@@ -45,3 +45,5 @@ next-env.d.ts
 
 # Browser-only presentation build
 /dist-demo/
+/dist-maps-server/
+/.maps-data/

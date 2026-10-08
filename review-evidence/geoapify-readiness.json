@@ -1,0 +1,57 @@
+{
+  "version": "2.3.2",
+  "checkedAt": "2026-10-08T16:23:35.424147+00:00",
+  "provider": "geoapify",
+  "directionsProvider": "neshan",
+  "publicMode": "dated-snapshot",
+  "providerConnection": "actual authenticated provider responses collected successfully",
+  "snapshot": {
+    "path": "site/public/data/care-facilities.geoapify.json",
+    "sha256": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+    "generatedAt": "2026-10-08T16:22:30.184Z",
+    "providerRevision": "b514b69c7f056afa269b3a790f5bdd404d4dd76598e8b009512ccdfee104b62f",
+    "coverage": {
+      "selectedCities": 45,
+      "includedCities": 39,
+      "omittedCities": 6
+    },
+    "facilityCount": 169,
+    "safadasht": [
+      "درمانگاه شبانه روزی اورند سلامت",
+      "بیمارستان شریعتی",
+      "مرکز سلامت روستایی فرخ‌آباد و زیباد",
+      "درمانگاه شبانه روزی همایون ویلا",
+      "درمانگاه شبانه روزی مهرگان"
+    ]
+  },
+  "portableGateway": {
+    "testedAt": "2026-10-08T16:21:06.587817+00:00",
+    "boundary": "local portable Node gateway with actual provider",
+    "status": 200,
+    "cors": "https://ourgemeniprostudent-png.github.io",
+    "provider": "geoapify",
+    "city": "صفادشت",
+    "count": 5,
+    "names": [
+      "درمانگاه شبانه روزی اورند سلامت",
+      "بیمارستان شریعتی",
+      "مرکز سلامت روستایی فرخ‌آباد و زیباد",
+      "درمانگاه شبانه روزی همایون ویلا",
+      "درمانگاه شبانه روزی مهرگان"
+    ],
+    "livePublicGateway": false
+  },
+  "generatedCredentialScan": {
+    "files": 35,
+    "passed": true
+  },
+  "livePublicGatewayDeployed": false,
+  "cloudflareAccountTested": false,
+  "limitations": [
+    "City-center snapshot radius is not patient distance or verified nearest care.",
+    "Listings are provider categories/name-filtered and not verified for availability, opening hours or clinical suitability.",
+    "Six selected cities omitted because geocoder could not confirm exact city identity; unlisted cities are explicitly not covered.",
+    "Public browser uses the same-origin dated file, not live upstream requests.",
+    "VPS runtime tested locally; no remote VPS or TLS deployment performed."
+  ]
+}

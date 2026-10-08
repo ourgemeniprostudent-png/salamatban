@@ -1,17 +1,26 @@
 {
   "directFileFallback": "file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation",
-  "archive": "Salamatban-Complete-Delivery-v2.3.1.zip",
+  "archive": "Salamatban-Complete-Delivery-v2.3.2.zip",
   "integrity": "passed",
-  "manifestFiles": 404,
+  "manifestFiles": 418,
   "matchedCurrentFiles": {
-    "source": 296,
-    "website": 32
+    "source": 308,
+    "website": 33
   },
-  "checkedLocalLinks": 388,
-  "checkedMirrors": 22,
+  "checkedLocalLinks": 408,
+  "checkedMirrors": 23,
   "guideSectionsMatchSources": 1,
-  "packageVersion": "2.3.1",
-  "appVersion": "2.3.1",
+  "packageVersion": "2.3.2",
+  "appVersion": "2.3.2",
   "missingLinks": [],
-  "exclusions": "passed"
+  "exclusions": "passed",
+  "snapshotIntegrity": {
+    "sourceBuildMatch": true,
+    "metadataMatch": true,
+    "provider": "geoapify",
+    "mode": "snapshot",
+    "coveredCities": 39,
+    "facilityCards": 169
+  },
+  "configuredMapCredentialScan": "passed"
 }

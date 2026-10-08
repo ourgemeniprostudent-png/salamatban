@@ -3,6 +3,9 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Icon } from './brand';
 import { NearbyCare } from './nearby-care';
+import { CityInput } from './city-input';
+import type { City } from '../../lib/data/cities';
+import type { FacilityLocation } from './facility-lookup';
 import { neshanPointUrl } from './neshan-links';
 import { buildUrgentGuidance, type UrgentPositiveQuestion } from './urgent-guidance';
 import './urgent-assistance.css';
@@ -14,6 +17,7 @@ type Props = {
   county?: string;
   cityId?: string;
   hospitalLookupEndpoint?:string|null;
+  hospitalSnapshotUrl?:string|null;
   positiveQuestions?: readonly UrgentPositiveQuestion[];
   questionLabel?: string;
   questionId?: string;
@@ -28,11 +32,12 @@ export function UrgentAssistance({ open, ...props }: Props) {
   return open && typeof document !== 'undefined' ? <UrgentAssistanceDialog {...props}/> : null;
 }
 
-function UrgentAssistanceDialog({ city, province, county, cityId, hospitalLookupEndpoint,positiveQuestions, questionLabel, questionId, onReturn, onCorrect, correctionLabel = 'اشتباه زدم؛ پاسخ را اصلاح می‌کنم' }: Omit<Props, 'open'>) {
+function UrgentAssistanceDialog({ city, province, county, cityId, hospitalLookupEndpoint,hospitalSnapshotUrl,positiveQuestions, questionLabel, questionId, onReturn, onCorrect, correctionLabel = 'اشتباه زدم؛ پاسخ را اصلاح می‌کنم' }: Omit<Props, 'open'>) {
   const id = useId(), dialog = useRef<HTMLDialogElement>(null), heading = useRef<HTMLHeadingElement>(null);
   const mounted = useRef(false), locating = useRef(false);
   const [searchCity, setSearchCity] = useState(city.trim());
-  const [careCity, setCareCity] = useState(city.trim());
+  const [searchPlace, setSearchPlace] = useState<City>();
+  const [careLocation, setCareLocation] = useState<FacilityLocation>({city:city.trim(),province,county,cityId});
   const [geoStatus, setGeoStatus] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
   const [point, setPoint] = useState<Point | null>(null);
   const guidance = buildUrgentGuidance(positiveQuestions ?? (questionLabel && questionId ? [{ id: questionId, label: questionLabel }] : []));
@@ -105,10 +110,10 @@ function UrgentAssistanceDialog({ city, province, county, cityId, hospitalLookup
 
       <section className="urgent-assistance-column urgent-assistance-care" tabIndex={0} aria-label="پیدا کردن مرکز درمانی">
         <span className="urgent-assistance-step">۳ · مراکز روی نقشه</span>
-        <NearbyCare lookupEndpoint={hospitalLookupEndpoint} city={careCity} county={careCity === city.trim() ? county : undefined} province={careCity === city.trim() ? province : undefined} cityId={careCity === city.trim() ? cityId : undefined}/>
+        <NearbyCare snapshotUrl={hospitalSnapshotUrl} lookupEndpoint={hospitalLookupEndpoint} {...careLocation}/>
         <details className="urgent-assistance-centers"><summary><Icon name="search" size={16}/><span>اکنون در شهر دیگری هستم / موقعیت روی نشان</span><Icon name="chevron" size={16}/></summary><div className="urgent-assistance-centers-content">
           <p>شهر پرونده، موقعیت فعلی شما را مشخص نمی‌کند. شهر محل حضور را اصلاح کنید یا با اجازهٔ خودتان موقعیت را دریافت کنید.</p>
-          <form onSubmit={event => { event.preventDefault(); if (searchCity.trim()) setCareCity(searchCity.trim()); }}><label htmlFor={`${id}-city`}>شهر محل حضور</label><div className="urgent-assistance-city-row"><input id={`${id}-city`} value={searchCity} maxLength={100} autoComplete="off" placeholder="نام شهر فعلی" onChange={event => setSearchCity(event.target.value)}/><button type="submit" disabled={!searchCity.trim()}>نمایش مراکز</button></div></form>
+          <form onSubmit={event => { event.preventDefault(); if (!searchCity.trim()) return; setCareLocation(searchPlace ? {city:searchPlace.name,cityId:searchPlace.id,province:searchPlace.province,county:searchPlace.county} : searchCity.trim()===city.trim() ? {city:city.trim(),province,county,cityId} : {city:searchCity.trim()}); }}><div className="urgent-assistance-city-row"><CityInput label="شهر محل حضور" value={searchCity} onChange={(value,selected)=>{setSearchCity(value);setSearchPlace(selected);}}/><button type="submit" disabled={!searchCity.trim()}>نمایش مراکز</button></div></form>
           <div className="urgent-assistance-nearby"><button type="button" className="urgent-assistance-location" disabled={geoStatus === 'loading'} onClick={locate}>دریافت موقعیت فعلی</button>
             <p className="urgent-assistance-geo-status" role="status">{geoStatus === 'loading' ? 'در انتظار اجازهٔ مرورگر و دریافت موقعیت…' : geoStatus === 'failed' ? 'موقعیت دریافت نشد؛ نام شهر را وارد کنید و با جست‌وجوی شهر ادامه دهید.' : geoStatus === 'ready' ? 'موقعیت آماده است؛ با لینک زیر آن را در نشان باز کنید.' : 'دریافت موقعیت فقط با زدن دکمه و اجازهٔ شما انجام می‌شود.'}</p>
             <a className="urgent-assistance-map-link" href={nearbyMap} aria-disabled={!nearbyMap} tabIndex={nearbyMap ? 0 : -1} target="_blank" rel="noopener noreferrer">بازکردن موقعیت در نشان <Icon name="arrow" size={17}/></a>

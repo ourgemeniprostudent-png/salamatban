@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "completedAt": "2026-10-08T16:06:35.647Z",
+  "individualPassed": 6,
+  "checks": [
+    "Validated local bind/public origin/proxy settings",
+    "Only explicitly trusted loopback proxy accepts a single valid X-Real-IP",
+    "CORS ignores forged Host; unknown/method/preflight handled; secrets never in HTTP response; forged IP cannot bypass quota",
+    "SQLite persists counters across process-server restart; DB contains HMAC identifiers only with mode0600",
+    "Raw single-backslash authority confusion and body-framed GETs rejected before lookup",
+    "Missing key fails closed and does not call provider"
+  ],
+  "scope": "Synthetic provider + local HTTP + persistent local SQLite only; no VPS deployment, TLS reverse-proxy deployment or live account quotas validated."
+}

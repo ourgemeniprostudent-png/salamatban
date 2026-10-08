@@ -8,7 +8,7 @@ const cityKey=(city:City)=>city.provinceId+':'+normalizeSearch(city.name).replac
 const namesWithinProvince=new Map<string,number>();
 for(const city of cities)namesWithinProvince.set(cityKey(city),(namesWithinProvince.get(cityKey(city))||0)+1);
 
-export function CityInput({value,onChange,error}:{value:string;onChange:(value:string,city?:City)=>void;error?:string}) {
+export function CityInput({value,onChange,error,label='شهر'}:{value:string;onChange:(value:string,city?:City)=>void;error?:string;label?:string}) {
  const id=useId(),input=useRef<HTMLInputElement>(null),list=useRef<HTMLDivElement>(null);
  const [open,setOpen]=useState(false),[active,setActive]=useState(-1);
  const suggestions=searchCities(value,{limit:13}),matches=suggestions.slice(0,12);
@@ -23,7 +23,7 @@ export function CityInput({value,onChange,error}:{value:string;onChange:(value:s
    else if(bottom>list.current.scrollTop+list.current.clientHeight)list.current.scrollTop=bottom-list.current.clientHeight;
   }
  }
- return <div className="ux-city" onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget)){setOpen(false);setActive(-1);}}}><label className="p-field" htmlFor={id}><span>شهر</span></label>
+ return <div className="ux-city" onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget)){setOpen(false);setActive(-1);}}}><label className="p-field" htmlFor={id}><span>{label}</span></label>
   <input ref={input} id={id} role="combobox" aria-expanded={open} aria-autocomplete="list" aria-controls={open?id+'-list':undefined} aria-activedescendant={open&&matches[active]?id+'-'+active:undefined} aria-invalid={!!error} aria-describedby={id+'-hint'+(error?' '+id+'-error':'')} autoComplete="address-level2" maxLength={80} value={value}
    onFocus={()=>{setOpen(true);setActive(-1);}}
    onChange={e=>{onChange(e.target.value);setOpen(true);setActive(-1);}}

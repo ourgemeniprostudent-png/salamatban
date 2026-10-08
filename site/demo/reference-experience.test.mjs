@@ -46,8 +46,8 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
   let facilityMode = 'ready';
   const heldLookups = new Map();
   function hospitals(city, province = '', county = '') {
-    return { provider: 'neshan', city, province, county, retrievedAt: new Date().toISOString(), basis: 'city-search', classification: 'name-match-unverified', facilities: [
-      { id: `synthetic-${city}`, name: `بیمارستان ساختگی ${city}`, latitude: 35.7, longitude: 51.4, address: `نشانی ساختگی، ${city}، ایران`, classification: 'name-match-unverified' },
+    return { provider: 'geoapify', city, province, county, retrievedAt: new Date().toISOString(), center:{latitude:35.7,longitude:51.4},radiusMeters:10000,filteredCount:0,basis: 'city-radius', classification: 'provider-category-unverified', facilities: [
+      { id: `synthetic-${city}`, name: `بیمارستان ساختگی ${city}`, latitude: 35.7, longitude: 51.4, address: `نشانی ساختگی، ${city}، ایران`,kind:'hospital',categories:['healthcare.hospital'], classification: 'provider-category-unverified' },
     ] };
   }
   const externalRoute = async route => {
@@ -59,11 +59,15 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
     if (facilityMode === 'hold' || facilityMode === 'stale' && city === 'شیراز') {
       await new Promise(resolve => heldLookups.set(city, resolve));
       await route.fulfill({ contentType: 'application/json', headers, body: JSON.stringify(payload) }).catch(() => {});
-    } else if (facilityMode === 'failed') await route.fulfill({ status: 503, contentType: 'application/json', headers, body: '{"error":"NESHAN_UNAVAILABLE"}' });
+    } else if (facilityMode === 'failed') await route.fulfill({ status: 503, contentType: 'application/json', headers, body: '{"error":"GEOAPIFY_UNAVAILABLE"}' });
     // Playwright supplies a permissive origin when the header is absent. An
     // explicitly wrong origin exercises Chromium's actual CORS rejection.
     else if (facilityMode === 'cors') await route.fulfill({ contentType: 'application/json', headers: { 'access-control-allow-origin': 'https://unrelated.example' }, body: JSON.stringify(payload) });
-    else if (facilityMode === 'not-configured') await route.fulfill({ status: 503, contentType: 'application/json', headers, body: '{"error":"NESHAN_NOT_CONFIGURED"}' });
+    else if (facilityMode === 'not-configured') await route.fulfill({ status: 503, contentType: 'application/json', headers, body: '{"error":"GEOAPIFY_NOT_CONFIGURED"}' });
+    else if (facilityMode === 'invalid') await route.fulfill({contentType:'application/json',headers,body:JSON.stringify({...payload,radiusMeters:50000})});
+    else if (facilityMode === 'rate-limited') await route.fulfill({status:429,contentType:'application/json',headers:{...headers,'retry-after':'2','access-control-expose-headers':'Retry-After'},body:'{"error":"GEOAPIFY_RATE_LIMITED"}'});
+    else if (facilityMode === 'location-unconfirmed') await route.fulfill({status:422,contentType:'application/json',headers,body:'{"error":"GEOAPIFY_LOCATION_UNCONFIRMED"}'});
+    else if (facilityMode === 'clinic') await route.fulfill({contentType:'application/json',headers,body:JSON.stringify({...payload,facilities:[{...payload.facilities[0],kind:'clinic',name:'درمانگاه ساختگی عمومی',categories:['healthcare.clinic_or_praxis','healthcare.clinic_or_praxis.general']}]})});
     else await route.fulfill({ contentType: 'application/json', headers, body: JSON.stringify({ ...payload, ...(facilityMode === 'empty' ? { facilities: [] } : {}) }) });
   };
   async function driver() {
@@ -271,7 +275,7 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
     stable('automatic facility results', loading, await geometry(anchors));
     assert.equal(await page.evaluate(() => window.referenceGeoCalls), 0);
     assert.ok(externalRequests.every(request => new URL(request.url).origin === new URL(mapsFixtureEndpoint).origin), 'Only the configured application gateway receives lookup requests');
-    assert.equal(await assistance().locator('a[href*="google."],a[href*="openstreetmap."]').count(), 0, 'Urgent care uses only Neshan destination links');
+    assert.equal(await assistance().locator('.nearby-care-directions:not([href^="https://nshn.ir/"])').count(),0,'Every destination opens in Neshan');assert.equal(await assistance().getByRole('link',{name:'Geoapify',exact:true}).getAttribute('href'),'https://www.geoapify.com/');assert.equal(await assistance().getByRole('link',{name:'© مشارکت‌کنندگان OpenStreetMap',exact:true}).getAttribute('href'),'https://www.openstreetmap.org/copyright');
     const directions = assistance().getByRole('link', { name: 'بازکردن بیمارستان ساختگی تهران در نشان و مسیریابی', exact: true });
     const destination = new URL(await directions.getAttribute('href'));
     assert.equal(destination.origin, 'https://nshn.ir');
@@ -294,18 +298,26 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
     await assistance().getByRole('button', { name: 'تلاش دوباره', exact: true }).click();
     await assistance().getByText('در این جست‌وجو مرکزی پیدا نشد.', { exact: true }).waitFor();
     stable('empty facility search', loading, await geometry(anchors));
-    assert.match(await assistance().locator('.nearby-care-note').innerText(), /نزدیک‌ترین.*تأیید نشده است/);
+    assert.match(await assistance().locator('.nearby-care-note').innerText(), /فاصله از شما.*تأیید نشده است/);
+    assert.match(await assistance().locator('.nearby-care-date').innerText(),/جست‌وجوی زنده/);assert.match(await assistance().locator('.nearby-care-date').innerText(),/شعاع ۱۰ کیلومتر از مرکز شهر/);
+    facilityMode='invalid';await assistance().getByRole('button',{name:'تلاش دوباره',exact:true}).click();await assistance().getByText('اطلاعات دریافت‌شده قابل نمایش نیست.',{exact:true}).waitFor();stable('invalid provider result',loading,await geometry(anchors));
+    facilityMode='rate-limited';await assistance().getByRole('button',{name:'تلاش دوباره',exact:true}).click();await assistance().getByText('درخواست‌های جست‌وجو زیاد شده است.',{exact:true}).waitFor();assert.equal(await assistance().getByRole('button',{name:'تلاش دوباره',exact:true}).isDisabled(),true);stable('rate limited provider result',loading,await geometry(anchors));
+    await page.waitForFunction(()=>!document.querySelector('.nearby-care-source button')?.disabled);
+    facilityMode='location-unconfirmed';await assistance().getByRole('button',{name:'تلاش دوباره',exact:true}).click();await assistance().getByText('موقعیت این شهر تأیید نشد.',{exact:true}).waitFor();stable('unconfirmed provider city',loading,await geometry(anchors));
+    facilityMode='clinic';await assistance().getByRole('button',{name:'تلاش دوباره',exact:true}).click();await assistance().getByRole('heading',{name:'درمانگاه ساختگی عمومی',exact:true}).waitFor();assert.equal(await assistance().locator('.nearby-care-kind').innerText(),'درمانگاه / کلینیک · برچسب نقشه');assert.equal(await assistance().locator('.nearby-care-card').count(),1);stable('general clinic provider label',loading,await geometry(anchors));
   });
   await check('changing the current search city cancels stale results and sends no health data or device location', async () => {
     facilityMode = 'stale'; heldLookups.clear();
     await assistance().locator('.urgent-assistance-centers summary').click();
     const city = assistance().getByLabel('شهر محل حضور', { exact: true });
     await city.fill('شیراز');
+    await assistance().getByRole('option',{name:'شیراز استان فارس',exact:true}).click();
     await assistance().getByRole('button', { name: 'نمایش مراکز', exact: true }).click();
     const deadline = Date.now() + 12000;
     while (!heldLookups.has('شیراز') && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 25));
     assert.ok(heldLookups.has('شیراز'), 'The first city request must be in flight for the stale-response test');
     await city.fill('اردبیل');
+    await assistance().getByRole('option',{name:'اردبیل استان اردبیل',exact:true}).click();
     await assistance().getByRole('button', { name: 'نمایش مراکز', exact: true }).click();
     await assistance().getByRole('heading', { name: 'بیمارستان ساختگی اردبیل', exact: true }).waitFor();
     heldLookups.get('شیراز')();
@@ -338,6 +350,7 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
     assert.equal(await page.evaluate(() => window.referenceGeoCalls), 0);
     await assistance().locator('.urgent-assistance-centers summary').click();
     await assistance().getByLabel('شهر محل حضور', { exact: true }).fill('تهران');
+    await assistance().getByRole('option',{name:'تهران استان تهران',exact:true}).click();
     await assistance().getByRole('button', { name: 'نمایش مراکز', exact: true }).click();
     await assistance().getByRole('heading', { name: 'بیمارستان ساختگی تهران', exact: true }).waitFor();
     await page.keyboard.press('Escape');
@@ -347,7 +360,7 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
     await fixture();
     const before = externalRequests.length;
     await radio('urgent_dyspnea', 'بله').check(); await assistance().waitFor();
-    await assistance().getByText('فهرست نشان در این نسخه هنوز متصل نشده است.', { exact: true }).waitFor();
+    await assistance().getByText('فهرست مراکز درمانی در این نسخه هنوز متصل نشده است.', { exact: true }).waitFor();
     assert.ok(externalRequests.length > before, 'This case reaches the configured gateway');
     assert.equal(await assistance().getByRole('button', { name: 'تلاش دوباره', exact: true }).count(), 0);
     assert.equal(await assistance().getByText('در این جست‌وجو مرکزی پیدا نشد.', { exact: true }).count(), 0);
@@ -355,25 +368,45 @@ test('Reference-inspired entry and contextual emergency assistance', { timeout: 
     assert.equal(await assistance().getByRole('link', { name: 'تماس با اورژانس ۱۱۵', exact: true }).getAttribute('href'), 'tel:115');
     await page.keyboard.press('Escape');
   });
-  await check('the actual released default-null app states the missing connection without any external lookup or a false empty list', async () => {
+  await check('the released demo shows its real dated local snapshot without any API request and separates unsupported cities', async () => {
     assert.equal(release.maps.gatewayConfigured, false);
+    assert.equal(release.maps.provider,'geoapify');assert.equal(release.maps.mode,'snapshot');
+    const snapshot=JSON.parse(await readFile('dist-demo/data/care-facilities.geoapify.json','utf8')),entry=snapshot.entries.find(item=>item.city==='صفادشت'&&item.province==='تهران'&&item.county==='ملارد');assert.ok(entry?.facilities.length,'Release includes collected Safadasht facilities');
     const before = externalRequests.length;
-    await start(1440, 900, true); await login(); await fixture();
+    await start(1440, 900, true); await login(); await fixture(completeAnswers,'صفادشت');
+    const network=[];page.on('request',request=>network.push(request.url()));
     await radio('urgent_dyspnea', 'بله').check(); await assistance().waitFor();
-    await assistance().getByText('فهرست نشان در این نسخه هنوز متصل نشده است.', { exact: true }).waitFor();
-    assert.equal(externalRequests.length, before, 'No gateway, direct provider, Google or OSM request is made by the unconfigured released app');
-    assert.equal(await assistance().getByRole('button', { name: 'تلاش دوباره', exact: true }).count(), 0);
+    await assistance().getByRole('heading',{name:entry.facilities[0].name,exact:true}).waitFor();
+    assert.equal(externalRequests.length, before, 'The snapshot demo makes no external provider or gateway request');
+    assert.equal(network.filter(url=>url.includes('/data/care-facilities.geoapify.json')).length,1);assert.ok(network.every(url=>!url.includes('/api/maps/')&&!url.includes('api.geoapify.com')));
+    assert.match(await assistance().locator('.nearby-care-date').innerText(),/فهرست ذخیره‌شدهٔ نمایشی/);assert.equal(await assistance().locator('.nearby-care-date time').getAttribute('datetime'),entry.retrievedAt);
+    assert.match(await assistance().locator('.nearby-care-date').innerText(),new RegExp(`شعاع ${new Intl.NumberFormat('fa-IR').format(entry.radiusMeters/1000)} کیلومتر از مرکز شهر`));
     assert.equal(await assistance().getByText('در این جست‌وجو مرکزی پیدا نشد.', { exact: true }).count(), 0);
-    assert.equal(await assistance().locator('.nearby-care-card').count(), 0);
+    assert.equal(await assistance().locator('.nearby-care-card').count(), entry.facilities.length);
     assert.equal(await page.evaluate(() => window.referenceGeoCalls), 0);
     for (const width of [1440, 390]) {
       await page.setViewportSize({ width, height: 900 }); await noOverflow();
       const call = assistance().getByRole('link', { name: 'تماس با اورژانس ۱۱۵', exact: true });
       assert.equal(await call.getAttribute('href'), 'tel:115');
-      assert.equal(await assistance().locator('a[href*="google."],a[href*="openstreetmap."]').count(), 0);
+      assert.equal(await assistance().locator('.nearby-care-directions:not([href^="https://nshn.ir/"])').count(),0);assert.equal(await assistance().getByRole('link',{name:'© مشارکت‌کنندگان OpenStreetMap',exact:true}).getAttribute('href'),'https://www.openstreetmap.org/copyright');
       await page.screenshot({ path: `.test-build/reference-urgent-released-${width}.png` });
+      if(width===390){await assistance().locator('.nearby-care').scrollIntoViewIfNeeded();await page.screenshot({path:'.test-build/reference-urgent-released-facilities-390.png'});}
+    }
+    await assistance().locator('.urgent-assistance-centers summary').click();await assistance().getByLabel('شهر محل حضور',{exact:true}).fill('شهر خارج از پوشش نسخه');await assistance().getByRole('button',{name:'نمایش مراکز',exact:true}).click();
+    await assistance().getByText('برای این شهر فهرست نمایشی تهیه نشده است.',{exact:true}).waitFor();assert.equal(await assistance().locator('.nearby-care-card').count(),0);assert.equal(await assistance().getByText('در این جست‌وجو مرکزی پیدا نشد.',{exact:true}).count(),0);assert.equal(await assistance().getByRole('button',{name:'تلاش دوباره',exact:true}).count(),0);assert.equal(externalRequests.length,before);
+    await assistance().getByLabel('شهر محل حضور',{exact:true}).fill('محمودآباد');await assistance().getByRole('button',{name:'نمایش مراکز',exact:true}).click();await assistance().getByText('موقعیت این شهر تأیید نشد.',{exact:true}).waitFor();assert.equal(await assistance().locator('.nearby-care-card').count(),0);assert.equal(externalRequests.length,before);
+    await assistance().getByLabel('شهر محل حضور',{exact:true}).focus();await assistance().getByRole('option',{name:'محمودآباد استان مازندران',exact:true}).click();await assistance().getByRole('button',{name:'نمایش مراکز',exact:true}).click();
+    await assistance().getByText('برای این شهر فهرست نمایشی تهیه نشده است.',{exact:true}).waitFor();assert.equal(await assistance().getByText('موقعیت این شهر تأیید نشد.',{exact:true}).count(),0,'Selecting the province resolves the duplicate city without inventing coverage');
+    await assistance().getByLabel('شهر محل حضور',{exact:true}).fill('صفادشت');await assistance().getByRole('option',{name:'صفادشت استان تهران',exact:true}).click();await assistance().getByRole('button',{name:'نمایش مراکز',exact:true}).click();await assistance().getByRole('heading',{name:entry.facilities[0].name,exact:true}).waitFor();
+    assert.equal(network.filter(url=>url.includes('/data/care-facilities.geoapify.json')).length,1,'City recovery reuses the already validated local snapshot');assert.equal(externalRequests.length,before);const stored=(await page.evaluate(()=>window.referenceRequest('record'))).data.record;assert.equal(stored.profile.city,'صفادشت','Temporary city selection never edits the medical profile');
+    for(const width of [1440,390]){
+      await page.setViewportSize({width,height:900});const cityInput=assistance().getByLabel('شهر محل حضور',{exact:true});await cityInput.scrollIntoViewIfNeeded();await cityInput.focus();
+      const anchors={city:cityInput,submit:assistance().getByRole('button',{name:'نمایش مراکز',exact:true}),close:assistance().getByRole('button',{name:'راهنما را خواندم؛ به پاسخ‌ها برمی‌گردم',exact:true})},beforeQuery=await geometry(anchors);
+      await cityInput.fill('محمودآباد');await assistance().getByRole('option',{name:'محمودآباد استان مازندران',exact:true}).waitFor();stable(`${width}: city suggestions preserve correction controls`,beforeQuery,await geometry(anchors));await noOverflow();await page.screenshot({path:`.test-build/reference-urgent-released-city-picker-${width}.png`});
+      await assistance().getByRole('option',{name:'محمودآباد استان مازندران',exact:true}).click();await anchors.submit.click();await assistance().getByText('برای این شهر فهرست نمایشی تهیه نشده است.',{exact:true}).waitFor();
+      await cityInput.fill('صفادشت');await assistance().getByRole('option',{name:'صفادشت استان تهران',exact:true}).click();await anchors.submit.click();await assistance().getByRole('heading',{name:entry.facilities[0].name,exact:true}).waitFor();
     }
   });
   assert.deepEqual(pageErrors, []);
-  await writeFile('../review-evidence/reference-experience-tests.json', JSON.stringify({ version: release.version, builtAssets: release.assets, configuredFixture: configured.evidence, completedAt: new Date().toISOString(), status: 'passed', individualPassed: checks.length, pageErrors, checks, measurements, externalRequests, limitations: 'Configured gateway responses are controlled synthetic Neshan-contract fixtures. Released app default-null configuration is tested separately. No live key, provider availability, completeness or clinical validation is claimed. Configured urgent screenshots show synthetic facilities, not live results.' }, null, 2));
+  await writeFile('../review-evidence/reference-experience-tests.json', JSON.stringify({ version: release.version, builtAssets: release.assets, configuredFixture: configured.evidence, completedAt: new Date().toISOString(), status: 'passed', individualPassed: checks.length, pageErrors, checks, measurements, externalRequests, limitations: 'Configured gateway responses are controlled synthetic Geoapify-contract fixtures. Released app uses the real collected local snapshot, tested separately without external lookups; release screenshots show dated stored data, not live availability. No clinical suitability or complete coverage is claimed.' }, null, 2));
 });

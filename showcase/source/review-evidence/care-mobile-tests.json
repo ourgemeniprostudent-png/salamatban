@@ -1,0 +1,20 @@
+{
+  "version": "2.4.3",
+  "completedAt": "2026-10-08T21:22:44.841Z",
+  "checks": [
+    "four destinations at four phone widths; secondary sheet and focus return",
+    "persisted 50→75% completion, independent current-step status, protected team action, selectable waypoint",
+    "five portrait/landscape/desktop layouts; pause and reduced motion",
+    "ten-waypoint layout stress at four widths (DOM fixture only)",
+    "320px login/OTP: 16px inputs and 48px touch height"
+  ],
+  "pageErrors": [],
+  "viewports": [
+    "320×740",
+    "360×844",
+    "390×844",
+    "430×932",
+    "844×390",
+    "1440×1050"
+  ]
+}

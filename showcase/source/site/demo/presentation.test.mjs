@@ -309,7 +309,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     await logout(); await login('09000000001');
     await page.locator('.pd-tile').first().click();
     await page.getByRole('heading', { name: 'برنامه پیگیری شما' }).waitFor();
-    await page.getByRole('heading', { name: 'نقشه مسیر پیگیری', exact: true }).waitFor();
+    await page.getByRole('heading', { name: 'مسیر مراقبت شما', exact: true }).waitFor();
     assert.equal(await page.locator('.mv-timeline-action .care-action-check strong').innerText(), 'اقدام ساختگی برای نمایش');
     const result = await page.evaluate(async () => {
       const plan = (await window.demoRequest('record')).data.plans[0];

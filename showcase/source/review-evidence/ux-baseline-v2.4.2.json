@@ -1,14 +1,14 @@
 {
-  "version": "2.4.3",
-  "date": "2026-10-08T21:26:37.634533+00:00",
-  "workflow": "Illustrated care journey with real action status, ownership and due dates; touch member navigation and secondary dialog; readable mobile entry, grouped forms, dashboards and operational role workspaces. Actual personal action completion persists; team completion and read-only preview remain protected.",
+  "version": "2.4.2",
+  "date": "2026-10-08T20:16:28.994374+00:00",
+  "workflow": "Compact illustrated published-member workspace: live programme, recent documents and coordination summaries open operational detail tabs. Programme history moves to its tab; responsive appointment cards show actual stages, centre, time and reference. Six essential Peyda weights preload and load before static controls render, with bounded fallback on network failure.",
   "builtAssets": {
-    "index.html": "cfec562d0bb21cf9e6a82cc608d1897d21f1efe2584386fe0b52ad4ec647b236",
-    "app.js": "318f526dc67c9a427926d2501825336a0e00cf20ecc55a50c93f65645a28de32",
-    "app.css": "563ec33531a74c0a955fb410fa4b39c266e3728575ab079481f08704024fbf86",
+    "index.html": "5c52c4122fb82cc5f042fa973f1457d3ea6cf7b87022aaf54c554d82a03a9080",
+    "app.js": "6fc0a155e06cf353acc6af04ec3ab2926dbbc7ba61c46f51de89bccf7f9da4f2",
+    "app.css": "0652a2c20b66e37c669fd58bbcd254c28550842ad8c57c4a06c0eb973486ceb5",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "9a668e65fd94bec8411fd6d15d01f9e89ed4cdc074321d1bf7fbba5c035d9969"
+    "previews/value-before-payment/index.html": "87da82552be862df3714b2c2c6c72a4f48993c084779abf61ee1b911be3ab335"
   },
   "checks": {
     "completeDemo": {
@@ -47,7 +47,7 @@
     "serverBuild": "passed",
     "staticBuild": "passed",
     "publicBrowser": {
-      "completed": 9,
+      "completed": 8,
       "evidence": "demo-public-browser.json",
       "status": "passed"
     },
@@ -58,47 +58,11 @@
     "showcaseBrowser": {
       "status": "passed",
       "evidence": "showcase-browser.json"
-    },
-    "careMobile": {
-      "individualPassed": 5,
-      "failed": 0,
-      "evidence": "care-mobile-tests.json",
-      "viewports": [
-        "320\u00d7740",
-        "360\u00d7844",
-        "390\u00d7844",
-        "430\u00d7932",
-        "844\u00d7390",
-        "1440\u00d71050"
-      ],
-      "engine": "managed Chromium",
-      "physicalMobileSafariTested": false
-    },
-    "groupedIntake": {
-      "individualPassed": 3,
-      "failed": 0,
-      "evidence": "grouped-intake-tests.json"
-    },
-    "staffWorkspaces": {
-      "individualPassed": 8,
-      "failed": 0,
-      "evidence": "workspace-tests.json"
-    },
-    "urgentExperience": {
-      "individualPassed": 8,
-      "failed": 0,
-      "evidence": "urgent-experience-tests.json"
-    },
-    "browserRegression": {
-      "individualPassed": 52,
-      "parentTestsPassed": 7,
-      "failed": 0,
-      "runnerEvidence": "presentation-tests.json"
     }
   },
   "retainedComponentEvidence": {
-    "previousRelease": "ux-baseline-v2.4.2.json",
-    "scope": "Earlier before-payment design and unaffected APIs/location integration keep labeled historical evidence. Member and staff workflows, grouped forms, urgent safety, preview isolation, font loading and mobile journey were rerun for 2.4.3."
+    "previousRelease": "ux-baseline-v2.4.1.json",
+    "scope": "Prior before-payment prototype visual review, API tests, geographical snapshot and urgent guidance remain labeled retained evidence. Current member navigation, doctor-to-coordinator workflow, preview isolation, documents, responsive detail tabs and fonts were rerun."
   },
   "demo": {
     "lanes": [

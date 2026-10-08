@@ -1,14 +1,18 @@
 {
-  "version": "2.4.2",
-  "completedAt": "2026-10-08T20:13:50.200899+00:00",
-  "runner": "node --test demo/paid-workspace.test.mjs demo/complete-demo.test.mjs demo/presentation.test.mjs",
-  "individualPassed": 28,
-  "parentTestsPassed": 3,
+  "version": "2.4.3",
+  "completedAt": "2026-10-08T21:26:37.634533+00:00",
+  "runner": "node --test demo/paid-workspace.test.mjs demo/presentation.test.mjs demo/complete-demo.test.mjs demo/grouped-intake.test.mjs demo/workspace.test.mjs demo/care-mobile.test.mjs demo/urgent-experience.test.mjs",
+  "individualPassed": 52,
+  "parentTestsPassed": 7,
   "failed": 0,
   "checksBySuite": {
     "completeDemo": 11,
     "presentation": 12,
-    "paidWorkspace": 5
+    "paidWorkspace": 5,
+    "careMobile": 5,
+    "groupedIntake": 3,
+    "staffWorkspaces": 8,
+    "urgentExperience": 8
   },
-  "tapSummary": "ℹ tests 31\nℹ suites 0\nℹ pass 31\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 15373.798943"
+  "tapSummary": "\u2139 tests 59\n\u2139 suites 0\n\u2139 pass 59\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 33168.509148"
 }

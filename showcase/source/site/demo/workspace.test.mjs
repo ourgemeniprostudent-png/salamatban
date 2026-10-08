@@ -300,13 +300,19 @@ test('Actionable role workspaces v2.3', { timeout: 240000 }, async t => {
     const task = await page.evaluate(async () => (await window.workspaceRequest('staff/queue')).data.tasks[0]);
     assert.equal(task.status, 'completed');
     assert.equal(task.note, completion);
+    await page.setViewportSize({width:390,height:844});
+    await page.getByRole('button',{name:'مشاهده متن کامل پیام',exact:true}).click();
+    await page.getByRole('dialog',{name:'جزئیات پیام',exact:true}).waitFor();
+    await page.getByRole('button',{name:'بستن جزئیات پیام',exact:true}).click();
+
   });
 
   await check('member sees the remaining personal step and the completed team result; member cannot change team completion', async () => {
     await logout(); await login('09000000001');
     await page.getByRole('heading', { name: memberTitle, exact: true }).waitFor();
+    await navigateProduct(page, 'نوبت‌ها و هماهنگی');
     await page.getByText(completion, { exact: true }).waitFor();
-    await page.getByRole('button', { name: 'مشاهده و ثبت انجام', exact: true }).click();
+    await navigateProduct(page, 'برنامه پیگیری');
     const personal = page.getByRole('checkbox', { name: memberTitle, exact: true });
     const team = page.getByRole('checkbox', { name: teamTitle, exact: true });
     assert.equal(await personal.isChecked(), false);
@@ -367,7 +373,7 @@ test('Actionable role workspaces v2.3', { timeout: 240000 }, async t => {
   });
 
   assert.deepEqual(pageErrors, []);
-  const report = { version: '2.3', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
+  const report = { version: '2.4.3', scenarioVersion: '2.3', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
   await writeFile('.test-build/workspace-tests.json', JSON.stringify(report, null, 2));
   await writeFile('../review-evidence/workspace-tests.json', JSON.stringify(report, null, 2));
 });

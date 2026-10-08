@@ -7,7 +7,7 @@ export async function navigateProduct(page,name){
   if(name==='پشتیبانی'){await page.getByRole('button',{name:'کمک',exact:true}).click();return;}
   if(name==='خانه سلامت'){const home=page.getByRole('button',{name:'خانه',exact:true});if(await home.count())await home.click();else {const nav=page.getByRole('navigation',{name:'بخش‌های پرونده',exact:true});if(await nav.count())await nav.getByRole('button',{name,exact:true}).click();}return;}
   const direct=page.getByRole('navigation',{name:'بخش‌های پرونده',exact:true}).getByRole('button',{name,exact:true});
-  if(await direct.count()){await direct.click();return;}
+  if(await direct.count()){if(!await direct.isVisible()){await page.getByRole('button',{name:'بخش‌های بیشتر',exact:true}).click();await page.getByRole('dialog').getByRole('button',{name,exact:true}).click();}else await direct.click();return;}
   if(name==='تکمیل پرونده'&&await page.getByRole('button',{name:'شروع آشنایی',exact:true}).count()){await page.getByRole('button',{name:'شروع آشنایی',exact:true}).click();return;}
   await page.getByRole('button',{name:'حساب من',exact:true}).click();await page.getByRole('navigation',{name:'اطلاعات من'}).getByRole('button',{name,exact:true}).click();return;
  }

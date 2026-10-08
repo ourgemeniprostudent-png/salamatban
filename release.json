@@ -1,8 +1,8 @@
 {
-  "version": "2.2",
+  "version": "2.2.1",
   "assets": {
-    "index.html": "e04989acdc5f0fb1876ebf7869220ffd45d60175525c1d997fe28cc33f18db36",
-    "app.js": "5e4fca513ba01e3cd1d3bddc3226c5bef370543c82f5298fb8240365acfffdca",
-    "app.css": "bf3c78bb6ecf22921f3a7e89a70d068ecd8fcc2f65c80b42145f53b8d2582d7f"
+    "index.html": "0a41a581326ad9b79e324772ff0d0f5afa974de036b6e7ea411c6075aa83db06",
+    "app.js": "5b431a213230903b0924b92960f45df73efe0791576dc3398f6fc0d6dea70957",
+    "app.css": "720b1f55593066d916f36f28202775ef1283197b3cc8d061891913379fb05de9"
   }
 }

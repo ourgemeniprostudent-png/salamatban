@@ -1,0 +1,184 @@
+{
+  "file": "Salamatban-Complete-Delivery-v2.4.7.zip",
+  "bytes": 50373794,
+  "sha256": "6b8646dd71ec748b3b223ad34ed655baf557c198674ec67c669f4d2e059775e4",
+  "fileCount": 566,
+  "version": "2.4.7",
+  "appVersion": "2.4.7",
+  "sourceBaseCommit": "b46cd59212fbd2adb122493c508047bf28ee25ed",
+  "sourceState": "current files identified individually by MANIFEST.json",
+  "validation": {
+    "version": "2.4.7",
+    "date": "2026-10-09T09:09:19.559084+00:00",
+    "workflow": "First-time entry asks whether to try from scratch or browse completed examples. A prominent two-option login switcher selects only the matching 7 practice or 15 completed-demo accounts. Remembered selection, explicit deep links and returning sessions remain supported. Entry switching logs out only the destination session when needed, preserving all stored records, documents and histories. Stale OTP and phone do not cross lanes. Existing product/staff workspaces remain unchanged.",
+    "builtAssets": {
+      "index.html": "24b6d39c711dcbb0ec461b5b4062d9442f793e0cf8d52eba5b37422a7ceace0a",
+      "app.js": "98aaf6d2126c5a70b642d89d1a2934250da983512451b89680ae62d3ff584956",
+      "app.css": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313",
+      "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+      "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+      "previews/value-before-payment/index.html": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234",
+      "media/care-consultation.webp": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
+    },
+    "checks": {
+      "completeDemo": {
+        "individualPassed": 11,
+        "failed": 0,
+        "evidence": "complete-demo-tests.json"
+      },
+      "staticPresentation": {
+        "individualPassed": 12,
+        "failed": 0,
+        "evidence": "presentation-tests.json"
+      },
+      "typecheck": "passed",
+      "lint": "passed",
+      "serverBuild": "passed",
+      "staticBuild": "passed",
+      "publicBrowser": {
+        "completed": 13,
+        "evidence": "demo-public-browser.json",
+        "status": "passed"
+      },
+      "extractedSource": {
+        "status": "passed",
+        "negativeChecks": 4,
+        "comparedAssets": 10,
+        "evidence": "delivery-source-rebuild.json"
+      },
+      "showcaseBrowser": {
+        "status": "passed",
+        "completed": 9,
+        "viewports": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "evidence": "showcase-browser.json"
+      },
+      "careMobile": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "care-mobile-tests.json",
+        "viewports": [
+          "320×740",
+          "360×844",
+          "390×844",
+          "430×932",
+          "844×390",
+          "1440×1050"
+        ],
+        "engine": "managed Chromium",
+        "physicalMobileSafariTested": false
+      },
+      "staffWorkspaces": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "workspace-tests.json"
+      },
+      "browserRegression": {
+        "individualPassed": 58,
+        "parentTestsPassed": 8,
+        "failed": 0,
+        "runnerEvidence": "presentation-tests.json",
+        "scope": "Eight browser suites passed in one final run."
+      },
+      "loginLayout": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "login-layout-tests.json",
+        "desktopSizes": [
+          "1366×768",
+          "1440×900",
+          "1920×1080"
+        ],
+        "phoneTabletLandscapeSizes": [
+          "320×740",
+          "390×844",
+          "430×932",
+          "844×390",
+          "768×1024"
+        ]
+      },
+      "accountPeek": {
+        "individualPassed": 6,
+        "failed": 0,
+        "evidence": "account-peek-tests.json",
+        "scope": "Paired staff permissions, all ten member metrics, stable hover/focus, touch sizes 320/390/430, actual action refresh, additive migration preservation"
+      },
+      "staffLayout": {
+        "individualPassed": 6,
+        "failed": 0,
+        "evidence": "staff-layout-tests.json",
+        "scope": "Full-width real queues, actual direct case/request and manager inbox routing, stale search reset, desktop1440 and phones320/390"
+      },
+      "entryModes": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "entry-mode-tests.json",
+        "scope": "First choice, both account directories, persistence, OTP reset, real edited-record/history preservation, returning session, direct links, mobile and keyboard"
+      }
+    },
+    "retainedComponentEvidence": {
+      "previousRelease": "ux-baseline-v2.4.6.json",
+      "scope": "Current v2.4.7: entry modes, staff queues and workflows, account previews, OTP/login, complete demo, mobile care and presentation suites. Reports for unchanged paid-workspace, grouped-intake and urgent components retain their original version/date."
+    },
+    "demo": {
+      "lanes": [
+        "practice",
+        "complete"
+      ],
+      "cases": 10,
+      "yearHistoryCases": 3,
+      "documents": 32,
+      "preview": "isolated ephemeral read-only",
+      "asOf": "2026-10-08",
+      "doctors": 2,
+      "coordinators": 2
+    },
+    "limits": [
+      "Both spaces remain browser-local synthetic demos; no production payments, SMS or shared persistent backend.",
+      "Completion percentages measure reported actions, not health improvement.",
+      "One-year sample history does not define the duration included in each purchase.",
+      "Standalone prepayment page remains an independent design preview; no real medical assessment or purchase is performed.",
+      "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
+    ],
+    "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
+    "packageValidation": "Archive integrity and source reconstruction are recorded separately.",
+    "retainedComponentChecks": {
+      "paidWorkspace": {
+        "individualPassed": 5,
+        "failed": 0,
+        "evidence": "paid-workspace-tests.json",
+        "viewports": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "fontColdCacheDelayMs": 1500,
+        "loadedWeights": [
+          400,
+          500,
+          600,
+          700,
+          800,
+          900
+        ],
+        "postSettledDashboardFontShift": 0
+      },
+      "groupedIntake": {
+        "individualPassed": 3,
+        "failed": 0,
+        "evidence": "grouped-intake-tests.json"
+      },
+      "urgentExperience": {
+        "individualPassed": 8,
+        "failed": 0,
+        "evidence": "urgent-experience-tests.json"
+      }
+    }
+  },
+  "archiveIntegrity": "passed"
+}

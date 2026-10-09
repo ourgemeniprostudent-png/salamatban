@@ -1,0 +1,13 @@
+{
+  "version": "2.4.7",
+  "date": "2026-10-09T09:07:25.582Z",
+  "individualPassed": 5,
+  "failed": 0,
+  "checks": [
+    "fresh visitors see two clear choices; each selects only the matching directory and retains choice on reload",
+    "switching while OTP is displayed clears stale phone/code and selects destination accounts",
+    "edited practice record and complete histories survive repeated entry switching; target session does not bypass account choice",
+    "explicit practice overrides remembered complete, complete catalog and paid preview deep links remain available",
+    "mobile, touch and keyboard choice remain accessible with no horizontal overflow"
+  ]
+}

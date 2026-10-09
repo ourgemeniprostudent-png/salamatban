@@ -1,6 +1,6 @@
 {
-  "version": "2.4.6",
-  "completedAt": "2026-10-09T07:27:47.303Z",
+  "version": "2.4.7",
+  "completedAt": "2026-10-09T09:07:02.125Z",
   "checks": [
     "four destinations at four phone widths; secondary sheet and focus return",
     "persisted 50→75% completion, independent current-step status, protected team action, selectable waypoint",

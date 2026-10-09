@@ -8,11 +8,11 @@ type Sample = DemoSample;
 const roleNames:Record<string,string>={member:'عضو',clinician:'پزشک',coordinator:'کارشناس',admin:'مدیر'};
 const roleIcons:Record<string,string>={member:'users',clinician:'doctor',coordinator:'calendar',admin:'settings'};
 
-export function DemoAccounts({samples,phone,busy,onChoose}:{samples:Sample[];phone:string;busy:boolean;onChoose:(phone:string)=>void}){
+export function DemoAccounts({samples,phone,busy,onChoose,mode}:{mode?:'practice'|'complete';samples:Sample[];phone:string;busy:boolean;onChoose:(phone:string)=>void}){
  const id=useId();
  const roles=['member','clinician','coordinator','admin'];
  return <aside className="p-card p-demo-accounts" aria-labelledby={`${id}-title`}>
-  <header className="p-demo-accounts-heading"><div><h2 id={`${id}-title`}>حساب‌های نمونه</h2><p id={`${id}-help`}>یک نام را انتخاب کنید؛ شمارهٔ آن در فرم بالا قرار می‌گیرد.</p></div><span className="p-demo-account-note"><Icon name="shield" size={15}/>اطلاعات ساختگی، برای تجربهٔ نقش‌ها</span></header>
+  <header className="p-demo-accounts-heading"><div><h2 id={`${id}-title`}>{mode==='complete'?'حساب‌های نمونهٔ کامل':mode==='practice'?'حساب‌های تست':'حساب‌های نمونه'}</h2><p id={`${id}-help`}>یک نام را انتخاب کنید؛ شمارهٔ آن در فرم بالا قرار می‌گیرد.</p></div><span className="p-demo-account-note"><Icon name="shield" size={15}/>اطلاعات ساختگی، برای تجربهٔ نقش‌ها</span></header>
   <div className="p-demo-role-groups">{roles.filter(role=>samples.some(sample=>sample.role===role)).map(role=><section className={`p-demo-role-group p-demo-role-${role}`} key={role} aria-labelledby={`${id}-${role}`}>
    <h3 id={`${id}-${role}`}><Icon name={roleIcons[role]} size={16}/>{role==='member'?'اعضا':roleNames[role]}<span>{samples.filter(sample=>sample.role===role).length.toLocaleString('fa-IR')}</span></h3>
    <div className="p-demo-account-list">{samples.filter(sample=>sample.role===role).map(sample=><DemoAccountPeek key={sample.phone} sample={sample} className="p-demo-account-item">{descriptionId=><button type="button" className="p-demo-account" aria-pressed={phone===sample.phone} aria-describedby={`${id}-help${descriptionId?` ${descriptionId}`:''}`} disabled={busy} onClick={()=>onChoose(sample.phone)}>

@@ -107,7 +107,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
   }
   let fileId;
   await check('loads without a server API, logs in through the actual UI', async () => {
-    await page.goto(origin + prefix);
+    await page.goto(origin + prefix + '?lane=practice');
     await page.getByRole('button', { name: 'دریافت کد ورود', exact: true }).waitFor();
     await assertPeyda(page, '.pilot');
     await page.waitForFunction(() => { const photo = document.querySelector('.login-scene-photo'); return photo?.complete && photo.naturalWidth > 0; });
@@ -383,7 +383,7 @@ test('static presentation works under a shared-hosting subdirectory', { timeout:
     }
     const isolated = await browser.newContext({ viewport: { width: 320, height: 740 } });
     const other = await isolated.newPage();
-    await other.goto(origin + prefix);
+    await other.goto(origin + prefix + '?lane=practice');
     await other.getByRole('heading', { name: 'ورود به پرونده', exact: true }).waitFor();
     assert.equal(await other.getByRole('button', { name: 'خروج', exact: true }).count(), 0);
     await assertLayout(other);

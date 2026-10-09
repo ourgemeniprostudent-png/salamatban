@@ -1,7 +1,7 @@
 {
-  "version": "2.4.6",
+  "version": "2.4.7",
   "scenarioVersion": "2.3",
-  "completedAt": "2026-10-09T07:28:10.917Z",
+  "completedAt": "2026-10-09T09:07:38.755Z",
   "status": "passed",
   "individualPassed": 8,
   "data": "synthetic local demo accounts only",

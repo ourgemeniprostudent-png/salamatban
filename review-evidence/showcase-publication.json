@@ -1,7 +1,7 @@
 {
-  "packageVersion": "2.4.6",
+  "packageVersion": "2.4.7",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/showcase/",
-  "pagesCommit": "86b8a95725fcc2518148363979e2c21968c193c9",
+  "pagesCommit": "0fe8d66c26f90c4a782701e8f3cb36cca619f8a1",
   "success": true,
   "browserScope": "Local browser of identical assets; public HTTPS verified by checksum",
   "files": [
@@ -9,19 +9,19 @@
       "file": "index.html",
       "status": 200,
       "matches": true,
-      "sha256": "24345c9b82669a73c6fd546c65275705bebcfd6ac6347fac7f525748113f4717"
+      "sha256": "11e1f64bbc0cbbbed20b104ca1c735b7e0ba3b78496739a833a33df7555b237e"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.html",
       "status": 200,
       "matches": true,
-      "sha256": "4126cbaec8a0fd4d631fd4ba1df617fba242e49f9ab776973dfa859f6b87992c"
+      "sha256": "8e5c96d4616bc0ec558378f27b72c0447543132e33b311782d2d5c729404c33f"
     },
     {
       "file": "documents/Salamatban-Complete-Guide-fa.pdf",
       "status": 200,
       "matches": true,
-      "sha256": "d053aeae3ced576b456f659101115f1140426a7cb189a3d9ea80f3b8f5352087"
+      "sha256": "9f9494f577dcadd21e4d47c817db02cbc2f26392fe4928be97de7000fcc2a853"
     },
     {
       "file": "presentation/assets/architecture-data.png",
@@ -99,7 +99,7 @@
       "file": "presentation/assets/screen-admin.png",
       "status": 200,
       "matches": true,
-      "sha256": "e7e0fabc153d64d4940563926e70e741c83572ecd696ef3bf00c86eaa58a318c"
+      "sha256": "b0dbbd94d6d382cd57e60d99c8df69e3d1a9d24514c6d16eb84383003ff4390e"
     },
     {
       "file": "presentation/assets/screen-appointments.png",
@@ -117,7 +117,7 @@
       "file": "presentation/assets/screen-coordinator.png",
       "status": 200,
       "matches": true,
-      "sha256": "beb80bfc752123ab24cf541e89e05bf5cb7a787452a943221fefcf777b8d12cb"
+      "sha256": "5b1a60e420bb57e119b2ae40e17e539b6030006a9aadde57fc5fd80e4a5a4930"
     },
     {
       "file": "presentation/assets/screen-demo-catalog.png",
@@ -129,7 +129,7 @@
       "file": "presentation/assets/screen-doctor.png",
       "status": 200,
       "matches": true,
-      "sha256": "b31cbe6f677ec40a0b6b28eb68abbf5472a5a582da2ba678fc00517b41984350"
+      "sha256": "494ebf08ccd788195cad539284ad9003f8425e554c4a3b1c75833dfaa6f031e0"
     },
     {
       "file": "presentation/assets/screen-form.png",
@@ -147,7 +147,7 @@
       "file": "presentation/assets/screen-login.png",
       "status": 200,
       "matches": true,
-      "sha256": "81aec47e9b7d1b776fbfa796a96fbba655cb09d3516825f2bde0466c52ec2261"
+      "sha256": "c17eb649027f84169e8afeafc8372400ffe9dd12406fc50580f0dd52a2c5a63b"
     },
     {
       "file": "presentation/assets/screen-paid-preview.png",
@@ -306,5 +306,5 @@
       "sha256": "19e2c86bfae66c93e975cf515bcb5d6f228c7310126c1a1b109ebce1ac9dd4b3"
     }
   ],
-  "verifiedAt": "2026-10-09T07:32:27Z"
+  "verifiedAt": "2026-10-09T09:12:12Z"
 }

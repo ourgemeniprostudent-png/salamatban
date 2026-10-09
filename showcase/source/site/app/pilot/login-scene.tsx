@@ -1,12 +1,10 @@
 'use client';
-import { useState } from 'react';
 import { BrandMark, Icon } from './brand';
 import './login-scene.css';
 
 /** A visual introduction; the floating labels describe the existing care journey. */
 export function LoginScene({ imageSrc = './media/care-consultation.webp' }: { imageSrc?: string }) {
-  const [paused, setPaused] = useState(false);
-  return <section className={`login-scene ${paused ? 'is-paused' : ''}`} aria-label="همراهی سلامت‌بان">
+  return <section className="login-scene" aria-label="همراهی سلامت‌بان">
     <div className="login-scene-art">
       <div className="login-scene-media" aria-hidden="true">
         <svg className="login-scene-fallback" viewBox="0 0 600 580" fill="none">
@@ -34,7 +32,6 @@ export function LoginScene({ imageSrc = './media/care-consultation.webp' }: { im
       <div className="login-scene-chip login-scene-chip-path" aria-hidden="true"><span className="login-scene-chip-icon"><Icon name="route" size={21}/></span><div><strong>مسیرِ خود شما</strong><small>روشن، ساده، قدم به قدم</small></div></div>
       <span className="login-scene-seal" aria-hidden="true"><BrandMark/></span>
       <span className="login-scene-spark login-scene-spark-one" aria-hidden="true">+</span><span className="login-scene-spark login-scene-spark-two" aria-hidden="true">+</span>
-      <button type="button" className="login-scene-motion" aria-pressed={paused} aria-label={paused ? 'پخش حرکت گرافیکی' : 'توقف حرکت گرافیکی'} onClick={() => setPaused(value => !value)}><svg viewBox="0 0 20 20" aria-hidden="true">{paused ? <path d="m6 3 10 7-10 7Z" fill="currentColor"/> : <path d="M7 4v12m6-12v12" stroke="currentColor" strokeWidth="2"/>}</svg><span>{paused ? 'پخش حرکت' : 'توقف حرکت'}</span></button>
     </div>
 
   </section>;

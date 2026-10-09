@@ -1,7 +1,7 @@
 {
-  "version": "2.4.5",
-  "url": "https://ourgemeniprostudent-png.github.io/salamatban/?v=2.4.5&lane=complete",
-  "checkedAt": "2026-10-08T22:28:00.507Z",
+  "version": "2.4.6",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/?v=2.4.6&lane=complete",
+  "checkedAt": "2026-10-09T07:29:37.762Z",
   "checks": [
     "ten public case entry cards render",
     "paid member programme and five historical plan versions load",
@@ -12,7 +12,10 @@
     "actual fictional document downloads from public application",
     "return retains customer prepayment screen",
     "public standalone preview serves new artwork and functional programme sample",
-    "public paired doctors/coordinators, hover story card, professional photo, four role groups and desktop entry/OTP fit one viewport"
+    "public paired doctors/coordinators, hover story card, professional photo, four role groups and desktop entry/OTP fit one viewport",
+    "public clinician full-width queue, explicit start and back",
+    "public second coordinator opens actionable request",
+    "public manager inbox opens actual pending support request directly"
   ],
   "pageErrors": [],
   "browserTlsScope": "Managed Chromium proxy CA workaround only; public HTTPS asset checks use Python system trust independently",

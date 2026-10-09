@@ -1,5 +1,5 @@
 {
-  "version": "2.4.5",
+  "version": "2.4.6",
   "maps": {
     "provider": "geoapify",
     "directionsProvider": "neshan",
@@ -13,8 +13,8 @@
     "liveGatewayVerified": false
   },
   "archive": "salamatban-demo.zip",
-  "bytes": 5709508,
-  "sha256": "4113ac5bb0e17eaea01640d9398e787b28d88c7c2f3ec07d53a602bb421728df",
+  "bytes": 5710848,
+  "sha256": "efbce5f62497bb558f34dd0259a55d0b912d2e4f91ff9efa86f753bb31b9c023",
   "targetDirectory": "gh-pages / (root)",
   "identityVersion": "salamatban-identity-v1",
   "pagesUrl": "https://ourgemeniprostudent-png.github.io/salamatban/",

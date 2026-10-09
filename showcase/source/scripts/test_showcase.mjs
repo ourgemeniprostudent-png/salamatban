@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'2.4.5',appVersion:'2.4.5',publicAppVersion:'2.4.5',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'2.4.6',appVersion:'2.4.6',publicAppVersion:'2.4.6',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -23,11 +23,11 @@ try{
  await p.locator('[data-nav="experience"]').click();await p.locator('#experience').waitFor({state:'visible'});
  for(const role of ['member','doctor','coordinator','admin']){await p.locator(`[data-role="${role}"]`).click();assert(await p.locator(`[data-role-panel="${role}"]`).isVisible());assert.equal(await p.locator('[data-role-panel]:visible').count(),1)}
  report.checks.push('four role walkthroughs');
- assert(await p.locator('#overview').innerText().then(text=>text.includes('سایت عمومی: ۲٫۴٫۵')&&text.includes('بسته و برنامهٔ داخل آن: ۲٫۴٫۵')));
- assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/?v=2.4.5');
+ assert(await p.locator('#overview').innerText().then(text=>text.includes('سایت عمومی: ۲٫۴٫۶')&&text.includes('بسته و برنامهٔ داخل آن: ۲٫۴٫۶')));
+ assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/?v=2.4.6');
  assert((await p.locator('#overview').innerText()).includes('فهرست ذخیره‌شده'));
  assert.equal(await p.locator('#overview a[href="technical/GEOAPIFY-INTEGRATION-fa.md"]').count(),1);
- report.checks.push('package/app/public target are v2.4.5 and snapshot mode is distinguished from live search');
+ report.checks.push('package/app/public target are v2.4.6 and snapshot mode is distinguished from live search');
  const mapLink=p.locator('#experience a[href="presentation/assets/workflow-v2.2/index.html"]');assert(await mapLink.isVisible());const mapResponse=await context.request.get(new URL(await mapLink.getAttribute('href'),base).href);assert.equal(mapResponse.status(),200);assert((await mapResponse.text()).includes('پزشک'));report.checks.push('current role architecture is directly reachable from product experience');
  await p.locator('[data-nav="architecture"]').click();await p.locator('#architecture').waitFor({state:'visible'});assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),6);
  await p.locator('[data-filter="target"]').click();assert.equal(await p.locator('.diagram-grid .visual-card:visible').count(),3);

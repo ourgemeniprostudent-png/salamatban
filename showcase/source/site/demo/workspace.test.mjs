@@ -373,7 +373,7 @@ test('Actionable role workspaces v2.3', { timeout: 240000 }, async t => {
   });
 
   assert.deepEqual(pageErrors, []);
-  const report = { version: '2.4.5', scenarioVersion: '2.3', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
+  const report = { version: '2.4.6', scenarioVersion: '2.3', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
   await writeFile('.test-build/workspace-tests.json', JSON.stringify(report, null, 2));
   await writeFile('../review-evidence/workspace-tests.json', JSON.stringify(report, null, 2));
 });

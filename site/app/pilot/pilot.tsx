@@ -172,7 +172,7 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
       <button className="p-mobile-close p-icon-button" aria-label="بستن منو" onClick={()=>MM(false)}><Icon name="close"/></button>
       <div className="p-sidebar-caption">{{member:'فضای شخصی شما',clinician:'پنل پزشک',coordinator:'پنل همراهی',admin:'مدیریت سامانه'}[user.role as string]}</div>
       <nav className="p-side-nav" aria-label="بخش‌های پرونده">{navigation.map(([key,label,icon])=><button key={key} aria-current={tab===key?'page':undefined} className={tab===key?'active':''} onClick={()=>navigate(key)}><Icon name={icon}/><span>{label}</span>{key==='appointments'&&openTasks>0&&<b>{fa(openTasks)}</b>}{tab===key&&<i/>}</button>)}</nav>
-      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۴٫۵</span></div>
+      <div className="p-sidebar-bottom"><div className="p-care-note"><span className="p-care-icon"><Icon name="shield"/></span><strong>مراقبت، با همراهی انسان</strong><p>برنامهٔ سلامت شما با بررسی پزشک و پیگیری تیم همراه تکمیل می‌شود.</p></div><span className="p-side-version">سلامت‌بان · نسخهٔ ارائه ۲٫۴٫۶</span></div>
     </aside>}
     {mobileMenu&&<button className="p-menu-scrim" aria-label="بستن منوی کناری" onClick={()=>MM(false)}/>}
     <div className="p-workspace" inert={mobileMenu?true:undefined}>
@@ -218,5 +218,5 @@ export default function Pilot({transport=fetch,homeHref='/pilot',downloadFile,br
   </>}
   </>}
   {user?.role==='member'&&<UrgentAssistance hospitalSnapshotUrl={hospitalSnapshotUrl} hospitalLookupEndpoint={hospitalLookupEndpoint} open={urgentOpen} city={String(profile.city||'')} province={selectedCity?.province} county={selectedCity?.county} cityId={selectedCity?.id} positiveQuestions={positiveUrgentQuestions} questionId={urgentContext?.id} questionLabel={urgentContext?.label} correctionLabel={urgentContext?undefined:'پاسخ‌های علائم را مرور می‌کنم'} onReturn={()=>setUrgentOpen(false)} onCorrect={locked?undefined:()=>{setUrgentOpen(false);ST(2);T('intake');focusField(urgentContext?.id||assessmentDefinition.questions.find(q=>q.redFlag)!.id);}}/>}
-  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۴٫۵</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
+  </main><footer className="p-footer"><span><BrandMark/> سلامت‌بان؛ همراهِ مسیر سلامت شما · ۲٫۴٫۶</span><div><a href={brandHref}>هویت بصری</a><span>جایگزین خدمات اورژانس نیست</span></div></footer></div></div>;
 }

@@ -1,14 +1,14 @@
 {
-  "version": "2.4.5",
-  "date": "2026-10-08T22:28:00.629938+00:00",
-  "workflow": "Two demo doctors and two coordinators, with separate assigned clinician case queues and a shared coordination queue. Blue hover/focus/touch cards above account names show actual registration completion, latest reported action completion, tenure, document/plan counts, and role-specific responsibilities. Existing snapshots upgrade additively while preserving user edits and explicit admin assignments.",
+  "version": "2.4.6",
+  "date": "2026-10-09T07:29:37.889755+00:00",
+  "workflow": "Login photograph has no motion control. Staff browse full-width responsive real queues before selecting an item, with an explicit desktop start action and mobile actionable rows. Selected case/request opens a focused workspace with reachable back controls. Manager home displays actual pending requests and opens the selected support item directly. Admin shortcuts clear stale cross-section searches; support metric reflects active support section. Staff notifications use a fixed overlay preserving control positions.",
   "builtAssets": {
-    "index.html": "e1d14244002741c8948dc3f4f84272e390cc34dcf19a7a96aeaf467ffb89c390",
-    "app.js": "3af65cb6a80a6cc18ada0d8ce9f6b9d6f8ce6198a74a89faa14a1dc05b0ebe42",
-    "app.css": "8f33a35abcdec09c68651fac9340e933cb925bc156d80571f1ac80fd444ced66",
+    "index.html": "f1b92f9a48b35f6efd59359594d7ca3e1dd51947ad92702f8a2a98d566533907",
+    "app.js": "87d5dcb1bd528899bffe4d7862ac3b5a0aaad76cecd9008fad683140ff0d684c",
+    "app.css": "9529214e2da26ef31c75ed2a29ea1a5fe6170799dce27985d1a3419cf58d2fb1",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "650de6084c5fe9a5cdda8589228118d2c5fd0c8fe583eb6d8426f6be3826cce6",
+    "previews/value-before-payment/index.html": "dc42562e52f2d8171abd62577877987b46dafb22836160757aff595a76c7eefa",
     "media/care-consultation.webp": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
   },
   "checks": {
@@ -22,33 +22,12 @@
       "failed": 0,
       "evidence": "presentation-tests.json"
     },
-    "paidWorkspace": {
-      "individualPassed": 5,
-      "failed": 0,
-      "evidence": "paid-workspace-tests.json",
-      "viewports": [
-        320,
-        390,
-        768,
-        1440
-      ],
-      "fontColdCacheDelayMs": 1500,
-      "loadedWeights": [
-        400,
-        500,
-        600,
-        700,
-        800,
-        900
-      ],
-      "postSettledDashboardFontShift": 0
-    },
     "typecheck": "passed",
     "lint": "passed",
     "serverBuild": "passed",
     "staticBuild": "passed",
     "publicBrowser": {
-      "completed": 10,
+      "completed": 13,
       "evidence": "demo-public-browser.json",
       "status": "passed"
     },
@@ -75,27 +54,17 @@
       "engine": "managed Chromium",
       "physicalMobileSafariTested": false
     },
-    "groupedIntake": {
-      "individualPassed": 3,
-      "failed": 0,
-      "evidence": "grouped-intake-tests.json"
-    },
     "staffWorkspaces": {
       "individualPassed": 8,
       "failed": 0,
       "evidence": "workspace-tests.json"
     },
-    "urgentExperience": {
-      "individualPassed": 8,
-      "failed": 0,
-      "evidence": "urgent-experience-tests.json"
-    },
     "browserRegression": {
-      "individualPassed": 63,
-      "parentTestsPassed": 9,
+      "individualPassed": 53,
+      "parentTestsPassed": 7,
       "failed": 0,
       "runnerEvidence": "presentation-tests.json",
-      "scope": "All nine affected and existing browser suites passed in one run."
+      "scope": "All seven affected browser suites passed in one final run."
     },
     "loginLayout": {
       "individualPassed": 5,
@@ -119,11 +88,17 @@
       "failed": 0,
       "evidence": "account-peek-tests.json",
       "scope": "Paired staff permissions, all ten member metrics, stable hover/focus, touch sizes 320/390/430, actual action refresh, additive migration preservation"
+    },
+    "staffLayout": {
+      "individualPassed": 6,
+      "failed": 0,
+      "evidence": "staff-layout-tests.json",
+      "scope": "Full-width real queues, actual direct case/request and manager inbox routing, stale search reset, desktop1440 and phones320/390"
     }
   },
   "retainedComponentEvidence": {
-    "previousRelease": "ux-baseline-v2.4.4.json",
-    "scope": "Older component evidence stays labeled. Paired staff, account cards, entry/OTP, role workflows, grouped intake, paid workspace/fonts, urgent assistance, lane isolation and mobile care were executed for v2.4.5."
+    "previousRelease": "ux-baseline-v2.4.5.json",
+    "scope": "Older evidence stays labeled. Staff queues/direct routing, existing review/publishing/coordination/support workflows, account cards and paired permissions, entry/OTP, complete demo, care mobile and presentation were executed for v2.4.6. Paid-workspace, grouped-intake and urgent component reports are retained v2.4.5 evidence."
   },
   "demo": {
     "lanes": [
@@ -146,5 +121,38 @@
     "Facility listings remain a dated Geoapify snapshot with Neshan directions; no live gateway deployment."
   ],
   "publication": "Public HTTPS readback is recorded independently in ux-publication.json.",
-  "packageValidation": "Archive integrity and source reconstruction are recorded separately."
+  "packageValidation": "Archive integrity and source reconstruction are recorded separately.",
+  "retainedComponentChecks": {
+    "paidWorkspace": {
+      "individualPassed": 5,
+      "failed": 0,
+      "evidence": "paid-workspace-tests.json",
+      "viewports": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "fontColdCacheDelayMs": 1500,
+      "loadedWeights": [
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "postSettledDashboardFontShift": 0
+    },
+    "groupedIntake": {
+      "individualPassed": 3,
+      "failed": 0,
+      "evidence": "grouped-intake-tests.json"
+    },
+    "urgentExperience": {
+      "individualPassed": 8,
+      "failed": 0,
+      "evidence": "urgent-experience-tests.json"
+    }
+  }
 }

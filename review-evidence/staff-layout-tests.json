@@ -1,0 +1,16 @@
+{
+  "version": "2.4.6",
+  "completedAt": "2026-10-09T07:27:59.636Z",
+  "individualPassed": 6,
+  "failed": 0,
+  "checks": [
+    "entry keeps photograph and OTP controls without a motion button on the image",
+    "doctor browses full-width queue and opens the first flagged case explicitly, then returns to the whole list",
+    "coordinator starts an actual pending request and retains its phone, stage and confirmation controls",
+    "manager inbox opens the actual first support item directly and keeps clinical data inaccessible",
+    "manager shortcuts clear stale searches and route to the intended current list",
+    "all three staff roles keep queues and back controls reachable on narrow phones without overflow"
+  ],
+  "pageErrors": [],
+  "scope": "Actual synthetic complete-demo role selection, full-width browsing, explicit first case/request, manager direct support routing and independent search reset; desktop 1440 and phones 320/390."
+}

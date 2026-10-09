@@ -1,14 +1,14 @@
 {
-  "version": "2.4.6",
-  "date": "2026-10-09T07:29:37.889755+00:00",
-  "workflow": "Login photograph has no motion control. Staff browse full-width responsive real queues before selecting an item, with an explicit desktop start action and mobile actionable rows. Selected case/request opens a focused workspace with reachable back controls. Manager home displays actual pending requests and opens the selected support item directly. Admin shortcuts clear stale cross-section searches; support metric reflects active support section. Staff notifications use a fixed overlay preserving control positions.",
+  "version": "2.4.7",
+  "date": "2026-10-09T09:09:19.559084+00:00",
+  "workflow": "First-time entry asks whether to try from scratch or browse completed examples. A prominent two-option login switcher selects only the matching 7 practice or 15 completed-demo accounts. Remembered selection, explicit deep links and returning sessions remain supported. Entry switching logs out only the destination session when needed, preserving all stored records, documents and histories. Stale OTP and phone do not cross lanes. Existing product/staff workspaces remain unchanged.",
   "builtAssets": {
-    "index.html": "f1b92f9a48b35f6efd59359594d7ca3e1dd51947ad92702f8a2a98d566533907",
-    "app.js": "87d5dcb1bd528899bffe4d7862ac3b5a0aaad76cecd9008fad683140ff0d684c",
-    "app.css": "9529214e2da26ef31c75ed2a29ea1a5fe6170799dce27985d1a3419cf58d2fb1",
+    "index.html": "24b6d39c711dcbb0ec461b5b4062d9442f793e0cf8d52eba5b37422a7ceace0a",
+    "app.js": "98aaf6d2126c5a70b642d89d1a2934250da983512451b89680ae62d3ff584956",
+    "app.css": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313",
     "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
     "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
-    "previews/value-before-payment/index.html": "dc42562e52f2d8171abd62577877987b46dafb22836160757aff595a76c7eefa",
+    "previews/value-before-payment/index.html": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234",
     "media/care-consultation.webp": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
   },
   "checks": {
@@ -33,10 +33,19 @@
     },
     "extractedSource": {
       "status": "passed",
+      "negativeChecks": 4,
+      "comparedAssets": 10,
       "evidence": "delivery-source-rebuild.json"
     },
     "showcaseBrowser": {
       "status": "passed",
+      "completed": 9,
+      "viewports": [
+        320,
+        390,
+        768,
+        1440
+      ],
       "evidence": "showcase-browser.json"
     },
     "careMobile": {
@@ -60,11 +69,11 @@
       "evidence": "workspace-tests.json"
     },
     "browserRegression": {
-      "individualPassed": 53,
-      "parentTestsPassed": 7,
+      "individualPassed": 58,
+      "parentTestsPassed": 8,
       "failed": 0,
       "runnerEvidence": "presentation-tests.json",
-      "scope": "All seven affected browser suites passed in one final run."
+      "scope": "Eight browser suites passed in one final run."
     },
     "loginLayout": {
       "individualPassed": 5,
@@ -94,11 +103,17 @@
       "failed": 0,
       "evidence": "staff-layout-tests.json",
       "scope": "Full-width real queues, actual direct case/request and manager inbox routing, stale search reset, desktop1440 and phones320/390"
+    },
+    "entryModes": {
+      "individualPassed": 5,
+      "failed": 0,
+      "evidence": "entry-mode-tests.json",
+      "scope": "First choice, both account directories, persistence, OTP reset, real edited-record/history preservation, returning session, direct links, mobile and keyboard"
     }
   },
   "retainedComponentEvidence": {
-    "previousRelease": "ux-baseline-v2.4.5.json",
-    "scope": "Older evidence stays labeled. Staff queues/direct routing, existing review/publishing/coordination/support workflows, account cards and paired permissions, entry/OTP, complete demo, care mobile and presentation were executed for v2.4.6. Paid-workspace, grouped-intake and urgent component reports are retained v2.4.5 evidence."
+    "previousRelease": "ux-baseline-v2.4.6.json",
+    "scope": "Current v2.4.7: entry modes, staff queues and workflows, account previews, OTP/login, complete demo, mobile care and presentation suites. Reports for unchanged paid-workspace, grouped-intake and urgent components retain their original version/date."
   },
   "demo": {
     "lanes": [

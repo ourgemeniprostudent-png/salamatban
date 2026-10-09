@@ -101,7 +101,7 @@ test('Actionable role workspaces v2.3', { timeout: 240000 }, async t => {
     assert.equal(result.status, 200, JSON.stringify(result));
   }
 
-  await page.goto(`http://127.0.0.1:${server.address().port}`);
+  await page.goto(`http://127.0.0.1:${server.address().port}?lane=practice`);
   await login('09000000001');
   await seedSubmitted();
   await logout();
@@ -373,7 +373,7 @@ test('Actionable role workspaces v2.3', { timeout: 240000 }, async t => {
   });
 
   assert.deepEqual(pageErrors, []);
-  const report = { version: '2.4.6', scenarioVersion: '2.3', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
+  const report = { version: '2.4.7', scenarioVersion: '2.3', completedAt: new Date().toISOString(), status: 'passed', individualPassed: completed.length, data: 'synthetic local demo accounts only', pageErrors, measurements, checks: completed };
   await writeFile('.test-build/workspace-tests.json', JSON.stringify(report, null, 2));
   await writeFile('../review-evidence/workspace-tests.json', JSON.stringify(report, null, 2));
 });

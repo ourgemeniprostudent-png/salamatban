@@ -1,30 +1,30 @@
 {
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/",
-  "pagesCommit": "12bcfa538202e91b5be06eedcf3ce5dd6f46afa3",
+  "pagesCommit": "cea0eb886c792cc978fa286ed7fe7c8b2932e586",
   "success": true,
   "assets": [
     {
       "file": "index.html",
       "status": 200,
-      "sha256": "f1b92f9a48b35f6efd59359594d7ca3e1dd51947ad92702f8a2a98d566533907",
+      "sha256": "24b6d39c711dcbb0ec461b5b4062d9442f793e0cf8d52eba5b37422a7ceace0a",
       "matches": true
     },
     {
       "file": "app.js",
       "status": 200,
-      "sha256": "87d5dcb1bd528899bffe4d7862ac3b5a0aaad76cecd9008fad683140ff0d684c",
+      "sha256": "98aaf6d2126c5a70b642d89d1a2934250da983512451b89680ae62d3ff584956",
       "matches": true
     },
     {
       "file": "app.css",
       "status": 200,
-      "sha256": "9529214e2da26ef31c75ed2a29ea1a5fe6170799dce27985d1a3419cf58d2fb1",
+      "sha256": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313",
       "matches": true
     },
     {
       "file": "release.json",
       "status": 200,
-      "sha256": "de11490b0918b793a604a4bb8cd8689ea96e862e571f4ef38e962a147fdf106f",
+      "sha256": "99034e4c3e05f8db4feba79fcecea9c2dd15d604123a4fc0c559a60aa6c39f9a",
       "matches": true
     },
     {
@@ -60,7 +60,7 @@
     {
       "file": "previews/value-before-payment/index.html",
       "status": 200,
-      "sha256": "dc42562e52f2d8171abd62577877987b46dafb22836160757aff595a76c7eefa",
+      "sha256": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234",
       "matches": true
     },
     {
@@ -118,5 +118,5 @@
       "matches": true
     }
   ],
-  "verifiedAt": "2026-10-09T07:29:27Z"
+  "verifiedAt": "2026-10-09T09:08:43Z"
 }

@@ -22,7 +22,7 @@ test('Two isolated demo lanes, complete fixtures and paid experience', {timeout:
   window.practice=await CompleteDriver.createDemoBackend();window.complete=await CompleteDriver.createDemoBackend({lane:'complete'});
   window.call=async(backend,route,body,method=body?'POST':'GET')=>{const actor=await(await backend.fetch('/api/pilot/me')).json();const r=await backend.fetch('/api/pilot/'+route,{method,headers:{'Content-Type':'application/json','X-CSRF-Token':actor.csrf||''},body:method==='GET'?undefined:JSON.stringify(body||{})});return {status:r.status,data:await r.json()};};
  });}
- await page.goto(url);await page.getByRole('heading',{name:'ورود به پرونده',exact:true}).waitFor();await driver();
+ await page.goto(url+'?lane=practice');await page.getByRole('heading',{name:'ورود به پرونده',exact:true}).waitFor();await driver();
  await check('the unchanged practice namespace accepts an independent record',async()=>{
   const result=await page.evaluate(async()=>{await practice.enterSample('09000000001');let r=(await call(practice,'record')).data.record;return call(practice,'record',{version:r.version,consent:true,coordination:true,profile:{firstName:'کاربر',lastName:'مستقل',birthDate:'1990-01-01',city:'تهران',insurance:'none',goal:'هدف محفوظ در فضای آزمون'},answers:{},step:1},'PUT');});assert.equal(result.status,200);
  });
@@ -69,5 +69,5 @@ test('Two isolated demo lanes, complete fixtures and paid experience', {timeout:
  await check('resetting complete lane restores fixtures without deleting practice lane',async()=>{
   page.once('dialog',d=>d.accept());await page.getByRole('button',{name:'بازنشانی این فضا',exact:true}).click();await page.waitForEvent('load');await page.getByRole('heading',{name:'ورود به پرونده',exact:true}).waitFor();await driver();const result=await page.evaluate(async()=>{const untouched=(await call(practice,'record')).data.record;await complete.enterSample('09000000052');const reset=(await call(complete,'record')).data;return {goal:untouched.profile.goal,changes:reset.updates.filter(u=>u.evidence==='تغییر محفوظ آزمون').length};});assert.equal(result.goal,'هدف محفوظ در فضای آزمون');assert.equal(result.changes,0);
  });
- assert.deepEqual(errors,[]);assert.deepEqual(assets,[]);await writeFile('.test-build/complete-demo-tests.json',JSON.stringify({version:'2.4.6',completedAt:new Date().toISOString(),checks:checks.length,passed:checks,pageErrors:errors,assetFailures:assets,cases:10,yearHistories:3,fictionalDocuments:32,preview:'ephemeral read-only; practice identity, CSRF and draft preserved'},null,2)+'\n');
+ assert.deepEqual(errors,[]);assert.deepEqual(assets,[]);await writeFile('.test-build/complete-demo-tests.json',JSON.stringify({version:'2.4.7',completedAt:new Date().toISOString(),checks:checks.length,passed:checks,pageErrors:errors,assetFailures:assets,cases:10,yearHistories:3,fictionalDocuments:32,preview:'ephemeral read-only; practice identity, CSRF and draft preserved'},null,2)+'\n');
 });

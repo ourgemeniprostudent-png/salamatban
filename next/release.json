@@ -5,9 +5,9 @@
   "backend": "isolated browser-local synthetic demo, not a production clinical service",
   "paidService": "not offered; pricing and purchase entitlements undecided",
   "assets": {
-    "app.js": "412e0ba618ce4f876edc51ec949258144e8d83f37265a617227005549eebd1f5",
+    "app.js": "40db88a82f0a94b617c84a974b43c5a69790cdbd151c2d143186e25b22c0349e",
     "app.css": "3457b708e1ebb9df65270e5f375cbdc7cba13a7cb55c092add60f9c4259b7c20",
-    "index.html": "2fe6a2f0e4cc0dc09cec3b245007cee9f32d727f664d976435c95b23d869e84d",
+    "index.html": "c0005e68d378aeb430002ae08aafbb657c86a38f2ef7e1e0c473f0bb1874762d",
     "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
     "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
   }

@@ -1,0 +1,2752 @@
+{
+  "schemaVersion": 1,
+  "provider": "geoapify",
+  "mode": "snapshot",
+  "generatedAt": "2026-10-08T16:22:30.184Z",
+  "providerRevision": "b514b69c7f056afa269b3a790f5bdd404d4dd76598e8b009512ccdfee104b62f",
+  "attribution": {
+    "provider": "Geoapify",
+    "providerUrl": "https://www.geoapify.com/",
+    "data": "© OpenStreetMap contributors",
+    "licenseUrl": "https://www.openstreetmap.org/copyright"
+  },
+  "coverage": {
+    "selectedCities": 45,
+    "includedCities": 39,
+    "omittedCities": 6
+  },
+  "entries": [
+    {
+      "cityId": "ir-city-1399-956",
+      "city": "صفادشت",
+      "province": "تهران",
+      "county": "ملارد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.692438,
+        "longitude": 50.8482841
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "515486bbc49a6a494059744026de42d84140f00102f90184bad2230000000092033ad8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8a7d988d8b1d986d8af20d8b3d984d8a7d985d8aa",
+          "name": "درمانگاه شبانه روزی اورند سلامت",
+          "address": "درمانگاه شبانه روزی اورند سلامت, دهستان بی بی سکینه, شهرک صنعتی صفادشت, بلوار الغدیر, استان تهران, 31641-16717, ایران",
+          "latitude": 35.689516,
+          "longitude": 50.8328518,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51563e84fbf66c494059d18cfe88f3dc4140f00102f9010609b0150000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d8b1db8cd8b9d8aadb8c",
+          "name": "بیمارستان شریعتی",
+          "address": "بیمارستان شریعتی, شهرستان کرج, دهستان محمدآباد, جاده کرج ماهدشت, استان البرز, 31847-59145, ایران",
+          "latitude": 35.7260917,
+          "longitude": 50.851333,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51da7d7d63be74494059b0f3250ae3db4140f00103f90129c7410b02000000920342d985d8b1daa9d8b220d8b3d984d8a7d985d8aa20d8b1d988d8b3d8aad8a7db8cdb8c20d981d8b1d8aee2808cd8a2d8a8d8a7d8af20d98820d8b2db8cd8a8d8a7d8af",
+          "name": "مرکز سلامت روستایی فرخ‌آباد و زیباد",
+          "address": "مرکز سلامت روستایی فرخ‌آباد و زیباد, دهستان فرخ آباد, زیبادشت, استان البرز, 31847-59145, ایران",
+          "latitude": 35.7178662,
+          "longitude": 50.9120602,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5199017855b173494059c102f3ebe2df4140f00103f901caa7baef0000000092033ad8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d987d985d8a7db8cd988d98620d988db8cd984d8a7",
+          "name": "درمانگاه شبانه روزی همایون ویلا",
+          "address": "درمانگاه شبانه روزی همایون ویلا, شهرستان کرج, بلوار شهید سلیمانی, استان البرز, 31847-59145, ایران",
+          "latitude": 35.7491126,
+          "longitude": 50.9038493,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51de0033dfc16d494059f2947abbcae34140f00103f901cf8bbbf901000000920331d8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d985d987d8b1daafd8a7d986",
+          "name": "درمانگاه شبانه روزی مهرگان",
+          "address": "درمانگاه شبانه روزی مهرگان, کرج, منطقه ۳, مهرگان, استان البرز, 31877-78296, ایران",
+          "latitude": 35.7796244,
+          "longitude": 50.857479,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 8,
+      "retrievedAt": "2026-10-08T16:20:30.736Z"
+    },
+    {
+      "cityId": "ir-city-1399-1378",
+      "city": "ملارد",
+      "province": "تهران",
+      "county": "ملارد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.666763,
+        "longitude": 50.9790423
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51a59762580f7d4940593fea0a11cbd44140f00103f901ab424a1c03000000920335d8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d987e2808cd8b1d988d8b2db8c20d985d987d8b1d8b3db8cd985d8a7",
+          "name": "درمانگاه شبانه‌روزی مهرسیما",
+          "address": "درمانگاه شبانه‌روزی مهرسیما, ملارد, بلوار رسول اکرم, استان تهران, 31699-11999, ایران",
+          "latitude": 35.6624471,
+          "longitude": 50.9770308,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5117afca54b67b494059dcd9986b5cd64140f00102f901526dbf2000000000920333d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d987d8afd8a7db8c20d8b3d984d8a7d985d8aa20d985d984d8a7d8b1d8af",
+          "name": "بیمارستان شهدای سلامت ملارد",
+          "address": "بیمارستان شهدای سلامت ملارد, ملارد, بلوار دکتر حسابی, استان تهران, 31694-15571, ایران",
+          "latitude": 35.6749211,
+          "longitude": 50.9664911,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e43dbd08097c4940595c774e0efad84140f00103f901a2cbc31c0200000092033cd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8add8a7d985db8cd8a7d98620d8b3d984d8a7d985d8aa",
+          "name": "درمانگاه شبانه روزی حامیان سلامت",
+          "address": "درمانگاه شبانه روزی حامیان سلامت, ملارد, بلوار آرش, استان تهران, 31698-13659, ایران",
+          "latitude": 35.6951311,
+          "longitude": 50.9690257,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51d40ca9a27882494059a875768df1d64140f00103f901c7a6587e0100000092032fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d981d8b1d987d986daaf",
+          "name": "درمانگاه شبانه روزی فرهنگ",
+          "address": "درمانگاه شبانه روزی فرهنگ, شهریار, ارغوان هفتم غربی, استان تهران, 33543-53009, ایران",
+          "latitude": 35.6792466,
+          "longitude": 51.0193065,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "513ff72f5a9182494059669bc019a1d74140f00103f9010b6f14900200000092032cd8afd8b1d985d8a7d986daafd8a7d98720d8a7d8b1d988d986d8af205b5d20417276616e6420436c696e6963",
+          "name": "درمانگاه اروند [] Arvand Clinic",
+          "address": "درمانگاه اروند [] Arvand Clinic, شهریار, شقایق دوم شرقی, استان تهران, 33544-82696, ایران",
+          "latitude": 35.6846039,
+          "longitude": 51.0200608,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 15,
+      "retrievedAt": "2026-10-08T16:20:33.887Z"
+    },
+    {
+      "cityId": "ir-city-1399-923",
+      "city": "شهریار",
+      "province": "تهران",
+      "county": "شهریار",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.6589015,
+        "longitude": 51.0586022
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "514d7109b46c8749405985aeda49abd44140f00102f901cdddff1f00000000920324d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985d8a7d98520d8b3d8acd8a7d8af",
+          "name": "بیمارستان امام سجاد",
+          "address": "بیمارستان امام سجاد, شهریار, کیومرثیه, محمود طالقانی, استان تهران, 33516-34147, ایران",
+          "latitude": 35.6614988,
+          "longitude": 51.0580183,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 19,
+      "retrievedAt": "2026-10-08T16:20:37.292Z"
+    },
+    {
+      "cityId": "ir-city-1399-county-304",
+      "city": "فردیس",
+      "province": "البرز",
+      "county": "فردیس",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.7316704,
+        "longitude": 50.9891563
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "510eebd7e77b7e49405955f42cad2bdd4140f00103f9012c2a9bc602000000920322daa9d984db8cd986db8cdaa920d8b3d984d8a7d985d8aa20d981d8b1d8afdb8cd8b3",
+          "name": "کلینیک سلامت فردیس",
+          "address": "کلینیک سلامت فردیس, شهر فردیس, منطقه ۱ شهرداری فردیس, پانزدهم, استان البرز, 31757-53668, ایران",
+          "latitude": 35.7278954,
+          "longitude": 50.9881563,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5145aee5df787e494059147b681f2bdd4140f00103f901d0ab8a9b0200000092031fd8afd8b1d985d8a7d986daafd8a7d98720d9bed8a7d8b1d8b3db8cd8a7d986",
+          "name": "درمانگاه پارسیان",
+          "address": "درمانگاه پارسیان, شهر فردیس, منطقه ۱ شهرداری فردیس, پانزدهم, استان البرز, 31757-53668, ایران",
+          "latitude": 35.7278785,
+          "longitude": 50.9880638,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e0302cda777e494059bbd97ae129dd4140f00103f901756807000100000092032ad8afd8b1d985d8a7d986daafd8a7d98720d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9d989",
+          "name": "درمانگاه تامین اجتماعى",
+          "address": "درمانگاه تامین اجتماعى, شهر فردیس, منطقه ۱ شهرداری فردیس, پانزدهم, استان البرز, 31757-53668, ایران",
+          "latitude": 35.7278406,
+          "longitude": 50.9880326,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5153b4cde8a27e494059ee60c43e01dd4140f00103f901b3974cf500000000920320d8afd8b1d985d8a7d986daafd8a7d98720d8a8d98720d8a2d981d8b1db8cd986",
+          "name": "درمانگاه به آفرین",
+          "address": "درمانگاه به آفرین, شهر فردیس, منطقه ۱ شهرداری فردیس, شانزدهم, استان البرز, 31757-53668, ایران",
+          "latitude": 35.7266005,
+          "longitude": 50.9893466,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "519d6340f67a7c4940590057b26323de4140f00103f90125945b100100000092032fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8aed8a7d984d982db8c",
+          "name": "درمانگاه شبانه روزی خالقی",
+          "address": "درمانگاه شبانه روزی خالقی, شهر فردیس, منطقه ۱ شهرداری فردیس, بلوار شهید ابراهیم اسمی غربی, استان البرز, 31756-58844, ایران",
+          "latitude": 35.735455,
+          "longitude": 50.9725025,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 15,
+      "retrievedAt": "2026-10-08T16:20:43.699Z"
+    },
+    {
+      "cityId": "ir-karaj",
+      "city": "کرج",
+      "province": "البرز",
+      "county": "کرج",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.8224892,
+        "longitude": 50.9904681
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51a97ddf64c07e494059a32a5c4535e94140f00103f9012db45c5e0200000092032bdaa9d984db8cd986db8cdaa920d8afdaa9d8aad8b120d8b4d8a7d8afdb8c20d985d8b8d984d988d985db8c",
+          "name": "کلینیک دکتر شادی مظلومی",
+          "address": "کلینیک دکتر شادی مظلومی, کرج, منطقه ۸, بلوار طالقانی شمالی, کوچه فروشگاه سالیان, استان البرز, 31446-14491, ایران",
+          "latitude": 35.8219382,
+          "longitude": 50.9902464,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 19,
+      "retrievedAt": "2026-10-08T16:20:48.591Z"
+    },
+    {
+      "cityId": "ir-kashan",
+      "city": "کاشان",
+      "province": "اصفهان",
+      "county": "کاشان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 33.9876533,
+        "longitude": 51.4428856
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "5169fe98d6a6b8494059daa447f883fe4040f00103f901d0d965ce0000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985db8cd984d8a7d8af",
+          "name": "بیمارستان میلاد",
+          "address": "بیمارستان میلاد, شهر کاشان, زیدی, شهید دیمی ۳۳, استان اصفهان, 87147-43141, ایران",
+          "latitude": 33.9884024,
+          "longitude": 51.4425915,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "517648b47adfb849405958a360485cfe4040f00102f90127b6b01a0000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d986d982d988db8c",
+          "name": "بیمارستان نقوی",
+          "address": "بیمارستان نقوی, شهر کاشان, زیدی, خیابان رجایی, استان اصفهان, 87147-43141, ایران",
+          "latitude": 33.9872254,
+          "longitude": 51.4442869,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "517262597a7eb8494059a8a1b20694fe4040f00103f9016b461eb400000000920313daa9d984db8cd986db8cdaa920d8b4d981d8a7",
+          "name": "کلینیک شفا",
+          "address": "کلینیک شفا, شهر کاشان, زیدی, خیابان سپاه, استان اصفهان, 87147-43141, ایران",
+          "latitude": 33.9888924,
+          "longitude": 51.4413598,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e983c0255bb8494059a5a14621c9fe4040f00103f901d71fc14802000000920344daa9d984db8cd986db8cdaa920d8aad98620d8a8d8a7d98620d8afd8b120d8b3d8a7d8aed8aad985d8a7d98620d9bed8b2d8b4daa9d8a7d98620d985d8add8aad8b4",
+          "name": "کلینیک تن بان در ساختمان پزشکان محتشم",
+          "address": "کلینیک تن بان در ساختمان پزشکان محتشم, شهر کاشان, زیدی, بن بست آزادی ۲۵, استان اصفهان, 87147-43141, ایران",
+          "latitude": 33.990513,
+          "longitude": 51.4402816,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51268e3c1059b849405945d4449f8ffd4040f00103f9018401a6ce00000000920327d8afd8b1d985d8a7d986daafd8a7d98720d985d8b3d984d98520d8a8d98620d8b9d982db8cd984",
+          "name": "درمانگاه مسلم بن عقیل",
+          "address": "درمانگاه مسلم بن عقیل, شهر کاشان, لتحر, فرهنگ ۲۳ - شهید سید حسین حسنی نژاد, استان اصفهان, 87139-15653, ایران",
+          "latitude": 33.9809455,
+          "longitude": 51.440218,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b2dafcbfeab9494059ddc8e13895fe4040f00103f9013ce085ce0000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d8aed988d8a7d986",
+          "name": "بیمارستان اخوان",
+          "address": "بیمارستان اخوان, شهر کاشان, اباذر, استان اصفهان, 87156-13973, ایران",
+          "latitude": 33.9889289,
+          "longitude": 51.4524765,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 13,
+      "retrievedAt": "2026-10-08T16:20:52.576Z"
+    },
+    {
+      "cityId": "ir-city-1399-42",
+      "city": "آمل",
+      "province": "مازندران",
+      "county": "آمل",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.4709422,
+        "longitude": 52.3571278
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51ebc488eecc2d4a40594090252b243c4240f00102f9012a3f320c00000000920322d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985d8a7d98520d8b1d8b6d8a7",
+          "name": "بیمارستان امام رضا",
+          "address": "بیمارستان امام رضا, شهر آمل, منطقه ۲, رضوان ۲, استان مازندران, 46157-68711, ایران",
+          "latitude": 36.4697648,
+          "longitude": 52.3578311,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51bc337ff1b12d4a4059439c3d867d3c4240f00102f901fb2fb62e0000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d984d8a8d8b1d8b2",
+          "name": "بیمارستان البرز",
+          "address": "بیمارستان البرز, شهر آمل, منطقه ۱, بلوار آزادگان, استان مازندران, 46158-13681, ایران",
+          "latitude": 36.4725807,
+          "longitude": 52.3569929,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51f81aa0f3002d4a4059136e7271d53b4240f00102f901f26b260c00000000920328d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d987d981d8afd98720d8b4d987d8b1db8cd988d8b1",
+          "name": "بیمارستان هفده شهریور",
+          "address": "بیمارستان هفده شهریور, شهر آمل, منطقه ۱, پانزده خرداد, استان مازندران, 46157-68711, ایران",
+          "latitude": 36.4674991,
+          "longitude": 52.3514706,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e0b3bffdca304a40595f7cd11e2f3b4240f00103f901dc4d799402000000920329d8afd8b1d985d8a7d986daafd8a7d98720d8afdaa9d8aad8b120d8b9d984db8c20d986da98d8a7d8af",
+          "name": "درمانگاه دکتر علی نژاد",
+          "address": "درمانگاه دکتر علی نژاد, شهر آمل, منطقه ۲, خیابان امام رضا, استان مازندران, 46157-68711, ایران",
+          "latitude": 36.4623755,
+          "longitude": 52.3811948,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51a904216e192a4a40590b129849763b4240f00102f9014b08e92c0000000092032ed8afd8b1d985d8a7d986daafd8a7d98720d8a7d985db8cd8b1d8a7d984d985d8a4d985d986db8cd9862028d8b929",
+          "name": "درمانگاه امیرالمؤمنین (ع)",
+          "address": "درمانگاه امیرالمؤمنین (ع), شهر آمل, منطقه ۱, نائیجیان ۳, استان مازندران, 46177-35585, ایران",
+          "latitude": 36.4645494,
+          "longitude": 52.3289015,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51600bd5287f2c4a40590aa9914c3d384240f00103f901674ee7fc0000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d985d8a7d984",
+          "name": "بیمارستان شمال",
+          "address": "بیمارستان شمال, شهر آمل, منطقه ۱, بلوار مدرس, استان مازندران, 46168-48154, ایران",
+          "latitude": 36.4393707,
+          "longitude": 52.3476306,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 14,
+      "retrievedAt": "2026-10-08T16:20:56.208Z"
+    },
+    {
+      "cityId": "ir-city-1399-200",
+      "city": "بابل",
+      "province": "مازندران",
+      "county": "بابل",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.5452581,
+        "longitude": 52.6846571
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51a02af05f6a584a405997ee642607454240f00103f90144cdea1703000000920328daa9d984db8cd986db8cdaa920d981d8b1d8b2d986d8afd8a7d98620d8aed988d8b1d8b4db8cd8af",
+          "name": "کلینیک فرزندان خورشید",
+          "address": "کلینیک فرزندان خورشید, شهر بابل, منطقه ۱, خداداد ۴, استان مازندران, 47166-84378, ایران",
+          "latitude": 36.5392807,
+          "longitude": 52.6907463,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 19,
+      "retrievedAt": "2026-10-08T16:20:59.282Z"
+    },
+    {
+      "cityId": "ir-city-1399-662",
+      "city": "رامسر",
+      "province": "مازندران",
+      "county": "رامسر",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.9225518,
+        "longitude": 50.6431897
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51392389314b5349405943cac7253e744240f00102f901c937612100000000920324d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985d8a7d98520d8b3d8acd8a7d8af",
+          "name": "بیمارستان امام سجاد",
+          "address": "بیمارستان امام سجاد, دهستان سخت سر, چهارصد دستگاه, مطهری ۳۹, استان مازندران, 46917-44987, ایران",
+          "latitude": 36.9082588,
+          "longitude": 50.6508491,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b35f77baf35b4940595e6d20b825704240f00103f90109b613070100000092032ed8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d8add985d8afd986da98d8a7d8af20daa9d8aad8a7d984d985",
+          "name": "بیمارستان احمدنژاد کتالم",
+          "address": "بیمارستان احمدنژاد کتالم, دهستان سخت سر, بلوار بهشتی, استان مازندران, 46931-38655, ایران",
+          "latitude": 36.8761511,
+          "longitude": 50.7183755,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b0d469937949494059dfb18e99fa7c4240f00103f90115fb5a0b0100000092031dd8afd8b1d985d8a7d986daafd8a7d98720da86d8a7d8a8daa9d8b3d8b1",
+          "name": "درمانگاه چابکسر",
+          "address": "درمانگاه چابکسر, دهستان اوشیان, میانده, جاده چابکسر, استان گیلان, ایران",
+          "latitude": 36.9763977,
+          "longitude": 50.5740227,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 6,
+      "retrievedAt": "2026-10-08T16:21:01.007Z"
+    },
+    {
+      "cityId": "ir-city-1399-1481",
+      "city": "نیشابور",
+      "province": "خراسان رضوی",
+      "county": "نیشابور",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.2105604,
+        "longitude": 58.7922291
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "519abeb2d644654d4059b14a195ebd1a4240f00102f90106fe373a0000000092032fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d987e2808cd8b1d988d8b2db8c20d8a7d985d8a7d985",
+          "name": "درمانگاه شبانه‌روزی امام",
+          "address": "درمانگاه شبانه‌روزی امام, شهر نیشابور, امیری, استان خراسان رضوی, 93137-64185, ایران",
+          "latitude": 36.2089096,
+          "longitude": 58.7911687,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "511cc92fcd3e654d4059098ecbb8a91a4240f00102f9012d988c3900000000920319daa9d984db8cd986db8cdaa920d8b3d8b1d9bed8a7db8cdb8c",
+          "name": "کلینیک سرپایی",
+          "address": "کلینیک سرپایی, شهر نیشابور, خیابان امام خمینی, استان خراسان رضوی, 93137-64185, ایران",
+          "latitude": 36.2083045,
+          "longitude": 58.7909791,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5109453bbe3d654d4059dcd6530e8e1a4240f00102f901cea81c2900000000920320d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620dbb2dbb220d8a8d987d985d986",
+          "name": "بیمارستان ۲۲ بهمن",
+          "address": "بیمارستان ۲۲ بهمن, شهر نیشابور, عطار ۱۲, استان خراسان رضوی, 93137-64185, ایران",
+          "latitude": 36.2077441,
+          "longitude": 58.7909354,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "511b46a97718654d40597ae6aba0c71b4240f00102f9015559473900000000920320d8afd8b1d985d8a7d986daafd8a7d98720d8a7d985d8a7d98520d8b1d8b6d8a7",
+          "name": "درمانگاه امام رضا",
+          "address": "درمانگاه امام رضا, شهر نیشابور, هفده شهریور ۱۰, استان خراسان رضوی, 93137-64185, ایران",
+          "latitude": 36.2170621,
+          "longitude": 58.7897921,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51bf94fda32e644d4059f754bb9ebf1a4240f00102f901dd2fcc3000000000920332d8afd8b1d985d8a7d986daafd8a7d98720d8aedb8cd8b1db8cd98720d985d988d8b3db8c20d8a8d98620d8acd8b9d981d8b1",
+          "name": "درمانگاه خیریه موسی بن جعفر",
+          "address": "درمانگاه خیریه موسی بن جعفر, شهر نیشابور, کمال الملک۱۵/۲, استان خراسان رضوی, 93138-33138, ایران",
+          "latitude": 36.2089811,
+          "longitude": 58.7826798,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "519d9af37acb654d4059a3bbd815001a4240f00102f9013b03991d00000000920329d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d982d985d8b120d8a8d986db8c20d987d8a7d8b4d985",
+          "name": "بیمارستان قمر بنی هاشم",
+          "address": "بیمارستان قمر بنی هاشم, شهر نیشابور, امام خمینی ۱۲, استان خراسان رضوی, 93146-75771, ایران",
+          "latitude": 36.2030321,
+          "longitude": 58.7953113,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 14,
+      "retrievedAt": "2026-10-08T16:21:06.370Z"
+    },
+    {
+      "cityId": "ir-city-1399-1430",
+      "city": "نجف آباد",
+      "province": "اصفهان",
+      "county": "نجف آباد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 32.6350743,
+        "longitude": 51.3636804
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "5177d623a41cae494059e92b23a70b514040f00102f901415e39490000000092031bdaa9d984db8cd986db8cdaa920d8aed8a7d986d988d8a7d8afd987",
+          "name": "کلینیک خانواده",
+          "address": "کلینیک خانواده, نجف‌آباد, شهدا, استان اصفهان, 85136-86593, ایران",
+          "latitude": 32.6331416,
+          "longitude": 51.3602427,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51c62bb583b6ae4940590490dac4c9504040f00103f901cf751ce90100000092031cdaa9d984db8cd986db8cdaa920d986d8a8db8c20d8a7daa9d8b1d985",
+          "name": "کلینیک نبی اکرم",
+          "address": "کلینیک نبی اکرم, نجف‌آباد, منتظری جنوبی, استان اصفهان, 85176-15651, ایران",
+          "latitude": 32.6311575,
+          "longitude": 51.3649449,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51082e1c8215af4940595bc362d8f5504040f00102f901bda81b370000000092031ddaa9d984db8cd986db8cdaa920d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "کلینیک فرهنگیان",
+          "address": "کلینیک فرهنگیان, نجف‌آباد, شیخ بهایی, استان اصفهان, 85176-34146, ایران",
+          "latitude": 32.6324968,
+          "longitude": 51.3678299,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "511d37a1b547af49405980d18a146f514040f00103f901957d910e01000000920315daa9d984db8cd986db8cdaa920d8acd8a7d8a8d8b1",
+          "name": "کلینیک جابر",
+          "address": "کلینیک جابر, نجف‌آباد, شریعتی شرقی, استان اصفهان, 85148-69214, ایران",
+          "latitude": 32.6362024,
+          "longitude": 51.3693759,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b079370320af494059e5a54abdb7504040f00102f9019953ce2a0000000092032ed9bed984db8c20daa9d984db8cd986db8cdaa920d8a7d985d8a7d98520d985d8add985d8af20d8a8d8a7d982d8b1",
+          "name": "پلی کلینیک امام محمد باقر",
+          "address": "پلی کلینیک امام محمد باقر, نجف‌آباد, شیخ بهایی, استان اصفهان, 85176-34146, ایران",
+          "latitude": 32.6305237,
+          "longitude": 51.3681558,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5179a004ec59ad49405948d1144bdb504040f00103f901555b4e0a02000000920326d8afd8b1d985d8a7d986daafd8a7d98720d8a7d8b9d984d985db8c20d987d8b1d986d8afdb8c",
+          "name": "درمانگاه اعلمی هرندی",
+          "address": "درمانگاه اعلمی هرندی, نجف‌آباد, نصیر, استان اصفهان, 85136-19758, ایران",
+          "latitude": 32.6316923,
+          "longitude": 51.3543067,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 10,
+      "retrievedAt": "2026-10-08T16:21:08.897Z"
+    },
+    {
+      "cityId": "ir-tehran",
+      "city": "تهران",
+      "province": "تهران",
+      "county": "تهران",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.6892523,
+        "longitude": 51.3896004
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "513f0bf8eb04b2494059043752b648d84140f00103f901fa48b4f00200000092032bd8afd8b1d985d8a7d986daafd8a7d98720daa9d8b1db8cd985d987d99420d8a7d987d98420d8a8db8cd8aa",
+          "name": "درمانگاه کریمهٔ اهل بیت",
+          "address": "درمانگاه کریمهٔ اهل بیت, تهران, منطقه ۱۱ شهر تهران, دانشگاه جنگ, استان تهران, 13187-95656, ایران",
+          "latitude": 35.689719,
+          "longitude": 51.3907752,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "518f61b1c3aab149405938afc9790dd74140f00101f9010a00a20000000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d984d982d985d8a7d98620d8addaa9db8cd985",
+          "name": "بیمارستان لقمان حکیم",
+          "address": "بیمارستان لقمان حکیم, تهران, منطقه ۱۱ شهر تهران, اعلمی اشتهاردی, استان تهران, 13339-65459, ایران",
+          "latitude": 35.68015,
+          "longitude": 51.3881691,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "514df96b0d00b3494059d897118365d74140f00103f90112a426cc0100000092031bdaa9d984db8cd986db8cdaa920d8b4d987d8b1d8afd8a7d8b1db8c",
+          "name": "کلینیک شهرداری",
+          "address": "کلینیک شهرداری, تهران, منطقه ۱۱ شهر تهران, دوم, استان تهران, 11116-13154, ایران",
+          "latitude": 35.6827854,
+          "longitude": 51.3984391,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51d7f61b92ffb14940599171d6f1a9d94140f00103f901bb81800801000000920331d8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d987e2808cd8b1d988d8b2db8c20d8a7d8b3d981d986d8af",
+          "name": "درمانگاه شبانه‌روزی اسفند",
+          "address": "درمانگاه شبانه‌روزی اسفند, تهران, منطقه ۱۱ شهر تهران, خیابان آزادی, استان تهران, 13139-75968, ایران",
+          "latitude": 35.7004988,
+          "longitude": 51.3906119,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 16,
+      "retrievedAt": "2026-10-08T16:21:11.415Z"
+    },
+    {
+      "cityId": "ir-mashhad",
+      "city": "مشهد",
+      "province": "خراسان رضوی",
+      "county": "مشهد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.2974945,
+        "longitude": 59.6059232
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51adb200b738cd4d405961e28fa2ce254240f00103f901cc604f680000000092033ad8afd8b1d985d8a7d986daafd8a7d98720d8b4d985d8a7d8b1d98720db8cdaa920d981d8b1d987d986daafdb8cd8a7d98620d985d8b4d987d8af",
+          "name": "درمانگاه شماره یک فرهنگیان مشهد",
+          "address": "درمانگاه شماره یک فرهنگیان مشهد, شهر مشهد, منطقه ۸, امام خمینی 7 - سجادی, استان خراسان رضوی, 91339-13714, ایران",
+          "latitude": 36.2953685,
+          "longitude": 59.6032933,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "517491e79f85cd4d405963cad12d85254240f00103f901b1bc279b01000000920320d985d8b1daa9d8b220d8afd8b1d985d8a7d986db8c20d8a7db8cd8abd8a7d8b1",
+          "name": "مرکز درمانی ایثار",
+          "address": "مرکز درمانی ایثار, شهر مشهد, منطقه ۸, سراب ۶, استان خراسان رضوی, 91738-46637, ایران",
+          "latitude": 36.2931268,
+          "longitude": 59.6056404,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e24dda5a33ce4d405943f01dab52264240f00102f901091d1b150000000092032ad8afd8b1d985d8a7d986daafd8a7d98720d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "درمانگاه تامین اجتماعی",
+          "address": "درمانگاه تامین اجتماعی, شهر مشهد, منطقه ۳, خیابان شهید هاشمی نژاد, استان خراسان رضوی, 91347-14533, ایران",
+          "latitude": 36.2994145,
+          "longitude": 59.610939,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "518f9ce9acb3cc4d40590bd93a473f254240f00102f9012111de0500000000920321d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985d986d8aad8b5d8b1db8cd987",
+          "name": "بیمارستان منتصریه",
+          "address": "بیمارستان منتصریه, شهر مشهد, منطقه ۸, مدرس ۴, استان خراسان رضوی, 91369-53115, ایران",
+          "latitude": 36.2909414,
+          "longitude": 59.5991829,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e94fd147cfce4d4059346612f582264240f00103f90152d99be10100000092033ad8afd8b1d985d8a7d986daafd8a7d98720d8b4d985d8a7d8b1d98720d8afd98820d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "درمانگاه شماره دو تامین اجتماعی",
+          "address": "درمانگاه شماره دو تامین اجتماعی, شهر مشهد, منطقه ۳, خیابان آیت الله کاشانی, استان خراسان رضوی, 91347-14533, ایران",
+          "latitude": 36.3008715,
+          "longitude": 59.6157007,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5173dbbe47fdcc4d40591f1fe340fe244240f00103f901cf604f680000000092032ad8afd8b1d985d8a7d986daafd8a7d98720d8add8b6d8b1d8aa20d8a7d8a8d988d8a7d984d981d8b6d984",
+          "name": "درمانگاه حضرت ابوالفضل",
+          "address": "درمانگاه حضرت ابوالفضل, شهر مشهد, منطقه ۸, امام خمینی۲۴, استان خراسان رضوی, 91369-53115, ایران",
+          "latitude": 36.2890092,
+          "longitude": 59.6014795,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 12,
+      "retrievedAt": "2026-10-08T16:21:15.407Z"
+    },
+    {
+      "cityId": "ir-isfahan",
+      "city": "اصفهان",
+      "province": "اصفهان",
+      "county": "اصفهان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 32.6707877,
+        "longitude": 51.6650002
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51eb078aa99ad449405992fa575339564040f00102f90138694f2200000000920329d8afd8b1d985d8a7d986daafd8a7d98720d8a7d985d8a7d98520d985d988d8b3db8c20d8b5d8afd8b1",
+          "name": "درمانگاه امام موسی صدر",
+          "address": "درمانگاه امام موسی صدر, اصفهان, منطقه ۸, بوستان, استان اصفهان, 81387-74135, ایران",
+          "latitude": 32.6736533,
+          "longitude": 51.6609915,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51ad70666980d64940592b0ee9a8c9554040f00102f9014f60fc1a0000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985db8cd986",
+          "name": "بیمارستان امین",
+          "address": "بیمارستان امین, اصفهان, منطقه ۳, سنبلستان, استان اصفهان, 81486-37983, ایران",
+          "latitude": 32.6699397,
+          "longitude": 51.6757032,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "516d0f311466d54940599e899fb591544040f00103f901fae0b81401000000920315daa9d984db8cd986db8cdaa920d8a7d986db8cd8b3",
+          "name": "کلینیک انیس",
+          "address": "کلینیک انیس, اصفهان, منطقه ۱, محمد مهدی مهدوی, استان اصفهان, 81356-64644, ایران",
+          "latitude": 32.6606967,
+          "longitude": 51.6671777,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "516688635ddcd249405903d0285dfa554040f00103f901e2f4a51800000000920328d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b5d8afdb8cd982d98720d8b7d8a7d987d8b1d987",
+          "name": "بیمارستان صدیقه طاهره",
+          "address": "بیمارستان صدیقه طاهره, اصفهان, مارون, فیض, استان اصفهان, 81896-15740, ایران",
+          "latitude": 32.671703,
+          "longitude": 51.64735,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "515663bab377d349405979f972da83544040f00102f901afe3971e0000000092032fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a2db8cd8aa20d8a7d984d984d98720daa9d8a7d8b4d8a7d986db8c",
+          "name": "بیمارستان آیت الله کاشانی",
+          "address": "بیمارستان آیت الله کاشانی, اصفهان, منطقه ۱, آسیاب, استان اصفهان, 81369-94149, ایران",
+          "latitude": 32.6605071,
+          "longitude": 51.6521248,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 15,
+      "retrievedAt": "2026-10-08T16:21:17.695Z"
+    },
+    {
+      "cityId": "ir-shiraz",
+      "city": "شیراز",
+      "province": "فارس",
+      "county": "شیراز",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 29.6060218,
+        "longitude": 52.5378041
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51788a0bf615454a405939a979d8559c3d40f00103f9014cb65d9802000000920328d8afd8b1d985d8a7d986daafd8a7d98720d8aed8a7d986d982d8a7d98720d8a7d8add985d8afdb8c",
+          "name": "درمانگاه خانقاه احمدی",
+          "address": "درمانگاه خانقاه احمدی, شیراز, منطقه ۸, کوچه سر باغ, استان فارس, 71398-76172, ایران",
+          "latitude": 29.6106849,
+          "longitude": 52.5397327,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51fb12671166444a4059a7f32688f99d3d40f00102f901327c622a0000000092032cd8afd8b1d985d8a7d986daafd8a7d98720d8a7d8b9d8aad985d8a7d8af20daa9d8b3d8a7d8a6db8cd8a7d986",
+          "name": "درمانگاه اعتماد کسائیان",
+          "address": "درمانگاه اعتماد کسائیان, شیراز, منطقه ۲, لطفعلی خان زند۷۳, استان فارس, 71356-68199, ایران",
+          "latitude": 29.6171001,
+          "longitude": 52.5343677,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51f80750b71d434a4059c63d2c84a3993d40f00102f901e11f892800000000920320d8afd8b1d985d8a7d986daafd8a7d98720d8b4d981d8a720d8a7d8b1d8aad8b4",
+          "name": "درمانگاه شفا ارتش",
+          "address": "درمانگاه شفا ارتش, شیراز, منطقه ۵, بلوار سپاه شمالی, استان فارس, 71687-85646, ایران",
+          "latitude": 29.6001199,
+          "longitude": 52.5244284,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b49fb0de5f444a4059b417b700c49e3d40f00102f9012158f9100000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985d8b3d984d985db8cd986",
+          "name": "بیمارستان مسلمین",
+          "address": "بیمارستان مسلمین, شیراز, منطقه ۲, حراف۹, استان فارس, 71636-18378, ایران",
+          "latitude": 29.6201193,
+          "longitude": 52.5341639,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51f7d4bf96f4434a4059438dc3ba849e3d40f00102f9013ee57c280000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7db8cd8b1d8a7d986",
+          "name": "بیمارستان ایران",
+          "address": "بیمارستان ایران, شیراز, منطقه ۲, خیابان لطفعلی خان زند, استان فارس, 71356-68199, ایران",
+          "latitude": 29.6191779,
+          "longitude": 52.5308811,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51c18213b5f4424a4059c065e8001d9d3d40f00102f901b2cb7c2800000000920334d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985d8a7d8afd8b120d98820daa9d988d8afdaa920d8b4d988d8b4d8aad8b1db8c",
+          "name": "بیمارستان مادر و کودک شوشتری",
+          "address": "بیمارستان مادر و کودک شوشتری, شیراز, منطقه ۴, بلوار استقلال, استان فارس, 71736-96133, ایران",
+          "latitude": 29.6137471,
+          "longitude": 52.5230984,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 13,
+      "retrievedAt": "2026-10-08T16:21:22.330Z"
+    },
+    {
+      "cityId": "ir-tabriz",
+      "city": "تبریز",
+      "province": "آذربایجان شرقی",
+      "county": "تبریز",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 38.0738612,
+        "longitude": 46.2978789
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "516c88e07de626474059345ef4188b094340f00102f9013b7b55260000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b2daa9d8b1db8cd8a7",
+          "name": "بیمارستان زکریا",
+          "address": "بیمارستان زکریا, تبریز, منصور, شهید مدرس, استان آذربایجان شرقی, 51369-63697, ایران",
+          "latitude": 38.0745567,
+          "longitude": 46.3039089,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51ab86f7fb1b264740594db972ada3084340f00102f901c242811d0000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d984d8b2d987d8b1d8a7",
+          "name": "بیمارستان الزهرا",
+          "address": "بیمارستان الزهرا, تبریز, باغشمال, اشکان, استان آذربایجان شرقی, 51386-58563, ایران",
+          "latitude": 38.0674998,
+          "longitude": 46.2977311,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 18,
+      "retrievedAt": "2026-10-08T16:21:25.255Z"
+    },
+    {
+      "cityId": "ir-ahvaz",
+      "city": "اهواز",
+      "province": "خوزستان",
+      "county": "اهواز",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 31.3230637,
+        "longitude": 48.67932
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "518e16b1998d5748405961b9ef62ab533f40f00103f9016359111b01000000920327d9bed984db8c20daa9d984db8cd986db8cdaa920d8b4d987db8cd8af20d8b1d8acd8a7db8cdb8c",
+          "name": "پلی کلینیک شهید رجایی",
+          "address": "پلی کلینیک شهید رجایی, شهر اهواز, بلوار آزادگان, استان خوزستان, 61938-73157, ایران",
+          "latitude": 31.3268339,
+          "longitude": 48.6840088,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e013eb54f955484059d2c20a5cc3513f40f00103f901ae90bd2b01000000920322d8afd8b1d985d8a7d986daafd8a7d98720d8b4d987db8cd8af20d8addaa9db8cd985",
+          "name": "درمانگاه شهید حکیم",
+          "address": "درمانگاه شهید حکیم, شهر اهواز, مدرس, استان خوزستان, 61338-43741, ایران",
+          "latitude": 31.3193872,
+          "longitude": 48.6716715,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51d7dafb541558484059af3610dc92523f40f00103f90143e8ab200100000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d8b1d988d986d8af",
+          "name": "بیمارستان اروند",
+          "address": "بیمارستان اروند, شهر اهواز, قنواتی, استان خوزستان, 61938-65661, ایران",
+          "latitude": 31.3225534,
+          "longitude": 48.688151,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "513cdddc4ced554840594cb998f998533f40f00102f901d254701a0000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b1d8a7d8b2db8c",
+          "name": "بیمارستان رازی",
+          "address": "بیمارستان رازی, شهر اهواز, فلسطین, استان خوزستان, 61338-43741, ایران",
+          "latitude": 31.3266124,
+          "longitude": 48.671203,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51f4487484d057484059c28098fb76543f40f00102f901e6089d0f00000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985d8a7d98520d8aed985db8cd986db8c",
+          "name": "بیمارستان امام خمینی",
+          "address": "بیمارستان امام خمینی, شهر اهواز, بلوار ساحلی شرقی, استان خوزستان, 61939-43144, ایران",
+          "latitude": 31.329572,
+          "longitude": 48.6864678,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51aa1ca4f155584840597f8a3e7a1e513f40f00103f9010bc3205502000000920333d8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d987e2808cd8b1d988d8b2db8c20d8afd8a7d986db8cd8a7d984",
+          "name": "درمانگاه شبانه‌روزی دانیال",
+          "address": "درمانگاه شبانه‌روزی دانیال, شهر اهواز, حق بین, استان خوزستان, 61948-15517, ایران",
+          "latitude": 31.3168713,
+          "longitude": 48.6901228,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 12,
+      "retrievedAt": "2026-10-08T16:21:28.812Z"
+    },
+    {
+      "cityId": "ir-qom",
+      "city": "قم",
+      "province": "قم",
+      "county": "قم",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 34.6422939,
+        "longitude": 50.8801184
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "514431fd82987049405912e6289b3e524140f00101f90194a68a000000000092032dd8afd8b1d985d8a7d986daafd8a7d98720d8add8b1d98520d8add8b6d8b1d8aa20d985d8b9d8b5d988d985d987",
+          "name": "درمانگاه حرم حضرت معصومه",
+          "address": "درمانگاه حرم حضرت معصومه, شهر قم, منطقه ۷, آستانه, استان قم, 37157-98798, ایران",
+          "latitude": 34.642595,
+          "longitude": 50.8795953,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5147b64820da6f4940594cd1241bdd514140f00102f9017662e51400000000920325d8afd8b1d985d8a7d986daafd8a7d98720d982d8b1d8a2d98620d98820d8b9d8aad8b1d8aa",
+          "name": "درمانگاه قرآن و عترت",
+          "address": "درمانگاه قرآن و عترت, شهر قم, منطقه ۷, معلم غربی 20, استان قم, 37137-44003, ایران",
+          "latitude": 34.6395536,
+          "longitude": 50.8738399,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5143df74716c714940592f5cea7ce5524140f00101f90195508b000000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620daa9d8a7d985daa9d8a7d8b1",
+          "name": "بیمارستان کامکار",
+          "address": "بیمارستان کامکار, شهر قم, منطقه ۷, کوچه ۱, استان قم, 37137-74994, ایران",
+          "latitude": 34.6477299,
+          "longitude": 50.8857102,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5120e1e4c5e470494059d561d5e94c534140f00102f901a931530f00000000920325d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620daafd984d9bed8a7db8cdaafd8a7d986db8c",
+          "name": "بیمارستان گلپایگانی",
+          "address": "بیمارستان گلپایگانی, شهر قم, منطقه ۷, رزاقی ۱۵, استان قم, 37196-75781, ایران",
+          "latitude": 34.6508141,
+          "longitude": 50.8819869,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "518302aeb6d3714940596a87b0837e514140f00101f901344d8c0000000000920319d8afd8b1d985d8a7d986daafd8a7d98720d8b4d987d8afd8a7",
+          "name": "درمانگاه شهدا",
+          "address": "درمانگاه شهدا, شهر قم, شهرک ولایت, انقلاب ۲۴, استان قم, 37137-75141, ایران",
+          "latitude": 34.6366604,
+          "longitude": 50.8892763,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5183fc1e70566f494059caf6b589d6504140f00101f901419e8d0000000000920322d8afd8b1d985d8a7d986daafd8a7d98720d8a8d982db8cd98720d8a7d984d984d987",
+          "name": "درمانگاه بقیه الله",
+          "address": "درمانگاه بقیه الله, شهر قم, شهرک ولایت, شهیدان فاطمی, استان قم, 37156-57849, ایران",
+          "latitude": 34.6315482,
+          "longitude": 50.869829,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 12,
+      "retrievedAt": "2026-10-08T16:21:32.663Z"
+    },
+    {
+      "cityId": "ir-kermanshah",
+      "city": "کرمانشاه",
+      "province": "کرمانشاه",
+      "county": "کرمانشاه",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 34.3239414,
+        "longitude": 47.0735891
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51d6d6998c7489474059400f5ab4a5294140f00103f901c806f00a0100000092032fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8a8d988d8b9d984db8c",
+          "name": "درمانگاه شبانه روزی بوعلی",
+          "address": "درمانگاه شبانه روزی بوعلی, کرمانشاه, منطقه ۲, خیابان شهید صادق پور, استان کرمانشاه, 67146-19691, ایران",
+          "latitude": 34.3253694,
+          "longitude": 47.0738693,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "512dfd95dfb389474059b7add282bc294140f00103f9014677ec0501000000920327d9bed984db8c20daa9d984db8cd986db8cdaa920dbb1dbb220d981d8b1d988d8b1d8afdb8cd986",
+          "name": "پلی کلینیک ۱۲ فروردین",
+          "address": "پلی کلینیک ۱۲ فروردین, کرمانشاه, منطقه ۳, بلوار شهید بهشتی, استان کرمانشاه, 67146-19691, ایران",
+          "latitude": 34.3260654,
+          "longitude": 47.0758018,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "514824ab27d488474059cffac267ff284140f00102f90160b022390000000092033dd8afd8b1d985d8a7d986daafd8a7d98720d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8add8b6d8b1d8aa20d8a7d8a8d988d8a7d984d981d8b6d984",
+          "name": "درمانگاه بیمارستان حضرت ابوالفضل",
+          "address": "درمانگاه بیمارستان حضرت ابوالفضل, کرمانشاه, منطقه ۲, خیابان گمرک, استان کرمانشاه, 67196-13876, ایران",
+          "latitude": 34.3202947,
+          "longitude": 47.0689745,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51ecadbdf8c088474059b65be68efc284140f00102f901a3c021390000000092032cd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8add8b6d8b1d8aa20d8a7d8a8d988d8a7d984d981d8b6d984",
+          "name": "بیمارستان حضرت ابوالفضل",
+          "address": "بیمارستان حضرت ابوالفضل, کرمانشاه, منطقه ۲, کوچه ضرابی, استان کرمانشاه, 67196-13876, ایران",
+          "latitude": 34.3202245,
+          "longitude": 47.0683658,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51a920f58d9e89474059e8ad7081ba2a4140f00103f9011ddd798601000000920311daa9d984db8cd986db8cdaa920d8afdb8c",
+          "name": "کلینیک دی",
+          "address": "کلینیک دی, کرمانشاه, منطقه ۲, بلوار ارشاد, استان کرمانشاه, 67147-53470, ایران",
+          "latitude": 34.3338167,
+          "longitude": 47.0751512,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "511be4e434fa89474059bb8e82f11d284140f00103f90153b6404f0200000092032fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8b3d8b1db8cd8aad8a7",
+          "name": "درمانگاه شبانه روزی سریتا",
+          "address": "درمانگاه شبانه روزی سریتا, کرمانشاه, منطقه ۳, جهرانی, استان کرمانشاه, 67169-34386, ایران",
+          "latitude": 34.3134138,
+          "longitude": 47.0779482,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 12,
+      "retrievedAt": "2026-10-08T16:21:34.620Z"
+    },
+    {
+      "cityId": "ir-urmia",
+      "city": "ارومیه",
+      "province": "آذربایجان غربی",
+      "county": "ارومیه",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 37.548341,
+        "longitude": 45.0667111
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51bac8e81ac288464059851c65a2f1c54240f00102f90118f5c31600000000920319d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d981d8a7",
+          "name": "بیمارستان شفا",
+          "address": "بیمارستان شفا, شهر ارومیه, منطقه ۴, کوی ۹ اسلامی, استان آذربایجان غربی, 57136-35574, ایران",
+          "latitude": 37.5465197,
+          "longitude": 45.0684154,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5176f97bce82884640592d99be32cac54240f00103f901b74eeff500000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8afdaa9d8aad8b120d8b5d988d984d8aadb8c",
+          "name": "بیمارستان دکتر صولتی",
+          "address": "بیمارستان دکتر صولتی, شهر ارومیه, منطقه ۴, امام, استان آذربایجان غربی, 57186-97664, ایران",
+          "latitude": 37.5452331,
+          "longitude": 45.0664919,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "516a2e75222089464059be878837edc54240f00102f901228107100000000092032ad8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d987db8cd8af20d8b9d8a7d8b1d981db8cd8a7d986",
+          "name": "بیمارستان شهید عارفیان",
+          "address": "بیمارستان شهید عارفیان, شهر ارومیه, منطقه ۴, کوی ارگ, استان آذربایجان غربی, 57136-35574, ایران",
+          "latitude": 37.5463686,
+          "longitude": 45.0712893,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 17,
+      "retrievedAt": "2026-10-08T16:21:38.311Z"
+    },
+    {
+      "cityId": "ir-rasht",
+      "city": "رشت",
+      "province": "گیلان",
+      "county": "رشت",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 37.2697578,
+        "longitude": 49.5894854
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "517c6c81f398cb484059370076c993a24240f00103f901a80f62f70200000092032dd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8b1d8a7d8b2db8c",
+          "name": "درمانگاه شبانه روزی رازی",
+          "address": "درمانگاه شبانه روزی رازی, شهر رشت, منطقه ۲, بلوار حافظ, استان گیلان, 41377-18455, ایران",
+          "latitude": 37.2701351,
+          "longitude": 49.5906052,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5146cffb6b6bcb48405984fbee713ea24240f00102f90199e4090e00000000920327d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8aad988d8aad988d986daa9d8a7d8b1d8a7d986",
+          "name": "بیمارستان توتونکاران",
+          "address": "بیمارستان توتونکاران, شهر رشت, منطقه ۲, بلوار نامجو, استان گیلان, 41377-18455, ایران",
+          "latitude": 37.2673615,
+          "longitude": 49.58925,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51cdc34fe6bdcb48405956fb630b4ea24240f00102f90195a9e30f00000000920321d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d9bed988d8b1d8b3db8cd986d8a7",
+          "name": "بیمارستان پورسینا",
+          "address": "بیمارستان پورسینا, شهر رشت, منطقه ۲, پورسینا, استان گیلان, 41849-44489, ایران",
+          "latitude": 37.2680788,
+          "longitude": 49.5917951,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "514d76275623cc4840598467a5232ea24240f00102f90186f72c120000000092033dd9bed984db8c20daa9d984db8cd986db8cdaa920d8b4d985d8a7d8b1d98720db8cdaa920d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "پلی کلینیک شماره یک تامین اجتماعی",
+          "address": "پلی کلینیک شماره یک تامین اجتماعی, شهر رشت, منطقه ۲, پرستار, استان گیلان, 41849-44489, ایران",
+          "latitude": 37.2669049,
+          "longitude": 49.5949533,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51536baba3f4ca4840599770e82d1ea34240f00103f9015ee467bd0200000092032bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985db8cd8b1d8a7d984d985d8a4d985d986db8cd986",
+          "name": "بیمارستان امیرالمؤمنین",
+          "address": "بیمارستان امیرالمؤمنین, شهر رشت, منطقه ۲, هفده شهریور, استان گیلان, 41376-43497, ایران",
+          "latitude": 37.2743585,
+          "longitude": 49.5855908,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51a6c236300fcb484059fd3174fddca14240f00102f901478efa100000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d984d8b2d987d8b1d8a7",
+          "name": "بیمارستان الزهرا",
+          "address": "بیمارستان الزهرا, شهر رشت, منطقه ۲, سیادتی, استان گیلان, 41447-84448, ایران",
+          "latitude": 37.2645026,
+          "longitude": 49.5864109,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 13,
+      "retrievedAt": "2026-10-08T16:21:41.206Z"
+    },
+    {
+      "cityId": "ir-zahedan",
+      "city": "زاهدان",
+      "province": "سیستان و بلوچستان",
+      "county": "زاهدان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 29.4906872,
+        "longitude": 60.8635357
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51f86b5d96d26e4e4059702acdc1e57d3d40f00102f90165d81f1a0000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a8d988d8b9d984db8c",
+          "name": "بیمارستان بوعلی",
+          "address": "بیمارستان بوعلی, شهر زاهدان, منطقه ۵, امیر المومنین ۱۳, استان سیستان و بلوچستان, 98166-76668, ایران",
+          "latitude": 29.4918936,
+          "longitude": 60.8659043,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51652a6abb2a6e4e405909176328697e3d40f00102f9010b0da01c0000000092033fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8aedb8cd8b1db8cd98720d8b4d985db8cd98520db8cd8a7d8b1",
+          "name": "درمانگاه شبانه روزی خیریه شمیم یار",
+          "address": "درمانگاه شبانه روزی خیریه شمیم یار, شهر زاهدان, منطقه ۴, مولوی عبدالعزیز, استان سیستان و بلوچستان, 98136-93625, ایران",
+          "latitude": 29.4937067,
+          "longitude": 60.8607109,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51d758b7b1dd6d4e4059fba130a9607d3d40f00102f9010e0da01c0000000092031bd8afd8b1d985d8a7d986daafd8a7d98720d8aedb8cd8b1db8cd987",
+          "name": "درمانگاه خیریه",
+          "address": "درمانگاه خیریه, شهر زاهدان, منطقه ۲, میدان خیام, استان سیستان و بلوچستان, 98166-76668, ایران",
+          "latitude": 29.4897558,
+          "longitude": 60.8583281,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 17,
+      "retrievedAt": "2026-10-08T16:21:42.990Z"
+    },
+    {
+      "cityId": "ir-hamadan",
+      "city": "همدان",
+      "province": "همدان",
+      "county": "همدان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 34.7992888,
+        "longitude": 48.5152464
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51762e313b30424840591c1e673ff7654140f00103f901586a420b0200000092031cd985d8b1daa9d8b220d8b3d984d8a7d985d8aa20d8b4d987d8afd8a7",
+          "name": "مرکز سلامت شهدا",
+          "address": "مرکز سلامت شهدا, شهر همدان, سپهر, استان همدان, 65156-16387, ایران",
+          "latitude": 34.7966079,
+          "longitude": 48.5170969,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 19,
+      "retrievedAt": "2026-10-08T16:21:45.654Z"
+    },
+    {
+      "cityId": "ir-kerman",
+      "city": "کرمان",
+      "province": "کرمان",
+      "county": "کرمان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 30.2852194,
+        "longitude": 57.0648394
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51ff5b433ac2874c40598e13a0f23f493e40f00102f901cf83bf2800000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8add8b6d8b1d8aa20d981d8a7d8b7d985d987",
+          "name": "بیمارستان حضرت فاطمه",
+          "address": "بیمارستان حضرت فاطمه, شهر کرمان, پروین اعتصامی 7, استان کرمان, 76137-35819, ایران",
+          "latitude": 30.2859859,
+          "longitude": 57.0607203,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51bc783f6ebf884c40596d9f9ff364483e40f00103f9019417bd2d01000000920315daa9d984db8cd986db8cdaa920d9bed8a7d8b1daa9",
+          "name": "کلینیک پارک",
+          "address": "کلینیک پارک, شهر کرمان, منطقه ۳, هرندی, استان کرمان, 76137-35819, ایران",
+          "latitude": 30.2827904,
+          "longitude": 57.068342,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "514de37c1fb7884c4059ebbd087bc6493e40f00102f9018ce65f0700000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d987db8cd8af20d8a8d8a7d987d986d8b1",
+          "name": "بیمارستان شهید باهنر",
+          "address": "بیمارستان شهید باهنر, شهر کرمان, خیابان شهید سپهبد قرنی, استان کرمان, 76137-35819, ایران",
+          "latitude": 30.2882081,
+          "longitude": 57.0680906,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "517dd0b359f5884c40592c6920f186493e40f00103f901bebcd4160100000092031ddaa9d984db8cd986db8cdaa920d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "کلینیک فرهنگیان",
+          "address": "کلینیک فرهنگیان, شهر کرمان, سپهبد قرنی ۱۲, استان کرمان, 76137-35819, ایران",
+          "latitude": 30.2872153,
+          "longitude": 57.0699875,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51238d6555df884c4059769373bdc8493e40f00103f901c3bcd41601000000920318daa9d984db8cd986db8cdaa920d8a8d8b9d8abd8aa20dbb2",
+          "name": "کلینیک بعثت ۲",
+          "address": "کلینیک بعثت ۲, شهر کرمان, خیابان شهید سپهبد قرنی, استان کرمان, 76137-35819, ایران",
+          "latitude": 30.2882193,
+          "longitude": 57.0693156,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5189c6246df4874c4059d0d1aa96744a3e40f00103f901c4b745fe00000000920318daa9d984db8cd986db8cdaa920d8a8d8b9d8abd8aa20dbb1",
+          "name": "کلینیک بعثت ۱",
+          "address": "کلینیک بعثت ۱, شهر کرمان, ابن سینا, استان کرمان, 76137-35819, ایران",
+          "latitude": 30.2908415,
+          "longitude": 57.0621468,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 13,
+      "retrievedAt": "2026-10-08T16:21:47.842Z"
+    },
+    {
+      "cityId": "ir-yazd",
+      "city": "یزد",
+      "province": "یزد",
+      "county": "یزد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 31.9052223,
+        "longitude": 54.3701235
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51afcc8cea3b304b4059411ebf7a74e83f40f00102f9010c84a6110000000092032dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b3db8cd8af20d8a7d984d8b4d987d8afd8a720db8cd8b2d8af",
+          "name": "بیمارستان سید الشهدا یزد",
+          "address": "بیمارستان سید الشهدا یزد, دهستان فجر, امام خمینی, استان یزد, 89199-55599, ایران",
+          "latitude": 31.908036,
+          "longitude": 54.3768195,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5132f2b06f56304b40591cbd2b35bae53f40f00102f901d382a61100000000920320d8afd8b1d985d8a7d986daafd8a7d98720d8acd988db8c20d987d8b1d987d8b1",
+          "name": "درمانگاه جوی هرهر",
+          "address": "درمانگاه جوی هرهر, دهستان فجر, مهدی, استان یزد, 89199-34378, ایران",
+          "latitude": 31.8973724,
+          "longitude": 54.3776375,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51937ce72e25304b405943a22ed31be43f40f00102f901ca81a6110000000092031dd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620daafd988d8afd8b1d8b2",
+          "name": "بیمارستان گودرز",
+          "address": "بیمارستان گودرز, دهستان فجر, ۱۲, استان یزد, 89137-19137, ایران",
+          "latitude": 31.8910873,
+          "longitude": 54.3761419,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51bdeab76576314b405945ba9f5390e53f40f00103f901b5125ad50200000092032dd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8b1d8a7d8b2db8c",
+          "name": "درمانگاه شبانه روزی رازی",
+          "address": "درمانگاه شبانه روزی رازی, دهستان فجر, بلوار دهه فجر, استان یزد, 89199-55599, ایران",
+          "latitude": 31.8967335,
+          "longitude": 54.3864257,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51ea1a9177b02c4b40590493e02a7ce63f40f00102f9014a70431c00000000920321d8afd8b1d985d8a7d986daafd8a7d98720d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "درمانگاه فرهنگیان",
+          "address": "درمانگاه فرهنگیان, دهستان فجر, حسینی, استان یزد, 89176-97998, ایران",
+          "latitude": 31.9002907,
+          "longitude": 54.3492296,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "513606978a1e2e4b40597b40516fe8e23f40f00102f901858b4e2800000000920333d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d987db8cd8af20d8b1d987d986d985d988d9862028d981d8b1d8aedb8c29",
+          "name": "بیمارستان شهید رهنمون (فرخی)",
+          "address": "بیمارستان شهید رهنمون (فرخی), دهستان فجر, سلامت, استان یزد, 89136-74331, ایران",
+          "latitude": 31.8863112,
+          "longitude": 54.3604195,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 13,
+      "retrievedAt": "2026-10-08T16:21:50.289Z"
+    },
+    {
+      "cityId": "ir-ardabil",
+      "city": "اردبیل",
+      "province": "اردبیل",
+      "county": "اردبیل",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 38.2515782,
+        "longitude": 48.2972404
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51f4eee3f37f25484059831e988722204340f00101f901dd58dc0000000000920315daa9d984db8cd986db8cdaa920d8b3db8cd986d8a7",
+          "name": "کلینیک سینا",
+          "address": "کلینیک سینا, اردبیل, منطقه ۱, خیابان سردار شهید ناصرعلی صوفی, استان اردبیل, 56146-64878, ایران",
+          "latitude": 38.2510518,
+          "longitude": 48.2929678,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51db53ff9a20264840590d62af88bd1f4340f00102f901c2aa43200000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a2d8b1d8aad8a7",
+          "name": "بیمارستان آرتا",
+          "address": "بیمارستان آرتا, اردبیل, منطقه ۱, ملا ابراهیم, استان اردبیل, 56137-35795, ایران",
+          "latitude": 38.2479627,
+          "longitude": 48.2978655,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 18,
+      "retrievedAt": "2026-10-08T16:21:53.040Z"
+    },
+    {
+      "cityId": "ir-bandar-abbas",
+      "city": "بندرعباس",
+      "province": "هرمزگان",
+      "county": "بندرعباس",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 27.1842023,
+        "longitude": 56.2892533
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51fb57235ff9244c4059444b4babff2e3b40f00102f90109be811d00000000920321d8afd8b1d985d8a7d986daafd8a7d98720d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "درمانگاه فرهنگیان",
+          "address": "درمانگاه فرهنگیان, شهر بندرعباس, منطقه ۳, بلوار امام خمینی, استان هرمزگان, 79177-88817, ایران",
+          "latitude": 27.1835887,
+          "longitude": 56.2888602,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51c18ea4494e254c4059ac6d8ac7452f3b40f00102f9015681561c00000000920319d8afd8b1d985d8a7d986daafd8a7d98720d8a8d8b9d8abd8aa",
+          "name": "درمانگاه بعثت",
+          "address": "درمانگاه بعثت, شهر بندرعباس, منطقه ۳, آیت الله غفاری, استان هرمزگان, 79176-56385, ایران",
+          "latitude": 27.1846585,
+          "longitude": 56.2914517,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51d237b39b8c254c405987947afb77303b40f00102f901694f7e1c0000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d8b1db8cd8b9d8aadb8c",
+          "name": "بیمارستان شریعتی",
+          "address": "بیمارستان شریعتی, شهر بندرعباس, منطقه ۳, شهید ناصر, استان هرمزگان, 79176-56385, ایران",
+          "latitude": 27.1893278,
+          "longitude": 56.2933542,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 17,
+      "retrievedAt": "2026-10-08T16:21:56.475Z"
+    },
+    {
+      "cityId": "ir-arak",
+      "city": "اراک",
+      "province": "مرکزی",
+      "county": "اراک",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 34.0862719,
+        "longitude": 49.6893884
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51696bb22aaad74840593bffb63aa30a4140f00102f901d5aa9c1700000000920323d9bed984db8c20daa9d984db8cd986db8cdaa920d8a7d8a8d98620d8b3db8cd986d8a7",
+          "name": "پلی کلینیک ابن سینا",
+          "address": "پلی کلینیک ابن سینا, اراک, منطقه ۲, شفیعی, استان مرکزی, 38137-33143, ایران",
+          "latitude": 34.0831073,
+          "longitude": 49.6848812,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "516eb42d14fad7484059e56f31f5a90b4140f00103f90111b085ca00000000920310d8afd8b1d985d8a7d986daafd8a7d987",
+          "name": "درمانگاه",
+          "address": "درمانگاه, اراک, منطقه ۴, بلوار قائم مقام فراهانی, استان مرکزی, 38148-97313, ایران",
+          "latitude": 34.0911242,
+          "longitude": 49.6873193,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "510034efdd8bd748405961f82ddf9f0a4140f00103f90182a8fea101000000920322d9bed984db8c20daa9d984db8cd986db8cdaa920d8a8d8b2d8b1daafd985d987d8b1",
+          "name": "پلی کلینیک بزرگمهر",
+          "address": "پلی کلینیک بزرگمهر, اراک, منطقه ۲, خیابان شهید بهشتی, استان مرکزی, 38137-33143, ایران",
+          "latitude": 34.0830039,
+          "longitude": 49.6839559,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 17,
+      "retrievedAt": "2026-10-08T16:22:00.230Z"
+    },
+    {
+      "cityId": "ir-zanjan",
+      "city": "زنجان",
+      "province": "زنجان",
+      "county": "زنجان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.6700041,
+        "longitude": 48.4795399
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "515cce00721d3d484059ed9458631a554240f00103f9011766f6480100000092031bd8afd8b1d985d8a7d986daafd8a7d98720d985d8b5d8a8d8a7d8ad",
+          "name": "درمانگاه مصباح",
+          "address": "درمانگاه مصباح, زنجان, حسینیه, استان زنجان, 45186-58153, ایران",
+          "latitude": 36.6648678,
+          "longitude": 48.4774611,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51cdc086b2e13d484059875472ac9e564240f00102f90119a61e1200000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8afdaa9d8aad8b120d8a8d987d8b4d8aadb8c",
+          "name": "بیمارستان دکتر بهشتی",
+          "address": "بیمارستان دکتر بهشتی, زنجان, خادم, استان زنجان, 45186-40008, ایران",
+          "latitude": 36.6764815,
+          "longitude": 48.4832936,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51892513cd913e48405962a6eff581564240f00102f9017faa94170000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8b4d981db8cd8b9db8cd987",
+          "name": "بیمارستان شفیعیه",
+          "address": "بیمارستان شفیعیه, زنجان, کارگران (صفا), استان زنجان, 45146-34719, ایران",
+          "latitude": 36.675855,
+          "longitude": 48.4888599,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 17,
+      "retrievedAt": "2026-10-08T16:22:02.888Z"
+    },
+    {
+      "cityId": "ir-sanandaj",
+      "city": "سنندج",
+      "province": "کردستان",
+      "county": "سنندج",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.3115843,
+        "longitude": 46.996071
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "510ca6ab85a37f47405988c4984fb1a74140f00103f901975080990000000092031ddaa9d984db8cd986db8cdaa920d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "کلینیک فرهنگیان",
+          "address": "کلینیک فرهنگیان, شهر سنندج, پاسداران - ششم بهمن, استان کردستان, 66166-45661, ایران",
+          "latitude": 35.3100986,
+          "longitude": 46.9971778,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis",
+            "healthcare.clinic_or_praxis.general"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "511931fd5c7e7f47405918f439d274a74140f00103f9017037809900000000920326daa9d984db8cd986db8cdaa920d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "کلینیک تامین اجتماعی",
+          "address": "کلینیک تامین اجتماعی, شهر سنندج, کوچه مانی, استان کردستان, 14491-66176, ایران",
+          "latitude": 35.3082526,
+          "longitude": 46.9960438,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "516f70d86c9b7e474059cb7e82305ca84140f00103f9014e25327b0200000092031edaa9d984db8cd986db8cdaa920d988db8cda98d98720d8a8d8b9d8abd8aa",
+          "name": "کلینیک ویژه بعثت",
+          "address": "کلینیک ویژه بعثت, شهر سنندج, خیابان کشاورز, استان کردستان, 66197-16343, ایران",
+          "latitude": 35.3153134,
+          "longitude": 46.9891182,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51d7cfd6387e7e4740591d0dfd3750a84140f00102f901a5befa0e0000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a8d8b9d8abd8aa",
+          "name": "بیمارستان بعثت",
+          "address": "بیمارستان بعثت, شهر سنندج, کوچه گلبرگ ۷, استان کردستان, 66197-16343, ایران",
+          "latitude": 35.3149104,
+          "longitude": 46.9882039,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 16,
+      "retrievedAt": "2026-10-08T16:22:05.911Z"
+    },
+    {
+      "cityId": "ir-qazvin",
+      "city": "قزوین",
+      "province": "قزوین",
+      "county": "قزوین",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.2691723,
+        "longitude": 50.005753
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "510f2ca281b300494059868f882991224240f00103f901094069100100000092032fd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8a8d988d8b9d984db8c",
+          "name": "درمانگاه شبانه روزی بوعلی",
+          "address": "درمانگاه شبانه روزی بوعلی, شهر قزوین, منطقه ۲, فردوسی, استان قزوین, 34136-67475, ایران",
+          "latitude": 36.270055,
+          "longitude": 50.0054781,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5173a25d8594004940599775ff5888224240f00103f9012ba8a6fe0000000092032dd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d982d8a7d8a6d985",
+          "name": "درمانگاه شبانه روزی قائم",
+          "address": "درمانگاه شبانه روزی قائم, شهر قزوین, منطقه ۱, میدان آزادی, استان قزوین, 34136-67475, ایران",
+          "latitude": 36.269786,
+          "longitude": 50.0045325,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 18,
+      "retrievedAt": "2026-10-08T16:22:07.953Z"
+    },
+    {
+      "cityId": "ir-gorgan",
+      "city": "گرگان",
+      "province": "گلستان",
+      "county": "گرگان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.837732,
+        "longitude": 54.4394072
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "513815a930b6384b40599ad42bc0d26a4240f00103f901668ae9260100000092032bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985d986d8b7d982d98720d8a7db8c20d8a7d8b1d8aad8b4",
+          "name": "بیمارستان منطقه ای ارتش",
+          "address": "بیمارستان منطقه ای ارتش, شهر گرگان, منطقه ۱, جانباز ۱۶, استان گلستان, 49166-31766, ایران",
+          "latitude": 36.8345566,
+          "longitude": 54.44306,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51725bfd442b384b405971f7c282a16a4240f00102f901d514951600000000920317daa9d984db8cd986db8cdaa920d985d988d8b3d988db8c",
+          "name": "کلینیک موسوی",
+          "address": "کلینیک موسوی, شهر گرگان, منطقه ۱, عدالت سیزدهم, استان گلستان, 49177-54543, ایران",
+          "latitude": 36.8330427,
+          "longitude": 54.4388212,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b6e4a8f674374b405949b643ebe86a4240f00102f901d91195160000000092031cd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620dbb520d8a2d8b0d8b1",
+          "name": "بیمارستان ۵ آذر",
+          "address": "بیمارستان ۵ آذر, شهر گرگان, منطقه ۲, شهید رضا کریمی ۵, استان گلستان, 49177-59633, ایران",
+          "latitude": 36.8352295,
+          "longitude": 54.4332603,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "515e6ff66283384b4059b9a64066676a4240f00103f901110d01ec00000000920324d8afd8b1d985d8a7d986daafd8a7d98720d8afdaa9d8aad8b120d9bed8afd8b1d8a7d985",
+          "name": "درمانگاه دکتر پدرام",
+          "address": "درمانگاه دکتر پدرام, شهر گرگان, منطقه ۱, ولیعصر, استان گلستان, 49166-31963, ایران",
+          "latitude": 36.8312805,
+          "longitude": 54.4415096,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5173dc712fff384b405918b99e86dc6b4240f00102f9018d499d1b0000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8afd8b2db8cd8a7d986db8c",
+          "name": "بیمارستان دزیانی",
+          "address": "بیمارستان دزیانی, شهر گرگان, منطقه ۳, شهید بهشتی, استان گلستان, 49177-59633, ایران",
+          "latitude": 36.8426562,
+          "longitude": 54.4452835,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital",
+            "healthcare.clinic_or_praxis.general"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5181817bf9f8364b405992a52089a86b4240f00103f90168c996aa02000000920329daa9d984db8cd986db8cdaa920d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20daa9db8cd8a7d986",
+          "name": "کلینیک شبانه روزی کیان",
+          "address": "کلینیک شبانه روزی کیان, شهر گرگان, منطقه ۲, آفتاب ۱۸, استان گلستان, 49176-73496, ایران",
+          "latitude": 36.8410808,
+          "longitude": 54.4294731,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 13,
+      "retrievedAt": "2026-10-08T16:22:12.156Z"
+    },
+    {
+      "cityId": "ir-sari",
+      "city": "ساری",
+      "province": "مازندران",
+      "county": "ساری",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 36.5537458,
+        "longitude": 53.0602761
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51924a671657884a40594fad6301b8474240f00103f901d54ffccc0200000092031bd8afd8b1d985d8a7d986daafd8a7d98720d986db8cdaa9d8a7d986",
+          "name": "درمانگاه نیکان",
+          "address": "درمانگاه نیکان, شهر ساری, منطقه بافت کهن شهرداری ساری, فرهنگ, استان مازندران, 48186-43675, ایران",
+          "latitude": 36.5603029,
+          "longitude": 53.0651577,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5180a16fd73e884a4059e50e78a6bf474240f00102f9011455ae1c00000000920323d985d8b1daa9d8b220d9bed8b2d8b4daa9db8c20d8b4d987d8b1db8cd8a7d8b120dbb3",
+          "name": "مرکز پزشکی شهریار ۳",
+          "address": "مرکز پزشکی شهریار ۳, شهر ساری, منطقه بافت کهن شهرداری ساری, فرهنگ ۱۴/۱, استان مازندران, 48186-43675, ایران",
+          "latitude": 36.5606606,
+          "longitude": 53.0644595,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b817aa7a91884a4059a31bcafde6474240f00102f9015af273200000000092031cd985d8b1daa9d8b220d9bed8b2d8b4daa9db8c20d8b3db8cd986d8a7",
+          "name": "مرکز پزشکی سینا",
+          "address": "مرکز پزشکی سینا, شهر ساری, منطقه بافت کهن شهرداری ساری, فرهنگ ۲۶, استان مازندران, 48186-43675, ایران",
+          "latitude": 36.5617685,
+          "longitude": 53.0669346,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 17,
+      "retrievedAt": "2026-10-08T16:22:15.251Z"
+    },
+    {
+      "cityId": "ir-bojnurd",
+      "city": "بجنورد",
+      "province": "خراسان شمالی",
+      "county": "بجنورد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 37.4759752,
+        "longitude": 57.3319881
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51b534b28e53a94c4059b47a7fabc7bc4240f00102f90179706e0f00000000920328d8afd8b1d985d8a7d986daafd8a7d98720d8aed8a7d8aad98520d8a7d984d8a7d986d8a8db8cd8a7",
+          "name": "درمانگاه خاتم الانبیا",
+          "address": "درمانگاه خاتم الانبیا, بجنورد, شاهد, بلوار امام خمینی غربی, استان خراسان شمالی, 94148-48487, ایران",
+          "latitude": 37.4748434,
+          "longitude": 57.3228613,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "517e9b388cb9aa4c40597922d9b2e3bd4240f00102f90114af9f0d00000000920327d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985d8a7d98520d8b1d8b6d8a72028d8b929",
+          "name": "بیمارستان امام رضا (ع)",
+          "address": "بیمارستان امام رضا (ع), بجنورد, جوادالائمه, بلوار شهدا, استان خراسان شمالی, 94156-45555, ایران",
+          "latitude": 37.4834726,
+          "longitude": 57.3334418,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5182fb491f5ca94c4059f11428d7cabd4240f00102f9011e9842100000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d8b1d8aad8b4",
+          "name": "بیمارستان ارتش",
+          "address": "بیمارستان ارتش, بجنورد, جوادالائمه, بلوار شهید صیاد شیرازی, استان خراسان شمالی, 94159-39378, ایران",
+          "latitude": 37.4827423,
+          "longitude": 57.3231293,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "519d2b80b6d2a84c40591585cb4530bd4240f00102f90117af9f0d00000000920324d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a8d986d8aa20d8a7d984d987d8afdb8c",
+          "name": "بیمارستان بنت الهدی",
+          "address": "بیمارستان بنت الهدی, بجنورد, شاهد, عرب نژاد, استان خراسان شمالی, 94149-95954, ایران",
+          "latitude": 37.4780233,
+          "longitude": 57.3189439,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51a9fef1d825a94c40599d56dc1c6abb4240f00102f9019410251600000000920342d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8abd8a7d985d98620d8a7d984d8a7d8a6d985d98720d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "بیمارستان ثامن الائمه تامین اجتماعی",
+          "address": "بیمارستان ثامن الائمه تامین اجتماعی, بجنورد, شاهد, چمران, استان خراسان شمالی, 94148-48487, ایران",
+          "latitude": 37.4639341,
+          "longitude": 57.3212698,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 15,
+      "retrievedAt": "2026-10-08T16:22:17.233Z"
+    },
+    {
+      "cityId": "ir-bushehr",
+      "city": "بوشهر",
+      "province": "بوشهر",
+      "county": "بوشهر",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 28.9310786,
+        "longitude": 50.8458443
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51aa705597276f494059ca1991e914f03c40f00102f90169990f1500000000920324d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8aed984db8cd8ac20d981d8a7d8b1d8b3",
+          "name": "بیمارستان خلیج فارس",
+          "address": "بیمارستان خلیج فارس, شهر بوشهر, شهدای ناوچه پیکان, استان بوشهر, 75179-44383, ایران",
+          "latitude": 28.9383065,
+          "longitude": 50.8680374,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5155e531b9076c494059a3e5400fb5f33c40f00103f901cbddc53902000000920322d8afd8b1d985d8a7d986daafd8a7d98720d8a7d985d8a7d98520d8b5d8a7d8afd982",
+          "name": "درمانگاه امام صادق",
+          "address": "درمانگاه امام صادق, شهر بوشهر, خیابان سامان, استان بوشهر, 75148-13134, ایران",
+          "latitude": 28.9519815,
+          "longitude": 50.8439857,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51cd9a2d7a2669494059d57ee5545fed3c40f00102f9015720f52100000000920336d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985db8cd8b1d8a7d984d985d988d985d986db8cd98620d986d987d8a7d8acd8a7",
+          "name": "بیمارستان امیرالمومنین نهاجا",
+          "address": "بیمارستان امیرالمومنین نهاجا, شهر بوشهر, پایگاه هوایی, شهید قهری, استان بوشهر, 75157-35456, ایران",
+          "latitude": 28.9271935,
+          "longitude": 50.8214237,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "518d4084c57c6b494059dd06208e13e83c40f00101f9017ad187000000000092032cd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8aad8a3d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "بیمارستان تأمین اجتماعی",
+          "address": "بیمارستان تأمین اجتماعی, شهر بوشهر, بلوار سلمان فارسی, استان بوشهر, 75179-44383, ایران",
+          "latitude": 28.9063867,
+          "longitude": 50.839778,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51b23a63554b6b494059cb43f29da3f43c40f00101f901dbd18a0000000000920319d8afd8b1d985d8a7d986daafd8a7d98720d982d8a7d8a6d985",
+          "name": "درمانگاه قائم",
+          "address": "درمانگاه قائم, شهر بوشهر, کوچه لاله ۲, استان بوشهر, 75157-35456, ایران",
+          "latitude": 28.9559541,
+          "longitude": 50.8385248,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51f151f8bb356b494059009b396a02f63c40f00101f90132498d0000000000920319d8afd8b1d985d8a7d986daafd8a7d98720d985d8a8d8b9d8ab",
+          "name": "درمانگاه مبعث",
+          "address": "درمانگاه مبعث, شهر بوشهر, بوستان ۹, استان بوشهر, 75157-35456, ایران",
+          "latitude": 28.9609951,
+          "longitude": 50.8375735,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 14,
+      "retrievedAt": "2026-10-08T16:22:18.985Z"
+    },
+    {
+      "cityId": "ir-birjand",
+      "city": "بیرجند",
+      "province": "خراسان جنوبی",
+      "county": "بیرجند",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 32.8657752,
+        "longitude": 59.2214201
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "516d08b328939c4d405998bfde36256e4040f00102f9015dad570e0000000092032cd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8aad8a3d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "بیمارستان تأمین اجتماعی",
+          "address": "بیمارستان تأمین اجتماعی, شهر بیرجند, منطقه ۲, طهماسبی, استان خراسان جنوبی, 97177-94779, ایران",
+          "latitude": 32.8605356,
+          "longitude": 59.2232286,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5113455a1e2a9c4d4059e64bf03faf6f4040f00102f901a7e1351800000000920319d8afd8b1d985d8a7d986daafd8a7d98720d8b4d987d8afd8a7",
+          "name": "درمانگاه شهدا",
+          "address": "درمانگاه شهدا, شهر بیرجند, منطقه ۱, خیابان ارتش, استان خراسان جنوبی, 97166-53391, ایران",
+          "latitude": 32.8725342,
+          "longitude": 59.2200368,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51cff34cd4779d4d40594cfc51d4996f4040f00103f901cd67b56401000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a8d988d8b9d984db8c20d8a7d8b1d8aad8b4",
+          "name": "بیمارستان بوعلی ارتش",
+          "address": "بیمارستان بوعلی ارتش, شهر بیرجند, منطقه ۱, خیابان ارتش, استان خراسان جنوبی, 97176-99143, ایران",
+          "latitude": 32.871882,
+          "longitude": 59.2302194,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51ce73854bd99d4d40590c2a628ceb6d4040f00102f9012c0ebc060000000092031fd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d988d984db8cd8b9d8b5d8b1",
+          "name": "بیمارستان ولیعصر",
+          "address": "بیمارستان ولیعصر, شهر بیرجند, منطقه ۲, زکریای رازی, استان خراسان جنوبی, 97176-76516, ایران",
+          "latitude": 32.8585176,
+          "longitude": 59.2331901,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 16,
+      "retrievedAt": "2026-10-08T16:22:23.152Z"
+    },
+    {
+      "cityId": "ir-ilam",
+      "city": "ایلام",
+      "province": "ایلام",
+      "county": "ایلام",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 33.6379365,
+        "longitude": 46.4202743
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51a7c351b7f3354740596ca4a26799d14040f00102f9011e4f151300000000920326d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d8a7d985d8a7d98520d8aed985db8cd986db8c",
+          "name": "بیمارستان امام خمینی",
+          "address": "بیمارستان امام خمینی, شهر ایلام, مرکزی, خیابان آیت الله حیدری, استان ایلام, 69316-34519, ایران",
+          "latitude": 33.6373885,
+          "longitude": 46.4216151,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5135d13b2f6936474059d94584944cd14040f00102f9019b2d0c1f0000000092031bd8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d982d8a7d8a6d985",
+          "name": "بیمارستان قائم",
+          "address": "بیمارستان قائم, شهر ایلام, نوروزآباد, بلوار سیدالشهدا, استان ایلام, 69316-34519, ایران",
+          "latitude": 33.6351408,
+          "longitude": 46.425087,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "517204bf836436474059529e8ebd36d14040f00102f901039dd7260000000092033ad8afd8b1d985d8a7d986daafd8a7d98720d8a8d982db8cd98720d8a7d984d98720d985d988d8b3d8b3d98720d8a8d8b3db8cd8acdb8cd8a7d986",
+          "name": "درمانگاه بقیه اله موسسه بسیجیان",
+          "address": "درمانگاه بقیه اله موسسه بسیجیان, شهر ایلام, نوروزآباد, بلوار سیدالشهدا, استان ایلام, 69316-34519, ایران",
+          "latitude": 33.6344846,
+          "longitude": 46.4249422,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e2672f4644344740594a0cf69ab6d14040f00102f901982d0c1f00000000920328d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985d8b5d8b7d981db8c20d8aed985db8cd986db8c",
+          "name": "بیمارستان مصطفی خمینی",
+          "address": "بیمارستان مصطفی خمینی, شهر ایلام, ژیان, خیابان غلامرضا ارکوازی, استان ایلام, 69319-38792, ایران",
+          "latitude": 33.6383539,
+          "longitude": 46.4083748,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51908829914434474059705d3123bcd14040f00103f9012b52c10501000000920328d8a8db8cd985d8a7d8b1d8b3d8aad8a7d98620d985d8b5d8b7d981db8c20d8aed985db8cd986db8c",
+          "name": "بیمارستان مصطفی خمینی",
+          "address": "بیمارستان مصطفی خمینی, شهر ایلام, ژیان, خیابان مدرس یک, استان ایلام, 69319-38792, ایران",
+          "latitude": 33.638554,
+          "longitude": 46.4083425,
+          "kind": "hospital",
+          "categories": [
+            "healthcare.hospital"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51e7d48ced263447405995433df257d14040f00102f901bed8fe1200000000920321d8afd8b1d985d8a7d986daafd8a7d98720d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "درمانگاه فرهنگیان",
+          "address": "درمانگاه فرهنگیان, شهر ایلام, ژیان, بلوار مدرس, استان ایلام, 69319-38792, ایران",
+          "latitude": 33.6354837,
+          "longitude": 46.4074155,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 14,
+      "retrievedAt": "2026-10-08T16:22:25.186Z"
+    },
+    {
+      "cityId": "ir-shahrekord",
+      "city": "شهرکرد",
+      "province": "چهارمحال و بختیاری",
+      "county": "شهرکرد",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 32.3257366,
+        "longitude": 50.8497369
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "5120da8658996d49405961ec13d090294040f00102f901b31b892000000000920325d8afd8b1d985d8a7d986daafd8a7d98720d8a7d985d8a7d98520d8b1d8b6d8a72028d8b929",
+          "name": "درمانگاه امام رضا (ع)",
+          "address": "درمانگاه امام رضا (ع), شهرکرد, بن بست ۵۱.۲, استان چهارمحال و بختیاری, 88176-11998, ایران",
+          "latitude": 32.3247348,
+          "longitude": 50.8562125,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5140dc0cadaa6d494059a1c1bff7c5294040f00102f901d819892000000000920329d8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8afdb8c",
+          "name": "درمانگاه شبانه روزی دی",
+          "address": "درمانگاه شبانه روزی دی, شهرکرد, ۵۲, استان چهارمحال و بختیاری, 88167-65714, ایران",
+          "latitude": 32.326354,
+          "longitude": 50.8567711,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "510d5eaa88896c494059429f7e068a2a4040f00103f90186e66f3a0100000092032dd8afd8b1d985d8a7d986daafd8a7d98720d8b4d8a8d8a7d986d98720d8b1d988d8b2db8c20d8b3db8cd986d8a7",
+          "name": "درمانگاه شبانه روزی سینا",
+          "address": "درمانگاه شبانه روزی سینا, شهرکرد, ۷۷, استان چهارمحال و بختیاری, 88176-11998, ایران",
+          "latitude": 32.3323372,
+          "longitude": 50.8479472,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "51eec43a2fb36c4940595f4a1731942a4040f00102f901feac871b0000000092033cd8afd8b1d985d8a7d986daafd8a7d98720d8afdaa9d8aad8b120d8bad984d8a7d985d8add8b3db8cd98620d8b1d8a6db8cd8b320d8b2d8a7d8afd987",
+          "name": "درمانگاه دکتر غلامحسین رئیس زاده",
+          "address": "درمانگاه دکتر غلامحسین رئیس زاده, شهرکرد, بلوار شریعتی, استان چهارمحال و بختیاری, 88176-11998, ایران",
+          "latitude": 32.3326287,
+          "longitude": 50.8492151,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "514dc4b6a0526d49405915319177b32a4040f00103f90110a4bd7401000000920315daa9d984db8cd986db8cdaa920d8a2d8b1db8cd8a7",
+          "name": "کلینیک آریا",
+          "address": "کلینیک آریا, شهرکرد, ۷۹, استان چهارمحال و بختیاری, 88167-65714, ایران",
+          "latitude": 32.3336019,
+          "longitude": 50.8540841,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 15,
+      "retrievedAt": "2026-10-08T16:22:26.996Z"
+    },
+    {
+      "cityId": "ir-semnan",
+      "city": "سمنان",
+      "province": "سمنان",
+      "county": "سمنان",
+      "provider": "geoapify",
+      "basis": "city-radius",
+      "classification": "provider-category-unverified",
+      "center": {
+        "latitude": 35.5773718,
+        "longitude": 53.3950637
+      },
+      "radiusMeters": 10000,
+      "facilities": [
+        {
+          "id": "51276d05a804b24a40592ae27492adc94140f00103f9013b12102c0100000092032ad8afd8b1d985d8a7d986daafd8a7d98720d8aad8a7d985db8cd98620d8a7d8acd8aad985d8a7d8b9db8c",
+          "name": "درمانگاه تامین اجتماعی",
+          "address": "درمانگاه تامین اجتماعی, شهر سمنان, منطقه ۱, تامین اجتماعی, استان سمنان, 35196-98181, ایران",
+          "latitude": 35.5756095,
+          "longitude": 53.3907671,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5108c18f8a8eb14a4059affa6c72ccca4140f00102f901bdbd2b210000000092031cdaa9d984db8cd986db8cdaa920d8a7d985d8a7d98520d8b1d8b6d8a7",
+          "name": "کلینیک امام رضا",
+          "address": "کلینیک امام رضا, شهر سمنان, منطقه ۳, انتظام ۳, استان سمنان, 35147-13195, ایران",
+          "latitude": 35.5843771,
+          "longitude": 53.3871643,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "511312d26d06b14a4059bfa22fb476c94140f00102f901c69b841b00000000920326daa9d984db8cd986db8cdaa920d8aed8a7d8aad98520d8a7d984d8a7d986d8a8db8cd8a7d8a1",
+          "name": "کلینیک خاتم الانبیاء",
+          "address": "کلینیک خاتم الانبیاء, شهر سمنان, منطقه ۳, ۱۷ شهریور, استان سمنان, 35187-74323, ایران",
+          "latitude": 35.5739425,
+          "longitude": 53.3830065,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "5132b89c01e4b34a405962670a9dd7c84140f00103f901426e6b6a01000000920310d8afd8b1d985d8a7d986daafd8a7d987",
+          "name": "درمانگاه",
+          "address": "درمانگاه, شهر سمنان, منطقه ۱, میدان دکتر بهشتی, استان سمنان, 35156-36394, ایران",
+          "latitude": 35.56908,
+          "longitude": 53.4053957,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "512418bd0974b24a40593ac9569753c84140f00103f90164fa336a01000000920321d8afd8b1d985d8a7d986daafd8a7d98720d981d8b1d987d986daafdb8cd8a7d986",
+          "name": "درمانگاه فرهنگیان",
+          "address": "درمانگاه فرهنگیان, شهر سمنان, منطقه ۱, حکیم الهی, استان سمنان, 35186-13946, ایران",
+          "latitude": 35.565051,
+          "longitude": 53.3941662,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        },
+        {
+          "id": "512ffa0ad28cb34a40591222cfe451c84140f00103f9015af53d6a0100000092031cd8afd8b1d985d8a7d986daafd8a7d98720dbb1dbb520d8a2d8b0d8b1",
+          "name": "درمانگاه ۱۵ آذر",
+          "address": "درمانگاه ۱۵ آذر, شهر سمنان, منطقه ۱, ابوذر غفاری, استان سمنان, 35139-43841, ایران",
+          "latitude": 35.5649992,
+          "longitude": 53.402735,
+          "kind": "clinic",
+          "categories": [
+            "healthcare.clinic_or_praxis"
+          ],
+          "classification": "provider-category-unverified"
+        }
+      ],
+      "filteredCount": 12,
+      "retrievedAt": "2026-10-08T16:22:28.407Z"
+    }
+  ]
+}

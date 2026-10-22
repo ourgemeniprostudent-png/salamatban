@@ -1,0 +1,62 @@
+{
+  "family": "PeydaWeb(FaNum)",
+  "cssFamily": "Peyda",
+  "version": "3.000",
+  "source": "Nine WOFF2 files uploaded by project owner; original files retained unchanged.",
+  "files": [
+    {
+      "file": "PeydaWebFaNum-Thin.woff2",
+      "weight": 100,
+      "sha256": "d87cfe700933b1c5e121863f3ba8b4d2fdce16f7657d72217ce17a9e2bd78b60",
+      "bytes": 39296
+    },
+    {
+      "file": "PeydaWebFaNum-ExtraLight.woff2",
+      "weight": 200,
+      "sha256": "c688a839a1813e2423d2cbba3a18129a6ee53a2aff03997ba7bc885251d26007",
+      "bytes": 40884
+    },
+    {
+      "file": "PeydaWebFaNum-Light.woff2",
+      "weight": 300,
+      "sha256": "9bca090cd9cd8f8aff47b82fa48492f723cce0039904799017c6cf5be8e44dc2",
+      "bytes": 41344
+    },
+    {
+      "file": "PeydaWebFaNum-Regular.woff2",
+      "weight": 400,
+      "sha256": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de",
+      "bytes": 41724
+    },
+    {
+      "file": "PeydaWebFaNum-Medium.woff2",
+      "weight": 500,
+      "sha256": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1",
+      "bytes": 41860
+    },
+    {
+      "file": "PeydaWebFaNum-SemiBold.woff2",
+      "weight": 600,
+      "sha256": "9a8255e578cac803b2378b131630736eb69cdc58dcb53df1644adc1ed4b568fa",
+      "bytes": 41748
+    },
+    {
+      "file": "PeydaWebFaNum-Bold.woff2",
+      "weight": 700,
+      "sha256": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220",
+      "bytes": 41948
+    },
+    {
+      "file": "PeydaWebFaNum-ExtraBold.woff2",
+      "weight": 800,
+      "sha256": "31fa8ce338a9ec29b1f13fb60623a4288142e316e8e129288df44e210f41a13b",
+      "bytes": 42268
+    },
+    {
+      "file": "PeydaWebFaNum-Black.woff2",
+      "weight": 900,
+      "sha256": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33",
+      "bytes": 41668
+    }
+  ]
+}

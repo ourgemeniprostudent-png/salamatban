@@ -1,3 +1,9 @@
+## مسیر تازهٔ سلامت‌بان — ۳ آزمایشی ۱
+
+نسخهٔ تازه در [مسیر مستقل next](https://ourgemeniprostudent-png.github.io/salamatban/next/) است؛ نسخهٔ ۲٫۴٫۷ در ریشهٔ سایت حفظ می‌شود. داده‌ها و نشست‌های دو مسیر مستقل‌اند. شروع از شناخت سلامت، پرسش‌های تک‌نما، بررسی پزشک و هماهنگی انسانی مبنای این نمونه است. راهنمای جاری: [مسیر تازه](deliverables/NEXT-LANE-fa.md).
+
+ساخت: در `site` دستور `npm run build:next`؛ بررسی: `npm run test:next`. اسناد زیر مربوط به نسخهٔ قبلی و مراجع نگه‌داشته‌شده‌اند.
+
 # سلامت‌بان — نسخهٔ ارائه و بررسی محصول
 
 برای **معماری هدف ۱۰۰۰ کاربر فعال**، از [سند معماری و استقرار](deliverables/architecture/SALAMATBAN-1000-USERS-fa.md)، [طراحی دیتابیس و مهاجرت](deliverables/architecture/database-1000-users-fa.md) و [طرح SQL PostgreSQL](deliverables/architecture/postgresql-target-schema.sql) استفاده کنید. این اسناد طراحی نسخهٔ عملیاتی‌اند؛ نسخهٔ نمایشی فعلی یا ظرفیت آزموده‌شدهٔ تولید محسوب نمی‌شوند.

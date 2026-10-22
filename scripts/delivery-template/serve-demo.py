@@ -14,7 +14,7 @@ if not (root / 'index.html').is_file():
 class Handler(SimpleHTTPRequestHandler):
     extensions_map = {**SimpleHTTPRequestHandler.extensions_map, '.wasm': 'application/wasm', '.js': 'text/javascript', '.woff2': 'font/woff2'}
 server = ThreadingHTTPServer(('127.0.0.1', args.port), partial(Handler, directory=str(root)))
-url = f'http://127.0.0.1:{server.server_port}/'
+url = f'http://127.0.0.1:{server.server_port}/next/'
 print('Salamatban demo: ' + url, flush=True)
 print('Keep this window open. Press Ctrl+C to stop.', flush=True)
 if not args.no_browser:

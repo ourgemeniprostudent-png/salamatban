@@ -1,0 +1,26 @@
+{
+  "directFileFallback": "file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation",
+  "archive": "Salamatban-Complete-Delivery-v3.0.0-next.1.zip",
+  "integrity": "passed",
+  "manifestFiles": 642,
+  "matchedCurrentFiles": {
+    "source": 451,
+    "website": 102
+  },
+  "checkedLocalLinks": 615,
+  "checkedMirrors": 26,
+  "guideSectionsMatchSources": 1,
+  "packageVersion": "3.0.0-next.1",
+  "appVersion": "2.4.7",
+  "missingLinks": [],
+  "exclusions": "passed",
+  "snapshotIntegrity": {
+    "sourceBuildMatch": true,
+    "metadataMatch": true,
+    "provider": "geoapify",
+    "mode": "snapshot",
+    "coveredCities": 39,
+    "facilityCards": 169
+  },
+  "configuredMapCredentialScan": "passed"
+}

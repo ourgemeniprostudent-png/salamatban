@@ -1,0 +1,18 @@
+{
+  "version": "3.0.0-next.1",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
+  "checks": [
+    "public mobile welcome and six first-visit fonts",
+    "seven public role accounts and actual synthetic OTP",
+    "public prepared member and illustrated care plan",
+    "actual fictional PDF downloads",
+    "public doctor explanation returns to the same member",
+    "public assigned coordinator sees actual completed handoff",
+    "public operations view excludes chart details"
+  ],
+  "pageErrors": [],
+  "browserProxyCAWorkaround": true,
+  "browserTlsScope": "Managed browser proxy CA mismatch only; separate Python HTTPS checksum verification uses system CA trust",
+  "success": true,
+  "checkedAt": "2026-10-22T19:37:11.151Z"
+}

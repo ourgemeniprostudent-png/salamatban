@@ -1,0 +1,42 @@
+{
+  "packageVersion": "3.0.0-next.1",
+  "nextExperience": "3.0.0-next.1",
+  "appVersion": "2.4.7",
+  "publicAppVersion": "2.4.7",
+  "baseUrl": "http://127.0.0.1:4205/",
+  "checkedAt": "2026-10-22T19:39:45.326Z",
+  "viewports": [
+    {
+      "width": 320,
+      "panes": 6,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "panes": 6,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 768,
+      "panes": 6,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1440,
+      "panes": 6,
+      "horizontalOverflow": false
+    }
+  ],
+  "checks": [
+    "four role walkthroughs",
+    "next preview and preserved v2.4.7 root are explicit, with snapshot status",
+    "current role architecture is directly reachable from product experience",
+    "six recovered diagrams load, zoom, close and expose PNG/SVG files",
+    "current/target filters",
+    "twenty current/retained screenshots and viewer",
+    "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
+    "feedback works when browser storage is blocked",
+    "keyboard skip link and concise guide"
+  ],
+  "pageErrors": []
+}

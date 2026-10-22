@@ -1,0 +1,69 @@
+{
+  "appCompilation": "passed",
+  "comparedAssets": [
+    {
+      "file": "next/app.js",
+      "sha256": "40db88a82f0a94b617c84a974b43c5a69790cdbd151c2d143186e25b22c0349e"
+    },
+    {
+      "file": "next/app.css",
+      "sha256": "3457b708e1ebb9df65270e5f375cbdc7cba13a7cb55c092add60f9c4259b7c20"
+    },
+    {
+      "file": "next/index.html",
+      "sha256": "c0005e68d378aeb430002ae08aafbb657c86a38f2ef7e1e0c473f0bb1874762d"
+    },
+    {
+      "file": "next/release.json",
+      "sha256": "3b5b4d3d2126e65c5ea74d6f50ea2c6415b18ba812dc3b817ee796be741b3847"
+    },
+    {
+      "file": "next/demo/documents/first-report-demo.pdf",
+      "sha256": "7c6133dd6e88c1469b27601987e2d6573e266caa978592964074bb67fece065f"
+    },
+    {
+      "file": "app.js",
+      "sha256": "98aaf6d2126c5a70b642d89d1a2934250da983512451b89680ae62d3ff584956"
+    },
+    {
+      "file": "app.css",
+      "sha256": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313"
+    },
+    {
+      "file": "index.html",
+      "sha256": "24b6d39c711dcbb0ec461b5b4062d9442f793e0cf8d52eba5b37422a7ceace0a"
+    },
+    {
+      "file": "data/care-facilities.geoapify.json",
+      "sha256": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d"
+    },
+    {
+      "file": "release.json",
+      "sha256": "99034e4c3e05f8db4feba79fcecea9c2dd15d604123a4fc0c559a60aa6c39f9a"
+    },
+    {
+      "file": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "1951c663fa76670412409f3f8617537b754fc4a3f827d80a12e35aa9d526a55b"
+    },
+    {
+      "file": "previews/value-before-payment/index.html",
+      "sha256": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234"
+    },
+    {
+      "file": "demo/documents/manifest.json",
+      "sha256": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159"
+    },
+    {
+      "file": "demo/documents/51-lab.pdf",
+      "sha256": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
+    },
+    {
+      "file": "demo/documents/51-image.jpg",
+      "sha256": "1988aaa2d78e2ebbad3cd617e3802c6e81b7b2d92fb7883abe8b45e5af7694b2"
+    }
+  ],
+  "archiveReconstruction": "passed",
+  "negativeChecks": 4,
+  "version": "3.0.0-next.1",
+  "checkedAt": "2026-10-22T19:42:47.618263+00:00"
+}

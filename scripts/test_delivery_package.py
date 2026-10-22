@@ -38,10 +38,10 @@ with zipfile.ZipFile(archive) as z:z.extractall(standalone)
 base=standalone/name;source=base/'source'
 (source/'site/node_modules').symlink_to(root/'site/node_modules',target_is_directory=True)
 env=dict(os.environ);env.pop('SALAMATBAN_MAPS_GATEWAY_URL',None)
-r=subprocess.run(['npm','run','build:demo'],cwd=source/'site',env=env,capture_output=True,text=True)
+r=subprocess.run(['npm','run','build:next'],cwd=source/'site',env=env,capture_output=True,text=True)
 assert r.returncode==0,(r.stdout,r.stderr)
 compared=[]
-for filename in ['app.js','app.css','index.html','data/care-facilities.geoapify.json','release.json','THIRD-PARTY-NOTICES.txt','previews/value-before-payment/index.html','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg']:
+for filename in ['next/app.js','next/app.css','next/index.html','next/release.json','next/demo/documents/first-report-demo.pdf','app.js','app.css','index.html','data/care-facilities.geoapify.json','release.json','THIRD-PARTY-NOTICES.txt','previews/value-before-payment/index.html','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg']:
  actual=(source/'site/dist-demo'/filename).read_bytes();expected=original[prefix+'website/'+filename]
  assert actual==expected,'Extracted app compilation differs: '+filename
  compared.append({'file':filename,'sha256':hashlib.sha256(actual).hexdigest()})

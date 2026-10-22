@@ -1,0 +1,19 @@
+{
+  "version": "3.0.0-next.1",
+  "date": "2026-10-22T19:35:25.212Z",
+  "checks": [
+    "landing, motion and responsive geometry at 320/390/768/1440",
+    "OTP, copy and invalid-code feedback remain visible inside the native dialog",
+    "single-question intake, saved resume, city selection and Persian numbers produce an honest summary",
+    "doctor clarification returns to the same member and visit request reaches only the assigned coordinator",
+    "coordinator receives minimum fields, member confirms a proposal, and completed visit returns to doctor",
+    "published personal/team actions appear as an illustrated mobile plan with correct completion ownership",
+    "report return, exact-version physician explanation, document download and plan revision complete the loop",
+    "authenticated adapter denies other records, wrong-role changes, stale versions and disguised HTML uploads",
+    "urgent help preserves layout and clinical ownership; operations cannot access chart content",
+    "second doctor/coordinator, prepared member, phone back controls and reduced motion work across widths"
+  ],
+  "individualPassed": 10,
+  "pageErrors": [],
+  "failedAssets": []
+}

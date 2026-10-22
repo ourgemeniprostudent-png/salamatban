@@ -1,0 +1,123 @@
+{
+  "version": "3.0.0-next.1",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
+  "previousPagesCommit": "fee19e39ca07f2fb3b2141991651370c109b6057",
+  "pagesCommit": "cca96fde1e2bf8052120881308fbc4ea0c8bc150",
+  "preservedNonNextFiles": 564,
+  "allExistingRoutesByteIdentical": true,
+  "preservedRootVersion": "2.4.7",
+  "httpsAssets": [
+    {
+      "file": "next/index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/app.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/app.css",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/release.json",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/sql-wasm.wasm",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/demo/documents/51-lab.pdf",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/demo/documents/first-report-demo.pdf",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/data/care-facilities.geoapify.json",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/favicon.svg",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/THIRD-PARTY-NOTICES.txt",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/fonts/PeydaWebFaNum-Regular.woff2",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/fonts/PeydaWebFaNum-Medium.woff2",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/fonts/PeydaWebFaNum-SemiBold.woff2",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/fonts/PeydaWebFaNum-Bold.woff2",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/fonts/PeydaWebFaNum-ExtraBold.woff2",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/fonts/PeydaWebFaNum-Black.woff2",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "app.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "app.css",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "release.json",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "showcase/index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "previews/value-before-payment/index.html",
+      "status": 200,
+      "matches": true
+    }
+  ],
+  "httpsVerified": true,
+  "verifiedAt": "2026-10-22T19:37:05Z"
+}

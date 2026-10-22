@@ -1,0 +1,46 @@
+{
+  "version": "3.0.0-next.1",
+  "checkedAt": "2026-10-22T19:30:58.805467+00:00",
+  "browserChecks": 10,
+  "isolationChecks": 5,
+  "domainChecks": 6,
+  "parentTests": 3,
+  "totalRunnerPassed": 24,
+  "failed": 0,
+  "typecheck": "passed",
+  "lint": "passed",
+  "build": "passed",
+  "existingAssetsPreserved": 70,
+  "nativeFileScope": "Inline file bootstrap executed in VM; managed Chromium blocks native file navigation",
+  "maps": "Dated existing Geoapify snapshot, no live gateway; Neshan destination links",
+  "release": {
+    "version": "3.0.0-next.1",
+    "path": "/salamatban/next/",
+    "preservedAppVersion": "2.4.7",
+    "backend": "isolated browser-local synthetic demo, not a production clinical service",
+    "paidService": "not offered; pricing and purchase entitlements undecided",
+    "assets": {
+      "app.js": "40db88a82f0a94b617c84a974b43c5a69790cdbd151c2d143186e25b22c0349e",
+      "app.css": "3457b708e1ebb9df65270e5f375cbdc7cba13a7cb55c092add60f9c4259b7c20",
+      "index.html": "c0005e68d378aeb430002ae08aafbb657c86a38f2ef7e1e0c473f0bb1874762d",
+      "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+      "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
+    }
+  },
+  "runnerOutput": "▶ next lane real browser journeys\n  ✔ landing, motion and responsive geometry at 320/390/768/1440 (1614.550992ms)\n  ✔ OTP, copy and invalid-code feedback remain visible inside the native dialog (1542.160822ms)\n  ✔ single-question intake, saved resume, city selection and Persian numbers produce an honest summary (5351.814373ms)\n  ✔ doctor clarification returns to the same member and visit request reaches only the assigned coordinator (2701.086513ms)\n  ✔ coordinator receives minimum fields, member confirms a proposal, and completed visit returns to doctor (2519.215485ms)\n  ✔ published personal/team actions appear as an illustrated mobile plan with correct completion ownership (1912.157785ms)\n  ✔ report return, exact-version physician explanation, document download and plan revision complete the loop (4132.967392ms)\n  ✔ authenticated adapter denies other records, wrong-role changes, stale versions and disguised HTML uploads (39.884561ms)\n  ✔ urgent help preserves layout and clinical ownership; operations cannot access chart content (935.622935ms)\n  ✔ second doctor/coordinator, prepared member, phone back controls and reduced motion work across widths (2559.601512ms)\n✔ next lane real browser journeys (24576.759681ms)\n▶ old route isolation, concurrent edits and startup stability\n  ✔ old member record, auth session and selected entry lane survive use and logout of next (3111.667802ms)\n  ✔ an external saved edit cannot be silently overwritten by an already-open question; failed save does not move controls (2308.014267ms)\n  ✔ valid Persian numeric input is preserved by explicit pause before advancing (1426.6781ms)\n  ✔ delayed essential fonts settle before first interactive paint, native error feedback reserves space and direct-file bootstrap explains launch (VM; native navigation is blocked) (1195.893875ms)\n  ✔ unavailable font files fall back to a usable entry rather than blocking the app (979.021521ms)\n✔ old route isolation, concurrent edits and startup stability (9946.248032ms)\n▶ next clinical ownership and transaction invariants\n  ✔ drafts and cross-patient records are inaccessible to unrelated roles (3.673613ms)\n  ✔ incomplete consent, invalid numbers and incompatible multi selections prevent submission (1.955929ms)\n  ✔ human handoffs require confirmation and exact report review; revised plans retain the prior version (31.811555ms)\n  ✔ revoking contact stops coordination without deleting clinical responsibilities (0.757926ms)\n  ✔ urgent concern blocks routine progression until the assigned doctor records the outcome (0.431634ms)\n  ✔ stale and repeated commands fail without duplicate work (0.353849ms)\n✔ next clinical ownership and transaction invariants (42.263868ms)\nℹ tests 24\nℹ suites 0\nℹ pass 24\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 25046.116823\n",
+  "packageCheck": {
+    "status": "passed",
+    "rebuiltAssets": 15,
+    "negativeChecks": 4,
+    "showcaseChecks": 9,
+    "source": "delivery-source-rebuild.json"
+  },
+  "publicBrowser": {
+    "passed": 7,
+    "source": "public-browser.json"
+  },
+  "httpsPublication": {
+    "assets": 22,
+    "source": "publication.json"
+  }
+}

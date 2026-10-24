@@ -1,6 +1,6 @@
 {
-  "version": "3.0.0-next.2",
-  "checkedAt": "2026-10-24T08:38:46.356Z",
+  "version": "3.1.0-next.1",
+  "checkedAt": "2026-10-24T11:53:22.330Z",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
   "tlsVerification": true,
   "transport": "Browser responses routed through Playwright HTTPS requests with the system CA bundle; native Chromium lacks the managed proxy CA.",
@@ -8,8 +8,10 @@
     "Public entry directly shows the first question with one header account action.",
     "Public answer and question position survive reload without consent or submission.",
     "The consolidated account dialog retains and saves contact permission; no duplicate account control.",
-    "Existing doctor role is retained on reload."
+    "Existing doctor role is retained on reload.",
+    "Prepared corrected-report case has separate version review and a downloadable real watermarked PDF.",
+    "New prepared member authenticates into the correct isolated patient chart."
   ],
   "pageErrors": [],
-  "passed": 4
+  "passed": 6
 }

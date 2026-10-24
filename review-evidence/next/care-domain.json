@@ -1,0 +1,25 @@
+{
+  "version": "3.1.0-next.1",
+  "checkedAt": "2026-10-24T11:50:22.520Z",
+  "passed": 18,
+  "checks": [
+    "patient-reported history and signed encounter versions preserve private notes",
+    "referral sharing consent, partner acceptance and patient confirmation are distinct gates",
+    "receipt, review, publication, failed delivery, acknowledgement and followup stay independent",
+    "corrected report preserves prior review and creates a fresh responsibility",
+    "correction before first review transfers the old review duty without an impossible open item",
+    "uncertain matching is quarantined until explicit source reconciliation",
+    "a quarantined correction cannot close a referral or leave a superseded review duty open after matching",
+    "cover and return preserve ownership until acceptance; proposed cover has no chart access",
+    "declined or deferred action never becomes completed without a new patient decision",
+    "practical barriers require assigned coordination and patient agreement to resolve",
+    "membership cancellation retains documents and all open clinical work",
+    "an expired demo membership does not renew itself or erase the clinical record",
+    "legacy uploads acquire stable review ownership and a fully settled cancellation can complete without deleting the record",
+    "role, care relationship, purpose and organization restrict projections and mutations",
+    "global capacity, duplicate report events and stale versions reject competing changes",
+    "prepared reports point to their own actual PDF bytes and recorded checksums",
+    "operational deadlines use the Tehran calendar day across UTC midnight boundaries",
+    "record export produces a ZIP with structured data and Unicode document names"
+  ]
+}

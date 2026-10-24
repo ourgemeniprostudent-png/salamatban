@@ -1,0 +1,13 @@
+{
+  "version": "3.1.0-next.1",
+  "checkedAt": "2026-10-24T11:51:14.789Z",
+  "passed": 1,
+  "independentBrowserContexts": 2,
+  "checks": [
+    "server storage disclosure",
+    "independent role cookies",
+    "shared history visible to assigned doctor",
+    "document bytes sent through the server adapter and downloaded under physician scope"
+  ],
+  "pageErrors": []
+}

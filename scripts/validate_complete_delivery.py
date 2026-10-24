@@ -22,7 +22,7 @@ with zipfile.ZipFile(archive) as z:
     for name in names:
         assert name.startswith(prefix) and '..' not in PurePosixPath(name).parts
         parts=PurePosixPath(name).parts
-        assert not any(p in {'node_modules','.git','.wrangler','.test-build','__pycache__','.maps-data','dist-maps-server'} for p in parts),'Forbidden runtime/dependency directory: '+name
+        assert not any(p in {'node_modules','.git','.wrangler','.test-build','__pycache__','.maps-data','.next-data','dist-maps-server','dist-next-server'} for p in parts),'Forbidden runtime/dependency directory: '+name
         assert not any(p.startswith(('.env','.dev.vars')) and p!='.dev.vars.example' for p in parts),name
         assert PurePosixPath(name).suffix not in {'.db','.sqlite','.pem'},name
         assert not name.endswith(('.sqlite-wal','.sqlite-shm','.db-wal','.db-shm')),name
@@ -123,8 +123,10 @@ with zipfile.ZipFile(archive) as z:
     assert z.getinfo(prefix+'Start-Mac-Linux.command').external_attr >> 16 & 0o111
     fallback_script = r"""const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');const html=fs.readFileSync(0,'utf8');const elements={};const document={getElementById(id){return elements[id]??={hidden:true,textContent:''};}};for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g))vm.runInNewContext(match[1],{location:{protocol:'file:'},document});assert.equal(elements['local-launch'].hidden,false);assert.match(elements['launch-status'].textContent,/یکی از روش/);console.log('PASS file protocol branch: launch instructions replace loading state');"""
     subprocess.run(['node','-e',fallback_script],input=z.read(prefix+'website/index.html'),check=True)
+    assert z.read(prefix+'shared-demo-server/main.mjs')==z.read(prefix+'source/site/next/server/main.mjs')
+    assert z.read(prefix+'shared-demo-server/backup.mjs')==z.read(prefix+'source/site/next/server/backup.mjs')
     next_release=json.loads(z.read(prefix+'website/next/release.json'))
-    assert next_release['version']==catalog['nextExperience']['version']=='3.0.0-next.2'
+    assert next_release['version']==catalog['nextExperience']['version']=='3.1.0-next.1'
     for asset,expected in next_release['assets'].items():assert hashlib.sha256(z.read(prefix+'website/next/'+asset)).hexdigest()==expected
     report={'directFileFallback':'file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation','archive':archive.name,'integrity':'passed','manifestFiles':len(manifest['files']),'matchedCurrentFiles':compared,'checkedLocalLinks':checked_links,'checkedMirrors':len(catalog['mirrors']),'guideSectionsMatchSources':len(GUIDE_DOCS),'packageVersion':catalog['packageVersion'],'appVersion':catalog['appVersion'],'missingLinks':missing,'exclusions':'passed','snapshotIntegrity':{'sourceBuildMatch':True,'metadataMatch':True,'provider':'geoapify','mode':'snapshot','coveredCities':len(entries),'facilityCards':card_count},'configuredMapCredentialScan':'passed' if configured_secrets else 'no map credential present in validation environment'}
     print(json.dumps(report,ensure_ascii=False,indent=2))

@@ -40,8 +40,12 @@ base=standalone/name;source=base/'source'
 env=dict(os.environ);env.pop('SALAMATBAN_MAPS_GATEWAY_URL',None)
 r=subprocess.run(['npm','run','build:next'],cwd=source/'site',env=env,capture_output=True,text=True)
 assert r.returncode==0,(r.stdout,r.stderr)
+rserver=subprocess.run(['npm','run','build:next:server'],cwd=source/'site',env=env,capture_output=True,text=True)
+assert rserver.returncode==0,(rserver.stdout,rserver.stderr)
+for n in ['main.mjs','domain.mjs','backup.mjs']:
+ assert (source/'site/dist-next-server'/n).read_bytes()==original[prefix+'shared-demo-server/'+n],n
 compared=[]
-for filename in ['next/app.js','next/app.css','next/index.html','next/release.json','next/demo/documents/first-report-demo.pdf','app.js','app.css','index.html','data/care-facilities.geoapify.json','release.json','THIRD-PARTY-NOTICES.txt','previews/value-before-payment/index.html','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg']:
+for filename in ['next/config.json','next/demo/documents/case-4-v2.pdf','next/app.js','next/app.css','next/index.html','next/release.json','next/demo/documents/first-report-demo.pdf','app.js','app.css','index.html','data/care-facilities.geoapify.json','release.json','THIRD-PARTY-NOTICES.txt','previews/value-before-payment/index.html','demo/documents/manifest.json','demo/documents/51-lab.pdf','demo/documents/51-image.jpg']:
  actual=(source/'site/dist-demo'/filename).read_bytes();expected=original[prefix+'website/'+filename]
  assert actual==expected,'Extracted app compilation differs: '+filename
  compared.append({'file':filename,'sha256':hashlib.sha256(actual).hexdigest()})

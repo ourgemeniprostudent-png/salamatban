@@ -3,7 +3,7 @@ from pathlib import Path,PurePosixPath
 import hashlib,json,os,subprocess,tempfile,zipfile
 root=Path(__file__).resolve().parent.parent;build=root/'site/dist-demo/next'
 def git(*args,data=None,env=None):return subprocess.check_output(['git',*args],cwd=root,input=data,env=env).decode().strip()
-release=json.loads((build/'release.json').read_text());assert release['version']=='3.0.0-next.2'
+release=json.loads((build/'release.json').read_text());assert release['version']=='3.1.0-next.1'
 for name,digest in release['assets'].items():assert hashlib.sha256((build/name).read_bytes()).hexdigest()==digest
 archive=root/'deployments/salamatban-next-demo.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:

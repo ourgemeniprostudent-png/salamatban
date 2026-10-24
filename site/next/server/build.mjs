@@ -1,0 +1,2 @@
+import {build} from 'esbuild';import {mkdir,cp} from 'node:fs/promises';
+await mkdir('dist-next-server',{recursive:true});await build({entryPoints:['next/server/domain.ts'],outfile:'dist-next-server/domain.mjs',bundle:true,platform:'node',target:'node24',format:'esm'});await cp('next/server/main.mjs','dist-next-server/main.mjs');await cp('next/server/backup.mjs','dist-next-server/backup.mjs');console.log('Built shared demo Care API; no production identity or external medical services are enabled.');

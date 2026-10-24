@@ -19,3 +19,7 @@ export function Dialog({title,children,onClose,wide=false}:{title:string;childre
 export function Field({label,children}:{label:string;children:ReactNode}){const id=useId();return <div className="n-field"><label htmlFor={id}>{label}</label>{isValidElement(children)?cloneElement(children as ReactElement<{id?:string}>,{id}):children}</div>;}
 export function Empty({title,children}:{title:string;children:ReactNode}){return <div className="n-empty"><span className="n-tile-icon"><Icon name="route" size={28}/></span><h3>{title}</h3><p>{children}</p></div>;}
 export function Notice({children}:{children:ReactNode}){return <p className="n-note"><Icon name="shield" size={16}/>{children}</p>;}
+export function AsyncCheck({checked,busy,label,onChange}:{checked:boolean;busy:boolean;label:string;onChange:(checked:boolean)=>Promise<boolean>}){const [value,V]=useState(checked),[pending,P]=useState(false);return <label className="n-check-action"><input type="checkbox" checked={value} disabled={busy||pending} onChange={async e=>{const next=e.target.checked;V(next);P(true);try{if(!await onChange(next))V(checked);}finally{P(false);}}}/>{label}</label>;}
+
+export const RuntimeContext=createContext<'browser-demo'|'shared-demo'>('browser-demo');
+export function StorageLocation(){return <>{useContext(RuntimeContext)==='shared-demo'?'پاسخ‌ها و مدارک روی سرور مشترک این نمونه نگهداری می‌شوند. فقط از دادهٔ ساختگی استفاده کنید.':'پاسخ‌ها و مدارک در همین مرورگر می‌مانند و بین دستگاه‌ها مشترک نیستند.'}</>;}

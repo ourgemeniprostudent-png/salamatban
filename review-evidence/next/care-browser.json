@@ -1,0 +1,16 @@
+{
+  "version": "3.1.0-next.1",
+  "checkedAt": "2026-10-24T11:51:22.522Z",
+  "passed": 7,
+  "checks": [
+    "patient history and private signed encounter lead to a clinician-owned specialist referral",
+    "coordinator cannot imply acceptance before consent; partner acceptance and patient booking form a visible trail",
+    "report review, publication and patient acknowledgement remain independent in the actual UI",
+    "corrected report retains the former result and creates a separate pending review",
+    "patient barrier, coordinator solution and accepted cover use the same clinical story",
+    "membership demo, safe cancellation and record ZIP work from the single account entry",
+    "all ten patient accounts authenticate into their own prepared story and preserve the selected identity on reload"
+  ],
+  "pageErrors": [],
+  "failedAssets": []
+}

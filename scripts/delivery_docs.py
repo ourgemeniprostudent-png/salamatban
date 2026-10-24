@@ -1,12 +1,12 @@
 """Shared delivery version, document catalog and deterministic rendering. No I/O on import."""
 import hashlib,html,posixpath,re
 from urllib.parse import urlsplit,urlunsplit
-VERSION = '3.0.0-next.2'
+VERSION = '3.1.0-next.1'
 APP_VERSION = '2.4.7'
 PUBLIC_APP_VERSION = '2.4.7'
 GUIDE_DOCS = ['NEXT-LANE-fa.md']
 DOCS = [
- 'NEXT-LANE-fa.md',
+ 'NEXT-LANE-fa.md', 'NEXT-REQUIREMENTS-fa.md', 'architecture/NEXT-SYSTEM-v3.1-fa.md',
  'SHOWCASE-GUIDE-fa.md', 'COMPLETE-DEMO-fa.md', 'VISUAL-VALUE-fa.md', 'WORKFLOW-ARCHITECTURE-v2.2-fa.md', 'VISUAL-EXPERIENCE-v2.1-fa.md', 'JOURNEY-v2.0-fa.md',
  'DELIVERY-STATUS-fa.md', 'GEOAPIFY-INTEGRATION-fa.md', 'NESHAN-INTEGRATION-fa.md', 'salamatban-product-architecture-fa.md',
  'UX-IMPROVEMENTS-fa.md', 'FLOW-REVIEW-v1.7-fa.md', 'UX-LOCATION-CONTRACT-fa.md',
@@ -73,3 +73,7 @@ def markdown(text):
 def page(title,body,css):
  return '<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+html.escape(title)+'</title><style>'+css+'</style></head><body><main>'+body+'</main></body></html>'
 
+
+MIRRORS['deliverables/showcase/next-architecture.svg']='presentation/assets/next-architecture.svg'
+for n in ['verification.json','care-domain.json','care-browser.json','shared-api.json']:
+ MIRRORS['review-evidence/next/'+n]='technical/next/'+n

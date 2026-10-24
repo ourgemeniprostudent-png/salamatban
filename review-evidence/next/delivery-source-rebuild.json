@@ -2,20 +2,28 @@
   "appCompilation": "passed",
   "comparedAssets": [
     {
+      "file": "next/config.json",
+      "sha256": "92c596e94c9bccf7c81ea6a1332d36ce8b7faf5fa8f087739fb0e75436e2d53c"
+    },
+    {
+      "file": "next/demo/documents/case-4-v2.pdf",
+      "sha256": "23427c8d9b9be03b97e818157921ffa78bda45f783f353f45f0fc953ab005b0b"
+    },
+    {
       "file": "next/app.js",
-      "sha256": "f96272d1923516f56855291701f3dad492deae3c496e761c74816c2da84246bd"
+      "sha256": "6ac7ac184e425deed4e0662302ded0d34e9885c0e809843666e07fd11e0d0eb3"
     },
     {
       "file": "next/app.css",
-      "sha256": "006167ca5b6fd329b76c95bcbb0012248bbc6f3cf42675981af50832ba89c53a"
+      "sha256": "fe5f899b06ea12a1675adb2ce7ad76a02de0e9e0f7b4c13dd1b0dc2a2cc00166"
     },
     {
       "file": "next/index.html",
-      "sha256": "a0acbd77f8b770d03c541c9dba6da02aaafee879f5e3d2618d17ed6f9f5fbf20"
+      "sha256": "24490ef4fc225b3c9366b67069ff8293ededbfd9663fdc790600fda448bcc4ae"
     },
     {
       "file": "next/release.json",
-      "sha256": "10fb04dac3f6fd0c6a13c8cce27a97e465a66b851a8db9c4c6178693b251fc14"
+      "sha256": "1b58b1ac121e99b44f449b45ade54620b05bca63799e4c070dcad60c77e5deba"
     },
     {
       "file": "next/demo/documents/first-report-demo.pdf",
@@ -64,6 +72,6 @@
   ],
   "archiveReconstruction": "passed",
   "negativeChecks": 4,
-  "version": "3.0.0-next.2",
-  "checkedAt": "2026-10-24T08:40:25.021873+00:00"
+  "version": "3.1.0-next.1",
+  "sharedServerCompilation": "passed: main.mjs, domain.mjs and backup.mjs byte-identical"
 }

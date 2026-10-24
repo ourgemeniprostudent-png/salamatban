@@ -1,0 +1,3 @@
+// Explicit local backup of the synthetic shared demo. No overwrite, no upload.
+import {DatabaseSync} from 'node:sqlite';import {mkdir} from 'node:fs/promises';import path from 'node:path';
+const [source,destination]=process.argv.slice(2);if(!source||!destination)throw Error('Usage: node backup.mjs source.sqlite new-backup.sqlite');await mkdir(path.dirname(path.resolve(destination)),{recursive:true});const db=new DatabaseSync(path.resolve(source),{readOnly:true});try{db.exec("VACUUM INTO '"+path.resolve(destination).replaceAll("'","''")+"'");console.log('Synthetic demo backup created; it includes private uploaded documents and must stay outside the public website.');}finally{db.close();}

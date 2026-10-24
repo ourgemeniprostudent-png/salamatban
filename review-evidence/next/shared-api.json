@@ -1,0 +1,16 @@
+{
+  "version": "3.1.0-next.1",
+  "checkedAt": "2026-10-24T11:51:16.172Z",
+  "passed": 7,
+  "checks": [
+    "anonymous reads fail and shared mode is explicit",
+    "independent browser sessions reach the same record with different projections",
+    "CSRF, foreign origins, role boundaries and stale versions fail before a write",
+    "idempotency retries return one mutation and conflicting reuse is rejected",
+    "uploaded document bytes are signature checked, scoped, persisted and audited",
+    "restart retains the authoritative record, immutable file bytes and existing sessions",
+    "a SQLite backup restores the same records, documents and clinical responsibilities"
+  ],
+  "mode": "shared synthetic server tested locally; not deployed to GitHub Pages",
+  "database": "SQLite with persisted sessions, command deduplication, scoped documents and audit"
+}

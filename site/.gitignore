@@ -47,3 +47,6 @@ next-env.d.ts
 /dist-demo/
 /dist-maps-server/
 /.maps-data/
+
+/.next-data/
+/dist-next-server/

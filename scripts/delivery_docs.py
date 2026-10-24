@@ -1,7 +1,7 @@
 """Shared delivery version, document catalog and deterministic rendering. No I/O on import."""
 import hashlib,html,posixpath,re
 from urllib.parse import urlsplit,urlunsplit
-VERSION = '3.2.0-next.1'
+VERSION = '3.2.1-next.1'
 APP_VERSION = '2.4.7'
 PUBLIC_APP_VERSION = '2.4.7'
 GUIDE_DOCS = ['NEXT-LANE-fa.md']

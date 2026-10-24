@@ -1,6 +1,6 @@
 {
-  "version": "3.2.0-next.1",
-  "checkedAt": "2026-10-24T13:16:53.963Z",
+  "version": "3.2.1-next.1",
+  "checkedAt": "2026-10-24T13:39:44.301Z",
   "passed": 18,
   "checks": [
     "patient-reported history and signed encounter versions preserve private notes",

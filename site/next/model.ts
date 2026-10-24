@@ -1,7 +1,7 @@
 import documentManifest from './documents/manifest.json';
 import {preparedPeople,seedCareCases} from './seeds';
 import {careTransition,syncLegacy,clinicalAccess,coordinationAccess,effectiveDoctor,type CareJourney,type CareCommand} from './care';
-export const NEXT_VERSION='3.2.0-next.1';
+export const NEXT_VERSION='3.2.1-next.1';
 export type Role='member'|'clinician'|'coordinator'|'admin';
 export type Actor={organizationId?:string;id:string;phone:string;name:string;role:Role};
 export type Phase='draft'|'submitted'|'reviewing'|'clarification'|'awaiting_visit'|'awaiting_plan'|'active';

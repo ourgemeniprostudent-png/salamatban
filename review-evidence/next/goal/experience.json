@@ -1,6 +1,6 @@
 {
-  "version": "3.2.0-next.1",
-  "checkedAt": "2026-10-24T13:18:19.534Z",
+  "version": "3.2.1-next.1",
+  "checkedAt": "2026-10-24T13:41:40.958Z",
   "checks": [
     "entry modes expose only matching patients, clear OTP and retain a direct first question",
     "real record counts and patient action appear above the fold on phone and desktop",

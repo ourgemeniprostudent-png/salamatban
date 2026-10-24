@@ -1,5 +1,5 @@
 {
-  "version": "3.2.0-next.1",
+  "version": "3.2.1-next.1",
   "goalStatus": "blocked",
   "softwareStatus": "verified within tested scope",
   "criteria": [
@@ -89,5 +89,6 @@
   "sourceRebuiltAssets": 125,
   "zipGuide": "NEXT-GOAL-fa.md",
   "humanParticipants": 0,
-  "physicalDevices": 0
+  "physicalDevices": 0,
+  "sampleCompletion": "Current prepared programme actions; nine member progress bars; 100/50/0 and 320/390/1440 widths verified"
 }

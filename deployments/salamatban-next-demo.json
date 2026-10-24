@@ -1,9 +1,9 @@
 {
-  "version": "3.2.0-next.1",
+  "version": "3.2.1-next.1",
   "path": "/salamatban/next/",
   "archive": "salamatban-next-demo.zip",
-  "bytes": 3298939,
-  "sha256": "ffb2d50d9f8c762850ed49f85b04237eb2ab624bac7580dea3b41ce56f6703d4",
+  "bytes": 3299406,
+  "sha256": "e0523e6a59ae99028b370f5da610bf26fc2835d43950758ff1b0de5323482f37",
   "preservedAppVersion": "2.4.7",
   "backend": "browser-local on Pages; optional shared synthetic Care API in the complete delivery"
 }

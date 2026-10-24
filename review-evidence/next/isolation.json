@@ -1,6 +1,6 @@
 {
-  "version": "3.2.0-next.1",
-  "date": "2026-10-24T13:17:12.978Z",
+  "version": "3.2.1-next.1",
+  "date": "2026-10-24T13:40:03.592Z",
   "individualPassed": 6,
   "checks": [
     "old member record, auth session and selected entry lane survive use and logout of next",

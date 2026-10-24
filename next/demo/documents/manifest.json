@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "synthetic": true,
+  "files": {
+    "case-10-v1.pdf": {
+      "bytes": 84309,
+      "sha256": "77ccbda18bf0ecf21c4708450b9fb1c0f0a943eee379bb96440c790a7b93b8ec"
+    },
+    "case-3-v1.pdf": {
+      "bytes": 85153,
+      "sha256": "0b0eef4e0c1f11525cf1ca3a98efb1a8ba51f1fae17ee5a6f8862eb79d443595"
+    },
+    "case-4-v1.pdf": {
+      "bytes": 83254,
+      "sha256": "7562e0f0bb12e8a4412c932fa25a81bb21dd4455111350ec3afad264002217c6"
+    },
+    "case-4-v2.pdf": {
+      "bytes": 82997,
+      "sha256": "23427c8d9b9be03b97e818157921ffa78bda45f783f353f45f0fc953ab005b0b"
+    },
+    "case-5-v1.pdf": {
+      "bytes": 82012,
+      "sha256": "e3876934d446a2b2d8c1cc707d7ab48cb325eade20dadff4a641a546104bc057"
+    },
+    "case-6-v1.pdf": {
+      "bytes": 84928,
+      "sha256": "b941d832acb338d33636ad0618b3d8495989725f5e5d8d53078d9244968911a2"
+    },
+    "case-7-v1.pdf": {
+      "bytes": 84424,
+      "sha256": "2dc320c3ad3622d0b22d0d226fbf02d6ab07a8c0b6416e45e24737498f41eaeb"
+    },
+    "case-8-v1.pdf": {
+      "bytes": 85745,
+      "sha256": "8f78727c6e15861167dc53b54fe3c34606dbd59a4473c876de15d4fd60385f9b"
+    },
+    "case-9-v1.pdf": {
+      "bytes": 85056,
+      "sha256": "62c03413b1e28021a910869cab256ec4c2d210db1c956f6d637d2f8f1d23ace6"
+    },
+    "51-lab.pdf": {
+      "bytes": 146796,
+      "sha256": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
+    }
+  }
+}

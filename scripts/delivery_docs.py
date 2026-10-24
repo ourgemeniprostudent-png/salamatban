@@ -1,12 +1,12 @@
 """Shared delivery version, document catalog and deterministic rendering. No I/O on import."""
 import hashlib,html,posixpath,re
 from urllib.parse import urlsplit,urlunsplit
-VERSION = '3.4.0-next.1'
+VERSION = '3.5.0-next.1'
 APP_VERSION = '2.4.7'
 PUBLIC_APP_VERSION = '2.4.7'
 GUIDE_DOCS = ['NEXT-LANE-fa.md']
 DOCS = [
- 'NEXT-LANE-fa.md', 'NEXT-COMPLETION-fa.md', 'NEXT-REQUIREMENTS-fa.md', 'CARE-VALUE-fa.md', 'NEXT-GOAL-fa.md', 'NEXT-PARITY-fa.md', 'NEXT-USER-TEST-fa.md', 'architecture/NEXT-SYSTEM-v3.2-fa.md',
+ 'NEXT-LANE-fa.md', 'NEXT-COMPLETION-fa.md', 'NEXT-REQUIREMENTS-fa.md', 'CARE-VALUE-fa.md', 'PROGRAMME-CONTENT-fa.md', 'NEXT-GOAL-fa.md', 'NEXT-PARITY-fa.md', 'NEXT-USER-TEST-fa.md', 'architecture/NEXT-SYSTEM-v3.2-fa.md',
  'SHOWCASE-GUIDE-fa.md', 'COMPLETE-DEMO-fa.md', 'VISUAL-VALUE-fa.md', 'WORKFLOW-ARCHITECTURE-v2.2-fa.md', 'VISUAL-EXPERIENCE-v2.1-fa.md', 'JOURNEY-v2.0-fa.md',
  'DELIVERY-STATUS-fa.md', 'GEOAPIFY-INTEGRATION-fa.md', 'NESHAN-INTEGRATION-fa.md', 'salamatban-product-architecture-fa.md',
  'UX-IMPROVEMENTS-fa.md', 'FLOW-REVIEW-v1.7-fa.md', 'UX-LOCATION-CONTRACT-fa.md',
@@ -85,3 +85,6 @@ for n in ['episodes-domain.json','episodes-browser.json','episodes-upgrade.json'
  MIRRORS['review-evidence/next/'+n]='technical/next/'+n
 
 MIRRORS['review-evidence/next/completion-goal.json']='technical/next/completion-goal.json'
+
+for n in ['programme-domain.json','programme-browser.json','programme-upgrade.json','programme-content.json']:
+ MIRRORS['review-evidence/next/'+n]='technical/next/'+n

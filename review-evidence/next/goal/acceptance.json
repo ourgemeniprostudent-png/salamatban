@@ -1,5 +1,5 @@
 {
-  "version": "3.4.0-next.1",
+  "version": "3.5.0-next.1",
   "goalStatus": "blocked",
   "softwareStatus": "verified within tested scope",
   "criteria": [
@@ -79,9 +79,9 @@
       "reason": "No physical Android/iPhone is attached"
     }
   ],
-  "automatedTests": 95,
+  "automatedTests": 111,
   "failed": 0,
-  "axeScans": 36,
+  "axeScans": 42,
   "seriousOrCriticalAxeViolations": 0,
   "publicAssetHashes": 46,
   "baselineBuildAssetsPreserved": 70,

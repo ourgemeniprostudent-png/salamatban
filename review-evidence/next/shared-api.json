@@ -1,6 +1,6 @@
 {
-  "version": "3.4.0-next.1",
-  "checkedAt": "2026-10-24T20:08:19.404Z",
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T20:59:58.357Z",
   "passed": 10,
   "checks": [
     "anonymous reads fail and shared mode is explicit",

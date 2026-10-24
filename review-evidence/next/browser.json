@@ -1,6 +1,6 @@
 {
-  "version": "3.4.0-next.1",
-  "date": "2026-10-24T20:08:26.893Z",
+  "version": "3.5.0-next.1",
+  "date": "2026-10-24T21:00:05.147Z",
   "checks": [
     "first question opens directly, unchecked consent and a single account entry at 320/390/768/1440",
     "OTP, copy and invalid-code feedback remain visible inside the native dialog",

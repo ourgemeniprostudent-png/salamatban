@@ -50,5 +50,6 @@
       "phone": "09000000010",
       "episodes": 1
     }
-  ]
+  ],
+  "evidenceScope": "Historical v3.4 episode migration check; current programme migration is programme-upgrade.json"
 }

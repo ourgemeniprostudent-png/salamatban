@@ -1,5 +1,5 @@
 {
-  "version": "3.4.0-next.1",
+  "version": "3.5.0-next.1",
   "objective": "Apply the five care-value improvements",
   "status": "implemented and tested",
   "criteria": [
@@ -29,7 +29,7 @@
       "evidence": "episodes-browser.json and shared-api.json: negative feedback, owned duty, doctor reply and patient confirmation"
     }
   ],
-  "automatedTests": 95,
+  "automatedTests": 111,
   "humanUnderstandingClaim": "No human usability or health improvement claim; scripted responses test the workflow only",
   "previousGoalUnverified": [
     "Five fresh participants",

@@ -1,0 +1,74 @@
+{
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T20:59:32.381Z",
+  "passed": 8,
+  "checks": [
+    "seven prepared programmes have distinct goals, 3/4/5 meaningful steps and scenario-derived progress",
+    "every completed prepared step has a source from that patient and original file bytes are unchanged",
+    "a checkbox cannot impersonate report review or patient acknowledgement",
+    "Reza confirms the actual proposed referral and the linked programme updates without fake report completion",
+    "Amir cannot complete a dependent step before the corrected version is explained and acknowledged",
+    "a quarantined report is never the evidence for completing Leila’s collection step",
+    "a corrected report keeps prior programme evidence intact and opens a separate medical review",
+    "the previous content upgrades only untouched records, preserves edits and is idempotent"
+  ],
+  "prepared": [
+    {
+      "name": "شما",
+      "steps": 0,
+      "done": 0
+    },
+    {
+      "name": "سارا راد",
+      "steps": 3,
+      "done": 1,
+      "title": "گزارش سارا؛ از دریافت فایل تا توضیح پزشک"
+    },
+    {
+      "name": "نرگس شریفی",
+      "steps": 5,
+      "done": 5,
+      "title": "مرور سابقهٔ دیابت؛ از ثبت خانگی تا برگشت گزارش"
+    },
+    {
+      "name": "امیر نیک‌روش",
+      "steps": 5,
+      "done": 2,
+      "title": "نسخهٔ اصلاح‌شده؛ تا توضیح تازهٔ پزشک"
+    },
+    {
+      "name": "مریم کیانی",
+      "steps": 4,
+      "done": 4,
+      "title": "جمع‌بندی دورهٔ مریم؛ گزارش‌ها و توضیح‌ها در یک مسیر"
+    },
+    {
+      "name": "رضا احمدی",
+      "steps": 4,
+      "done": 1,
+      "title": "مراجعهٔ رضا؛ انتخاب زمان و آماده‌شدن برای گفت‌وگو"
+    },
+    {
+      "name": "لیلا موسوی",
+      "steps": 3,
+      "done": 1,
+      "title": "نمونهٔ لیلا؛ پیگیری مشکل تا دریافت گزارش معتبر"
+    },
+    {
+      "name": "حمید صادقی",
+      "steps": 0,
+      "done": 0
+    },
+    {
+      "name": "هانیه رضایی",
+      "steps": 0,
+      "done": 0
+    },
+    {
+      "name": "علی رستگار",
+      "steps": 4,
+      "done": 2,
+      "title": "ادامهٔ پروندهٔ علی هنگام پیشنهاد جانشینی"
+    }
+  ]
+}

@@ -31,4 +31,4 @@ export function seedEpisodeStories(c:CareCase,now=Date.now()){
  return c;
 }
 /** Comparisons discard generated IDs and clock values, never user content or record structure. */
-export function pristineSignature(c:CareCase){const volatile=new Set(['id','at','createdAt','submittedAt','reportedAt','verifiedAt','signedAt','publishedAt','ackAt','endsAt','until','dueAt','date','version','acceptedAt','seedRevision']);return JSON.stringify(c,(key,value)=>volatile.has(key)?undefined:value).replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi,'UUID');}
+export function pristineSignature(c:CareCase){const volatile=new Set(['id','at','createdAt','submittedAt','reportedAt','verifiedAt','signedAt','publishedAt','ackAt','endsAt','until','dueAt','date','version','acceptedAt','seedRevision','nextDueAt']);return JSON.stringify(c,(key,value)=>volatile.has(key)?undefined:value).replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi,'UUID');}

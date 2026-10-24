@@ -1,5 +1,5 @@
 {
-  "version": "3.4.0-next.1",
+  "version": "3.5.0-next.1",
   "engine": "axe-core 4.11, WCAG A/AA",
   "scans": [
     {

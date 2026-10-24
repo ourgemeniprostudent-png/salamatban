@@ -1,0 +1,76 @@
+{
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T21:02:59.211852+00:00",
+  "status": "implemented, published and delivery verified within tested scope",
+  "objective": "Replace generic two-action examples with specific evidence-linked patient programmes",
+  "criteria": [
+    {
+      "id": "C01",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "C02",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "C03",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "C04",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "C05",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "C06",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "C07",
+      "status": "passed_in_tested_scope"
+    }
+  ],
+  "programmeDomainTests": 8,
+  "programmeBrowserChecks": 6,
+  "automatedRegressionRunnerPassed": 111,
+  "publicBrowserChecks": 12,
+  "publicAssetsMatched": 46,
+  "originalBuildAssetsPreserved": 70,
+  "publishedRootFilesPreserved": 564,
+  "accessibilityScans": 42,
+  "seriousOrCriticalViolations": 0,
+  "evidence": [
+    "programme-domain.json",
+    "programme-browser.json",
+    "programme-upgrade.json",
+    "publication.json",
+    "public-browser.json"
+  ],
+  "scope": "Fictional authored programmes; no new medical measurements, drug instructions or diagnoses",
+  "dataProtection": "Actual v3.4 untouched templates upgrade; edited records retained exactly; immutable document bytes unchanged",
+  "limitations": [
+    "Fresh human comprehension not tested",
+    "Physical phones not tested; viewport emulation used",
+    "Clinical findings, payments and partner workflows remain synthetic; shared server packaged but not publicly hosted"
+  ],
+  "knownUnresolvedBlockingDefectsInTestedScope": [],
+  "packageCheck": {
+    "status": "passed",
+    "archiveIntegrity": "passed",
+    "sourceRebuild": "125 website files and three prebuilt server files match",
+    "archiveReconstruction": "passed from delivered source without Git or a prior archive",
+    "negativeChecks": 4,
+    "packagedServerChecks": 3,
+    "showcaseViewports": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "showcaseScreenshots": 30,
+    "scope": "Source/build and delivery integrity; no public shared-server deployment"
+  }
+}

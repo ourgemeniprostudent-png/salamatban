@@ -1,0 +1,46 @@
+{
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T20:59:40.556Z",
+  "passed": 6,
+  "checks": [
+    "Maryam sees her goal, four explained steps and a result linked to actual questions, referral and review",
+    "historical programmes retain their own goal, 3/4/3 steps and exact source",
+    "Amir has five steps, a pending corrected explanation and a genuinely blocked dependent step",
+    "Reza’s real booking decision changes one sourced step rather than completing the whole programme",
+    "a direct read-only programme preview opens Maryam’s new content without changing the active record",
+    "completed, blocked and specimen-problem stories stay readable and accessible on phone and desktop"
+  ],
+  "pageErrors": [],
+  "scans": [
+    {
+      "phone": "09000000005",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "phone": "09000000005",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "phone": "09000000004",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "phone": "09000000004",
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "phone": "09000000007",
+      "width": 390,
+      "violations": []
+    },
+    {
+      "phone": "09000000007",
+      "width": 1440,
+      "violations": []
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import {enrichProgramme} from './programme-stories';
 import {seedEpisodeStories,pristineSignature} from './episode-stories';
 import type {CareCase,Plan} from './model';
 import {stories,historicalDocs} from './fixture-stories';
@@ -35,9 +36,9 @@ export function enrichPrepared(c:CareCase,now:number){
  return c;
 }
 /** Only pristine, untouched v3.1 fixtures qualify. Every user mutation increments version. */
-export function upgradePrepared(existing:CareCase[],seed:CareCase[],baseline:CareCase[]=[]){
+export function upgradePrepared(existing:CareCase[],seed:CareCase[],baseline:CareCase[]=[],programmeBaseline:CareCase[]=[]){
  const untouched:Record<string,number>={'09000000003':19,'09000000004':20,'09000000005':19};
- let changed=false;const cases=existing.map(c=>{const s=seed.find(s=>s.phone===c.phone);if(s?.seedRevision===2&&!c.seedRevision&&c.version===untouched[c.phone]&&c.files.length===(c.phone==='09000000004'?2:1)&&c.messages.length===0){changed=true;return {...s,version:c.version+1};}const before=baseline.find(b=>b.phone===c.phone);if(!c.episodes?.length&&before&&pristineSignature(c)===pristineSignature(before)){const enriched=seedEpisodeStories(structuredClone(c));if(enriched.episodes?.length){changed=true;enriched.version++;return enriched;}}return c;});
+ let changed=false;const cases=existing.map(c=>{const s=seed.find(s=>s.phone===c.phone);if(s?.seedRevision===2&&!c.seedRevision&&c.version===untouched[c.phone]&&c.files.length===(c.phone==='09000000004'?2:1)&&c.messages.length===0){changed=true;return {...s,version:c.version+1};}const programmeBefore=programmeBaseline.find(b=>b.phone===c.phone);if(!c.programmeRevision&&s?.programmeRevision===1&&programmeBefore&&pristineSignature(c)===pristineSignature(programmeBefore)){changed=true;return {...s,version:c.version+1};}const before=baseline.find(b=>b.phone===c.phone);if(!c.episodes?.length&&before&&pristineSignature(c)===pristineSignature(before)){const enriched=seedEpisodeStories(structuredClone(c));if(s?.programmeRevision===1)enrichProgramme(enriched);if(enriched.episodes?.length){changed=true;enriched.version++;return enriched;}}return c;});
  for(const s of seed)if(!cases.some(c=>c.phone===s.phone)){cases.push(s);changed=true;}
  return {cases,changed};
 }

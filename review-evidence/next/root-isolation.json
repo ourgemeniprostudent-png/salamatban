@@ -1,7 +1,7 @@
 {
-  "version": "3.4.0-next.1",
-  "checkedAt": "2026-10-24T20:12:05.388449+00:00",
-  "baselineCommit": "a0eda819c111639ae7883273e58fe43c867e3392",
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T21:01:12.111260+00:00",
+  "baselineCommit": "4e3e0c6977886a41c3a6303bae897e80b043c9d0",
   "baselineArchive": "deployments/salamatban-demo.zip",
   "passed": true,
   "comparedFiles": [

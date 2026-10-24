@@ -1,0 +1,64 @@
+{
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T21:01:31.104Z",
+  "baseline": "4e3e0c6977886a41c3a6303bae897e80b043c9d0",
+  "passed": true,
+  "checks": [
+    "actual immutable v3.4 snapshot upgrades to specific programmes",
+    "all original document IDs, paths, bytes and checksums retained",
+    "edited patient record stays exactly intact",
+    "migration is idempotent"
+  ],
+  "programmes": [
+    {
+      "name": "شما",
+      "revision": 0,
+      "steps": 0
+    },
+    {
+      "name": "سارا راد",
+      "revision": 1,
+      "steps": 3
+    },
+    {
+      "name": "نرگس شریفی",
+      "revision": 1,
+      "steps": 5
+    },
+    {
+      "name": "امیر نیک‌روش",
+      "revision": 1,
+      "steps": 5
+    },
+    {
+      "name": "مریم کیانی",
+      "revision": 1,
+      "steps": 4
+    },
+    {
+      "name": "رضا احمدی",
+      "revision": 1,
+      "steps": 4
+    },
+    {
+      "name": "لیلا موسوی",
+      "revision": 1,
+      "steps": 3
+    },
+    {
+      "name": "حمید صادقی",
+      "revision": 1,
+      "steps": 0
+    },
+    {
+      "name": "هانیه رضایی",
+      "revision": 1,
+      "steps": 0
+    },
+    {
+      "name": "علی رستگار",
+      "revision": 1,
+      "steps": 4
+    }
+  ]
+}

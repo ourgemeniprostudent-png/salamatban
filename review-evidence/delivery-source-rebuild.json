@@ -267,11 +267,11 @@
     },
     {
       "file": "next/app.css",
-      "sha256": "71f3cbef488d75fb720fd9d0816e606740a220ac3d9d0d238230193520462c16"
+      "sha256": "d7515bb9e88ea80152efe8e940e243ba979d8210616c4a69968cd499e4242b66"
     },
     {
       "file": "next/app.js",
-      "sha256": "f51512cd90aa09c827b1a6ead4dc0e69138233cd90d956a04372f028613c49b3"
+      "sha256": "4cd097985f5df5db17dd0b0c6411582f9a5e53326653acbf5f365a0a88128f52"
     },
     {
       "file": "next/brand/README-fa.md",
@@ -455,7 +455,7 @@
     },
     {
       "file": "next/index.html",
-      "sha256": "a0022bd556d9d05ff51f0039bf6f292b34700afe979cc885d6ebddf8b4465bcb"
+      "sha256": "ef85817b72ac09ccf0604f61d08616ee528942f258809c89f7370ca9194069a1"
     },
     {
       "file": "next/media/README-fa.txt",
@@ -475,7 +475,7 @@
     },
     {
       "file": "next/release.json",
-      "sha256": "12473f468479f83ae07002208e6a9a99b55402cddd4352baa7ad357c45e0540c"
+      "sha256": "5c4b114b62186eebda7bdc28bc60802328ed76dbce87b9692f642be718495c86"
     },
     {
       "file": "next/sql-wasm.wasm",
@@ -504,6 +504,6 @@
   ],
   "archiveReconstruction": "passed",
   "negativeChecks": 4,
-  "version": "3.4.0-next.1",
-  "date": "2026-10-24T20:14:41.108068+00:00"
+  "version": "3.5.0-next.1",
+  "date": "2026-10-24T21:02:59.210041+00:00"
 }

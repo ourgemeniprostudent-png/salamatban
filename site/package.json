@@ -35,7 +35,8 @@
     "build:next:server": "node next/server/build.mjs",
     "start:next:server": "node dist-next-server/main.mjs",
     "test:next:goal": "node --test next/goal-fixtures.test.mjs next/goal-browser.test.mjs",
-    "test:next:episodes": "node --test next/episodes.test.mjs next/episodes-browser.test.mjs"
+    "test:next:episodes": "node --test next/episodes.test.mjs next/episodes-browser.test.mjs",
+    "test:next:programme": "node --test next/programme.test.mjs next/programme-browser.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

@@ -6,7 +6,7 @@ import {latestEpisode,episodeStatus,type CareEpisode,type EpisodeInput} from './
 import {Badge,Button,Empty,Field,Icon,Notice,fa} from './ui';
 const calendar=(value:number|string)=>new Date(typeof value==='string'?value+'T12:00:00+03:30':value).toLocaleDateString('fa-IR',{timeZone:'Asia/Tehran',year:'numeric',month:'short',day:'numeric'});
 type Send=(command:Command)=>Promise<boolean>;
-export type Locate=(kind:'file'|'plan'|'task'|'referral'|'encounter'|'message'|'episode',id:string)=>void;
+export type Locate=(kind:'file'|'review'|'plan'|'task'|'referral'|'encounter'|'message'|'episode',id:string)=>void;
 export function EpisodeSummary({record:c,episode:e,busy,send,onLocate,compact=false}:{record:CareCase;episode:CareEpisode;busy:boolean;send:Send;onLocate:Locate;compact?:boolean}){
  const v=e.versions.at(-1)!,status=episodeStatus(c,e),reply=status.reply,feedback=status.feedback;
  const [understood,U]=useState<boolean|null>(null),[nextClear,N]=useState<boolean|null>(null);

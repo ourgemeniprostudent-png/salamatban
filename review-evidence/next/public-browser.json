@@ -1,6 +1,6 @@
 {
-  "version": "3.4.0-next.1",
-  "checkedAt": "2026-10-24T20:11:11.371Z",
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T21:01:44.752Z",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
   "tlsVerification": true,
   "transport": "Browser responses routed through Playwright HTTPS requests with the system CA bundle; native Chromium lacks the managed proxy CA.",
@@ -14,8 +14,10 @@
     "Prepared corrected-report case has separate version review and a downloadable real watermarked PDF.",
     "New prepared member authenticates into the correct isolated patient chart.",
     "Published cycle summary explains the decision, remaining uncertainty and actual linked sources.",
-    "Negative understanding feedback creates a persistent physician follow-up in the published app."
+    "Negative understanding feedback creates a persistent physician follow-up in the published app.",
+    "Maryam has four specific sourced steps, a completed-period outcome and a working link to the actual referral.",
+    "Amir has a different five-step programme and cannot bypass the pending corrected-report explanation."
   ],
   "pageErrors": [],
-  "passed": 10
+  "passed": 12
 }

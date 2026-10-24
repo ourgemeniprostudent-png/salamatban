@@ -1,8 +1,8 @@
 {
-  "version": "3.4.0-next.1",
-  "checkedAt": "2026-10-24T20:14:41.108068+00:00",
+  "version": "3.5.0-next.1",
+  "checkedAt": "2026-10-24T21:02:59.211527+00:00",
   "objective": "Complete the new Salamatban demo against the supplied 12-part measurable goal",
-  "status": "complete_with_documented_limits",
+  "status": "prior comprehensive goal maintained; current programme content verified",
   "criteria": [
     {
       "id": "U01",
@@ -265,11 +265,11 @@
       "privateOriginalExcluded": true
     }
   ],
-  "automatedNextTests": 95,
+  "automatedNextTests": 111,
   "sharedComponentTests": 34,
-  "accessibilityScans": 36,
+  "accessibilityScans": 42,
   "seriousOrCriticalViolations": 0,
-  "publicBrowserChecks": 10,
+  "publicBrowserChecks": 12,
   "httpsAssetMatches": 46,
   "preservedPublicFiles": 564,
   "preservedBaselineBuildAssets": 70,
@@ -297,20 +297,19 @@
   "historicalGoal": "Historical G13/G15 remain unverified in goal/acceptance.json; current goal requires transparent reporting rather than those human/device tests as a prerequisite",
   "packageCheck": {
     "status": "passed",
-    "integrity": "passed",
-    "sourceBuild": "passed",
-    "comparedWebsiteAssets": 125,
-    "comparedServerAssets": 3,
-    "negativeArchivesRejected": 4,
-    "archiveReconstruction": "passed",
+    "archiveIntegrity": "passed",
+    "sourceRebuild": "125 website files and three prebuilt server files match",
+    "archiveReconstruction": "passed from delivered source without Git or a prior archive",
+    "negativeChecks": 4,
     "packagedServerChecks": 3,
-    "showcaseChecks": 9,
-    "showcaseImages": 30,
     "showcaseViewports": [
       320,
       390,
       768,
       1440
-    ]
-  }
+    ],
+    "showcaseScreenshots": 30,
+    "scope": "Source/build and delivery integrity; no public shared-server deployment"
+  },
+  "programmeRevisionEvidence": "programme-content.json"
 }

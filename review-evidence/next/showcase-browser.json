@@ -1,10 +1,10 @@
 {
-  "packageVersion": "3.4.0-next.1",
-  "nextExperience": "3.4.0-next.1",
+  "packageVersion": "3.5.0-next.1",
+  "nextExperience": "3.5.0-next.1",
   "appVersion": "2.4.7",
   "publicAppVersion": "2.4.7",
-  "baseUrl": "http://127.0.0.1:37941/",
-  "checkedAt": "2026-10-24T20:13:30.576Z",
+  "baseUrl": "http://127.0.0.1:41653/",
+  "checkedAt": "2026-10-24T21:01:58.451Z",
   "viewports": [
     {
       "width": 320,

@@ -1,16 +1,16 @@
 {
   "directFileFallback": "file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation",
-  "archive": "Salamatban-Complete-Delivery-v3.2.1-next.1.zip",
+  "archive": "Salamatban-Complete-Delivery-v3.4.0-next.1.zip",
   "integrity": "passed",
-  "manifestFiles": 783,
+  "manifestFiles": 820,
   "matchedCurrentFiles": {
-    "source": 544,
+    "source": 571,
     "website": 125
   },
-  "checkedLocalLinks": 669,
-  "checkedMirrors": 41,
+  "checkedLocalLinks": 696,
+  "checkedMirrors": 48,
   "guideSectionsMatchSources": 1,
-  "packageVersion": "3.2.1-next.1",
+  "packageVersion": "3.4.0-next.1",
   "appVersion": "2.4.7",
   "missingLinks": [],
   "exclusions": "passed",

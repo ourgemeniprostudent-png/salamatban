@@ -1,8 +1,8 @@
 {
-  "version": "3.2.1-next.1",
+  "version": "3.4.0-next.1",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
-  "previousPagesCommit": "c8de99924f6943c6611ae94a3f1a0de86f116eab",
-  "pagesCommit": "36eb674c45068e61192ed5aedf4ad68bea177ce9",
+  "previousPagesCommit": "84aa46eebc6ef72b003af1674e6ab49784aea994",
+  "pagesCommit": "eb258798467b34669c58193a2cb01ccd0b3bbc11",
   "preservedNonNextFiles": 564,
   "allExistingRoutesByteIdentical": true,
   "preservedRootVersion": "2.4.7",
@@ -74,6 +74,11 @@
     },
     {
       "file": "next/THIRD-PARTY-NOTICES.txt",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "file": "next/media/care-consultation.webp",
       "status": 200,
       "matches": true
     },
@@ -234,5 +239,5 @@
     }
   ],
   "httpsVerified": true,
-  "verifiedAt": "2026-10-24T13:42:34Z"
+  "verifiedAt": "2026-10-24T20:11:11Z"
 }

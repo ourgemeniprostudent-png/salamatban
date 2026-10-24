@@ -1,0 +1,54 @@
+{
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:10:46.959Z",
+  "baseline": "a0eda819c111639ae7883273e58fe43c867e3392",
+  "passed": true,
+  "checks": [
+    "immutable pre-change snapshot upgrades only untouched records",
+    "repeated migration does nothing",
+    "all original files, programmes and messages retained",
+    "edited record remains exactly intact"
+  ],
+  "counts": [
+    {
+      "phone": "09000000001",
+      "episodes": 0
+    },
+    {
+      "phone": "09000000002",
+      "episodes": 0
+    },
+    {
+      "phone": "09000000003",
+      "episodes": 4
+    },
+    {
+      "phone": "09000000004",
+      "episodes": 4
+    },
+    {
+      "phone": "09000000005",
+      "episodes": 4
+    },
+    {
+      "phone": "09000000006",
+      "episodes": 1
+    },
+    {
+      "phone": "09000000007",
+      "episodes": 1
+    },
+    {
+      "phone": "09000000008",
+      "episodes": 0
+    },
+    {
+      "phone": "09000000009",
+      "episodes": 0
+    },
+    {
+      "phone": "09000000010",
+      "episodes": 1
+    }
+  ]
+}

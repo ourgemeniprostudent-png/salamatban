@@ -1,0 +1,36 @@
+{
+  "version": "2.4.7",
+  "builtAssets": {
+    "index.html": "24b6d39c711dcbb0ec461b5b4062d9442f793e0cf8d52eba5b37422a7ceace0a",
+    "app.js": "98aaf6d2126c5a70b642d89d1a2934250da983512451b89680ae62d3ff584956",
+    "app.css": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313",
+    "data/care-facilities.geoapify.json": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d",
+    "demo/documents/manifest.json": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159",
+    "previews/value-before-payment/index.html": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234"
+  },
+  "configuredFixture": {
+    "endpoint": "https://maps.salamatban.example/api/maps/hospitals",
+    "assets": {
+      "app.js": "fa153a51ad2c3d1bcd0d492a1d603cbc473183be873413f0d32942e49caa6342",
+      "app.css": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313"
+    },
+    "mockedGateway": true,
+    "liveProviderVerified": false,
+    "scope": "Isolated demo bundle differs from the released app only by its public gateway configuration; no provider credential is bundled."
+  },
+  "completedAt": "2026-10-24T20:08:22.429Z",
+  "status": "passed",
+  "individualPassed": 8,
+  "pageErrors": [],
+  "checks": [
+    "consent artwork is animated blue on transparent white, with stable pause controls and reduced motion",
+    "returning member home keeps live floating artwork without a dark enclosing panel",
+    "a positive safety answer immediately opens specific emergency guidance without shifting the form",
+    "automatic hospital cards transmit only the city lookup and device location still requires explicit permission",
+    "correction returns focus to the actual triggering question without clearing the saved clinical flag",
+    "acknowledging guidance leaves clinical review gate intact and avoids payment banners in documents",
+    "rapid correction behind an existing autosave retains the urgent review flag after reload",
+    "failed urgent persistence preserves guidance and retries the positive snapshot before a correction"
+  ],
+  "lookupFixture": "Deterministic synthetic Geoapify gateway contract; no live key or provider request. Administrative place names only. Configured urgent screenshots show synthetic results; released static snapshot behavior is covered separately by reference-experience.test.mjs."
+}

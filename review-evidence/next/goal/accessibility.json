@@ -1,5 +1,5 @@
 {
-  "version": "3.2.1-next.1",
+  "version": "3.4.0-next.1",
   "engine": "axe-core 4.11, WCAG A/AA",
   "scans": [
     {
@@ -96,6 +96,42 @@
     },
     {
       "label": "09000000013 queue 1440",
+      "violations": []
+    },
+    {
+      "label": "grouped section 1 390",
+      "violations": []
+    },
+    {
+      "label": "grouped section 1 1440",
+      "violations": []
+    },
+    {
+      "label": "grouped section 3 390",
+      "violations": []
+    },
+    {
+      "label": "grouped section 3 1440",
+      "violations": []
+    },
+    {
+      "label": "grouped section 6 390",
+      "violations": []
+    },
+    {
+      "label": "grouped section 6 1440",
+      "violations": []
+    },
+    {
+      "label": "grouped section 8 390",
+      "violations": []
+    },
+    {
+      "label": "grouped section 8 1440",
+      "violations": []
+    },
+    {
+      "label": "photographic entry",
       "violations": []
     }
   ],

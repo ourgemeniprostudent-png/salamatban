@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/next/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'3.2.1-next.1',nextExperience:'3.2.1-next.1',appVersion:'2.4.7',publicAppVersion:'2.4.7',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'3.4.0-next.1',nextExperience:'3.4.0-next.1',appVersion:'2.4.7',publicAppVersion:'2.4.7',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -23,8 +23,8 @@ try{
  await p.locator('[data-nav="experience"]').click();await p.locator('#experience').waitFor({state:'visible'});
  for(const role of ['member','doctor','coordinator','admin']){await p.locator(`[data-role="${role}"]`).click();assert(await p.locator(`[data-role-panel="${role}"]`).isVisible());assert.equal(await p.locator('[data-role-panel]:visible').count(),1)}
  report.checks.push('four role walkthroughs');
- assert(await p.locator('#overview').innerText().then(text=>text.includes('مسیر تازه: ۳٫۲٫۱ آزمایشی ۱')&&text.includes('نسخهٔ قبلی: ۲٫۴٫۷')));
- assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/next/?v=3.2.1-next.1');
+ assert(await p.locator('#overview').innerText().then(text=>text.includes('مسیر تازه: ۳٫۴ آزمایشی ۱')&&text.includes('نسخهٔ قبلی: ۲٫۴٫۷')));
+ assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/next/?v=3.4.0-next.1');
  assert((await p.locator('#overview').innerText()).includes('فهرست ذخیره‌شده'));
  assert.equal(await p.locator('#overview a[href="technical/GEOAPIFY-INTEGRATION-fa.md"]').count(),1);
  report.checks.push('next preview and preserved v2.4.7 root are explicit, with snapshot status');
@@ -42,8 +42,8 @@ try{
  }
  report.checks.push('six recovered diagrams load, zoom, close and expose PNG/SVG files','current/target filters');
  await p.locator('[data-nav="gallery"]').click();await p.locator('#gallery').waitFor({state:'visible'});
- for(const key of ['login','welcome','consent','home','program','form','payment','doctor','coordinator','admin','urgent','demo-catalog','paid-preview','year-history','value-before-payment','appointments','next-welcome','next-question','next-home','next-doctor','next-care-referral','next-care-review','next-care-doctor','next-care-cover','next-trends','next-programme','next-sample-progress']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
- report.checks.push('twenty-seven current/retained screenshots and viewer');
+ for(const key of ['login','welcome','consent','home','program','form','payment','doctor','coordinator','admin','urgent','demo-catalog','paid-preview','year-history','value-before-payment','appointments','next-welcome','next-question','next-home','next-doctor','next-care-referral','next-care-review','next-care-doctor','next-care-cover','next-trends','next-programme','next-sample-progress','next-cycle-summary','next-entry','next-grouped']){await p.locator(`button.visual-open[data-view="${key}"]`).click();await p.waitForFunction(()=>{const i=document.querySelector('#viewer-image');return i.complete&&i.naturalWidth>0});assert(!(await p.locator('#download-svg').isVisible()));await p.locator('#close-viewer').click()}
+ report.checks.push('thirty current/retained screenshots and viewer');
  await p.locator('[data-nav="feedback"]').click();await p.locator('#feedback').waitFor({state:'visible'});
  await p.locator('#comment').fill('   ');await p.getByRole('button',{name:'آماده‌کردن بازخورد'}).click();assert(!(await p.locator('#feedback-result').isVisible()));
  const note='در بخش معماری، تفکیک نسخهٔ فعلی و طرح هدف روشن است. پیشنهاد: نمونهٔ بیشتری از مسیر کارشناس.';

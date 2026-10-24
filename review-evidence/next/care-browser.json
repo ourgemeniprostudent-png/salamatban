@@ -1,6 +1,6 @@
 {
-  "version": "3.2.1-next.1",
-  "checkedAt": "2026-10-24T13:40:49.598Z",
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:08:29.640Z",
   "passed": 7,
   "checks": [
     "patient history and private signed encounter lead to a clinician-owned specialist referral",

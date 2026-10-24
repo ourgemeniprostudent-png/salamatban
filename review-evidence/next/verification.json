@@ -1,12 +1,12 @@
 {
-  "version": "3.2.1-next.1",
-  "checkedAt": "2026-10-24T13:47:19.077845+00:00",
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:14:41.108068+00:00",
   "sources": [
     "team-overview(1).html care journey",
     "Archive.zip requirements and workflow specifications",
     "supplied meeting transcript"
   ],
-  "totalRunnerPassed": 77,
+  "totalRunnerPassed": 95,
   "failed": 0,
   "counts": {
     "coreBrowser": 10,
@@ -14,11 +14,13 @@
     "coreDomain": 6,
     "careDomain": 18,
     "careBrowser": 7,
-    "sharedAPI": 9,
+    "sharedAPI": 10,
     "sharedBrowserRoot": 1,
-    "suiteParents": 8,
+    "suiteParents": 10,
     "goalFixtures": 4,
-    "goalBrowser": 8
+    "goalBrowser": 10,
+    "episodeDomain": 7,
+    "episodeBrowser": 6
   },
   "typecheck": "passed",
   "lint": "passed without warnings",
@@ -27,7 +29,7 @@
   "oldRootVersion": "2.4.7",
   "fictionalPatients": 10,
   "release": {
-    "version": "3.2.1-next.1",
+    "version": "3.4.0-next.1",
     "path": "/salamatban/next/",
     "preservedAppVersion": "2.4.7",
     "backend": "browser-local on Pages; optional shared synthetic Care API in the complete delivery",
@@ -40,25 +42,28 @@
     "paidService": "not offered; pricing and purchase entitlements undecided",
     "assets": {
       "config.json": "92c596e94c9bccf7c81ea6a1332d36ce8b7faf5fa8f087739fb0e75436e2d53c",
-      "app.js": "fd1c2c459d1415980dfb826df8136aa7138b8a3419404cb80f423603f7f4044e",
-      "app.css": "e292c123070c57aba8ff20522b1716d1fe2a7d85732eb0ec575bc752b6d8819a",
-      "index.html": "5e7825de40b9a11ccb664affbad0616a1b3672f2db6503a4240c57c0d6ad9462",
+      "app.js": "f51512cd90aa09c827b1a6ead4dc0e69138233cd90d956a04372f028613c49b3",
+      "app.css": "71f3cbef488d75fb720fd9d0816e606740a220ac3d9d0d238230193520462c16",
+      "index.html": "a0022bd556d9d05ff51f0039bf6f292b34700afe979cc885d6ebddf8b4465bcb",
       "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
       "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
     }
   },
   "publishedMode": "browser-demo; optional shared synthetic server is packaged, not deployed publicly",
   "nativeFileScope": "Inline file bootstrap exercised in VM; managed Chromium blocks native file navigation",
-  "runnerOutput": "\n> sites-project@0.1.0 test:next\n> node --test next/model.test.mjs next/browser.test.mjs next/isolation.test.mjs next/care.test.mjs next/care-browser.test.mjs next/server/server.test.mjs next/server/browser.test.mjs\n\n▶ next lane real browser journeys\n  ✔ first question opens directly, unchecked consent and a single account entry at 320/390/768/1440 (3397.458171ms)\n  ✔ OTP, copy and invalid-code feedback remain visible inside the native dialog (1059.551362ms)\n  ✔ single-question intake, saved resume, city selection and Persian numbers produce an honest summary (7899.297674ms)\n  ✔ doctor clarification returns to the same member and visit request reaches only the assigned coordinator (3975.297257ms)\n  ✔ coordinator receives minimum fields, member confirms a proposal, and completed visit returns to doctor (3295.254671ms)\n  ✔ published personal/team actions appear as an illustrated mobile plan with correct completion ownership (3514.957943ms)\n  ✔ report return, exact-version physician explanation, document download and plan revision complete the loop (8366.557541ms)\n  ✔ authenticated adapter denies other records, wrong-role changes, stale versions and disguised HTML uploads (61.403941ms)\n  ✔ urgent help preserves layout and clinical ownership; operations cannot access chart content (4533.987393ms)\n  ✔ second doctor/coordinator, prepared member, phone back controls and reduced motion work across widths (13654.10431ms)\n✔ next lane real browser journeys (52249.81221ms)\n▶ HTML six-step care journey in the browser\n  ✔ patient history and private signed encounter lead to a clinician-owned specialist referral (7780.210401ms)\n  ✔ coordinator cannot imply acceptance before consent; partner acceptance and patient booking form a visible trail (7367.531356ms)\n  ✔ report review, publication and patient acknowledgement remain independent in the actual UI (3329.08209ms)\n  ✔ corrected report retains the former result and creates a separate pending review (2028.960963ms)\n  ✔ patient barrier, coordinator solution and accepted cover use the same clinical story (7380.621895ms)\n  ✔ membership demo, safe cancellation and record ZIP work from the single account entry (3723.758809ms)\n  ✔ all ten patient accounts authenticate into their own prepared story and preserve the selected identity on reload (32551.908611ms)\n✔ HTML six-step care journey in the browser (66007.661942ms)\n▶ source-aligned care ownership and state transitions\n  ✔ patient-reported history and signed encounter versions preserve private notes (58.228955ms)\n  ✔ referral sharing consent, partner acceptance and patient confirmation are distinct gates (35.141678ms)\n  ✔ receipt, review, publication, failed delivery, acknowledgement and followup stay independent (25.024147ms)\n  ✔ corrected report preserves prior review and creates a fresh responsibility (23.305149ms)\n  ✔ correction before first review transfers the old review duty without an impossible open item (29.044909ms)\n  ✔ uncertain matching is quarantined until explicit source reconciliation (31.286777ms)\n  ✔ a quarantined correction cannot close a referral or leave a superseded review duty open after matching (32.330402ms)\n  ✔ cover and return preserve ownership until acceptance; proposed cover has no chart access (24.73499ms)\n  ✔ declined or deferred action never becomes completed without a new patient decision (44.890442ms)\n  ✔ practical barriers require assigned coordination and patient agreement to resolve (34.47762ms)\n  ✔ membership cancellation retains documents and all open clinical work (24.755289ms)\n  ✔ an expired demo membership does not renew itself or erase the clinical record (41.582367ms)\n  ✔ legacy uploads acquire stable review ownership and a fully settled cancellation can complete without deleting the record (55.365659ms)\n  ✔ role, care relationship, purpose and organization restrict projections and mutations (36.813891ms)\n  ✔ global capacity, duplicate report events and stale versions reject competing changes (49.524058ms)\n  ✔ prepared reports point to their own actual PDF bytes and recorded checksums (55.501652ms)\n  ✔ operational deadlines use the Tehran calendar day across UTC midnight boundaries (23.406173ms)\n  ✔ record export produces a ZIP with structured data and Unicode document names (4.619362ms)\n✔ source-aligned care ownership and state transitions (639.499682ms)\n▶ old route isolation, concurrent edits and startup stability\n  ✔ old member record, auth session and selected entry lane survive use and logout of next (3845.626906ms)\n  ✔ an external saved edit cannot be silently overwritten by an already-open question; failed save does not move controls (3793.14464ms)\n  ✔ valid Persian numeric input is preserved by explicit pause before advancing (1798.029467ms)\n  ✔ delayed essential fonts settle before first interactive paint, native error feedback reserves space and direct-file bootstrap explains launch (VM; native navigation is blocked) (1792.761606ms)\n  ✔ unavailable font files fall back to a usable entry rather than blocking the app (1564.40999ms)\n  ✔ compact legal text keeps choices stable, reload retains explicit consent, logout stays signed out and existing roles are not replaced (3648.355965ms)\n✔ old route isolation, concurrent edits and startup stability (18841.056812ms)\n▶ next clinical ownership and transaction invariants\n  ✔ drafts and cross-patient records are inaccessible to unrelated roles (45.375312ms)\n  ✔ incomplete consent, invalid numbers and incompatible multi selections prevent submission (30.680321ms)\n  ✔ human handoffs require confirmation and exact report review; revised plans retain the prior version (37.760001ms)\n  ✔ revoking contact stops coordination without deleting clinical responsibilities (28.803797ms)\n  ✔ urgent concern blocks routine progression until the assigned doctor records the outcome (27.386316ms)\n  ✔ stale and repeated commands fail without duplicate work (26.14178ms)\n✔ next clinical ownership and transaction invariants (198.534923ms)\n✔ shared Care API drives two independent browser sessions and scoped document download (6553.004472ms)\n▶ shared synthetic Care API uses one durable server record\n  ✔ anonymous reads fail and shared mode is explicit (69.979286ms)\n  ✔ independent browser sessions reach the same record with different projections (73.410416ms)\n  ✔ CSRF, foreign origins, role boundaries and stale versions fail before a write (37.491963ms)\n  ✔ idempotency retries return one mutation and conflicting reuse is rejected (28.746771ms)\n  ✔ uploaded document bytes are signature checked, scoped, persisted and audited (44.112363ms)\n  ✔ historical PDF and PNG originals are scoped and match stored checksums (146.985445ms)\n  ✔ optional profile and support are server-authorized and exclude private chart data from operations (93.011922ms)\n  ✔ restart retains the authoritative record, immutable file bytes and existing sessions (1355.848069ms)\n  ✔ a SQLite backup restores the same records, documents and clinical responsibilities (698.846108ms)\n✔ shared synthetic Care API uses one durable server record (2844.666655ms)\nℹ tests 63\nℹ suites 0\nℹ pass 63\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 67187.435686\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n\n> sites-project@0.1.0 test:next:goal\n> node --test next/goal-fixtures.test.mjs next/goal-browser.test.mjs\n\n▶ goal presentation, responsive record, protected preview and accessibility\n  ✔ entry modes expose only matching patients, clear OTP and retain a direct first question (19909.080575ms)\n  ✔ real record counts and patient action appear above the fold on phone and desktop (1785.133627ms)\n  ✔ all patient sections remain usable across four widths without overflow (9709.599866ms)\n  ✔ historical plans, sourced chart and original PNG preview have usable detail (408.857574ms)\n  ✔ read-only service preview leaves the working identity, session and data unchanged (578.948696ms)\n  ✔ optional account details and support requests complete an actual patient-to-operations loop (3068.38075ms)\n  ✔ all four roles expose working queues at phone and desktop widths (6702.291209ms)\n  ✔ keyboard focus returns from the native account dialog and touch controls are large enough (557.680165ms)\n✔ goal presentation, responsive record, protected preview and accessibility (46443.576718ms)\n▶ goal longitudinal fixtures and safe upgrade\n  ✔ ten identities include three complete, distinct year-long care stories (2.223205ms)\n  ✔ every scoped original is nonempty, has the right signature and matches its manifest (304.297154ms)\n  ✔ edited records stay byte-for-byte intact while only untouched legacy fixtures upgrade (13.727146ms)\n  ✔ profile and support restore account capabilities without exposing clinical ownership (16.139931ms)\n✔ goal longitudinal fixtures and safe upgrade (569.76293ms)\nℹ tests 14\nℹ suites 0\nℹ pass 14\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 49475.271982\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n",
+  "runnerOutput": "\n> sites-project@0.1.0 test:next\n> node --test next/model.test.mjs next/browser.test.mjs next/isolation.test.mjs next/care.test.mjs next/care-browser.test.mjs next/server/server.test.mjs next/server/browser.test.mjs\n\n▶ next lane real browser journeys\n  ✔ first question opens directly, unchecked consent and a single account entry at 320/390/768/1440 (2507.747976ms)\n  ✔ OTP, copy and invalid-code feedback remain visible inside the native dialog (1204.813491ms)\n  ✔ six grouped sections preserve answers, validate in place and produce an honest sourced offer (4829.196395ms)\n  ✔ doctor clarification returns to the same member and visit request reaches only the assigned coordinator (3401.579143ms)\n  ✔ coordinator receives minimum fields, member confirms a proposal, and completed visit returns to doctor (3010.845256ms)\n  ✔ published personal/team actions appear as an illustrated mobile plan with correct completion ownership (2510.177855ms)\n  ✔ report return, exact-version physician explanation, document download and plan revision complete the loop (4721.615864ms)\n  ✔ authenticated adapter denies other records, wrong-role changes, stale versions and disguised HTML uploads (40.702607ms)\n  ✔ urgent help preserves layout and clinical ownership; operations cannot access chart content (1104.637901ms)\n  ✔ second doctor/coordinator, prepared member, phone back controls and reduced motion work across widths (2855.967856ms)\n✔ next lane real browser journeys (27355.545512ms)\n▶ HTML six-step care journey in the browser\n  ✔ patient history and private signed encounter lead to a clinician-owned specialist referral (4895.25424ms)\n  ✔ coordinator cannot imply acceptance before consent; partner acceptance and patient booking form a visible trail (6472.490345ms)\n  ✔ report review, publication and patient acknowledgement remain independent in the actual UI (2776.514851ms)\n  ✔ corrected report retains the former result and creates a separate pending review (2301.951117ms)\n  ✔ patient barrier, coordinator solution and accepted cover use the same clinical story (4226.228518ms)\n  ✔ membership demo, safe cancellation and record ZIP work from the single account entry (1786.554804ms)\n  ✔ all ten patient accounts authenticate into their own prepared story and preserve the selected identity on reload (6598.813113ms)\n✔ HTML six-step care journey in the browser (30194.901295ms)\n▶ source-aligned care ownership and state transitions\n  ✔ patient-reported history and signed encounter versions preserve private notes (40.082328ms)\n  ✔ referral sharing consent, partner acceptance and patient confirmation are distinct gates (15.189002ms)\n  ✔ receipt, review, publication, failed delivery, acknowledgement and followup stay independent (15.215613ms)\n  ✔ corrected report preserves prior review and creates a fresh responsibility (15.487331ms)\n  ✔ correction before first review transfers the old review duty without an impossible open item (13.908725ms)\n  ✔ uncertain matching is quarantined until explicit source reconciliation (14.650622ms)\n  ✔ a quarantined correction cannot close a referral or leave a superseded review duty open after matching (18.084543ms)\n  ✔ cover and return preserve ownership until acceptance; proposed cover has no chart access (20.576505ms)\n  ✔ declined or deferred action never becomes completed without a new patient decision (19.867769ms)\n  ✔ practical barriers require assigned coordination and patient agreement to resolve (13.367179ms)\n  ✔ membership cancellation retains documents and all open clinical work (15.246939ms)\n  ✔ an expired demo membership does not renew itself or erase the clinical record (17.388264ms)\n  ✔ legacy uploads acquire stable review ownership and a fully settled cancellation can complete without deleting the record (18.334488ms)\n  ✔ role, care relationship, purpose and organization restrict projections and mutations (41.867696ms)\n  ✔ global capacity, duplicate report events and stale versions reject competing changes (19.608386ms)\n  ✔ prepared reports point to their own actual PDF bytes and recorded checksums (36.035494ms)\n  ✔ operational deadlines use the Tehran calendar day across UTC midnight boundaries (35.79118ms)\n  ✔ record export produces a ZIP with structured data and Unicode document names (3.845641ms)\n✔ source-aligned care ownership and state transitions (380.599706ms)\n▶ old route isolation, concurrent edits and startup stability\n  ✔ old member record, auth session and selected entry lane survive use and logout of next (3521.055111ms)\n  ✔ an external saved edit cannot be silently overwritten by an already-open question; failed save does not move controls (1661.122645ms)\n  ✔ valid Persian numeric input is preserved by explicit pause before advancing (1625.222142ms)\n  ✔ delayed essential fonts settle before first interactive paint, native error feedback reserves space and direct-file bootstrap explains launch (VM; native navigation is blocked) (1355.095248ms)\n  ✔ unavailable font files fall back to a usable entry rather than blocking the app (1246.580951ms)\n  ✔ compact legal text keeps choices stable, reload retains explicit consent, logout stays signed out and existing roles are not replaced (2935.949886ms)\n✔ old route isolation, concurrent edits and startup stability (13500.098631ms)\n▶ next clinical ownership and transaction invariants\n  ✔ drafts and cross-patient records are inaccessible to unrelated roles (41.578616ms)\n  ✔ incomplete consent, invalid numbers and incompatible multi selections prevent submission (16.900928ms)\n  ✔ human handoffs require confirmation and exact report review; revised plans retain the prior version (16.788049ms)\n  ✔ revoking contact stops coordination without deleting clinical responsibilities (14.050526ms)\n  ✔ urgent concern blocks routine progression until the assigned doctor records the outcome (12.73123ms)\n  ✔ stale and repeated commands fail without duplicate work (14.19249ms)\n✔ next clinical ownership and transaction invariants (118.271887ms)\n✔ shared Care API drives two independent browser sessions and scoped document download (4282.781909ms)\n▶ shared synthetic Care API uses one durable server record\n  ✔ anonymous reads fail and shared mode is explicit (60.849233ms)\n  ✔ independent browser sessions reach the same record with different projections (75.19714ms)\n  ✔ CSRF, foreign origins, role boundaries and stale versions fail before a write (61.567865ms)\n  ✔ idempotency retries return one mutation and conflicting reuse is rejected (24.712569ms)\n  ✔ uploaded document bytes are signature checked, scoped, persisted and audited (25.084608ms)\n  ✔ historical PDF and PNG originals are scoped and match stored checksums (35.314316ms)\n  ✔ optional profile and support are server-authorized and exclude private chart data from operations (49.026361ms)\n  ✔ cycle feedback travels through independent server sessions without closing medical review (45.244559ms)\n  ✔ restart retains the authoritative record, immutable file bytes and existing sessions (161.374268ms)\n  ✔ a SQLite backup restores the same records, documents and clinical responsibilities (148.660765ms)\n✔ shared synthetic Care API uses one durable server record (892.098555ms)\nℹ tests 64\nℹ suites 0\nℹ pass 64\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 30533.945318\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n\n\n> sites-project@0.1.0 test:next:goal\n> node --test next/goal-fixtures.test.mjs next/goal-browser.test.mjs\n\n▶ goal presentation, responsive record, protected preview and accessibility\n  ✔ entry modes expose only matching patients, clear OTP and retain a direct first question (2669.748148ms)\n  ✔ real record counts and patient action appear above the fold on phone and desktop (1214.891607ms)\n  ✔ all patient sections remain usable across four widths without overflow (5888.70034ms)\n  ✔ historical plans, sourced chart and original PNG preview have usable detail (280.465779ms)\n  ✔ read-only service preview leaves the working identity, session and data unchanged (372.853365ms)\n  ✔ optional account details and support requests complete an actual patient-to-operations loop (2274.397383ms)\n  ✔ all four roles expose working queues at phone and desktop widths (4239.847437ms)\n  ✔ grouped intake keeps all related fields readable and accessible at four widths (5297.501979ms)\n  ✔ photographic entry keeps form right, categorized accounts below and accessible identity details (1157.345417ms)\n  ✔ keyboard focus returns from the native account dialog and touch controls are large enough (575.518297ms)\n✔ goal presentation, responsive record, protected preview and accessibility (24720.539461ms)\n▶ goal longitudinal fixtures and safe upgrade\n  ✔ ten identities include three complete, distinct year-long care stories (0.783622ms)\n  ✔ every scoped original is nonempty, has the right signature and matches its manifest (26.315258ms)\n  ✔ edited records stay byte-for-byte intact while only untouched legacy fixtures upgrade (2.368913ms)\n  ✔ profile and support restore account capabilities without exposing clinical ownership (1.766394ms)\n✔ goal longitudinal fixtures and safe upgrade (35.425909ms)\nℹ tests 16\nℹ suites 0\nℹ pass 16\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 25187.86005\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n\n\n> sites-project@0.1.0 test:next:episodes\n> node --test next/episodes.test.mjs next/episodes-browser.test.mjs\n\n▶ patient value story and actual clarification handoff\n  ✔ a named patient sees a meaningful explanation, original source and exact coordination result (1238.445731ms)\n  ✔ each period has its own question and direct links reveal its old plan (178.714462ms)\n  ✔ a negative answer reaches the doctor, whose reply waits for patient confirmation (1749.960103ms)\n  ✔ the clinician publishes a source-linked revision and prior content stays visible (1752.889348ms)\n  ✔ feedback and cycle details remain readable, accessible and stable across widths (1273.298279ms)\n  ✔ a pending patient decision stays the primary live action above the dated cycle summary (699.820328ms)\n✔ patient value story and actual clarification handoff (7656.188639ms)\n▶ evidence-linked cycle results and patient understanding\n  ✔ only the current clinician publishes using verified sources of this patient (38.009048ms)\n  ✔ summary revisions preserve prior content and reject old-version feedback (13.904258ms)\n  ✔ negative feedback creates one owned duty and cannot silently close it (13.360001ms)\n  ✔ a reply awaits patient confirmation and closes only the communication duty (13.420943ms)\n  ✔ corrected reports stay pending despite an older cycle explanation (12.327042ms)\n  ✔ untouched stories upgrade without changing edited content or originals (53.690392ms)\n  ✔ all four periods of three long stories have distinct questions and linked sources (11.849986ms)\n✔ evidence-linked cycle results and patient understanding (164.585499ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 7995.709636\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.1\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1\nnpm notice To update run: npm install -g npm@12.2.1\nnpm notice\n",
   "packageCheck": {
     "status": "passed",
-    "compiledWebsiteAssets": 125,
-    "compiledServerAssets": 3,
+    "integrity": "passed",
+    "sourceBuild": "passed",
+    "comparedWebsiteAssets": 125,
+    "comparedServerAssets": 3,
     "negativeArchivesRejected": 4,
-    "sourceReconstruction": "passed",
+    "archiveReconstruction": "passed",
     "packagedServerChecks": 3,
-    "dashboardBrowserChecks": 9,
-    "dashboardWidths": [
+    "showcaseChecks": 9,
+    "showcaseImages": 30,
+    "showcaseViewports": [
       320,
       390,
       768,
@@ -66,28 +71,27 @@
     ]
   },
   "publicBrowser": {
-    "passed": 6,
+    "passed": 10,
     "source": "public-browser.json",
     "tlsVerification": true,
     "transport": "System-CA-verified Playwright HTTPS response routing"
   },
   "httpsPublication": {
-    "assets": 45,
+    "assets": 46,
     "source": "publication.json",
-    "pagesCommit": "36eb674c45068e61192ed5aedf4ad68bea177ce9",
+    "pagesCommit": "eb258798467b34669c58193a2cb01ccd0b3bbc11",
     "preservedNonNextFiles": 564
   },
-  "goalStatus": "blocked on five fresh human participants and physical Android/iPhone checks; software checks passed",
+  "goalStatus": "complete within the current software goal; human/device and operational limitations documented",
   "automatedAccessibility": {
-    "scans": 24,
+    "scans": 36,
     "seriousOrCritical": 0,
-    "source": "goal/accessibility.json"
+    "sources": [
+      "goal/accessibility.json",
+      "episodes-browser.json"
+    ]
   },
-  "unverifiedCriteria": [
-    "G13 five fresh human participants",
-    "G15 physical Android Chrome and iPhone Safari"
-  ],
-  "scope": "Automated software, publication and package checks; fresh-human and physical-device acceptance is not performed",
+  "scope": "Current 12-part software goal; browser and shared synthetic server checks. No fresh human or physical-device acceptance is claimed.",
   "sampleCompletion": {
     "testedBars": 9,
     "verifiedPercentages": [
@@ -101,6 +105,36 @@
       1440
     ],
     "basis": "completed actions in the prepared current programme",
-    "publicScope": "45 published assets matched; 6 existing public browser checks passed"
+    "publicScope": "46 published assets and 10 public browser checks passed"
+  },
+  "careValueGoal": {
+    "status": "implemented and tested",
+    "criteria": [
+      "V01",
+      "V02",
+      "V03",
+      "V04",
+      "V05"
+    ],
+    "evidence": [
+      "episodes-domain.json",
+      "episodes-browser.json",
+      "episodes-upgrade.json"
+    ],
+    "publicChecks": "cycle explanation and negative-feedback persistence verified on the published site"
+  },
+  "sharedComponentChecks": {
+    "runnerPassed": 34,
+    "location": 25,
+    "urgent": 9,
+    "source": "completion-goal.json"
+  },
+  "historicalGoal": {
+    "status": "not fully verified",
+    "unverifiedCriteria": [
+      "G13 five fresh human participants",
+      "G15 physical Android Chrome and iPhone Safari"
+    ],
+    "source": "goal/acceptance.json"
   }
 }

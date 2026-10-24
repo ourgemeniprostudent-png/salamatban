@@ -38,7 +38,7 @@ test('Immediate urgent assistance and floating member artwork', {timeout:180000}
  async function noPageOverflow(){assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No horizontal overflow');}
  const assistance=()=>page.locator('dialog.urgent-assistance');
  const radio=(id,name)=>page.locator(`[data-question="${id}"]`).getByRole('radio',{name,exact:true});
- await page.goto(origin);await login();
+ await page.goto(origin+'/?lane=practice');await login();
  await check('consent artwork is animated blue on transparent white, with stable pause controls and reduced motion',async()=>{
   await page.getByRole('button',{name:'شروع آشنایی',exact:true}).click();await page.locator('.consent-intro').waitFor();
   await sceneState('.consent-visual','running');
@@ -101,7 +101,7 @@ test('Immediate urgent assistance and floating member artwork', {timeout:180000}
   await page.getByRole('button',{name:'ذخیره و مرحله بعد ←',exact:true}).click();await page.getByRole('heading',{name:'سوابق و سبک زندگی',exact:true}).waitFor();await page.getByRole('button',{name:'ادامه به عادت‌های روزانه ←',exact:true}).click();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←',exact:true}).click();await page.getByRole('heading',{name:'مدارک',exact:true}).waitFor();await page.getByRole('button',{name:'ذخیره و مرحله بعد ←',exact:true}).click();await page.getByRole('heading',{name:'مرور نهایی',exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'شروع پرداخت نمایشی',exact:true}).isDisabled(),true);
  });
  await check('failed urgent persistence preserves guidance and retries the positive snapshot before a correction',async()=>{
-  await context.close();context=await browser.newContext({viewport:{width:1440,height:1000}});await mockPublicLookup(context);page=await context.newPage();page.setDefaultTimeout(12000);page.on('pageerror',e=>pageErrors.push(e.message));await page.goto(origin);await login();await fixture();await navigateProduct(page,'تکمیل پرونده');await page.getByRole('heading',{name:'علائم مهم',exact:true}).waitFor();
+  await context.close();context=await browser.newContext({viewport:{width:1440,height:1000}});await mockPublicLookup(context);page=await context.newPage();page.setDefaultTimeout(12000);page.on('pageerror',e=>pageErrors.push(e.message));await page.goto(origin+'/?lane=practice');await login();await fixture();await navigateProduct(page,'تکمیل پرونده');await page.getByRole('heading',{name:'علائم مهم',exact:true}).waitFor();
   await page.evaluate(()=>{const original=navigator.locks.request.bind(navigator.locks);let fail=true;navigator.locks.request=(name,...args)=>{if(fail&&name.startsWith('salamatban-presentation-v1:')){fail=false;return Promise.reject(new Error('Synthetic critical write failure'));}return original(name,...args);};window.restoreLocks=()=>{navigator.locks.request=original;};});
   await radio('urgent_chest_pain','بله').check();await assistance().waitFor();await page.getByRole('button',{name:'تلاش دوباره برای ذخیره',exact:true}).waitFor();assert.equal(await radio('urgent_chest_pain','بله').isChecked(),true);
   await assistance().getByRole('button',{name:'اشتباه زدم؛ پاسخ را اصلاح می‌کنم',exact:true}).click();await assistance().waitFor({state:'detached'});await radio('urgent_chest_pain','خیر').check();await page.getByRole('button',{name:'تلاش دوباره برای ذخیره',exact:true}).click();await page.evaluate(()=>window.restoreLocks());

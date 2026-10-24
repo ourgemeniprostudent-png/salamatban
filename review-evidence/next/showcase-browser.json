@@ -1,10 +1,10 @@
 {
-  "packageVersion": "3.2.1-next.1",
-  "nextExperience": "3.2.1-next.1",
+  "packageVersion": "3.4.0-next.1",
+  "nextExperience": "3.4.0-next.1",
   "appVersion": "2.4.7",
   "publicAppVersion": "2.4.7",
-  "baseUrl": "http://127.0.0.1:4238/",
-  "checkedAt": "2026-10-24T13:45:15.766Z",
+  "baseUrl": "http://127.0.0.1:37941/",
+  "checkedAt": "2026-10-24T20:13:30.576Z",
   "viewports": [
     {
       "width": 320,
@@ -33,7 +33,7 @@
     "current role architecture is directly reachable from product experience",
     "six recovered diagrams load, zoom, close and expose PNG/SVG files",
     "current/target filters",
-    "twenty-seven current/retained screenshots and viewer",
+    "thirty current/retained screenshots and viewer",
     "feedback whitespace validation, local draft reload, generated text, download and stale-output invalidation",
     "feedback works when browser storage is blocked",
     "keyboard skip link and concise guide"

@@ -1,0 +1,14 @@
+{
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:09:59.492Z",
+  "passed": 7,
+  "checks": [
+    "only the current clinician publishes using verified sources of this patient",
+    "summary revisions preserve prior content and reject old-version feedback",
+    "negative feedback creates one owned duty and cannot silently close it",
+    "a reply awaits patient confirmation and closes only the communication duty",
+    "corrected reports stay pending despite an older cycle explanation",
+    "untouched stories upgrade without changing edited content or originals",
+    "all four periods of three long stories have distinct questions and linked sources"
+  ]
+}

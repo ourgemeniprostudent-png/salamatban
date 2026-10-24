@@ -1,10 +1,10 @@
 {
-  "version": "3.2.1-next.1",
-  "date": "2026-10-24T13:40:35.747Z",
+  "version": "3.4.0-next.1",
+  "date": "2026-10-24T20:08:26.893Z",
   "checks": [
     "first question opens directly, unchecked consent and a single account entry at 320/390/768/1440",
     "OTP, copy and invalid-code feedback remain visible inside the native dialog",
-    "single-question intake, saved resume, city selection and Persian numbers produce an honest summary",
+    "six grouped sections preserve answers, validate in place and produce an honest sourced offer",
     "doctor clarification returns to the same member and visit request reaches only the assigned coordinator",
     "coordinator receives minimum fields, member confirms a proposal, and completed visit returns to doctor",
     "published personal/team actions appear as an illustrated mobile plan with correct completion ownership",

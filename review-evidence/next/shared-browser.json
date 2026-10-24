@@ -1,6 +1,6 @@
 {
-  "version": "3.2.1-next.1",
-  "checkedAt": "2026-10-24T13:40:10.947Z",
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:08:18.315Z",
   "passed": 1,
   "independentBrowserContexts": 2,
   "checks": [

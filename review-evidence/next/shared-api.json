@@ -1,7 +1,7 @@
 {
-  "version": "3.2.1-next.1",
-  "checkedAt": "2026-10-24T13:40:14.091Z",
-  "passed": 9,
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:08:19.404Z",
+  "passed": 10,
   "checks": [
     "anonymous reads fail and shared mode is explicit",
     "independent browser sessions reach the same record with different projections",
@@ -10,6 +10,7 @@
     "uploaded document bytes are signature checked, scoped, persisted and audited",
     "historical PDF and PNG originals are scoped and match stored checksums",
     "optional profile and support are server-authorized and exclude private chart data from operations",
+    "cycle feedback travels through independent server sessions without closing medical review",
     "restart retains the authoritative record, immutable file bytes and existing sessions",
     "a SQLite backup restores the same records, documents and clinical responsibilities"
   ],

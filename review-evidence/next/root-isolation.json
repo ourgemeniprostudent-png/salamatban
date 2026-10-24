@@ -1,0 +1,289 @@
+{
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:12:05.388449+00:00",
+  "baselineCommit": "a0eda819c111639ae7883273e58fe43c867e3392",
+  "baselineArchive": "deployments/salamatban-demo.zip",
+  "passed": true,
+  "comparedFiles": [
+    {
+      "file": ".htaccess",
+      "sha256": "80337192a99b572b5f4ccde68f0805bdfe802c8064dafb49869ddd1c46e2ed4c"
+    },
+    {
+      "file": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "1951c663fa76670412409f3f8617537b754fc4a3f827d80a12e35aa9d526a55b"
+    },
+    {
+      "file": "app.css",
+      "sha256": "ca02df7debd4228b1328f3e603d92c01ef79a9dc50c1a0ab73bf386e39b93313"
+    },
+    {
+      "file": "app.js",
+      "sha256": "98aaf6d2126c5a70b642d89d1a2934250da983512451b89680ae62d3ff584956"
+    },
+    {
+      "file": "assets/layers-2x-TBM42ERR.png",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
+    },
+    {
+      "file": "assets/layers-55W3Q4RM.png",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
+    },
+    {
+      "file": "assets/marker-icon-2V3QKKVC.png",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+    },
+    {
+      "file": "brand/README-fa.md",
+      "sha256": "a2bb84bb3dc1ea682eeb4e178be5294434d9020d6184cd5f3eae2515ec2adff1"
+    },
+    {
+      "file": "brand/fonts.json",
+      "sha256": "75c3b3876c355079127b9a42544f83b20fd12b4d65a9ad8c3fd0486fedaa6ab1"
+    },
+    {
+      "file": "brand/index.html",
+      "sha256": "51388ff567d22422824c5e1c98c13fd1b0f7844c18589f052384024806f2ed08"
+    },
+    {
+      "file": "brand/logo-mono.svg",
+      "sha256": "37f8e6d52965c11f0e8e8d1601a635bd5c7582e68dc2d2254a9964fd7f1df5d9"
+    },
+    {
+      "file": "brand/logo-reverse.svg",
+      "sha256": "64ccc7986a07be06ac4a66f0ccc76c461097637eed84557f8a6a5f6086a657e5"
+    },
+    {
+      "file": "brand/logo.svg",
+      "sha256": "1323fa4a9397070a7e31d62f709f9b5d3f3e9857bc5d99beaf2267509428f6d7"
+    },
+    {
+      "file": "brand/social-card.html",
+      "sha256": "3b5b10c50e96396fc7c4df09af62fbe3c2471ae44378b458c821bf642d0a612a"
+    },
+    {
+      "file": "brand/symbol.svg",
+      "sha256": "1d998047ee702d9ecb2bb330b31a0152fdb9bcaff998a00e477b6d9e0df36055"
+    },
+    {
+      "file": "brand/tokens.json",
+      "sha256": "0e0f32392cb44abaf27cea6d47331d5619f7a5ad50f4d3e45db0f985491a1d98"
+    },
+    {
+      "file": "data/care-facilities.geoapify.json",
+      "sha256": "553ba22cc68f251dc92b5d6cb94eab23ce735b03d467eb2956cc7e2b9651d44d"
+    },
+    {
+      "file": "demo/documents/51-image.jpg",
+      "sha256": "1988aaa2d78e2ebbad3cd617e3802c6e81b7b2d92fb7883abe8b45e5af7694b2"
+    },
+    {
+      "file": "demo/documents/51-lab.pdf",
+      "sha256": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
+    },
+    {
+      "file": "demo/documents/51-log.pdf",
+      "sha256": "59044126faaae102dcc0aa64137c43935b87919b4f46869ed7cf697efcbba7f9"
+    },
+    {
+      "file": "demo/documents/51-referral.pdf",
+      "sha256": "9d0d32324c76e342ac27e28d8bc9303e45f8b3d3a9ae58bc4c7b550e318e7e22"
+    },
+    {
+      "file": "demo/documents/51-visit.pdf",
+      "sha256": "981a3f880f7d21c8c5595d0c0a92b9b5cab2514908e2a2b186d2c736efaf5516"
+    },
+    {
+      "file": "demo/documents/52-image.jpg",
+      "sha256": "e8c47e355ac182a02a1d0d36965d72202521d8f9187a49da418b7969d209d6e1"
+    },
+    {
+      "file": "demo/documents/52-lab.pdf",
+      "sha256": "a7d657b6eae454e5b5baa4557320825123ac501132c4535b51c691d6ed035941"
+    },
+    {
+      "file": "demo/documents/52-log.pdf",
+      "sha256": "dffac4b050d7f0f9db38eb2b96238974171639182e55698f98feda0231da19a8"
+    },
+    {
+      "file": "demo/documents/52-referral.pdf",
+      "sha256": "d7da5601b9f34234e0b68eea2f12cd544cffc2f403735a895cacaf38b67a01a9"
+    },
+    {
+      "file": "demo/documents/52-visit.pdf",
+      "sha256": "8ccc44cc62cd1c5b4e990cde2b218352b38f0c4ca0f33b4229323387977d555f"
+    },
+    {
+      "file": "demo/documents/53-image.jpg",
+      "sha256": "e0b0cda8a3f530be417e4106cd487f1a0678f8c8ae06464bef8e11af4cf34fb6"
+    },
+    {
+      "file": "demo/documents/53-lab.pdf",
+      "sha256": "0bd477905ad06f07afab3a63782ef7efafb3a18ee5abff0ee2a72b2070b6f51e"
+    },
+    {
+      "file": "demo/documents/53-log.pdf",
+      "sha256": "6fe466f671279b36d7d0d874bd44f2742853a769353373e1b66b83243aabfead"
+    },
+    {
+      "file": "demo/documents/53-referral.pdf",
+      "sha256": "e3cfe0b04c1dce7487d199eacb7eb8399cf4c677c2cee0e2c521c866a3f6501b"
+    },
+    {
+      "file": "demo/documents/53-visit.pdf",
+      "sha256": "cb4a80b543dcadc9a7fe025e0d611dc0b13e443b11453f9c093546a3a44772a1"
+    },
+    {
+      "file": "demo/documents/54-lab.pdf",
+      "sha256": "27197eb11c8ccf58a485a1e79a2a7f0d2bbed65f5e7ebd686aa554a3f3479dd9"
+    },
+    {
+      "file": "demo/documents/54-referral.pdf",
+      "sha256": "ffaf9c7c14dee75022af0e18f7048f86e26e93c794acb827f9972542590b18d8"
+    },
+    {
+      "file": "demo/documents/54-visit.pdf",
+      "sha256": "22a1513548fb5eb67626fc92d024e99d5d53fe14f172901d951f84bd09b6ed51"
+    },
+    {
+      "file": "demo/documents/55-lab.pdf",
+      "sha256": "014745981fd5d6f5e418e1ee8e503e626b8ea8ceaf9a8081c992f0580d2c373b"
+    },
+    {
+      "file": "demo/documents/55-referral.pdf",
+      "sha256": "4bda6d7080b7e2f2b03adb039a86462eb4c984e2682f60c35bd54761321fecc4"
+    },
+    {
+      "file": "demo/documents/55-visit.pdf",
+      "sha256": "78cc9a00dc6d2e965aeb45889ab950f5302ba593ff4d8f378978a602662e509f"
+    },
+    {
+      "file": "demo/documents/56-lab.pdf",
+      "sha256": "fd2cde5dd4c0497f7b1a4d0b64cd25e100d284503fef27875989c8196b23f8bd"
+    },
+    {
+      "file": "demo/documents/56-referral.pdf",
+      "sha256": "b795acf9666e953061a0b1fdc7baed69b32a19a45851a251cb83620b5cfc660b"
+    },
+    {
+      "file": "demo/documents/56-visit.pdf",
+      "sha256": "f2191e14d3184f2c0a7b9c28096cc8133328ff87e849778ca74c7e41403119bf"
+    },
+    {
+      "file": "demo/documents/57-image.jpg",
+      "sha256": "a09e81e2544d8dc7c63b97603de494237495fc8955f37e3c42b3c5962931442b"
+    },
+    {
+      "file": "demo/documents/57-lab.pdf",
+      "sha256": "1e253c98a1d52c7667f1ad733754b25e5ad903bd5ccee5b3d2bec3ed04375c58"
+    },
+    {
+      "file": "demo/documents/58-image.jpg",
+      "sha256": "8ea798a719b0866ebaf620400663fd54bb23f0f29af2c3fccc28d597d20b33f7"
+    },
+    {
+      "file": "demo/documents/58-lab.pdf",
+      "sha256": "c50e49cd849e7eb164582015ab14238ea7d2197a9e08d875fcc1bac52445d799"
+    },
+    {
+      "file": "demo/documents/59-image.jpg",
+      "sha256": "7dfa8772ffcfdc35faed212689906e8c4baf616020578b98de57e98f5facb83d"
+    },
+    {
+      "file": "demo/documents/59-lab.pdf",
+      "sha256": "8729a56a5eaffeaa5c1179e83d63c1c7681b5ff2c08ade812119748458295c81"
+    },
+    {
+      "file": "demo/documents/60-image.jpg",
+      "sha256": "48fa988dacb1e6554585900a5f2d69d9d17945bd9a8238008ef367d4efc25731"
+    },
+    {
+      "file": "demo/documents/60-lab.pdf",
+      "sha256": "03eabce4b8953d2660395eaa1f57b72cfa5b4fe2c64d21d4494fd93f91f75ccc"
+    },
+    {
+      "file": "demo/documents/manifest.json",
+      "sha256": "df971d64d645744e5bd6c9951698e6faa7e286a91b40bb59941ebdd68a43c159"
+    },
+    {
+      "file": "favicon.svg",
+      "sha256": "1d998047ee702d9ecb2bb330b31a0152fdb9bcaff998a00e477b6d9e0df36055"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Black.woff2",
+      "sha256": "d599ab6944071cf38db6a93200ce384461a79a4715f7896b7708af7b3bc4da33"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Bold.woff2",
+      "sha256": "ba1f45b4814d3b242b4a81abe7207fa518bbc010c4c10217b057ca4eacfd3220"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-ExtraBold.woff2",
+      "sha256": "31fa8ce338a9ec29b1f13fb60623a4288142e316e8e129288df44e210f41a13b"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-ExtraLight.woff2",
+      "sha256": "c688a839a1813e2423d2cbba3a18129a6ee53a2aff03997ba7bc885251d26007"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Light.woff2",
+      "sha256": "9bca090cd9cd8f8aff47b82fa48492f723cce0039904799017c6cf5be8e44dc2"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Medium.woff2",
+      "sha256": "bb26a3f83196128141191abd53557aaa402af1cf41785e763bd7e704f36373d1"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Regular.woff2",
+      "sha256": "bcdf594697b2ba52ac758ea7139e801a32fc3a1dfa5407e7100be72a1ef271de"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-SemiBold.woff2",
+      "sha256": "9a8255e578cac803b2378b131630736eb69cdc58dcb53df1644adc1ed4b568fa"
+    },
+    {
+      "file": "fonts/PeydaWebFaNum-Thin.woff2",
+      "sha256": "d87cfe700933b1c5e121863f3ba8b4d2fdce16f7657d72217ce17a9e2bd78b60"
+    },
+    {
+      "file": "index.html",
+      "sha256": "24b6d39c711dcbb0ec461b5b4062d9442f793e0cf8d52eba5b37422a7ceace0a"
+    },
+    {
+      "file": "media/README-fa.txt",
+      "sha256": "1cf84e1c8f781a432c28f41e1edc0609c9dd166e4665fc0587e2fc9d63018c52"
+    },
+    {
+      "file": "media/README.md",
+      "sha256": "023b7966aecd34fbb682e9fad961e9875cf50bb4df63e0e2009ff983c46e2e3b"
+    },
+    {
+      "file": "media/care-consultation.webp",
+      "sha256": "cc82fb07657312644b71602d8645cb557c0591075ea72d448b3e77e39e6f2037"
+    },
+    {
+      "file": "media/care-team.webp",
+      "sha256": "10ba13eada75bfa3816baa2d2919fe4e2aa57efb3a0455ba103e24197b96997c"
+    },
+    {
+      "file": "og.png",
+      "sha256": "b54165c005ee405a9687b53e528b2c9a7a5c20c63b152c84239664e2d4954785"
+    },
+    {
+      "file": "previews/value-before-payment/Salamatban-Value-Preview.html",
+      "sha256": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234"
+    },
+    {
+      "file": "previews/value-before-payment/index.html",
+      "sha256": "c095b1540c93ad83f5ce3138ed635164153e664cf2e31c921100f60587447234"
+    },
+    {
+      "file": "release.json",
+      "sha256": "99034e4c3e05f8db4feba79fcecea9c2dd15d604123a4fc0c559a60aa6c39f9a"
+    },
+    {
+      "file": "sql-wasm.wasm",
+      "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a"
+    }
+  ]
+}

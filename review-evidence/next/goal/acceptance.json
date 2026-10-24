@@ -1,5 +1,5 @@
 {
-  "version": "3.2.1-next.1",
+  "version": "3.4.0-next.1",
   "goalStatus": "blocked",
   "softwareStatus": "verified within tested scope",
   "criteria": [
@@ -79,16 +79,28 @@
       "reason": "No physical Android/iPhone is attached"
     }
   ],
-  "automatedTests": 77,
+  "automatedTests": 95,
   "failed": 0,
-  "axeScans": 24,
+  "axeScans": 36,
   "seriousOrCriticalAxeViolations": 0,
-  "publicAssetHashes": 45,
+  "publicAssetHashes": 46,
   "baselineBuildAssetsPreserved": 70,
   "existingPagesFilesPreserved": 564,
   "sourceRebuiltAssets": 125,
   "zipGuide": "NEXT-GOAL-fa.md",
   "humanParticipants": 0,
   "physicalDevices": 0,
-  "sampleCompletion": "Current prepared programme actions; nine member progress bars; 100/50/0 and 320/390/1440 widths verified"
+  "sampleCompletion": "Current prepared programme actions; nine member progress bars; 100/50/0 and 320/390/1440 widths verified",
+  "careValueGoal": {
+    "status": "implemented and tested",
+    "criteria": [
+      "V01",
+      "V02",
+      "V03",
+      "V04",
+      "V05"
+    ]
+  },
+  "scope": "Historical G01–G15 criteria, separate from the current 12-part goal",
+  "currentComprehensiveGoal": "../completion-goal.json"
 }

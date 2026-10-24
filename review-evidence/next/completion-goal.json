@@ -1,0 +1,316 @@
+{
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:14:41.108068+00:00",
+  "objective": "Complete the new Salamatban demo against the supplied 12-part measurable goal",
+  "status": "complete_with_documented_limits",
+  "criteria": [
+    {
+      "id": "U01",
+      "source": "Goal بخش ۱ و مراجع",
+      "implementation": "حفظ کار موجود؛ تطبیق نیازمندی‌ها و حدود محصول",
+      "acceptance": "هر بخش Goal دارای محل پیاده‌سازی، آزمون و محدودیت روشن باشد",
+      "evidence": "همین جدول، NEXT-REQUIREMENTS و NEXT-PARITY",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U02",
+      "source": "Goal بخش ۲",
+      "implementation": "مسیر، نشست و ذخیرهٔ مستقل",
+      "acceptance": "استفاده از مسیر جدید، داده و نشست قبلی را تغییر ندهد؛ انتشار فقط پیشوند next را تغییر دهد",
+      "evidence": "isolation.json، publication.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U03a",
+      "source": "Goal بخش ۳",
+      "implementation": "دو انتخاب برجستهٔ تمرین/نمونه",
+      "acceptance": "فهرست بیماران با حالت انتخابی تغییر کند؛ نقش قبلی روی reload حفظ شود",
+      "evidence": "browser.json، goal/experience.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U03b",
+      "source": "Goal بخش ۳",
+      "implementation": "فرم راست، عکس مشاوره چپ، گروه‌های نقش در پایین",
+      "acceptance": "چیدمان در دسکتاپ اندازه‌گیری شود؛ در چهار عرض overflow نداشته باشد",
+      "evidence": "آزمون photographic entry در goal/experience.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U03c",
+      "source": "Goal بخش ۳",
+      "implementation": "نام و شماره، کد قابل کپی، درصد برنامه و جزئیات حساب",
+      "acceptance": "انتخاب، شماره را پر کند؛ کپی درست؛ مدت/وضعیت با فوکوس و لمس قابل دستیابی باشد",
+      "evidence": "browser.json، goal/experience.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U04a",
+      "source": "Goal بخش ۴ و جلسه",
+      "implementation": "شروع مستقیم؛ ۱۲ سؤال در شش بخش",
+      "acceptance": "سن/شهر، سابقه/دارو/حساسیت، قد/وزن و سبک زندگی هرکدام یک ادامه داشته باشند",
+      "evidence": "browser.json؛ intake.tsx",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U04b",
+      "source": "Goal بخش ۴",
+      "implementation": "قوانین کوتاه، متن جدا، ذخیره و بازگشت",
+      "acceptance": "پذیرش خودکار نباشد؛ ذخیره، reload و ویرایش پاسخ‌ها را حفظ کنند",
+      "evidence": "isolation.json، browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U04c",
+      "source": "Goal بخش ۴",
+      "implementation": "منوی وابسته به وضعیت",
+      "acceptance": "پروندهٔ اولیه منوی خالی نگیرد؛ برنامه بعد از انتشار ظاهر شود",
+      "evidence": "browser.json، goal/experience.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U05a",
+      "source": "Goal بخش ۵",
+      "implementation": "کارت خروجی‌های خدمت و هزینه در خلاصه و عضویت",
+      "acceptance": "پزشک/برنامه/هماهنگی، مبلغ نمونه و هزینهٔ جدا روشن باشند",
+      "evidence": "browser.json؛ service-offer.tsx",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U05b",
+      "source": "Goal بخش ۵",
+      "implementation": "پیش‌نمایش کامل مستقل",
+      "acceptance": "بازکردن و بستن، نشست و پاسخ‌های کاربر را تغییر ندهد",
+      "evidence": "goal/experience.json؛ preview-backend.ts",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U06a",
+      "source": "Goal بخش ۶",
+      "implementation": "جمع‌بندی مستند دوره در خانه و سابقه",
+      "acceptance": "دغدغه، سؤال، توضیح، تصمیم/دلیل، ابهام و قدم بعد به منابع همان بیمار وصل شوند",
+      "evidence": "episodes-domain.json، episodes-browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U06b",
+      "source": "Goal بخش ۶",
+      "implementation": "سابقهٔ نسخه‌ها و منبع دقیق ملاقات/گزارش",
+      "acceptance": "نسخهٔ قدیمی باقی بماند؛ گزارش اصلاح‌شده به توضیح قدیمی منتسب نشود",
+      "evidence": "care-domain.json، care-browser.json، episodes-domain.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U06c",
+      "source": "Goal بخش ۶",
+      "implementation": "اولویت اقدام زنده نسبت به متن تاریخ‌دار",
+      "acceptance": "تأیید زمان یا پاسخ تازه در خانه گم نشود؛ پس از اقدام CTA اصلاح شود",
+      "evidence": "episodes-browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U07a",
+      "source": "Goal بخش ۷",
+      "implementation": "درصد بر اساس اقدام؛ نمودار با منبع",
+      "acceptance": "شمارش با اقدام‌ها و ثبت‌ها برابر باشد؛ دادهٔ ناکافی به‌عنوان نتیجهٔ سلامت نمایش داده نشود",
+      "evidence": "goal/fixtures.json، goal/experience.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U07b",
+      "source": "Goal بخش ۷",
+      "implementation": "دو سؤال فهم توضیح و قدم بعد",
+      "acceptance": "پاسخ منفی کار پزشک بسازد؛ پاسخ تازه و تأیید بیمار فقط همان کار ارتباطی را ببندند",
+      "evidence": "episodes-domain.json، episodes-browser.json، shared-api.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U08a",
+      "source": "Goal بخش ۸ و HTML",
+      "implementation": "صف پزشک و کارت‌های فیلتر؛ اقدام و تحویل روشن",
+      "acceptance": "بررسی، توضیح، ملاقات، برنامه، ارجاع و جانشینی روی پروندهٔ مجاز کار کنند",
+      "evidence": "browser.json، care-browser.json، care-domain.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U08b",
+      "source": "Goal بخش ۸ و ZIP۰۸",
+      "implementation": "هماهنگی با مسئول/موعد",
+      "acceptance": "تماس، پیشنهاد، تأیید بیمار، انجام مراجعه و برگشت گزارش وضعیت مستقل داشته باشند",
+      "evidence": "browser.json، care-browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U08c",
+      "source": "Goal بخش ۸",
+      "implementation": "عملیات و ظرفیت، کار معطل و پشتیبانی",
+      "acceptance": "فیلترها به صف واقعی وصل باشند؛ عملیات محتوای خصوصی پزشکی نگیرد",
+      "evidence": "goal/experience.json، shared-api.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U09a",
+      "source": "Goal بخش ۹",
+      "implementation": "ده بیمار؛ سه سابقهٔ چنددوره‌ای",
+      "acceptance": "سه بیمار حداقل چهار دوره، پنج مدرک و سه ملاقات داشته باشند؛ دست‌کم سه بیمار دارای دورهٔ پایان‌یافته باشند",
+      "evidence": "goal/fixtures.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U09b",
+      "source": "Goal بخش ۹",
+      "implementation": "دو پزشک، دو کارشناس و مدیر",
+      "acceptance": "هر نقش فقط پرونده‌های مجاز و اقدام متناسب ببیند",
+      "evidence": "browser.json، care-domain.json، shared-api.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U09c",
+      "source": "Goal بخش ۹",
+      "implementation": "PDF و PNG ساختگی؛ مهاجرت محافظه‌کارانه",
+      "acceptance": "نام، امضا، بایت و SHA منبع مطابق باشند؛ دادهٔ ویرایش‌شده عوض نشود",
+      "evidence": "goal/fixtures.json، episodes-upgrade.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U10a",
+      "source": "Goal بخش ۱۰",
+      "implementation": "صفحهٔ سفید، آبی، مسیر تصویری و موشن زنده",
+      "acceptance": "چهار عرض بدون overflow؛ کاهش حرکت و توقف تصویر کار کنند",
+      "evidence": "browser.json، goal/experience.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U10b",
+      "source": "Goal بخش ۱۰",
+      "implementation": "پیش‌بارگذاری فونت و بازخورد با فضای رزروشده",
+      "acceptance": "فونت دیررس/ناموجود صفحه را قفل نکند؛ ذخیره/خطا کنترل را بیش از ۲px جابه‌جا نکند",
+      "evidence": "isolation.json، browser.json، episodes-browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U10c",
+      "source": "Goal بخش ۱۰",
+      "implementation": "دسترسی صفحه‌کلید بدون حلقهٔ اضافی",
+      "acceptance": "فوکوس قابل تشخیص و برگشت فوکوس dialog؛ خطای جدی/بحرانی axe صفر در نماهای آزموده",
+      "evidence": "goal/accessibility.json، episodes-browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U11a",
+      "source": "Goal بخش ۱۱",
+      "implementation": "کمک فوری مستقل و بدون بنر پرداخت",
+      "acceptance": "علائم فعلی/چندگانه، تماس و بازگشت محفوظ؛ بستن dialog هشدار را پاک نکند",
+      "evidence": "browser.json، care-domain.json و شواهد مؤلفهٔ مشترک urgent-experience-tests.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U11b",
+      "source": "Goal بخش ۱۱",
+      "implementation": "فهرست Geoapify تاریخ‌دار و مسیر نشان",
+      "acceptance": "شهر خارج از پوشش با نتیجهٔ خالی فرق کند؛ کلید در خروجی نباشد؛ راهنما آفلاین در دسترس باشد",
+      "evidence": "facility-snapshot-tests.json، urgent-experience-tests.json، archive-validation.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U11c",
+      "source": "Goal بخش ۱۱",
+      "implementation": "پرداخت نمونه و رسید، لغو با مرور کار باز",
+      "acceptance": "موفق/ناموفق/انصراف/تلاش مجدد؛ لغو پرونده یا مسئولیت بالینی را پاک نکند",
+      "evidence": "care-domain.json، care-browser.json، shared-api.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U12a",
+      "source": "Goal بخش ۱۲",
+      "implementation": "مرورگر و سرور مشترکِ داخل بسته",
+      "acceptance": "نشست مستقل، فایل مجاز، تراکنش، فرمان تکراری، restart و بازیابی آزموده شوند",
+      "evidence": "shared-api.json، shared-browser.json، packaged-server.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U12b",
+      "source": "Goal بخش ۱۲",
+      "implementation": "انتشار محدود به next",
+      "acceptance": "فایل‌های HTTPS با خروجی محلی برابر؛ تمام مسیرهای قبلی byte-identical",
+      "evidence": "publication.json، public-browser.json",
+      "status": "passed_in_tested_scope"
+    },
+    {
+      "id": "U12c",
+      "source": "Goal بخش ۱۲",
+      "implementation": "ZIP کامل از سورس جاری",
+      "acceptance": "manifest، لینک‌ها، فایل امن و بازسازی مستقل با خروجی برابر",
+      "evidence": "archive-validation.json؛ test_delivery_package.py",
+      "status": "passed_in_tested_scope"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Archive.zip",
+      "bytes": 284637,
+      "sha256": "b49df1d382fc8edb12188b7f9fb7f513df73c283b826f5f11b6c4f0f3de4bd9a",
+      "privateOriginalExcluded": true
+    },
+    {
+      "name": "team-overview(1).html",
+      "bytes": 49056,
+      "sha256": "9f85acb7bc4985bb434d907bbe6acb715a68e62e63751c5c836f2acec92a1ddf",
+      "privateOriginalExcluded": true
+    },
+    {
+      "name": "Pasted text.txt",
+      "bytes": 24411,
+      "sha256": "bf17196b70c89138f4ef31d7d4c2e1679e389ea79e233605453fe006560646b8",
+      "privateOriginalExcluded": true
+    }
+  ],
+  "automatedNextTests": 95,
+  "sharedComponentTests": 34,
+  "accessibilityScans": 36,
+  "seriousOrCriticalViolations": 0,
+  "publicBrowserChecks": 10,
+  "httpsAssetMatches": 46,
+  "preservedPublicFiles": 564,
+  "preservedBaselineBuildAssets": 70,
+  "typecheck": "passed",
+  "lint": "passed without warnings",
+  "knownUnresolvedBlockingSoftwareDefects": [],
+  "testedScope": "Scripted Chromium, 320/390/768/1440 widths, source/domain/API, server persistence and document export",
+  "notVerified": [
+    "Fresh human usability and comprehension",
+    "Physical Android Chrome or iPhone Safari",
+    "Clinical outcomes or service effectiveness"
+  ],
+  "operationalLimits": [
+    "GitHub Pages stores synthetic data per browser; packaged shared server is not publicly hosted",
+    "Accounts, clinical signatures, payments, messages and partner coordination are fictional",
+    "Geoapify snapshot is dated, not live or a verified suitable/nearest/open care directory",
+    "Real-service staffing, protocols, identity, pricing and integrations require separate decisions"
+  ],
+  "componentEvidence": [
+    "shared-city-catalog-tests.json",
+    "shared-city-input-tests.json",
+    "shared-facility-lookup-tests.json",
+    "shared-urgent-experience-tests.json"
+  ],
+  "historicalGoal": "Historical G13/G15 remain unverified in goal/acceptance.json; current goal requires transparent reporting rather than those human/device tests as a prerequisite",
+  "packageCheck": {
+    "status": "passed",
+    "integrity": "passed",
+    "sourceBuild": "passed",
+    "comparedWebsiteAssets": 125,
+    "comparedServerAssets": 3,
+    "negativeArchivesRejected": 4,
+    "archiveReconstruction": "passed",
+    "packagedServerChecks": 3,
+    "showcaseChecks": 9,
+    "showcaseImages": 30,
+    "showcaseViewports": [
+      320,
+      390,
+      768,
+      1440
+    ]
+  }
+}

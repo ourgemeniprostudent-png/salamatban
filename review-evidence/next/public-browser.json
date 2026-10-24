@@ -1,17 +1,21 @@
 {
-  "version": "3.2.1-next.1",
-  "checkedAt": "2026-10-24T13:42:35.288Z",
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:11:11.371Z",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
   "tlsVerification": true,
   "transport": "Browser responses routed through Playwright HTTPS requests with the system CA bundle; native Chromium lacks the managed proxy CA.",
   "checks": [
     "Public entry directly shows the first question with one header account action.",
     "Public answer and question position survive reload without consent or submission.",
+    "The public grouped section presents age and city together without horizontal overflow.",
+    "The new photographic account entry exposes four categorized role groups.",
     "The consolidated account dialog retains and saves contact permission; no duplicate account control.",
     "Existing doctor role is retained on reload.",
     "Prepared corrected-report case has separate version review and a downloadable real watermarked PDF.",
-    "New prepared member authenticates into the correct isolated patient chart."
+    "New prepared member authenticates into the correct isolated patient chart.",
+    "Published cycle summary explains the decision, remaining uncertainty and actual linked sources.",
+    "Negative understanding feedback creates a persistent physician follow-up in the published app."
   ],
   "pageErrors": [],
-  "passed": 6
+  "passed": 10
 }

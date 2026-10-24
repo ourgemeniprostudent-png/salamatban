@@ -1,0 +1,39 @@
+{
+  "version": "3.4.0-next.1",
+  "objective": "Apply the five care-value improvements",
+  "status": "implemented and tested",
+  "criteria": [
+    {
+      "id": "V01",
+      "status": "passed",
+      "evidence": "episodes-domain.json: distinct questions for all four periods of three patients"
+    },
+    {
+      "id": "V02",
+      "status": "passed",
+      "evidence": "episodes-domain.json: clinician authority, reviewed sources and immutable versions"
+    },
+    {
+      "id": "V03",
+      "status": "passed",
+      "evidence": "goal/experience.json and episodes-browser.json: first view and responsive details"
+    },
+    {
+      "id": "V04",
+      "status": "passed",
+      "evidence": "episodes-browser.json: exact report, signed encounter, old plan and coordination source links"
+    },
+    {
+      "id": "V05",
+      "status": "passed",
+      "evidence": "episodes-browser.json and shared-api.json: negative feedback, owned duty, doctor reply and patient confirmation"
+    }
+  ],
+  "automatedTests": 95,
+  "humanUnderstandingClaim": "No human usability or health improvement claim; scripted responses test the workflow only",
+  "previousGoalUnverified": [
+    "Five fresh participants",
+    "Physical Android Chrome and iPhone Safari"
+  ],
+  "checkedAt": "2026-10-24T20:12:42.067730+00:00"
+}

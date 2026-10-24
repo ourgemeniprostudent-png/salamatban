@@ -1,6 +1,6 @@
 {
-  "version": "3.2.1-next.1",
-  "checkedAt": "2026-10-24T13:41:40.958Z",
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:09:58.954Z",
   "checks": [
     "entry modes expose only matching patients, clear OTP and retain a direct first question",
     "real record counts and patient action appear above the fold on phone and desktop",
@@ -9,6 +9,8 @@
     "read-only service preview leaves the working identity, session and data unchanged",
     "optional account details and support requests complete an actual patient-to-operations loop",
     "all four roles expose working queues at phone and desktop widths",
+    "grouped intake keeps all related fields readable and accessible at four widths",
+    "photographic entry keeps form right, categorized accounts below and accessible identity details",
     "keyboard focus returns from the native account dialog and touch controls are large enough"
   ],
   "viewports": [
@@ -34,7 +36,7 @@
     }
   ],
   "pageErrors": [],
-  "passed": 8,
+  "passed": 10,
   "physicalDevices": "not available; Chromium viewport emulation only",
   "freshHumanParticipants": "not conducted; no participants available"
 }

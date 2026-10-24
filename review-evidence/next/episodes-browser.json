@@ -1,0 +1,28 @@
+{
+  "version": "3.4.0-next.1",
+  "checkedAt": "2026-10-24T20:10:07.139Z",
+  "passed": 6,
+  "checks": [
+    "a named patient sees a meaningful explanation, original source and exact coordination result",
+    "each period has its own question and direct links reveal its old plan",
+    "a negative answer reaches the doctor, whose reply waits for patient confirmation",
+    "the clinician publishes a source-linked revision and prior content stays visible",
+    "feedback and cycle details remain readable, accessible and stable across widths",
+    "a pending patient decision stays the primary live action above the dated cycle summary"
+  ],
+  "pageErrors": [],
+  "scans": [
+    {
+      "name": "doctor cycle editor",
+      "violations": []
+    },
+    {
+      "name": "patient cycle 390",
+      "violations": []
+    },
+    {
+      "name": "patient cycle 1440",
+      "violations": []
+    }
+  ]
+}

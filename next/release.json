@@ -1,13 +1,13 @@
 {
-  "version": "3.0.0-next.1",
+  "version": "3.0.0-next.2",
   "path": "/salamatban/next/",
   "preservedAppVersion": "2.4.7",
   "backend": "isolated browser-local synthetic demo, not a production clinical service",
   "paidService": "not offered; pricing and purchase entitlements undecided",
   "assets": {
-    "app.js": "40db88a82f0a94b617c84a974b43c5a69790cdbd151c2d143186e25b22c0349e",
-    "app.css": "3457b708e1ebb9df65270e5f375cbdc7cba13a7cb55c092add60f9c4259b7c20",
-    "index.html": "c0005e68d378aeb430002ae08aafbb657c86a38f2ef7e1e0c473f0bb1874762d",
+    "app.js": "f96272d1923516f56855291701f3dad492deae3c496e761c74816c2da84246bd",
+    "app.css": "006167ca5b6fd329b76c95bcbb0012248bbc6f3cf42675981af50832ba89c53a",
+    "index.html": "a0acbd77f8b770d03c541c9dba6da02aaafee879f5e3d2618d17ed6f9f5fbf20",
     "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
     "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
   }

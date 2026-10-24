@@ -1,4 +1,4 @@
-export const NEXT_VERSION='3.0.0-next.1';
+export const NEXT_VERSION='3.0.0-next.2';
 export type Role='member'|'clinician'|'coordinator'|'admin';
 export type Actor={id:string;phone:string;name:string;role:Role};
 export type Phase='draft'|'submitted'|'reviewing'|'clarification'|'awaiting_visit'|'awaiting_plan'|'active';

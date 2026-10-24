@@ -3,19 +3,19 @@
   "comparedAssets": [
     {
       "file": "next/app.js",
-      "sha256": "40db88a82f0a94b617c84a974b43c5a69790cdbd151c2d143186e25b22c0349e"
+      "sha256": "f96272d1923516f56855291701f3dad492deae3c496e761c74816c2da84246bd"
     },
     {
       "file": "next/app.css",
-      "sha256": "3457b708e1ebb9df65270e5f375cbdc7cba13a7cb55c092add60f9c4259b7c20"
+      "sha256": "006167ca5b6fd329b76c95bcbb0012248bbc6f3cf42675981af50832ba89c53a"
     },
     {
       "file": "next/index.html",
-      "sha256": "c0005e68d378aeb430002ae08aafbb657c86a38f2ef7e1e0c473f0bb1874762d"
+      "sha256": "a0acbd77f8b770d03c541c9dba6da02aaafee879f5e3d2618d17ed6f9f5fbf20"
     },
     {
       "file": "next/release.json",
-      "sha256": "3b5b4d3d2126e65c5ea74d6f50ea2c6415b18ba812dc3b817ee796be741b3847"
+      "sha256": "10fb04dac3f6fd0c6a13c8cce27a97e465a66b851a8db9c4c6178693b251fc14"
     },
     {
       "file": "next/demo/documents/first-report-demo.pdf",
@@ -64,6 +64,6 @@
   ],
   "archiveReconstruction": "passed",
   "negativeChecks": 4,
-  "version": "3.0.0-next.1",
-  "checkedAt": "2026-10-22T19:42:47.618263+00:00"
+  "version": "3.0.0-next.2",
+  "checkedAt": "2026-10-24T08:40:25.021873+00:00"
 }

@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const base=process.env.SHOWCASE_URL||'http://127.0.0.1:4193/';
 const out=new URL('../review-evidence/next/',import.meta.url);
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
-const report={packageVersion:'3.0.0-next.1',nextExperience:'3.0.0-next.1',appVersion:'2.4.7',publicAppVersion:'2.4.7',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
+const report={packageVersion:'3.0.0-next.2',nextExperience:'3.0.0-next.2',appVersion:'2.4.7',publicAppVersion:'2.4.7',baseUrl:base,checkedAt:new Date().toISOString(),viewports:[],checks:[],pageErrors:[]};
 try{
  const context=await b.newContext({acceptDownloads:true});const p=await context.newPage();p.on('pageerror',e=>report.pageErrors.push(e.message));
  for(const width of [320,390,768,1440]){
@@ -23,8 +23,8 @@ try{
  await p.locator('[data-nav="experience"]').click();await p.locator('#experience').waitFor({state:'visible'});
  for(const role of ['member','doctor','coordinator','admin']){await p.locator(`[data-role="${role}"]`).click();assert(await p.locator(`[data-role-panel="${role}"]`).isVisible());assert.equal(await p.locator('[data-role-panel]:visible').count(),1)}
  report.checks.push('four role walkthroughs');
- assert(await p.locator('#overview').innerText().then(text=>text.includes('مسیر تازه: ۳ آزمایشی ۱')&&text.includes('نسخهٔ قبلی: ۲٫۴٫۷')));
- assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/next/?v=3.0.0-next.1');
+ assert(await p.locator('#overview').innerText().then(text=>text.includes('مسیر تازه: ۳ آزمایشی ۲')&&text.includes('نسخهٔ قبلی: ۲٫۴٫۷')));
+ assert.equal(await p.locator('.sidebar-bottom a.button').getAttribute('href'),'https://ourgemeniprostudent-png.github.io/salamatban/next/?v=3.0.0-next.2');
  assert((await p.locator('#overview').innerText()).includes('فهرست ذخیره‌شده'));
  assert.equal(await p.locator('#overview a[href="technical/GEOAPIFY-INTEGRATION-fa.md"]').count(),1);
  report.checks.push('next preview and preserved v2.4.7 root are explicit, with snapshot status');

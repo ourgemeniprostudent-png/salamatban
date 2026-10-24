@@ -1,18 +1,15 @@
 {
-  "version": "3.0.0-next.1",
+  "version": "3.0.0-next.2",
+  "checkedAt": "2026-10-24T08:38:46.356Z",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
+  "tlsVerification": true,
+  "transport": "Browser responses routed through Playwright HTTPS requests with the system CA bundle; native Chromium lacks the managed proxy CA.",
   "checks": [
-    "public mobile welcome and six first-visit fonts",
-    "seven public role accounts and actual synthetic OTP",
-    "public prepared member and illustrated care plan",
-    "actual fictional PDF downloads",
-    "public doctor explanation returns to the same member",
-    "public assigned coordinator sees actual completed handoff",
-    "public operations view excludes chart details"
+    "Public entry directly shows the first question with one header account action.",
+    "Public answer and question position survive reload without consent or submission.",
+    "The consolidated account dialog retains and saves contact permission; no duplicate account control.",
+    "Existing doctor role is retained on reload."
   ],
   "pageErrors": [],
-  "browserProxyCAWorkaround": true,
-  "browserTlsScope": "Managed browser proxy CA mismatch only; separate Python HTTPS checksum verification uses system CA trust",
-  "success": true,
-  "checkedAt": "2026-10-22T19:37:11.151Z"
+  "passed": 4
 }

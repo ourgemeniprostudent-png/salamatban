@@ -1,12 +1,13 @@
 {
-  "version": "3.0.0-next.1",
-  "date": "2026-10-22T19:35:10.643Z",
-  "individualPassed": 5,
+  "version": "3.0.0-next.2",
+  "date": "2026-10-24T08:36:57.049Z",
+  "individualPassed": 6,
   "checks": [
     "old member record, auth session and selected entry lane survive use and logout of next",
     "an external saved edit cannot be silently overwritten by an already-open question; failed save does not move controls",
     "valid Persian numeric input is preserved by explicit pause before advancing",
     "delayed essential fonts settle before first interactive paint, native error feedback reserves space and direct-file bootstrap explains launch (VM; native navigation is blocked)",
-    "unavailable font files fall back to a usable entry rather than blocking the app"
+    "unavailable font files fall back to a usable entry rather than blocking the app",
+    "compact legal text keeps choices stable, reload retains explicit consent, logout stays signed out and existing roles are not replaced"
   ]
 }

@@ -1,0 +1,93 @@
+{
+  "version": "3.2.0-next.1",
+  "checkedAt": "2026-10-24T13:17:35.104Z",
+  "checks": [
+    "three distinct year histories, four plans, five documents, three meetings, six messages and sourced measurements",
+    "all original bytes, patient names, checksums and completed-event chronology match",
+    "pristine-fixture-only migration preserves every edited record and is idempotent",
+    "optional profile, invalid dates, support assignment, role-bound reply and retained documents"
+  ],
+  "patients": [
+    {
+      "phone": "09000000001",
+      "name": "شما",
+      "plans": 0,
+      "files": 0,
+      "messages": 0,
+      "visits": 0
+    },
+    {
+      "phone": "09000000002",
+      "name": "سارا راد",
+      "plans": 1,
+      "files": 1,
+      "messages": 0,
+      "visits": 1
+    },
+    {
+      "phone": "09000000003",
+      "name": "نرگس شریفی",
+      "plans": 4,
+      "files": 5,
+      "messages": 6,
+      "visits": 4
+    },
+    {
+      "phone": "09000000004",
+      "name": "امیر نیک‌روش",
+      "plans": 4,
+      "files": 6,
+      "messages": 6,
+      "visits": 4
+    },
+    {
+      "phone": "09000000005",
+      "name": "مریم کیانی",
+      "plans": 4,
+      "files": 5,
+      "messages": 6,
+      "visits": 4
+    },
+    {
+      "phone": "09000000006",
+      "name": "رضا احمدی",
+      "plans": 1,
+      "files": 0,
+      "messages": 0,
+      "visits": 1
+    },
+    {
+      "phone": "09000000007",
+      "name": "لیلا موسوی",
+      "plans": 1,
+      "files": 0,
+      "messages": 0,
+      "visits": 1
+    },
+    {
+      "phone": "09000000008",
+      "name": "حمید صادقی",
+      "plans": 0,
+      "files": 0,
+      "messages": 0,
+      "visits": 0
+    },
+    {
+      "phone": "09000000009",
+      "name": "هانیه رضایی",
+      "plans": 0,
+      "files": 0,
+      "messages": 0,
+      "visits": 1
+    },
+    {
+      "phone": "09000000010",
+      "name": "علی رستگار",
+      "plans": 1,
+      "files": 1,
+      "messages": 0,
+      "visits": 1
+    }
+  ],
+  "passed": 4
+}

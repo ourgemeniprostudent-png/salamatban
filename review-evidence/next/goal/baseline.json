@@ -1,0 +1,93 @@
+{
+  "baselineVersion": "2.4.7",
+  "newBaseline": "3.1.0-next.1",
+  "sourceCommit": "c17613951ba446d39acd38221c3b332b092d008a",
+  "baselinePatients": [
+    {
+      "name": "سارا راد",
+      "plans": 5,
+      "documents": 5,
+      "ageDays": 380
+    },
+    {
+      "name": "مهدی روشن",
+      "plans": 5,
+      "documents": 5,
+      "ageDays": 370
+    },
+    {
+      "name": "نرگس آرام",
+      "plans": 4,
+      "documents": 5,
+      "ageDays": 365
+    },
+    {
+      "name": "علی بهار",
+      "plans": 2,
+      "documents": 3,
+      "ageDays": 60
+    },
+    {
+      "name": "لیلا مهر",
+      "plans": 2,
+      "documents": 3,
+      "ageDays": 60
+    },
+    {
+      "name": "رضا سپید",
+      "plans": 1,
+      "documents": 3,
+      "ageDays": 7
+    },
+    {
+      "name": "مریم آوا",
+      "plans": 0,
+      "documents": 2,
+      "ageDays": 7
+    },
+    {
+      "name": "امیر نیک",
+      "plans": 0,
+      "documents": 2,
+      "ageDays": 30
+    },
+    {
+      "name": "هستی ماه",
+      "plans": 0,
+      "documents": 2,
+      "ageDays": 1
+    },
+    {
+      "name": "کیان داد",
+      "plans": 0,
+      "documents": 2,
+      "ageDays": 1
+    }
+  ],
+  "sourcesPresent": {
+    "team-overview.txt": "0b7bc86908d9765b5395c5b4070fc736870f264012ab2f3556ebc46d8cae9c9a",
+    "meeting-transcript-fa.txt": "bf17196b70c89138f4ef31d7d4c2e1679e389ea79e233605453fe006560646b8",
+    "archive/15-decisions-and-risks.md": "91df6850a757fd03c00ee3cba14719cfd71e24a270a11d2013f7d818634cb885",
+    "archive/08-clinical-workflows.md": "ead09a6c2480b72877d590e3a4fd8b9024bb8a466a42a13635745096149c7c9e",
+    "archive/sources.md": "fb943be9c82be385565c73e3ca5d597f80900a8a398c3b761d2e755c3b83b517",
+    "archive/04-user-journeys-and-screens.md": "f82edf64c552206ea92f5012180400514bf5723a548da389321a1dab4bf76652",
+    "archive/02-problem-and-research.md": "d8d7183f29350dc1d476ee226905e86b6e3c2afae9df1fdc9225c4d36689de95",
+    "archive/11-testing-and-operations.md": "cb89c940121b340068ef1656a92c8527ef5a3d343aa0b955d499c2ff2f1fdb81",
+    "archive/README.md": "365fbb5a458ec1c96baa39c120dd6032f67ecc0ff2d561c0138a10931063a5e2",
+    "archive/00-status-and-assumptions.md": "f5251df09258ae20d9625c546b398ecd713104c6da0f763c3390ee79d116c6d9",
+    "archive/07-api-and-integrations.md": "b0f4d1a6c0713421f8d9875797495c4616001745f65158b791c36da035eb8ec9",
+    "archive/18-system-design.md": "cd21a508def2023e64679103bcbe28c537748560229378139119bf2dc1311822",
+    "archive/12-business-model-and-go-to-market.md": "af2573855abe606a5976ce6ca39e023bb066f7c5c7293faaf5524f8abe094af1",
+    "archive/09-security-and-privacy.md": "9c81bbbdc02b13af443f3635fd492c608c15c0a9772494d3e82a0cad96adb7ab",
+    "archive/17-launch-market-iran.md": "26e8551fdc86081b7ae32257080c40213177f05f49fe0bffc499be8eef640a85",
+    "archive/14-investor-brief-and-questions.md": "0e5d9b7b5907b2ffd4140c36e5e57a82f94a2725c74f66132a8ba36694996f79",
+    "archive/10-engineering-roadmap.md": "1f4f71da96f313965249c068a7b1fc19b2e6e7a963d63be181595647e1214e37",
+    "archive/13-investor-deck.md": "b2be53fab5441317101277f94fa35a6bade6846923e342117f0a677bbd2f918a",
+    "archive/16-investor-readiness-review.md": "61e79e3adf5d25763896f27218605f05971c6e57f863a4fdd3a34e110004bc5e",
+    "archive/03-product-requirements.md": "da70ef7236612857507a8a347f4a34745029bb21617d837b779d091e0df4b626",
+    "archive/06-data-model.md": "63fb0842853cd032b8f73ffc73c0a885a10812db520691b0a76dcf0a3e73b9f1",
+    "archive/19-team-brief.md": "f65649073fe2ffafd4f69f19b8a18f140fb00e689b06e6bf9c4b110e8db8d9cf",
+    "archive/05-system-architecture.md": "831112815aed52e56ec2738a1bc3d5692a90bc90485c6c1dd2431794b1251259",
+    "archive/01-product-vision.md": "c5b9c6decc476a62b44198768c8907124af17eadfa71c06c947f2d7bc895b716"
+  }
+}

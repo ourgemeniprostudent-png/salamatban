@@ -1,3 +1,5 @@
+import {createPreviewBackend} from './preview-backend';
+import {upgradePrepared} from './longitudinal';
 import {prepareFile} from './files';
 import {createServerBackend} from './server-backend';
 import {createBrowserAuth} from './browser-auth';
@@ -5,14 +7,14 @@ import {allowed,demoPeople,initialSnapshot,transition,type Actor,type Command,ty
 export type {CareView,CoordinationCase} from './views';
 import {projectView} from './views';
 import {preflight} from './care';
-export async function createNextBackend(){const response=await fetch(new URL('./config.json',document.baseURI),{cache:'no-store'});if(!response.ok)throw Error('تنظیمات نسخه دریافت نشد. دوباره تلاش کنید.');const config=await response.json() as {mode?:string;api?:string};if(config.mode==='shared-demo'&&config.api==='/api/care')return createServerBackend(config.api);if(config.mode!=='browser-demo')throw Error('حالت اجرای نسخه معتبر نیست.');return createBrowserBackend();}
+export async function createNextBackend():Promise<NextBackend>{const preview=new URLSearchParams(location.search).get('preview');if(preview)return createPreviewBackend(preview);const response=await fetch(new URL('./config.json',document.baseURI),{cache:'no-store'});if(!response.ok)throw Error('تنظیمات نسخه دریافت نشد. دوباره تلاش کنید.');const config=await response.json() as {mode?:string;api?:string};if(config.mode==='shared-demo'&&config.api==='/api/care')return createServerBackend(config.api);if(config.mode!=='browser-demo')throw Error('حالت اجرای نسخه معتبر نیست.');return createBrowserBackend();}
 async function createBrowserBackend(){
  const auth=await createBrowserAuth();
  const name=`salamatban-next-care-v1:${new URL('.',document.baseURI).pathname}`;
  const database=await new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open(name,1);r.onupgradeneeded=()=>r.result.createObjectStore('care');r.onerror=()=>reject(new Error('ذخیره‌سازی مرورگر در دسترس نیست.'));r.onblocked=()=>reject(new Error('پنجرهٔ دیگر نسخهٔ جدید را ببندید و دوباره تلاش کنید.'));r.onsuccess=()=>resolve(r.result);});
  const read=()=>new Promise<Snapshot|undefined>((resolve,reject)=>{const r=database.transaction('care').objectStore('care').get('snapshot');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
  const write=(s:Snapshot)=>new Promise<void>((resolve,reject)=>{const t=database.transaction('care','readwrite');t.objectStore('care').put(s,'snapshot');t.oncomplete=()=>resolve();t.onabort=()=>reject(new Error('ذخیره انجام نشد؛ فضای مرورگر را بررسی کنید.'));t.onerror=()=>reject(t.error);});
- await navigator.locks.request(name,async()=>{const existing=await read(),seed=initialSnapshot();if(!existing)await write(seed);else{const added=seed.cases.filter(c=>!existing.cases.some(old=>old.phone===c.phone));if(added.length)await write({...existing,cases:[...existing.cases,...added]});}});
+ await navigator.locks.request(name,async()=>{const existing=await read(),seed=initialSnapshot();if(!existing)await write(seed);else{const upgraded=upgradePrepared(existing.cases,seed.cases);if(upgraded.changed)await write({...existing,cases:upgraded.cases});}});
  async function me():Promise<Actor|null>{const response=await auth.fetch('/api/pilot/me');if(response.status===401)return null;const v=await response.json() as {user?:Actor};if(!response.ok)throw new Error('دریافت حساب انجام نشد. دوباره تلاش کنید.');return v.user?{...v.user,name:demoPeople.find(p=>p.phone===v.user!.phone)?.name||v.user.name}:null;}
  async function actor(){const user=await me();if(!user)throw new Error('برای ادامه دوباره وارد شوید.');return user;}
  const channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel(name):null;
@@ -22,4 +24,4 @@ async function createBrowserBackend(){
  async function logout(){const user=await auth.fetch('/api/pilot/me').then(r=>r.json() as Promise<{csrf:string}>);const r=await auth.fetch('/api/pilot/auth/logout',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':user.csrf},body:'{}'});if(!r.ok)throw new Error('خروج انجام نشد؛ دوباره تلاش کنید.');}
  return {mode:'browser-demo' as const,auth,me,view,mutate,file,uploaded:prepareFile,logout,subscribe(fn:()=>void){const handler=()=>fn();channel?.addEventListener('message',handler);return ()=>channel?.removeEventListener('message',handler);},dispose(){auth.dispose();channel?.close();database.close();}};
 }
-export type NextBackend=Awaited<ReturnType<typeof createNextBackend>>;
+export type NextBackend=Omit<Awaited<ReturnType<typeof createBrowserBackend>>,'mode'>&{mode:'browser-demo'|'shared-demo';readOnly?:boolean};

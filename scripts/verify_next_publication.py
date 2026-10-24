@@ -6,6 +6,7 @@ report=json.loads((root/'review-evidence/next/publication.json').read_text())
 base='https://ourgemeniprostudent-png.github.io/salamatban/'
 build=root/'site/dist-demo/next'
 assets=['config.json','demo/documents/manifest.json','demo/documents/case-4-v2.pdf','demo/documents/case-3-v1.pdf','index.html','app.js','app.css','release.json','sql-wasm.wasm','demo/documents/51-lab.pdf','demo/documents/first-report-demo.pdf','data/care-facilities.geoapify.json','favicon.svg','THIRD-PARTY-NOTICES.txt']
+assets+=['demo/documents/'+name for name in json.loads((build/'demo/documents/manifest.json').read_text())['files']]
 assets+=['fonts/PeydaWebFaNum-'+w+'.woff2' for w in ['Regular','Medium','SemiBold','Bold','ExtraBold','Black']]
 expected={'next/'+name:hashlib.sha256((build/name).read_bytes()).hexdigest() for name in assets}
 for name in ['index.html','app.js','app.css','release.json','showcase/index.html','previews/value-before-payment/index.html']:

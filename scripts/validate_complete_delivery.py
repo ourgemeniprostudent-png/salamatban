@@ -126,7 +126,7 @@ with zipfile.ZipFile(archive) as z:
     assert z.read(prefix+'shared-demo-server/main.mjs')==z.read(prefix+'source/site/next/server/main.mjs')
     assert z.read(prefix+'shared-demo-server/backup.mjs')==z.read(prefix+'source/site/next/server/backup.mjs')
     next_release=json.loads(z.read(prefix+'website/next/release.json'))
-    assert next_release['version']==catalog['nextExperience']['version']=='3.1.0-next.1'
+    assert next_release['version']==catalog['nextExperience']['version']=='3.2.0-next.1'
     for asset,expected in next_release['assets'].items():assert hashlib.sha256(z.read(prefix+'website/next/'+asset)).hexdigest()==expected
     report={'directFileFallback':'file protocol branch executed in JavaScript VM; managed Chromium blocks native file navigation','archive':archive.name,'integrity':'passed','manifestFiles':len(manifest['files']),'matchedCurrentFiles':compared,'checkedLocalLinks':checked_links,'checkedMirrors':len(catalog['mirrors']),'guideSectionsMatchSources':len(GUIDE_DOCS),'packageVersion':catalog['packageVersion'],'appVersion':catalog['appVersion'],'missingLinks':missing,'exclusions':'passed','snapshotIntegrity':{'sourceBuildMatch':True,'metadataMatch':True,'provider':'geoapify','mode':'snapshot','coveredCities':len(entries),'facilityCards':card_count},'configuredMapCredentialScan':'passed' if configured_secrets else 'no map credential present in validation environment'}
     print(json.dumps(report,ensure_ascii=False,indent=2))

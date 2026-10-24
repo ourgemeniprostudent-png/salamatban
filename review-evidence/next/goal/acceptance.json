@@ -1,0 +1,93 @@
+{
+  "version": "3.2.0-next.1",
+  "goalStatus": "blocked",
+  "softwareStatus": "verified within tested scope",
+  "criteria": [
+    {
+      "id": "G01",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G02",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G03",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G04",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G05",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G06",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G07",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G08",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G09",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G10",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G11",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G12",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G13",
+      "status": "not_verified",
+      "reason": "No fresh human participants are available"
+    },
+    {
+      "id": "G14",
+      "status": "passed",
+      "reason": "See referenced automated reports and parity/source mappings"
+    },
+    {
+      "id": "G15",
+      "status": "not_verified",
+      "reason": "No physical Android/iPhone is attached"
+    }
+  ],
+  "automatedTests": 77,
+  "failed": 0,
+  "axeScans": 24,
+  "seriousOrCriticalAxeViolations": 0,
+  "publicAssetHashes": 45,
+  "baselineBuildAssetsPreserved": 70,
+  "existingPagesFilesPreserved": 564,
+  "sourceRebuiltAssets": 125,
+  "zipGuide": "NEXT-GOAL-fa.md",
+  "humanParticipants": 0,
+  "physicalDevices": 0
+}

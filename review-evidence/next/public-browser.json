@@ -1,6 +1,6 @@
 {
-  "version": "3.1.0-next.1",
-  "checkedAt": "2026-10-24T11:53:22.330Z",
+  "version": "3.2.0-next.1",
+  "checkedAt": "2026-10-24T13:19:40.988Z",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
   "tlsVerification": true,
   "transport": "Browser responses routed through Playwright HTTPS requests with the system CA bundle; native Chromium lacks the managed proxy CA.",

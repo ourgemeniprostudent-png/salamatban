@@ -1,5 +1,5 @@
 {
-  "version": "3.3.0-next.1",
+  "version": "3.4.0-next.1",
   "path": "/salamatban/next/",
   "preservedAppVersion": "2.4.7",
   "backend": "browser-local on Pages; optional shared synthetic Care API in the complete delivery",
@@ -12,9 +12,9 @@
   "paidService": "not offered; pricing and purchase entitlements undecided",
   "assets": {
     "config.json": "92c596e94c9bccf7c81ea6a1332d36ce8b7faf5fa8f087739fb0e75436e2d53c",
-    "app.js": "ded1f3fefe4c3000ebb081024499cd044d59015224bcae1ef0a6e713b8513876",
-    "app.css": "929ee4d22619e30f5fcea205edf9cbf80694951276a6ebd2913be58f54f940c3",
-    "index.html": "30020a7026ada93f746111a1a24b598a16ae69cf50bbe0c1ad4c2615a3755b26",
+    "app.js": "f51512cd90aa09c827b1a6ead4dc0e69138233cd90d956a04372f028613c49b3",
+    "app.css": "71f3cbef488d75fb720fd9d0816e606740a220ac3d9d0d238230193520462c16",
+    "index.html": "a0022bd556d9d05ff51f0039bf6f292b34700afe979cc885d6ebddf8b4465bcb",
     "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
     "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
   }

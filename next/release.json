@@ -12,9 +12,9 @@
   "paidService": "not offered; pricing and purchase entitlements undecided",
   "assets": {
     "config.json": "92c596e94c9bccf7c81ea6a1332d36ce8b7faf5fa8f087739fb0e75436e2d53c",
-    "app.js": "5145ef4986de9f27991eb139d45bbf55625a9f173501149d569cb6e64cbeb9e5",
+    "app.js": "16d6f0c74f33bb960c270f479868eb6e586fcd06adacee22a4a9560eb443e7c9",
     "app.css": "fe5f899b06ea12a1675adb2ce7ad76a02de0e9e0f7b4c13dd1b0dc2a2cc00166",
-    "index.html": "4b782f77e4cc34a7b5e6ad5f742568a673bf55ef24ddcd6aa47068cdde57885c",
+    "index.html": "005a805665c8aeb1932044b449e963a0f0ea3c3b9239670079eb4fbb4367b4f4",
     "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
     "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
   }

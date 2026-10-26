@@ -1,0 +1,26 @@
+const loginScene=document.getElementById('login-scene'),resetDialog=document.getElementById('reset-dialog');let pendingAccount=null,loginBusy=false,loginStep='phone';
+const normalizeDigits=s=>s.replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632));
+function phoneValue(){return normalizeDigits(document.getElementById('login-phone').value).replace(/[\s()-]/g,'').replace(/^\+98/,'0')}
+function showPhone(){pendingAccount=null;loginStep='phone';document.getElementById('phone-step').hidden=false;document.getElementById('code-step').hidden=true;document.getElementById('login-code').value='';document.getElementById('login-feedback').textContent='';document.getElementById('copy-feedback').textContent='کپی کد';document.getElementById('login-phone').focus()}
+ACCOUNTS.forEach(account=>{const button=document.createElement('button');button.type='button';button.className='sample-user';button.setAttribute('aria-pressed','false');button.innerHTML='<strong></strong><span></span>';button.querySelector('strong').textContent=account.name;button.querySelector('span').textContent=fa(account.phone);button.onclick=()=>{if(loginBusy)return;showPhone();document.getElementById('login-phone').value=account.phone;document.querySelectorAll('.sample-user').forEach(b=>b.setAttribute('aria-pressed',String(b===button)))};document.getElementById('sample-users').append(button)});
+document.getElementById('edit-phone').onclick=showPhone;
+document.getElementById('copy-code').onclick=async()=>{if(!pendingAccount)return;const code=pendingAccount.code;try{if(!navigator.clipboard?.writeText)throw Error('ClipboardUnavailable');await navigator.clipboard.writeText(code);document.getElementById('copy-feedback').textContent='کپی شد';document.getElementById('copy-code').title='کپی شد'}catch{document.getElementById('login-code').value=code;document.getElementById('copy-feedback').textContent='کد در فرم قرار گرفت'}document.getElementById('login-code').focus()};
+document.getElementById('login-form').onsubmit=async event=>{
+ event.preventDefault();if(loginBusy)return;const feedback=document.getElementById('login-feedback');feedback.textContent='';
+ if(loginStep==='phone'){
+  const account=ACCOUNTS.find(a=>a.phone===phoneValue());if(!account){feedback.textContent='یکی از سه شماره نمونه پایین فرم را وارد یا انتخاب کن.';return}
+  pendingAccount=account;loginStep='code';document.getElementById('phone-step').hidden=true;document.getElementById('code-step').hidden=false;document.getElementById('code-phone-label').textContent=fa(account.phone);document.getElementById('demo-code-value').textContent=fa(account.code);document.getElementById('login-code').focus();return;
+ }
+ if(normalizeDigits(document.getElementById('login-code').value).trim()!==pendingAccount.code){feedback.textContent='کد وارد شده درست نیست؛ کد نمایشی همین صفحه را وارد کن.';return}
+ loginBusy=true;document.querySelectorAll('#login-form button,.sample-user').forEach(b=>b.disabled=true);
+ try{const record=await getUser(pendingAccount.id);localStorage.setItem(SESSION_KEY,pendingAccount.id);await restoreUser(record)}catch(error){feedback.textContent='ورود انجام نشد؛ دسترسی مرورگر به فضای ذخیره را بررسی کن.';storageError(error)}finally{loginBusy=false;document.querySelectorAll('#login-form button,.sample-user').forEach(b=>b.disabled=false)}
+};
+document.getElementById('reset-user').onclick=()=>{if(!currentUser||busy||sceneChanging||addingDocuments)return;document.getElementById('reset-description').textContent='پاسخ‌ها، قرار و مدارک '+ACCOUNTS.find(a=>a.id===currentUser.id).name+' پاک می‌شوند. اطلاعات دو کاربر دیگر باقی می‌ماند.';document.getElementById('reset-feedback').textContent='';resetDialog.showModal()};
+document.getElementById('close-reset').onclick=()=>resetDialog.close();
+document.getElementById('confirm-reset').onclick=async()=>{const button=document.getElementById('confirm-reset');button.disabled=true;try{await resetCurrentUser();resetDialog.close()}catch(error){document.getElementById('reset-feedback').textContent='پاک کردن اطلاعات انجام نشد. دوباره تلاش کن.';storageError(error)}finally{button.disabled=false}};
+document.getElementById('switch-user').onclick=async()=>{if(addingDocuments)return;await saveQueue.catch(()=>{});resetDialog.close();localStorage.removeItem(SESSION_KEY);currentUser=null;clearMemory();document.getElementById('header-user').hidden=true;showOnly(loginScene);showPhone();document.getElementById('login-phone').value='';document.querySelectorAll('.sample-user').forEach(b=>b.setAttribute('aria-pressed','false'))};
+async function startApp(){
+ if(location.protocol==='file:'){showOnly(document.getElementById('loading-scene'));document.getElementById('loading-message').textContent='برای اجرای این نسخه و ذخیره اطلاعات، اجراگر بسته یا دستور python3 serve-demo.py را اجرا کن.';document.getElementById('local-guide').hidden=false;return}
+ try{await openDatabase();const id=localStorage.getItem(SESSION_KEY);if(ACCOUNTS.some(a=>a.id===id)){await restoreUser(await getUser(id))}else{showOnly(loginScene);document.getElementById('login-phone').focus()}}catch(error){showOnly(loginScene);document.querySelectorAll('#login-form button,.sample-user').forEach(b=>b.disabled=true);storageError(error)}
+}
+startApp();

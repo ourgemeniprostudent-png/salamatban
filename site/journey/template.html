@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml;base64,__FAVICON__"><title>سلامت‌بان | مسیر تازه ۴</title>
+<style>
+@font-face{font-family:Peyda;src:url('data:font/woff2;base64,__REGULAR__') format('woff2');font-weight:400;font-display:swap}@font-face{font-family:Peyda;src:url('data:font/woff2;base64,__BOLD__') format('woff2');font-weight:600 900;font-display:swap}
+:root{font-family:Peyda,Tahoma,sans-serif;font-synthesis:none;color:#173353;background:#fff;--blue:#326dde;--muted:#8295ae;--line:#e5edf8}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#fff}button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}button:focus,h1:focus{outline:none}button:focus-visible{background:#e6efff;border-color:#83a7e7;text-decoration:underline;text-underline-offset:5px}
+header{height:88px;padding:24px 5.5vw;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:9px;font-size:24px;font-weight:700;color:#244d7c;letter-spacing:-.8px}.brand svg{width:30px;height:34px}.preview-label{font-size:11px;color:#8c9cb1}
+.workspace{min-height:calc(100svh - 88px);display:grid;grid-template-columns:1fr 1fr;direction:ltr;align-items:center;gap:6vw;padding:12px 6vw 36px}.visual{height:min(720px,calc(100svh - 146px));min-height:460px;display:flex;align-items:center;justify-content:center;position:relative;isolation:isolate}.body-art{height:100%;max-width:100%;aspect-ratio:2/3;position:relative;isolation:isolate}.body-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;user-select:none}.body-base{opacity:.23}.body-fill{clip-path:inset(100% 0 0 0);will-change:clip-path}
+.question-area{direction:rtl;width:100%;max-width:620px;min-width:0;justify-self:end}.progress{height:22px;display:flex;align-items:center;gap:24px;margin-bottom:30px}.progress-copy{font-size:12px;color:#738aaa;white-space:nowrap;min-width:78px}.progress-copy b{color:var(--blue);font-size:16px}.steps{display:flex;gap:5px;flex:1;height:4px;max-width:260px}.steps i{flex:1;background:#eaf0f9;border-radius:9px;transition:background .35s}.steps i.done{background:var(--blue)}.steps i.current{background:#a4bff0}
+.question-copy{height:155px;display:flex;flex-direction:column;justify-content:center}.eyebrow{display:flex;align-items:center;gap:8px;font-size:13px;color:#527db4;margin-bottom:12px}.eyebrow:before{content:'';width:15px;height:4px;border-radius:8px;background:#9cbbef}h1{margin:0;font-size:clamp(28px,2.8vw,43px);font-weight:700;line-height:1.55;letter-spacing:-1px}#question-description{margin:10px 0 0;color:#8395ad;font-size:14px;line-height:1.8}.answers{display:grid;grid-template-rows:repeat(4,66px);gap:11px;margin:22px 0 0}.answer{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:right;gap:14px;border:1px solid var(--line);border-radius:16px;padding:0 22px;background:#f8faff;color:#345172;font-size:17px;line-height:1.7;transition:background .18s,border-color .18s,color .18s}.answer .radio{display:grid;place-items:center;flex:none;width:21px;height:21px;border-radius:50%;border:1px solid #c8d7ee;background:#fff}.radio svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:2;opacity:0}.answer-copy{flex:1}.answer.selected{background:#eaf2ff;border-color:#aac5ef;color:#245fc7}.selected .radio{background:var(--blue);border-color:var(--blue)}.selected .radio svg{opacity:1}.answer[aria-disabled=true]{cursor:default}@media(hover:hover){.answer:hover{background:#edf4ff;border-color:#b9cdef}}
+.feedback{height:28px;display:flex;align-items:center;justify-content:center;gap:7px;margin-top:16px;color:#748eaf;font-size:11px}.feedback b{font-weight:400}.indicator{width:5px;height:5px;border-radius:50%;background:#6e9deb;opacity:0}.saving .indicator{opacity:1}.hint{margin:4px 0 0;text-align:center;color:#93a2b7;font-size:10px;line-height:1.8}.question-content{opacity:1;transform:translateY(0);transition:opacity .16s,transform .16s}.question-content.changing{opacity:0;transform:translateY(5px)}
+.answers.summary{grid-template-rows:repeat(6,51px);gap:7px;margin-top:12px}.summary .answer{background:#f8faff}.summary .answer-copy{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}.summary .topic{font-size:11px;color:#7890ae}.summary .edit{font-size:10px;color:#7890ae}.finished .question-copy h1{font-size:32px}.finished .question-copy{height:135px}.finished .progress{margin-bottom:12px}.finished .feedback{margin-top:10px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(min-width:1700px){.workspace{padding-right:9vw;padding-left:9vw;gap:8vw}.question-area{max-width:680px}.answers{grid-template-rows:repeat(4,72px)}}
+@media(min-width:701px) and (max-width:1000px){header{padding-inline:4vw}.workspace{padding-inline:4vw;gap:3vw}.visual{min-height:430px}.question-copy{height:160px}h1{font-size:29px}.answer{font-size:15px;padding-inline:16px}.answers{grid-template-rows:repeat(4,60px)}.progress{gap:12px;margin-bottom:22px}}
+@media(max-width:700px){
+ header{height:58px;padding:14px 22px}.brand{font-size:20px;gap:7px}.brand svg{width:24px;height:28px}.preview-label{font-size:9px}
+ .workspace{display:flex;flex-direction:column;gap:0;min-height:calc(100svh - 58px);padding:0 22px max(14px,env(safe-area-inset-bottom));justify-content:center}
+ .visual{width:100%;height:clamp(130px,25svh,220px);min-height:0;flex:none}.question-area{max-width:460px;padding-top:14px;padding-bottom:8px}.progress{height:18px;gap:16px;margin-bottom:10px;justify-content:space-between}.progress-copy{font-size:11px;min-width:75px}.progress-copy b{font-size:14px}.steps{height:3px;max-width:230px;gap:4px}
+ .question-copy{height:128px}.eyebrow{font-size:11px;margin-bottom:7px}h1{font-size:clamp(23px,6.2vw,28px);letter-spacing:-.65px;line-height:1.5}#question-description{font-size:12px;margin-top:6px}.answers{grid-template-rows:repeat(4,54px);gap:8px;margin-top:14px}.answer{font-size:15px;padding-inline:16px;border-radius:13px;gap:12px}.answer .radio{width:20px;height:20px}.feedback{font-size:10px;margin-top:10px;height:24px}.hint{font-size:9px;margin-top:2px}
+ .answers.summary{grid-template-rows:repeat(6,48px);gap:6px;margin-top:10px}.summary .answer-copy{font-size:12px}.summary .topic{font-size:10px}.summary .edit{display:none}.finished .question-copy{height:108px}.finished .question-copy h1{font-size:27px}.finished .progress{margin-bottom:10px}
+}
+@media(max-width:700px) and (max-height:720px){.workspace{justify-content:flex-start}.visual{height:110px}.question-area{padding-top:8px}.question-copy{height:128px}.answers{grid-template-rows:repeat(4,50px);gap:7px;margin-top:10px}.feedback{margin-top:7px}.progress{margin-bottom:6px}}
+@media(max-width:700px) and (max-height:600px){header{height:50px;padding-block:10px}.workspace{min-height:calc(100svh - 50px);padding-inline:18px;padding-bottom:10px}.visual{height:96px}.question-copy{height:102px}h1{font-size:25px}.answers{grid-template-rows:repeat(4,48px)}.question-area{padding-top:6px;padding-bottom:0}.feedback{margin-top:5px}.hint{font-size:8px}}
+@media(min-width:701px) and (max-height:740px){header{height:68px;padding-block:16px}.workspace{min-height:calc(100svh - 68px);padding-top:0;padding-bottom:20px}.visual{height:calc(100svh - 110px);min-height:390px}.question-copy{height:125px}.progress{margin-bottom:12px}.answers{grid-template-rows:repeat(4,54px);gap:8px;margin-top:14px}.feedback{margin-top:8px}}
+@media(max-width:360px){h1{font-size:24px}#question-description{font-size:11px}}
+@media(max-width:700px) and (max-height:600px){.eyebrow{display:none}h1{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+__DOCTORS_CSS__
+__LOGIN_CSS__
+</style>
+</head>
+<body>
+<header><div class="brand"><svg viewBox="0 0 30 34" fill="none" aria-hidden="true"><path d="M15 2 27 6v10c0 7-5.5 12.5-12 16C8.5 28.5 3 23 3 16V6L15 2Z" fill="#f2f7ff" stroke="#326dde" stroke-width="1.8"/><path d="m8 18 4-5 4 6 6-7" stroke="#326dde" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>سلامت‌بان</span></div><div class="header-user" id="header-user" hidden><span id="active-user-name"></span><button type="button" class="reset-button" id="reset-user">ریست این کاربر</button></div></header>
+<main class="workspace" id="intake-scene" hidden>
+<section class="visual" aria-label="میزان تکمیل پاسخ‌ها؛ این تصویر نشان‌دهنده وضعیت سلامت نیست"><div class="body-art" aria-hidden="true"><img class="body-base" id="body-base" src="data:image/png;base64,__BODY__" alt="" width="1024" height="1536"><img class="body-fill" id="body-fill" alt="" width="1024" height="1536"></div></section>
+<section class="question-area" aria-label="سوال‌های آشنایی اولیه">
+<div class="progress"><span class="progress-copy" id="progress-copy">سوال <b>۱</b> از ۶</span><div class="steps" aria-hidden="true"><i class="current"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="question-content" id="question-content"><div class="question-copy"><div class="eyebrow" id="eyebrow">انرژی روزانه</div><h1 id="question" tabindex="-1">این روزها انرژی‌ات چطوره؟</h1><p id="question-description">نزدیک‌ترین گزینه به حالت رو انتخاب کن.</p></div><div class="answers" id="answers" role="group" aria-labelledby="question"></div></div>
+<div class="feedback" id="feedback" role="status" aria-live="polite"><span class="indicator" aria-hidden="true"></span><b id="feedback-text">با انتخاب پاسخ، سوال بعد نمایش داده می‌شود.</b></div><p class="hint" id="hint">پاسخ‌ها در مرحله بعد قابل اصلاح‌اند.</p>
+</section>
+</main>
+<main class="app-loading" id="loading-scene"><p id="loading-message">در حال باز کردن پرونده...</p><p id="local-guide" hidden><a href="../../00-START-HERE.html">راهنمای اجرای بسته</a></p></main>
+__LOGIN_HTML__
+__DOCTORS_HTML__
+<script>
+'use strict';
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const questions=[
+ {id:'energy',topic:'انرژی روزانه',title:'این روزها انرژی‌ات چطوره؟',answers:['بیشتر روزها پرانرژی‌ام','گاهی انرژی‌ام کم می‌شه','بیشتر وقت‌ها خسته‌ام','مطمین نیستم'],short:['خوب','متغیر','کم','نامشخص'],region:'بخش میانی تصویر'},
+ {id:'activity',topic:'تحرک و فعالیت',title:'معمولاً چقدر تحرک داری؟',answers:['تقریباً هر روز فعالیت دارم','چند روز در هفته','بیشتر روزم نشسته می‌گذره','مطمین نیستم'],short:['روزانه','چند روز در هفته','کم','نامشخص'],region:'شبکه پاها'},
+ {id:'sleep',topic:'خواب و استراحت',title:'این روزها خوابت چطوره؟',answers:['راحت و کافی می‌خوابم','خوابم کم یا نامنظمه','با خستگی بیدار می‌شم','مطمین نیستم'],short:['راحت و کافی','کم یا نامنظم','بیداری با خستگی','نامشخص'],region:'بخش بالایی تصویر'},
+ {id:'food',topic:'وعده‌های غذایی',title:'وعده‌های غذات چقدر منظمه؟',answers:['بیشتر روزها منظمه','بعضی روزها نامنظمه','اغلب وعده‌هام رو جا می‌ندازم','مطمین نیستم'],short:['منظم','گاهی نامنظم','اغلب نامنظم','نامشخص'],region:'بخش پایین‌تنه تصویر'},
+ {id:'stress',topic:'فشار ذهنی',title:'این روزها فشار ذهنی‌ات چقدره؟',answers:['کم؛ معمولاً آرامش دارم','متوسط؛ بعضی روزها بیشتره','زیاد؛ روی روزمره‌ام اثر می‌ذاره','مطمین نیستم'],short:['کم','متوسط','زیاد','نامشخص'],region:'شبکه شانه‌ها و دست‌ها'},
+ {id:'goal',topic:'انتظار شما',title:'دوست داری از کجا شروع کنیم؟',answers:['وضعیت سلامتم رو بهتر بشناسم','پیگیری‌هام منظم‌تر بشه','مدارکم و قدم بعد رو بهتر بفهمم','هنوز دقیق نمی‌دونم'],short:['شناخت سلامت','پیگیری منظم','فهم مدارک','هنوز مشخص نیست'],region:'تصویر کلی'}
+];
+let current=0, answers=Array(6).fill(null),busy=false,editing=false,transitionTimer=0;
+const area=document.querySelector('.question-area'),content=document.getElementById('question-content'),answerList=document.getElementById('answers'),feedback=document.getElementById('feedback'),feedbackText=document.getElementById('feedback-text');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');let fillLevel=0,animation=null;
+function render(focus=false){
+ const q=questions[current];feedback.classList.remove('saving');area.classList.remove('finished');answerList.classList.remove('summary');document.getElementById('progress-copy').innerHTML=`سوال <b>${fa(current+1)}</b> از ${fa(questions.length)}`;document.querySelectorAll('.steps i').forEach((e,i)=>{e.className=answers[i]!==null?'done':i===current?'current':''});document.getElementById('eyebrow').textContent=q.topic;document.getElementById('question').textContent=q.title;document.getElementById('question-description').textContent='نزدیک‌ترین گزینه به حالت رو انتخاب کن.';document.getElementById('hint').textContent=editing?'با انتخاب پاسخ، به مرور پاسخ‌ها برمی‌گردی.':'پاسخ‌ها در مرحله بعد قابل اصلاح‌اند.';feedbackText.textContent='با انتخاب پاسخ، سوال بعد نمایش داده می‌شود.';answerList.replaceChildren();q.answers.forEach((text,i)=>{const b=document.createElement('button');b.type='button';b.className='answer'+(answers[current]===i?' selected':'');b.setAttribute('aria-pressed',String(answers[current]===i));b.innerHTML='<span class="radio" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3 3 7-7"/></svg></span><span class="answer-copy"></span>';b.querySelector('.answer-copy').textContent=text;b.onclick=()=>choose(i);answerList.append(b)});if(focus)document.getElementById('question').focus({preventScroll:true});
+}
+async function choose(index){
+ if(busy)return;busy=true;const previous=answers[current];answers[current]=index;try{await persistCurrent({stage:editing||current===questions.length-1?'doctors':'intake',current:editing||current===questions.length-1?questions.length:current+1,editing:false})}catch{answers[current]=previous;busy=false;return}answerList.querySelectorAll('button').forEach((b,i)=>{b.classList.toggle('selected',i===index);b.setAttribute('aria-pressed',String(i===index));b.setAttribute('aria-disabled','true')});feedback.classList.add('saving');feedbackText.textContent='پاسخ ثبت شد.';animateFill();
+ transitionTimer=setTimeout(()=>{content.classList.add('changing');setTimeout(()=>{busy=false;if(editing||current===questions.length-1){editing=false;showSummary()}else{current++;render(true)}content.classList.remove('changing')},reduced.matches?0:140)},180);
+}
+function showSummary(){openDoctors()}
+// One continuous bottom-to-top reveal, based only on answered questions.
+const baseImage=document.getElementById('body-base'),fillImage=document.getElementById('body-fill');fillImage.src=baseImage.src;
+function animateFill(onDone){
+ if(animation)cancelAnimationFrame(animation);
+ const from=fillLevel,to=answers.filter(a=>a!==null).length/questions.length,start=performance.now(),duration=reduced.matches?0:1250;
+ function tick(now){const t=duration?Math.min(1,(now-start)/duration):1;const eased=t*t*(3-2*t);fillLevel=from+(to-from)*eased;fillImage.style.clipPath=`inset(${(1-fillLevel)*100}% 0 0 0)`;if(t<1)animation=requestAnimationFrame(tick);else{animation=null;onDone?.()}}
+ animation=requestAnimationFrame(tick);
+}
+__DOCTORS_JS__
+__PERSISTENCE_JS__
+__LOGIN_JS__
+window.addEventListener('pagehide',()=>{clearTimeout(transitionTimer);if(animation)cancelAnimationFrame(animation)});
+</script>
+</body></html>

@@ -1,0 +1,10 @@
+{
+  "version": "4.0.0",
+  "sha256": "7995a84bc58454750ae690ec1b59c7eaf69b8b7aa8142cabe08f7a55146d2347",
+  "zipIntegrity": "passed",
+  "perFileHashes": "passed",
+  "entryLinks": "passed",
+  "sourceRebuildByteIdentical": true,
+  "packagedLauncherAndLogin": "passed",
+  "runtimeDataExcluded": true
+}

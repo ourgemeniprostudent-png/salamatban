@@ -30,13 +30,15 @@
     "maps:test": "node --test maps-server/server.test.mjs",
     "test:complete-demo": "node --test demo/complete-demo.test.mjs",
     "demo:documents": "node demo/generate-documents.mjs",
-    "build:next": "npm run build:demo && node next/build.mjs",
+    "build:next": "python3 journey/build.py",
     "test:next": "node --test next/model.test.mjs next/browser.test.mjs next/isolation.test.mjs next/care.test.mjs next/care-browser.test.mjs next/server/server.test.mjs next/server/browser.test.mjs",
     "build:next:server": "node next/server/build.mjs",
     "start:next:server": "node dist-next-server/main.mjs",
     "test:next:goal": "node --test next/goal-fixtures.test.mjs next/goal-browser.test.mjs",
     "test:next:episodes": "node --test next/episodes.test.mjs next/episodes-browser.test.mjs",
-    "test:next:programme": "node --test next/programme.test.mjs next/programme-browser.test.mjs"
+    "test:next:programme": "node --test next/programme.test.mjs next/programme-browser.test.mjs",
+    "build:next:legacy": "npm run build:demo && node next/build.mjs",
+    "test:journey-v4": "node journey/browser.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

@@ -1,0 +1,47 @@
+{
+  "version": "4.0.0",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
+  "commit": "14c0df7d98d7f66823f658520b53c7488b89d0ed",
+  "sha256": "4f3efde7420d6334b5bed0a782260d155cad417d85981840d080000a6c4a386c",
+  "existingNonNextRoutesUnchanged": true,
+  "previousNextArchive": "https://ourgemeniprostudent-png.github.io/salamatban/archive/v3.5.0-next.1/",
+  "previousPagesCommit": "eed7ecd44a31a6aa6ff4b031d8a07153aa5e3adc",
+  "httpsVerified": true,
+  "checks": [
+    {
+      "path": "next/index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "next/release.json",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "release.json",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "previews/intake-wireframe/index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "archive/v3.5.0-next.1/index.html",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "archive/v3.5.0-next.1/release.json",
+      "status": 200,
+      "matches": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "4.0.0",
+  "checks": [
+    "Three sample accounts, phone/code validation, Persian digits, clipboard copy, single header action and restored mid-intake progress",
+    "Doctor selection, dated 14-day draft, committed appointment and actual document bytes survive reload",
+    "Per-user isolation for answers, appointment and document blobs; reset confirmation; only active user cleared; another open tab observes reset; old app storage untouched",
+    "Cancelled edit retains committed appointment; removing a document persists across reload",
+    "Appointment dates survive rollover of the 14-day window; no patient topic field and no route changes",
+    "Login and home checked at mobile/tablet/desktop widths without horizontal overflow",
+    "Blocked browser storage gives an explicit error and never pretends to save",
+    "Clipboard denial safely fills the code field without falsely claiming a copy"
+  ],
+  "errors": []
+}

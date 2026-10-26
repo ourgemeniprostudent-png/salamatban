@@ -50,3 +50,5 @@ next-env.d.ts
 
 /.next-data/
 /dist-next-server/
+
+/dist-journey/

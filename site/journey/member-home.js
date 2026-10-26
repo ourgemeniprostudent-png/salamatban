@@ -5,7 +5,7 @@ function appointmentDate(){
  return new Date(date+'T'+appointment.doctor.times[appointment.slot]+':00+03:30');
 }
 function updateAppointmentClock(){
- if(!appointment)return;
+ if(!appointment||currentUser?.care?.encounters?.length)return;
  const start=appointmentDate().getTime(),delta=start-Date.now(),end=start+20*60000,now=Date.now();
  const join=document.getElementById('join-appointment');
  join.disabled=now<start-15*60000||now>=end;
@@ -21,7 +21,7 @@ function renderHome(){
  document.getElementById('home-doctor-name').textContent=d.name;
  document.getElementById('appointment-facts').innerHTML='<div><dt>تاریخ قرار</dt><dd>'+dateFmt.format(new Date(appointment.date+'T12:00:00Z'))+'</dd></div><div><dt>ساعت، به وقت ایران</dt><dd>'+fa(d.times[appointment.slot])+'</dd></div><div><dt>نوع گفت‌وگو</dt><dd>آنلاین</dd></div><div><dt>مدت زمان نمونه</dt><dd>۲۰ دقیقه</dd></div>';
  document.getElementById('back-home').hidden=false;
- updateAppointmentClock();renderDocuments();
+ updateAppointmentClock();renderDocuments();renderMemberCare();
 }
 function editAppointment(){
  selectedDoctor=appointment.doctor;selectedDay=sampleDays.findIndex(d=>d.toISOString().slice(0,10)===appointment.date);selectedSlot=appointment.slot;if(selectedDay<0){selectedDay=firstAvailable(selectedDoctor)?.day??0;selectedSlot=null}
@@ -35,7 +35,7 @@ function renderDocuments(){
   const mark=document.createElement('span');mark.className='file-mark';mark.textContent=item.type==='application/pdf'?'PDF':'تصویر';
   const details=document.createElement('div');details.className='file-details';const name=document.createElement('span');name.className='file-name';name.textContent=item.name;const size=document.createElement('span');size.className='file-size';size.textContent=fa(Math.max(1,Math.round(item.size/1024)))+' کیلوبایت · ذخیره در مرورگر';details.append(name,size);
   const actions=document.createElement('div');actions.className='file-actions';const view=document.createElement('a');view.textContent='مشاهده';view.href=item.url;view.target='_blank';view.rel='noopener noreferrer';view.setAttribute('aria-label','مشاهده '+item.name+' در برگه جدید');
-  const remove=document.createElement('button');remove.type='button';remove.textContent='حذف';remove.setAttribute('aria-label','حذف '+item.name);remove.onclick=async()=>{remove.disabled=true;try{await deleteDocument(item);const index=documents.findIndex(d=>d.id===item.id);if(index>=0){URL.revokeObjectURL(documents[index].url);documents.splice(index,1)}renderDocuments();setDocumentFeedback('مدرک حذف شد.');document.getElementById('add-documents').focus({preventScroll:true})}catch(error){remove.disabled=false;setDocumentFeedback('حذف مدرک انجام نشد.',true);storageError(error)}};actions.append(view,remove);li.append(mark,details,actions);list.append(li);
+  const remove=document.createElement('button');remove.type='button';remove.textContent='حذف';remove.setAttribute('aria-label','حذف '+item.name);remove.onclick=async()=>{remove.disabled=true;try{await deleteDocument(item);const index=documents.findIndex(d=>d.id===item.id);if(index>=0){URL.revokeObjectURL(documents[index].url);documents.splice(index,1)}renderDocuments();setDocumentFeedback('مدرک حذف شد.');document.getElementById('add-documents').focus({preventScroll:true})}catch(error){remove.disabled=false;setDocumentFeedback('حذف مدرک انجام نشد.',true);storageError(error)}};if(careOf(currentUser).tasks.some(t=>t.reportId===item.id)){remove.hidden=true;size.textContent+=' · گزارش پیگیری'}actions.append(view,remove);li.append(mark,details,actions);list.append(li);
  });
 }
 function setDocumentFeedback(message,error=false){const feedback=document.getElementById('document-feedback');feedback.textContent=message;feedback.dataset.error=String(error)}

@@ -31,6 +31,7 @@ header{height:88px;padding:24px 5.5vw;display:flex;align-items:center;justify-co
 
 __DOCTORS_CSS__
 __LOGIN_CSS__
+__WORKFLOW_CSS__
 </style>
 </head>
 <body>
@@ -46,6 +47,7 @@ __LOGIN_CSS__
 <main class="app-loading" id="loading-scene"><p id="loading-message">در حال باز کردن پرونده...</p><p id="local-guide" hidden><a href="../../00-START-HERE.html">راهنمای اجرای بسته</a></p></main>
 __LOGIN_HTML__
 __DOCTORS_HTML__
+__WORKFLOW_HTML__
 <script>
 'use strict';
 const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
@@ -78,6 +80,7 @@ function animateFill(onDone){
 }
 __DOCTORS_JS__
 __PERSISTENCE_JS__
+__WORKFLOW_JS__
 __LOGIN_JS__
 window.addEventListener('pagehide',()=>{clearTimeout(transitionTimer);if(animation)cancelAnimationFrame(animation)});
 </script>

@@ -1,7 +1,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import hashlib,json,subprocess,tempfile,zipfile,urllib.parse
-root=Path(__file__).resolve().parent.parent;archive=root/'deliverables/Salamatban-Complete-Delivery-v4.0.0.zip';name=archive.stem
+root=Path(__file__).resolve().parent.parent;archive=root/'deliverables/Salamatban-Complete-Delivery-v4.1.0.zip';name=archive.stem
 with tempfile.TemporaryDirectory(prefix='salamatban-v4-validation-') as temp:
  dest=Path(temp)
  with zipfile.ZipFile(archive) as z:
@@ -30,5 +30,5 @@ with tempfile.TemporaryDirectory(prefix='salamatban-v4-validation-') as temp:
   code="""import{chromium}from'./site/node_modules/playwright/index.mjs';import assert from'node:assert/strict';const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const p=await b.newPage();await p.goto('http://127.0.0.1:4181/next/');await p.waitForSelector('#login-scene:not([hidden])');assert.equal(await p.locator('.sample-user').count(),3);assert.equal(await p.locator('.sample-user').first().innerText(),'سارا احمدی\\n۰۹۰۰۰۰۰۰۰۰۱');await b.close();"""
   subprocess.run(['node','--input-type=module','-e',code],cwd=root,check=True,capture_output=True)
  finally:server.terminate();server.wait(timeout=5)
-report={'version':'4.0.0','sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'zipIntegrity':'passed','perFileHashes':'passed','entryLinks':'passed','sourceRebuildByteIdentical':True,'packagedLauncherAndLogin':'passed','runtimeDataExcluded':True}
+report={'version':'4.1.0','sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'zipIntegrity':'passed','perFileHashes':'passed','entryLinks':'passed','sourceRebuildByteIdentical':True,'packagedLauncherAndLogin':'passed','runtimeDataExcluded':True}
 (root/'review-evidence/journey/archive-validation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

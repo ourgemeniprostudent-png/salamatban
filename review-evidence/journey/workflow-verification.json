@@ -1,0 +1,14 @@
+{
+  "version": "4.1.0",
+  "checks": [
+    "Patient appointment reaches only selected doctor; physician draft persists and stays private; published encounter and task reach patient atomically",
+    "Coordinator receives only own tasks and minimal information; contact, proposed time, patient rejection/reproposal and acceptance are distinct connected states",
+    "Blocked coordination keeps its true stage and followup date; changed center/time requires a new patient confirmation",
+    "Visit, report upload signature validation and physician review are separate; patient sees reviewed result and next step after reload",
+    "Other physician and coordinator queues are isolated; command layer rejects wrong physician",
+    "Revision checks reject stale writes and prevent silent overwrite",
+    "Staff workspaces and detail forms tested at 320, 390, 768 and 1440 pixels without horizontal overflow",
+    "Reset removes encounters, coordinator tasks and report files for this patient, and updates staff tabs"
+  ],
+  "errors": []
+}

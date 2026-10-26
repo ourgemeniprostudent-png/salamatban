@@ -1,11 +1,11 @@
 item,status,owner,next_step
 Member demo flow,implemented,product,review with stakeholders
 Per-user local persistence,implemented,engineering,test on physical devices
-Physician workspace,planned,product,design next with owner
-Coordinator workspace,planned,product,define tasks after consultation
+Physician workspace,implemented local demo,product,review clinical workflow with users
+Coordinator workspace,implemented local demo,product,review connected coordination cycle
 Shared server and database,not deployed,engineering,choose VPS and deployment architecture
 Real OTP and role authorization,not implemented,engineering,implement before real patient data
-Clinical records and physician authorship,planned,clinical/product,define encounter record
+Clinical records and physician authorship,implemented local demo,clinical/product,validate fields before production
 Private document storage and retention,not implemented,operations,agree policy and server controls
 Video consultation,not connected,product,select provider
 Payments and pricing,undecided,business,confirm commercial scope

@@ -1,11 +1,11 @@
 {
-  "version": "4.0.0",
+  "version": "4.1.0",
   "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/",
-  "commit": "14c0df7d98d7f66823f658520b53c7488b89d0ed",
-  "sha256": "4f3efde7420d6334b5bed0a782260d155cad417d85981840d080000a6c4a386c",
+  "commit": "15d5b8fb653172c0be8abc0d57a930dff992fa9f",
+  "sha256": "4729892dd1bb39b01391058dee3ad98596f371765c9e8abfe855af933b04bb47",
   "existingNonNextRoutesUnchanged": true,
   "previousNextArchive": "https://ourgemeniprostudent-png.github.io/salamatban/archive/v3.5.0-next.1/",
-  "previousPagesCommit": "eed7ecd44a31a6aa6ff4b031d8a07153aa5e3adc",
+  "previousPagesCommit": "14c0df7d98d7f66823f658520b53c7488b89d0ed",
   "httpsVerified": true,
   "checks": [
     {

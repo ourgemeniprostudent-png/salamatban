@@ -1,4 +1,4 @@
-# سلامت‌بان — نسخه ۴
+# سلامت‌بان — نسخه ۴.۱
 
 مسیر جاری: https://ourgemeniprostudent-png.github.io/salamatban/next/
 
@@ -9,10 +9,10 @@
 - سورس فعال نسخه ۴: `site/journey/`
 - ساخت: `python3 site/journey/build.py`
 - اجرای محلی: `python3 -m http.server 4180 --directory site/dist-journey`
-- آزمون: `node site/journey/browser.test.mjs` (نیازمند نصب وابستگی‌های site و Chromium)
+- آزمون: `node site/journey/browser.test.mjs` و `node site/journey/workflow.test.mjs` (نیازمند نصب وابستگی‌های site و Chromium)
 - ساخت بسته کامل: `python3 scripts/package_journey_v4.py`
 - انتشار مسیر next: `python3 scripts/publish_journey_v4.py`
 
-میزکار پزشک و کارشناس در این نسخه هنوز اجرا نشده و مرحله بعد طراحی است. بیمار پیش از جلسه فیلدی برای نوشتن موضوع یا شرح حال ندارد.
+میزکار پزشک و کارشناس در نسخه ۴.۱ از مسیر /next/?staff=1 به پرونده همین کاربران وصل است. بیمار پیش از جلسه فیلدی برای نوشتن موضوع یا شرح حال ندارد.
 
 نسخه قدیمی ریشه سایت محفوظ است. نسخه قبلی next در `/salamatban/archive/v3.5.0-next.1/` حفظ می‌شود. سورس `site/next/`، آزمون‌های `test:next`، سرور نمونه پیشین و سایر اسناد قدیمی، مراجع نسخه ۳ هستند؛ راهنمای نسخه جاری محسوب نمی‌شوند. ساخت قدیمی با `npm run build:next:legacy` انجام می‌شود. [معرفی قبلی](reference-docs/README-before-v4.md) برای رجوع نگهداری شده است.

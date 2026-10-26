@@ -1,21 +1,13 @@
 {
-  "version": "3.5.0-next.1",
+  "version": "4.0.0",
   "path": "/salamatban/next/",
-  "preservedAppVersion": "2.4.7",
-  "backend": "browser-local on Pages; optional shared synthetic Care API in the complete delivery",
-  "fictionalPatients": 10,
-  "sharedServer": {
-    "runtime": "Node.js 24+",
-    "deployment": "not deployed publicly",
-    "productionIdentity": false
-  },
-  "paidService": "not offered; pricing and purchase entitlements undecided",
+  "mode": "persistent browser demo",
+  "accounts": 3,
+  "storage": "IndexedDB per user; localStorage session",
+  "serverAuthentication": false,
+  "clinicalService": false,
+  "staffWorkspaces": "planned, not implemented in v4",
   "assets": {
-    "config.json": "92c596e94c9bccf7c81ea6a1332d36ce8b7faf5fa8f087739fb0e75436e2d53c",
-    "app.js": "4cd097985f5df5db17dd0b0c6411582f9a5e53326653acbf5f365a0a88128f52",
-    "app.css": "d7515bb9e88ea80152efe8e940e243ba979d8210616c4a69968cd499e4242b66",
-    "index.html": "ef85817b72ac09ccf0604f61d08616ee528942f258809c89f7370ca9194069a1",
-    "sql-wasm.wasm": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
-    "demo/documents/51-lab.pdf": "7e2dee05b6ebbe5b0ac152631c4612a6a8b0b649eccebc7f3aa8b61db787bcdc"
+    "index.html": "1428443f2c1ab5ddbceabae1948f2eb6becc4f9c918984ab2f6fc0c50b2e9de9"
   }
 }

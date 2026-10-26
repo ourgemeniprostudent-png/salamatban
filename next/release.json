@@ -1,5 +1,5 @@
 {
-  "version": "4.2.0",
+  "version": "4.3.0",
   "path": "/salamatban/next/",
   "mode": "persistent browser demo",
   "accounts": 8,
@@ -10,6 +10,6 @@
   "clinicalService": false,
   "staffWorkspaces": "physician and coordinator connected local demo",
   "assets": {
-    "index.html": "86d4cdcb4d6334b6e842999a47134e822c6af67815fcfe49e93b9f47a89d183d"
+    "index.html": "afbd08457489aacd6eaf1064b14831fc139b43e8f4209e0384e8d259025e535a"
   }
 }

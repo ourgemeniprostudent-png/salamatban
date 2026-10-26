@@ -13,4 +13,5 @@ Physical device and user research,not performed,product,conduct acceptance sessi
 Physician dashboard and report viewer,implemented local demo,product,review with physicians
 Complete synthetic Maryam case,implemented,product,review demonstration and reset behavior
 Doctor calendar blocks and profile,implemented local demo,engineering,server authorization and capacity before production
-Coordinator visual redesign,proposed not implemented,product,await owner design approval
+Coordinator task dashboard,implemented local demo,product,validate task usability with coordinators
+Multiple time offers and center directory,not implemented,product,define scope before implementation

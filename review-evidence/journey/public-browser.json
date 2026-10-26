@@ -1,11 +1,12 @@
 {
-  "version": "4.2.0",
-  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/?v=4.2.0",
+  "version": "4.3.0",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/?v=4.3.0",
   "tlsVerification": true,
   "transport": "HTTPS via managed proxy and system CA; browser responses fulfilled from verified Playwright HTTPS requests",
   "checks": [
     "Public login has three users",
     "Separate staff login has five accounts; selected doctor sees the booked patient",
+    "Published coordinator dashboard opens linked requests and six-step detail; reciprocal patient entry link is present",
     "Mid-question refresh retains state",
     "Doctor and time lead to home",
     "Home survives refresh",

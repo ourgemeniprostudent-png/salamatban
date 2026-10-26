@@ -1,13 +1,13 @@
 {
-  "version": "4.0.0",
+  "version": "4.1.0",
   "path": "/salamatban/next/",
   "mode": "persistent browser demo",
-  "accounts": 3,
+  "accounts": 8,
   "storage": "IndexedDB per user; localStorage session",
   "serverAuthentication": false,
   "clinicalService": false,
-  "staffWorkspaces": "planned, not implemented in v4",
+  "staffWorkspaces": "physician and coordinator connected local demo",
   "assets": {
-    "index.html": "4f3efde7420d6334b5bed0a782260d155cad417d85981840d080000a6c4a386c"
+    "index.html": "4729892dd1bb39b01391058dee3ad98596f371765c9e8abfe855af933b04bb47"
   }
 }

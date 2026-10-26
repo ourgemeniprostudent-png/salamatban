@@ -182,7 +182,7 @@ function personalSummary(){
 async function openDoctors(){
  current=questions.length;feedback.classList.remove('saving');feedbackText.textContent='پاسخ‌ها کامل شد؛ حالا پزشک همراهت را انتخاب کن.';
  document.getElementById('personal-summary').textContent=personalSummary();
- 
+
  if(fillLevel<.99&&!reduced.matches)await new Promise(resolve=>setTimeout(resolve,650));
  await swapScene(doctorScene,'doctors-title');
 }

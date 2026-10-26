@@ -92,9 +92,9 @@ function selectDoctor(d){
 }
 async function confirmSlot(){
  if(sceneChanging||!selectedDoctor||selectedSlot===null||availability(selectedDoctor,selectedDay)[selectedSlot]?.status!=='available')return;
- appointment={doctor:selectedDoctor,day:selectedDay,date:sampleDays[selectedDay].toISOString().slice(0,10),slot:selectedSlot};
+ const previousAppointment=appointment;appointment={doctor:selectedDoctor,day:selectedDay,date:sampleDays[selectedDay].toISOString().slice(0,10),slot:selectedSlot};
  renderHome();
- await swapScene(confirmationScene,'confirmation-title');
+ const saved=await swapScene(confirmationScene,'confirmation-title');if(!saved){appointment=previousAppointment;await loadDoctorSettings();selectedSlot=null;renderCalendar();renderSlots();document.getElementById('slot-status').textContent='ثبت وقت انجام نشد؛ زمان آزاد دیگری انتخاب کن.'}
 }
 const reviewDialog=document.getElementById('review-dialog');
 document.getElementById('review-answers').onclick=()=>{

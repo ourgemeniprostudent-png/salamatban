@@ -1,6 +1,6 @@
 {
-  "version": "4.1.0",
-  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/?v=4.1.0",
+  "version": "4.2.0",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/?v=4.2.0",
   "tlsVerification": true,
   "transport": "HTTPS via managed proxy and system CA; browser responses fulfilled from verified Playwright HTTPS requests",
   "checks": [

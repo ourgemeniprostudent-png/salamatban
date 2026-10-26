@@ -38,7 +38,7 @@
     "test:next:episodes": "node --test next/episodes.test.mjs next/episodes-browser.test.mjs",
     "test:next:programme": "node --test next/programme.test.mjs next/programme-browser.test.mjs",
     "build:next:legacy": "npm run build:demo && node next/build.mjs",
-    "test:journey-v4": "node journey/browser.test.mjs && node journey/workflow.test.mjs"
+    "test:journey-v4": "node journey/browser.test.mjs && node journey/workflow.test.mjs && node journey/physician.test.mjs"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",

@@ -42,7 +42,7 @@ function setDocumentFeedback(message,error=false){const feedback=document.getEle
 async function addDocuments(files){
  const failures=[];let added=0;
  for(const file of files){
-  if(documents.length>=5){failures.push('حداکثر ۵ فایل می‌توانی اضافه کنی.');break}
+  if(documents.filter(d=>!d.source||d.source==='member').length>=5){failures.push('حداکثر ۵ فایل می‌توانی اضافه کنی.');break}
   if(file.size>10*1024*1024){failures.push('حجم «'+file.name+'» بیشتر از ۱۰ مگابایت است.');continue}
   if(file.size===0){failures.push('فایل «'+file.name+'» خالی است.');continue}
   const head=new Uint8Array(await file.slice(0,12).arrayBuffer());
@@ -53,7 +53,7 @@ async function addDocuments(files){
   const type=pdf?'application/pdf':png?'image/png':jpg?'image/jpeg':webp?'image/webp':null;
   if(!type){failures.push('«'+file.name+'» فایل PDF یا تصویر پشتیبانی‌شده نیست.');continue}
   if(documents.some(d=>d.name===file.name&&d.size===file.size&&d.modified===file.lastModified)){failures.push('«'+file.name+'» قبلا اضافه شده است.');continue}
-  const blob=new Blob([file],{type});const item={id:crypto.randomUUID(),name:file.name,size:file.size,modified:file.lastModified,type};await writeDocument(item,blob);documents.push({...item,url:URL.createObjectURL(blob)});added++;
+  const blob=new Blob([file],{type});const item={id:crypto.randomUUID(),source:'member',name:file.name,size:file.size,modified:file.lastModified,type};await writeDocument(item,blob);documents.push({...item,url:URL.createObjectURL(blob)});added++;
  }
  renderDocuments();setDocumentFeedback((added?fa(added)+' مدرک برای این کاربر ذخیره شد. ':'')+[...new Set(failures)].join(' '),failures.length>0);
 }

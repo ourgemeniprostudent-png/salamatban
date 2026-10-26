@@ -1,0 +1,16 @@
+{
+  "version": "4.2.0",
+  "checks": [
+    "Complete Maryam scenario: full profile, six authored encounters, eight linked tasks in five distinct states, seven real synthetic PDF/image blobs and four reviewed completed paths",
+    "Today counters and search filter actual data; report view opens the correct document with zoom and genuine PDF download, not a generic consultation form",
+    "Report draft stays private and survives reload; publishing updates patient and creates a concrete linked coordinator request",
+    "Existing coordinator UI receives real linked work while clinical narrative and report drafts stay out of its operational view",
+    "Physician edits structured patient profile during consultation and the updated sourced profile appears for that patient",
+    "Physician availability edits persist and block the same slots in patient booking",
+    "Atomic booking checks reject a physician-blocked slot even when a stale client attempts it",
+    "Doctor profile changes flow through to physician selection data",
+    "Approved dashboard and focused report layout visually captured and checked at 320/390/768/1440 without horizontal overflow",
+    "Edited existing Maryam data survives startup; resetting leaves a clean account; explicit restore recreates only the complete synthetic case"
+  ],
+  "errors": []
+}

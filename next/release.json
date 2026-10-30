@@ -1,5 +1,5 @@
 {
-  "version": "4.3.0",
+  "version": "5.0.0",
   "path": "/salamatban/next/",
   "mode": "persistent browser demo",
   "accounts": 8,
@@ -9,7 +9,15 @@
   "serverAuthentication": false,
   "clinicalService": false,
   "staffWorkspaces": "physician and coordinator connected local demo",
+  "demoCheckout": true,
+  "pathwayTemplates": {
+    "appointment": 7,
+    "lab": 8,
+    "records": 4,
+    "care": 5
+  },
+  "fixtureVersion": "maryam-complete-v2",
   "assets": {
-    "index.html": "afbd08457489aacd6eaf1064b14831fc139b43e8f4209e0384e8d259025e535a"
+    "index.html": "5caaba6ade21bd3a57b6a9158d8eab2c1620996c9e69211d14c1e77130721fe3"
   }
 }

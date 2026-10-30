@@ -3,7 +3,9 @@
   "checks": [
     "Payment intent survives reload; failure/cancel do not book; success books atomically once and shows confirmation/dashboard/countdown",
     "Calendar export is a real ICS event with UTC instants converted from the Iran appointment",
+    "Selecting the already booked appointment returns home without a second payment",
     "Four real template flows (7/8/4/5 steps) completed through coordinator tick forms, patient gate and physician review; role/order bypass rejected and checkboxes persist",
+    "Latest published physician review replaces the earlier pending-review instruction on home and is included in the unified medical record",
     "Completed pathways have dedicated pages; member upload links to the correct task; all documents and authored record are reachable; missing medications are not presented as no medication",
     "New dashboard and real checklist fit 320/390/768/1440px without horizontal overflow",
     "Empty submit leaves step incomplete; correcting center records a reason and invalidates downstream proposal and patient approval",

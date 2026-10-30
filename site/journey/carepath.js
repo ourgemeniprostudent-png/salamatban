@@ -37,3 +37,5 @@ const hintBeforePaths=coordinatorHint;coordinatorHint=t=>t.path?taskLabel(t):hin
 
 function legacyPathChoice(t){return !t.path&&t.status==='requested'?`<form class="work-form" data-command="setPath" data-task="${t.id}">${flowSelect()}<button class="primary" type="submit">تعیین نوع این مسیر تازه</button><p class="work-feedback" role="status"></p></form>`:''}
 const legacyPathHTML=pathHTML;pathHTML=function(t){return t.path?coordinatorPath(t):legacyPathHTML(t)};
+
+function coordinatorAction(t){if(!t.path)return coordinatorNext[t.status];const s=pathCurrent(t);return !s?'مشاهده مسیر':s[2]==='coordinator'?'تکمیل مرحله بعد':s[2]==='member'?'منتظر پاسخ بیمار':'منتظر بررسی پزشک'}

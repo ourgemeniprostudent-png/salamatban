@@ -1,4 +1,4 @@
-const APP_VERSION='4.2.0';
+const APP_VERSION='5.0.0';
 const ACCOUNTS=[{id:'sara',name:'سارا احمدی',phone:'09000000001',code:'111111'},{id:'maryam',name:'مریم کیانی',phone:'09000000002',code:'222222'},{id:'narges',name:'نرگس رضایی',phone:'09000000003',code:'333333'}];
 const DB_NAME='salamatban-journey-v4',SESSION_KEY='salamatban.journey.v4.session',EVENT_KEY='salamatban.journey.v4.event';
 let db=null,currentUser=null,saveQueue=Promise.resolve(),isRestoring=false;const userRevisions=new Map();
@@ -19,7 +19,7 @@ function persistCurrent(overrides={}){
  const owner=currentUser.id,generation=currentUser.generation,snapshot=currentSnapshot(overrides);
  const task=saveQueue.catch(()=>{}).then(()=>new Promise((resolve,reject)=>{
   const tx=db.transaction(['users','settings'],'readwrite'),store=tx.objectStore('users'),req=store.get(owner);let written,problem;
-  req.onsuccess=()=>{const stored=req.result;if(!stored||stored.generation!==generation||stored.revision!==userRevisions.get(owner)){tx.abort();return}const write=()=>{written={...stored,...snapshot,id:owner,generation,revision:stored.revision+1};store.put(written)};const ap=snapshot.appointment;
+  req.onsuccess=()=>{const stored=req.result;if(!stored||stored.generation!==generation||stored.revision!==userRevisions.get(owner)){tx.abort();return}const write=()=>{if(snapshot.appointment&&!paymentMatches(snapshot.appointment,stored.appointment)){problem=new Error('ابتدا پرداخت نمایشی همان قرار را کامل کن.');problem.code='BookingUnavailable';tx.abort();return}written={...stored,...snapshot,id:owner,generation,revision:stored.revision+1};store.put(written)};const ap=snapshot.appointment;
    if(ap&&JSON.stringify(ap)!==JSON.stringify(stored.appointment)){const settings=tx.objectStore('settings').get(ap.doctorId);settings.onsuccess=()=>{const users=store.getAll();users.onsuccess=()=>{if((settings.result?.blockedSlots||[]).includes(ap.date+'|'+ap.time)||users.result.some(r=>r.id!==owner&&r.appointment?.doctorId===ap.doctorId&&r.appointment.date===ap.date&&r.appointment.time===ap.time)){problem=new Error('این زمان دیگر آزاد نیست؛ زمان دیگری انتخاب کن.');problem.code='BookingUnavailable';tx.abort();return}write()}}}else write()};
   tx.oncomplete=()=>{userRevisions.set(owner,written.revision);if(currentUser?.id===owner)currentUser=written;announceChange(owner);resolve()};tx.onabort=()=>reject(problem||new Error('StateChangedOrUnavailable'));tx.onerror=()=>reject(tx.error);
  }));
@@ -28,7 +28,7 @@ function persistCurrent(overrides={}){
 function persistQuietly(){persistCurrent().catch(()=>{})}
 function writeDocument(item,blob){
  const owner=currentUser.id,generation=currentUser.generation;
- return new Promise((resolve,reject)=>{const tx=db.transaction(['users','documents'],'readwrite');const req=tx.objectStore('users').get(owner);req.onsuccess=()=>{if(req.result?.generation!==generation){tx.abort();return}tx.objectStore('documents').put({key:owner+':'+item.id,owner,generation,id:item.id,source:'member',name:item.name,size:item.size,modified:item.modified,type:item.type,blob})};tx.oncomplete=()=>{announceChange(owner);resolve()};tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('UserReset'))});
+ return new Promise((resolve,reject)=>{const tx=db.transaction(['users','documents'],'readwrite');const req=tx.objectStore('users').get(owner);req.onsuccess=()=>{if(req.result?.generation!==generation||(item.taskId&&!careOf(req.result).tasks.some(t=>t.id===item.taskId))){tx.abort();return}tx.objectStore('documents').put({key:owner+':'+item.id,owner,generation,id:item.id,source:'member',name:item.name,size:item.size,modified:item.modified,type:item.type,taskId:item.taskId||null,blob})};tx.oncomplete=()=>{announceChange(owner);resolve()};tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('UserReset'))});
 }
 function deleteDocument(item){const owner=currentUser.id;return new Promise((resolve,reject)=>{const tx=db.transaction(['users','documents'],'readwrite');const req=tx.objectStore('users').get(owner);req.onsuccess=()=>{if(req.result?.generation!==currentUser.generation||(req.result?.care?.tasks||[]).some(t=>t.reportId===item.id)){tx.abort();return}tx.objectStore('documents').delete(owner+':'+item.id)};tx.oncomplete=()=>{announceChange(owner);resolve()};tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('گزارش متصل به پیگیری قابل حذف نیست.'))})}
 async function resetCurrentUser(){
@@ -52,7 +52,7 @@ async function restoreUser(record){
   fillLevel=answers.filter(v=>v!==null).length/6;fillImage.style.clipPath=`inset(${(1-fillLevel)*100}% 0 0 0)`;
   const ap=record.appointment,doctor=doctorData.find(d=>d.id===ap?.doctorId);
   if(doctor&&/^\d{4}-\d{2}-\d{2}$/.test(ap.date)&&doctor.times.includes(ap.time)){appointment={doctor,date:ap.date,day:sampleDays.findIndex(d=>d.toISOString().slice(0,10)===ap.date),slot:doctor.times.indexOf(ap.time)}}
-  const savedDocs=await readDocuments(record.id);for(const d of savedDocs)if(d.generation===record.generation){documents.push({id:d.id,source:d.source,name:d.name,size:d.size,modified:d.modified,type:d.type,url:URL.createObjectURL(d.blob)});documentSerial=Math.max(documentSerial,Number(d.id)||0)}
+  const savedDocs=await readDocuments(record.id);for(const d of savedDocs)if(d.generation===record.generation){documents.push({id:d.id,source:d.source,name:d.name,size:d.size,modified:d.modified,type:d.type,taskId:d.taskId,url:URL.createObjectURL(d.blob)});documentSerial=Math.max(documentSerial,Number(d.id)||0)}
   restoreDraft(record.draft);render();renderDocuments();document.getElementById('personal-summary').textContent=complete?personalSummary():'';
   let target=document.getElementById('intake-scene'),focus='question';
   if(complete&&record.stage!=='intake'){target=doctorScene;focus='doctors-title';if(record.stage==='home'&&appointment){renderHome();target=confirmationScene;focus='confirmation-title'}else if(record.stage==='booking'&&selectedDoctor){target=bookingScene;focus='booking-title'}}

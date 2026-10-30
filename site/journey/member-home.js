@@ -33,7 +33,7 @@ function renderDocuments(){
  documents.forEach(item=>{
   const li=document.createElement('li');li.className='document-row';
   const mark=document.createElement('span');mark.className='file-mark';mark.textContent=item.type==='application/pdf'?'PDF':'تصویر';
-  const details=document.createElement('div');details.className='file-details';const name=document.createElement('span');name.className='file-name';name.textContent=item.name;const size=document.createElement('span');size.className='file-size';size.textContent=fa(Math.max(1,Math.round(item.size/1024)))+' کیلوبایت · ذخیره در مرورگر';details.append(name,size);
+  const details=document.createElement('div');details.className='file-details';const name=document.createElement('span');name.className='file-name';name.textContent=item.name;const size=document.createElement('span');size.className='file-size';size.textContent=fa(Math.max(1,Math.round(item.size/1024)))+' کیلوبایت · ذخیره در مرورگر · '+(item.taskId?careOf(currentUser).tasks.find(t=>t.id===item.taskId)?.title||'مسیر مرتبط':'مدرک عمومی پرونده');details.append(name,size);
   const actions=document.createElement('div');actions.className='file-actions';const view=document.createElement('a');view.textContent='مشاهده';view.href=item.url;view.target='_blank';view.rel='noopener noreferrer';view.setAttribute('aria-label','مشاهده '+item.name+' در برگه جدید');
   const remove=document.createElement('button');remove.type='button';remove.textContent='حذف';remove.setAttribute('aria-label','حذف '+item.name);remove.onclick=async()=>{remove.disabled=true;try{await deleteDocument(item);const index=documents.findIndex(d=>d.id===item.id);if(index>=0){URL.revokeObjectURL(documents[index].url);documents.splice(index,1)}renderDocuments();setDocumentFeedback('مدرک حذف شد.');document.getElementById('add-documents').focus({preventScroll:true})}catch(error){remove.disabled=false;setDocumentFeedback('حذف مدرک انجام نشد.',true);storageError(error)}};if(careOf(currentUser).tasks.some(t=>t.reportId===item.id)){remove.hidden=true;size.textContent+=' · گزارش پیگیری'}actions.append(view,remove);li.append(mark,details,actions);list.append(li);
  });
@@ -53,9 +53,9 @@ async function addDocuments(files){
   const type=pdf?'application/pdf':png?'image/png':jpg?'image/jpeg':webp?'image/webp':null;
   if(!type){failures.push('«'+file.name+'» فایل PDF یا تصویر پشتیبانی‌شده نیست.');continue}
   if(documents.some(d=>d.name===file.name&&d.size===file.size&&d.modified===file.lastModified)){failures.push('«'+file.name+'» قبلا اضافه شده است.');continue}
-  const blob=new Blob([file],{type});const item={id:crypto.randomUUID(),source:'member',name:file.name,size:file.size,modified:file.lastModified,type};await writeDocument(item,blob);documents.push({...item,url:URL.createObjectURL(blob)});added++;
+  const blob=new Blob([file],{type});const item={id:crypto.randomUUID(),source:'member',taskId:documentTask,name:file.name,size:file.size,modified:file.lastModified,type};await writeDocument(item,blob);documents.push({...item,url:URL.createObjectURL(blob)});added++;
  }
- renderDocuments();setDocumentFeedback((added?fa(added)+' مدرک برای این کاربر ذخیره شد. ':'')+[...new Set(failures)].join(' '),failures.length>0);
+ renderDocuments();if(memberTask)renderMemberCare();setDocumentFeedback((added?fa(added)+' مدرک برای این کاربر ذخیره شد. ':'')+[...new Set(failures)].join(' '),failures.length>0);
 }
 const documentInput=document.getElementById('document-input');let addingDocuments=false;
 document.getElementById('add-documents').onclick=()=>{if(!addingDocuments)documentInput.click()};

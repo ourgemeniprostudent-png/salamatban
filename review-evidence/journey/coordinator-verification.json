@@ -1,10 +1,10 @@
 {
-  "version": "4.3.0",
+  "version": "5.0.0",
   "checks": [
     "Tiny reciprocal entry links preserve path/version, show the destination login even with prior session, and retain patient data",
     "All six filters and three counters correspond to the assigned task list, including waiting versus completed",
     "Search matches patient name and Persian phone digits; missing terms produce a proper empty state",
-    "Each seeded stage has the correct six-step path and coordinator never receives clinical editors",
+    "Each seeded stage has the correct template-specific path and coordinator never receives clinical editors",
     "Navigation respects unsaved coordinator forms and canceled discard keeps the input",
     "Second coordinator sees only their assignment; overdue blocker and next attempt are visible; dashboard and task fit 320/390/768/1440px",
     "Staff reload and doctor/coordinator switching keep sessions and workspace containers coherent",

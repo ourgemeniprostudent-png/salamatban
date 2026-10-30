@@ -1,0 +1,14 @@
+{
+  "version": "5.0.0",
+  "checks": [
+    "Payment intent survives reload; failure/cancel do not book; success books atomically once and shows confirmation/dashboard/countdown",
+    "Calendar export is a real ICS event with UTC instants converted from the Iran appointment",
+    "Four real template flows (7/8/4/5 steps) completed through coordinator tick forms, patient gate and physician review; role/order bypass rejected and checkboxes persist",
+    "Completed pathways have dedicated pages; member upload links to the correct task; all documents and authored record are reachable; missing medications are not presented as no medication",
+    "New dashboard and real checklist fit 320/390/768/1440px without horizontal overflow",
+    "Empty submit leaves step incomplete; correcting center records a reason and invalidates downstream proposal and patient approval",
+    "A physician block during checkout is rechecked atomically; failed replacement preserves previous appointment without a successful payment",
+    "Complete Maryam fixture has nine paths and an actionable patient program gate; all nine patient pages fit four viewport sizes"
+  ],
+  "errors": []
+}

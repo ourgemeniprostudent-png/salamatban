@@ -1,5 +1,5 @@
 {
-  "version": "4.3.0",
+  "version": "5.0.0",
   "checks": [
     "Three sample accounts, phone/code validation, Persian digits, clipboard copy, single header action and restored mid-intake progress",
     "Doctor selection, dated 14-day draft, committed appointment and actual document bytes survive reload",

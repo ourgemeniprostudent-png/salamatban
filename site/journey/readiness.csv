@@ -8,10 +8,13 @@ Real OTP and role authorization,not implemented,engineering,implement before rea
 Clinical records and physician authorship,implemented local demo,clinical/product,validate fields before production
 Private document storage and retention,not implemented,operations,agree policy and server controls
 Video consultation,not connected,product,select provider
-Payments and pricing,undecided,business,confirm commercial scope
+Demo checkout and calendar export,implemented local demo,product,confirm real pricing and payment provider
+Real bank gateway,not connected,business,server callback and reconciliation required
 Physical device and user research,not performed,product,conduct acceptance sessions
 Physician dashboard and report viewer,implemented local demo,product,review with physicians
 Complete synthetic Maryam case,implemented,product,review demonstration and reset behavior
 Doctor calendar blocks and profile,implemented local demo,engineering,server authorization and capacity before production
 Coordinator task dashboard,implemented local demo,product,validate task usability with coordinators
 Multiple time offers and center directory,not implemented,product,define scope before implementation
+Patient dashboard and separate record pages,implemented local demo,product,review with patients
+Four interactive coordinator checklists,implemented local demo,product,validate service-specific operational steps

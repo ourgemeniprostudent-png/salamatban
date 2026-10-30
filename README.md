@@ -1,20 +1,19 @@
-# سلامت‌بان — نسخه ۴.۳
+# سلامت‌بان — نسخه ۵.۰
 
-مسیر جاری: https://ourgemeniprostudent-png.github.io/salamatban/next/
+نسخه آنلاین بیمار: https://ourgemeniprostudent-png.github.io/salamatban/next/?v=5.0.0
+ورود پزشک و کارشناس: https://ourgemeniprostudent-png.github.io/salamatban/next/?staff=1&v=5.0.0
 
-ورود خلوت با سه حساب نمونه، شش سوال کوتاه، انتخاب پزشک و وقت در ۱۴ روز آینده، سپس خانه کاربر و مدارک اختیاری. پاسخ‌ها، مرحله، وقت و مدارک هر حساب در همان مرورگر ذخیره می‌شوند. ریست فقط کاربر جاری را پاک می‌کند. این نسخه احراز هویت، تماس یا ارسال مدارک واقعی ندارد.
+ورود خلوت، شش سوال، انتخاب پزشک و وقت، پرداخت نمایشی همان جلسه و داشبورد شخصی بیمار. داشبورد شامل قدم بعد، مسیرهای فعال و تمام شده، مدارک، پرونده پزشکی، داروها، پروفایل و پزشک همراه است. چهار نوع خدمت با چک لیست قابل تیک زدن کارشناس، تایید واقعی نقش بیمار و بررسی نقش پزشک به هم متصل اند. طراحی پزشک حفظ شده و انتخاب نوع مسیر به فرم آن افزوده شده است.
 
-- [راهنمای تجربه و اجرا](site/journey/README-fa.md)
-- [معماری و مدل ذخیره](site/journey/architecture-fa.md)
-- سورس فعال نسخه ۴: `site/journey/`
-- ساخت: `python3 site/journey/build.py`
-- اجرای محلی: `python3 -m http.server 4180 --directory site/dist-journey`
-- آزمون: `node site/journey/browser.test.mjs` و `node site/journey/workflow.test.mjs` و `node site/journey/physician.test.mjs` و `node site/journey/coordinator.test.mjs` (نیازمند نصب وابستگی‌های site و Chromium)
-- ساخت بسته کامل: `python3 scripts/package_journey_v4.py`
-- انتشار مسیر next: `python3 scripts/publish_journey_v4.py`
+مریم کیانی نمونه کامل با شش جلسه، نه مسیر و هفت فایل ساختگی است. داده قبلی خودکار جایگزین نمی‌شود؛ برای دریافت نمونه جدید از گزینه مشخص بازیابی نمونه مریم استفاده کنید. سارا و نرگس برای آزمون مسیر از ابتدا هستند. ریست هر بیمار مستقل و ذخیره فقط در همان مرورگر است. درگاه بانک، پیامک و تماس واقعی فعال نیستند. اصلاح حجم از محدوده این تحویل خارج است.
 
-میزکار پزشک و کارشناس در نسخه ۴.۳ از مسیر /next/?staff=1 به پرونده همین کاربران وصل است. بیمار پیش از جلسه فیلدی برای نوشتن موضوع یا شرح حال ندارد.
+- [راهنمای جاری و حساب ها](site/journey/README-fa.md)
+- [معماری و قرارداد داده](site/journey/architecture-fa.md)
+- سورس فعال: site/journey
+- ساخت: python3 site/journey/build.py
+- اجرای محلی: python3 -m http.server 4182 --directory site/dist-journey
+- آزمون ها: browser.test.mjs، workflow.test.mjs، physician.test.mjs، coordinator.test.mjs و v5.test.mjs در site/journey؛ JOURNEY_TEST_URL مبدا آزمون را مشخص می‌کند. Playwright و Chromium لازم اند.
+- ساخت بسته: python3 scripts/package_journey_v4.py
+- انتشار: python3 scripts/publish_journey_v4.py
 
-نسخه قدیمی ریشه سایت محفوظ است. نسخه قبلی next در `/salamatban/archive/v3.5.0-next.1/` حفظ می‌شود. سورس `site/next/`، آزمون‌های `test:next`، سرور نمونه پیشین و سایر اسناد قدیمی، مراجع نسخه ۳ هستند؛ راهنمای نسخه جاری محسوب نمی‌شوند. ساخت قدیمی با `npm run build:next:legacy` انجام می‌شود. [معرفی قبلی](reference-docs/README-before-v4.md) برای رجوع نگهداری شده است.
-
-داشبورد پزشک با نمای امروز، پرونده، بررسی سند، تقویم و پروفایل پیاده شده است. مریم کیانی پرونده کامل ساختگی دارد؛ داده قبلی او خودکار جایگزین نمی‌شود. راهنمای بازیابی نمونه در راهنمای نسخه آمده است. داشبورد کارشناس با صف کارها، فیلترهای واقعی، جستجو و مسیر شش مرحله ای پیاده شده است. لینک کوچک پایین هر فرم ورود، فرم نقش دیگر را باز می‌کند.
+نسخه قدیمی ریشه، پیش نمایش مستقل و آرشیو /salamatban/archive/v3.5.0-next.1/ حفظ شده اند. site/next و reference-docs مراجع تاریخی نسخه های پیشین اند؛ برنامه جاری نیستند.

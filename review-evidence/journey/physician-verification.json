@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "checks": [
     "Complete Maryam scenario: full profile, six authored encounters, nine linked tasks in six distinct states, seven real synthetic PDF/image blobs and four reviewed completed paths",
     "Today counters and search filter actual data; report view opens the correct document with zoom and genuine PDF download, not a generic consultation form",

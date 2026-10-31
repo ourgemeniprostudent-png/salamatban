@@ -18,3 +18,5 @@ Coordinator task dashboard,implemented local demo,product,validate task usabilit
 Multiple time offers and center directory,not implemented,product,define scope before implementation
 Patient dashboard and separate record pages,implemented local demo,product,review with patients
 Four interactive coordinator checklists,implemented local demo,product,validate service-specific operational steps
+Editable personal profile,implemented local demo,product,confirm fields with users
+Structured medication list,implemented local demo,clinical,real prescription integration not active

@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib,json,subprocess,tempfile,os
 root=Path(__file__).resolve().parent.parent;build=root/'site/dist-journey'
 def git(*args,data=None,env=None):return subprocess.check_output(['git',*args],cwd=root,input=data,env=env).decode().strip()
-release=json.loads((build/'release.json').read_text());assert release['version']=='5.0.0'
+release=json.loads((build/'release.json').read_text());assert release['version']=='5.1.0'
 for n,h in release['assets'].items():assert hashlib.sha256((build/n).read_bytes()).hexdigest()==h
 ref='refs/heads/gh-pages';parent=git('ls-remote','origin',ref).split()[0];git('fetch','origin',ref)
 def files(tree):return {r.split('\t',1)[1]:r.split('\t',1)[0].split()[2] for r in git('ls-tree','-r',tree).splitlines()}
@@ -21,5 +21,5 @@ after=files(tree);assert all(after[n]==h for n,h in before.items() if not n.star
 assert all(n in before or n.startswith(('next/',archive)) for n in after)
 if not any(n.startswith(archive) for n in before):assert all(after[archive+n[len('next/'):]]==h for n,h in old.items())
 commit=git('commit-tree',tree,'-p',parent,data=b'Publish persistent minimal v4 member journey; preserve previous next archive\n');git('push','origin',commit+':'+ref)
-report={'version':'5.0.0','url':'https://ourgemeniprostudent-png.github.io/salamatban/next/','commit':commit,'sha256':release['assets']['index.html'],'existingNonNextRoutesUnchanged':True,'previousNextArchive':'https://ourgemeniprostudent-png.github.io/salamatban/'+archive,'previousPagesCommit':parent}
+report={'version':'5.1.0','url':'https://ourgemeniprostudent-png.github.io/salamatban/next/','commit':commit,'sha256':release['assets']['index.html'],'existingNonNextRoutesUnchanged':True,'previousNextArchive':'https://ourgemeniprostudent-png.github.io/salamatban/'+archive,'previousPagesCommit':parent}
 (root/'review-evidence/journey/publication.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

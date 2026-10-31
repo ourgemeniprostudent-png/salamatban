@@ -1,6 +1,6 @@
 {
-  "version": "5.0.0",
-  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/?v=5.0.0",
+  "version": "5.1.0",
+  "url": "https://ourgemeniprostudent-png.github.io/salamatban/next/?v=5.1.0",
   "tlsVerification": true,
   "transport": "HTTPS via managed proxy and system CA; browser responses fulfilled from verified Playwright HTTPS requests",
   "checks": [
@@ -11,7 +11,9 @@
     "Doctor/time/demo payment lead to confirmation and patient dashboard",
     "Home survives refresh",
     "Reset persists and returns to first question",
-    "Only reset is in header; URL unchanged"
+    "Only reset is in header; URL unchanged",
+    "Published personal profile saves and survives reload",
+    "Maryam current medication cards are populated from the updated synthetic fixture"
   ],
   "errors": []
 }

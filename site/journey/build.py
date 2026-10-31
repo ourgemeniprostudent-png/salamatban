@@ -3,7 +3,7 @@ import base64,hashlib,json
 root=Path(__file__).parent
 out=root.parent/'dist-journey';out.mkdir(exist_ok=True)
 s=(root/'template.html').read_text()
-for prefix,stem in [('DOCTORS','doctors'),('MEMBER_HOME','member-home'),('LOGIN','login'),('WORKFLOW','workflow'),('DEMO_CASE','demo-case'),('PHYSICIAN','physician'),('COORDINATOR','coordinator'),('PAYMENT','payment'),('CAREPATH','carepath'),('DASHBOARD','dashboard')]:
+for prefix,stem in [('DOCTORS','doctors'),('MEMBER_HOME','member-home'),('LOGIN','login'),('WORKFLOW','workflow'),('DEMO_CASE','demo-case'),('PHYSICIAN','physician'),('COORDINATOR','coordinator'),('PAYMENT','payment'),('CAREPATH','carepath'),('DASHBOARD','dashboard'),('PATIENT_PROFILE','patient-profile'),('MEDICATIONS','medications')]:
  for ext in ['css','html','js']:
   p=root/(stem+'.'+ext)
   if p.exists():s=s.replace('__'+prefix+'_'+ext.upper()+'__',p.read_text())
@@ -11,6 +11,7 @@ docs=json.loads((root/'demo-documents/manifest.json').read_text())
 for d in docs:
  d['pdf']=base64.b64encode((root/'demo-documents'/(d['id']+'.pdf')).read_bytes()).decode()
  d['preview']=base64.b64encode((root/'demo-documents'/(d['id']+'.png')).read_bytes()).decode()
+s=s.replace('__DEMO_MEDICATIONS__',(root/'demo-medications.json').read_text())
 s=s.replace('__DEMO_DOCUMENTS__',json.dumps(docs,ensure_ascii=False))
 s=s.replace('__PERSISTENCE_JS__',(root/'persistence.js').read_text())
 for token,path in [('__FAVICON__','favicon.svg'),('__REGULAR__','PeydaWebFaNum-Regular.woff2'),('__BOLD__','PeydaWebFaNum-Bold.woff2'),('__BODY__','body.png')]+[('__DOCTOR_'+n.upper()+'__','doctor-'+n+'.webp') for n in ['nazanin','arman','kaveh']]:
@@ -18,6 +19,6 @@ for token,path in [('__FAVICON__','favicon.svg'),('__REGULAR__','PeydaWebFaNum-R
 assert '__LOGIN_' not in s and '__PERSISTENCE_' not in s
 s=s.translate(str.maketrans({'ٔ':'','ٕ':'','أ':'ا','إ':'ا','ؤ':'و','ئ':'ی','ء':''}))
 (out/'index.html').write_text(s)
-release={'version':'5.0.0','path':'/salamatban/next/','mode':'persistent browser demo','accounts':8,'completeDemoCase':'maryam','databaseVersion':2,'storage':'IndexedDB per user; localStorage session','serverAuthentication':False,'clinicalService':False,'staffWorkspaces':'physician and coordinator connected local demo','demoCheckout':True,'pathwayTemplates':{'appointment':7,'lab':8,'records':4,'care':5},'fixtureVersion':'maryam-complete-v2','assets':{'index.html':hashlib.sha256((out/'index.html').read_bytes()).hexdigest()}}
+release={'version':'5.1.0','path':'/salamatban/next/','mode':'persistent browser demo','accounts':8,'completeDemoCase':'maryam','databaseVersion':2,'storage':'IndexedDB per user; localStorage session','serverAuthentication':False,'clinicalService':False,'staffWorkspaces':'physician and coordinator connected local demo','demoCheckout':True,'pathwayTemplates':{'appointment':7,'lab':8,'records':4,'care':5},'fixtureVersion':'maryam-complete-v3','assets':{'index.html':hashlib.sha256((out/'index.html').read_bytes()).hexdigest()}}
 (out/'release.json').write_text(json.dumps(release,indent=2)+'\n')
 print('Built v4 member journey:',out)

@@ -1,4 +1,4 @@
-const APP_VERSION='5.0.0';
+const APP_VERSION='5.1.0';
 const ACCOUNTS=[{id:'sara',name:'سارا احمدی',phone:'09000000001',code:'111111'},{id:'maryam',name:'مریم کیانی',phone:'09000000002',code:'222222'},{id:'narges',name:'نرگس رضایی',phone:'09000000003',code:'333333'}];
 const DB_NAME='salamatban-journey-v4',SESSION_KEY='salamatban.journey.v4.session',EVENT_KEY='salamatban.journey.v4.event';
 let db=null,currentUser=null,saveQueue=Promise.resolve(),isRestoring=false;const userRevisions=new Map();

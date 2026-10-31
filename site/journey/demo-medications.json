@@ -1,0 +1,5 @@
+[
+ {"id":"demo-vitamin-d","name":"ویتامین D3","dose":"۱۰۰۰ واحد","instructions":"روزی یک عدد پس از غذا","route":"خوراکی","startDate":"2026-10-17","endDate":"","status":"active","doctor":"nazanin","reviewedAt":"2026-10-17T09:00:00+03:30","documentId":"medication","synthetic":true},
+ {"id":"demo-cetirizine","name":"ستیریزین","dose":"۱۰ میلی گرم","instructions":"شب ها، در صورت نیاز؛ طبق برگه نمونه","route":"خوراکی","startDate":"2026-10-17","endDate":"","status":"asNeeded","doctor":"nazanin","reviewedAt":"2026-10-17T09:00:00+03:30","documentId":"medication","synthetic":true},
+ {"id":"demo-acetaminophen","name":"استامینوفن","dose":"۵۰۰ میلی گرم","instructions":"یک قرص در صورت نیاز؛ دوره نمونه پایان یافته","route":"خوراکی","startDate":"2026-10-08","endDate":"2026-10-10","status":"completed","doctor":"nazanin","reviewedAt":"2026-10-17T09:00:00+03:30","documentId":"medication","synthetic":true}
+]

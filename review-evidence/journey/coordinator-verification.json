@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "checks": [
     "Tiny reciprocal entry links preserve path/version, show the destination login even with prior session, and retain patient data",
     "All six filters and three counters correspond to the assigned task list, including waiting versus completed",

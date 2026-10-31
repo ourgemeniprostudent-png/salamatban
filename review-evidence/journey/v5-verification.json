@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "checks": [
     "Payment intent survives reload; failure/cancel do not book; success books atomically once and shows confirmation/dashboard/countdown",
     "Calendar export is a real ICS event with UTC instants converted from the Iran appointment",

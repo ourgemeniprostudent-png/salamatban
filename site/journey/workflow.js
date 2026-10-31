@@ -4,7 +4,7 @@ const STAFF_ACCOUNTS=[...doctorData.map((d,i)=>({id:d.id,name:d.name,role:'docto
 const staffMode=new URLSearchParams(location.search).get('staff')==='1',loginAccounts=staffMode?STAFF_ACCOUNTS:ACCOUNTS;
 let staffActor=null,workRecords=[],workSelected=null,workFilter='action',workBusy=false,workDirty=false,workURLs=[];
 const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const accountName=id=>ACCOUNTS.find(a=>a.id===id)?.name||STAFF_ACCOUNTS.find(a=>a.id===id)?.name||id;
+const accountName=id=>{const r=(currentUser?.id===id?currentUser:null)||workRecords.find(r=>r.id===id),p=r?.personal;return p?.firstName&&p.lastName?p.firstName+' '+p.lastName:ACCOUNTS.find(a=>a.id===id)?.name||STAFF_ACCOUNTS.find(a=>a.id===id)?.name||id};
 const careOf=r=>r.care||{encounters:[],tasks:[]};
 const taskNames={requested:'شروع هماهنگی',contacted:'پیشنهاد زمان',proposed:'منتظر تایید بیمار',confirmed:'پیگیری مراجعه',visited:'منتظر دریافت گزارش',reported:'منتظر بررسی پزشک',closed:'نتیجه ثبت شده'};
 const todayIR=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tehran',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
@@ -23,13 +23,15 @@ function workflowWrite(record,command,fields={},file=null){
    const task=care.tasks.find(t=>t.id===fields.taskId);const coord=actor.role==='coordinator'&&task?.assignee===actor.id;
    const now=new Date().toISOString();
    pathCommandGuard(task,command);
-   if(command==='setPath'){need(doctor&&task?.status==='requested'&&!task.path,'نوع مسیر فقط برای درخواست تازه و توسط پزشک قابل تعیین است.');task.path=newPath(fields.flowType);task.history.push({at:now,actor:actor.id,text:'نوع مسیر مشخص شد: '+PATH_TEMPLATES[fields.flowType].label});
+   if(command==='medications'){need(doctor,'فقط پزشک پرونده می‌تواند فهرست دارو را ثبت کند.');r.medications=medicationRows(fields,r,actor,now);r.medicationReview={doctor:actor.id,at:now};r.profile??={};r.profile.medication=r.medications.filter(m=>['active','asNeeded'].includes(m.status)).map(m=>m.name+' · '+m.dose+' · '+m.instructions).join('؛ ')||'در آخرین مرور داروی جاری ثبت نشده است.';
+   }else if(command==='memberProfile'){need(member,'فقط صاحب حساب می‌تواند اطلاعات شخصی خودش را تغییر دهد.');r.personal={...personalWrite(fields),updatedAt:now,updatedBy:actor.id,source:'ثبت صاحب حساب'};
+   }else if(command==='setPath'){need(doctor&&task?.status==='requested'&&!task.path,'نوع مسیر فقط برای درخواست تازه و توسط پزشک قابل تعیین است.');task.path=newPath(fields.flowType);task.history.push({at:now,actor:actor.id,text:'نوع مسیر مشخص شد: '+PATH_TEMPLATES[fields.flowType].label});
    }else if(command==='pathStep'){pathApply(task,fields,actor,now,tx,r,file);
    }else if(command==='profile'){
     need(doctor,'فقط پزشک پرونده می‌تواند پروفایل را ثبت کند.');
     need(!fields.birthDate||(validDate(fields.birthDate)&&fields.birthDate<=todayIR()),'تاریخ تولد معتبر وارد کن.');
     need(!fields.height||(Number.isFinite(+fields.height)&&+fields.height>=50&&+fields.height<=250),'قد باید بین ۵۰ تا ۲۵۰ سانتی متر باشد.');
-    const profile={...r.profile};for(const key of ['birthDate','city','occupation','insurance','height','contactPreference','goal','history','medication','allergies']){const value=String(fields[key]||'').trim();need(value.length<=4000,'متن بیش از حد طولانی است.');profile[key]=value}profile.updatedAt=now;profile.source='مرور در جلسه توسط '+accountName(actor.id);r.profile=profile;
+    const profile={...r.profile};for(const key of ['birthDate','city','occupation','insurance','height','contactPreference','goal','history','medication','allergies']){const value=String(fields[key]||'').trim();need(value.length<=4000,'متن بیش از حد طولانی است.');if(key!=='medication'||!Array.isArray(r.medications))profile[key]=value}profile.updatedAt=now;profile.source='مرور در جلسه توسط '+accountName(actor.id);r.profile=profile;if(r.personal){for(const key of ['birthDate','city','occupation','insurance','contactPreference'])r.personal[key]=profile[key];r.personal.updatedAt=now;r.personal.updatedBy=actor.id;r.personal.source='مرور مشخصات با پزشک'};
    }else if(command==='reviewDraft'){
     need(doctor&&task?.status==='reported','این گزارش در انتظار بررسی شما نیست.');care.reviewDrafts??={};const draft={};for(const key of ['text','next','due','title','why','assignee','coordinate','flowType']){draft[key]=String(fields[key]||'').trim();need(draft[key].length<=4000,'متن بیش از حد طولانی است.')}care.reviewDrafts[task.id]=draft;
    }else if(command==='draft'||command==='publish'){

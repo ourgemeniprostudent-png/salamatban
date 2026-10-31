@@ -14,3 +14,7 @@ CREATE TABLE payment_attempts (id TEXT PRIMARY KEY, patient_id TEXT NOT NULL REF
 CREATE TABLE pathway_steps (task_id TEXT NOT NULL REFERENCES coordination_tasks(id), template_type TEXT NOT NULL, template_version INTEGER NOT NULL, step_key TEXT NOT NULL, actor_id TEXT NOT NULL REFERENCES accounts(id), values_json TEXT NOT NULL, completed_at TEXT NOT NULL, PRIMARY KEY(task_id, step_key));
 CREATE TABLE pathway_events (id TEXT PRIMARY KEY, task_id TEXT NOT NULL REFERENCES coordination_tasks(id), actor_id TEXT NOT NULL REFERENCES accounts(id), event_json TEXT NOT NULL, created_at TEXT NOT NULL);
 ALTER TABLE documents ADD COLUMN task_id TEXT REFERENCES coordination_tasks(id);
+
+-- V5.1 proposed additions, not deployed.
+CREATE TABLE personal_profiles (patient_id TEXT PRIMARY KEY REFERENCES accounts(id), personal_json TEXT NOT NULL, updated_by TEXT NOT NULL REFERENCES accounts(id), updated_at TEXT NOT NULL);
+CREATE TABLE patient_medications (id TEXT PRIMARY KEY, patient_id TEXT NOT NULL REFERENCES accounts(id), physician_id TEXT NOT NULL REFERENCES accounts(id), medication_json TEXT NOT NULL, source_document_id TEXT REFERENCES documents(id), reviewed_at TEXT NOT NULL);

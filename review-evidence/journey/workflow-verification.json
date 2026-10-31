@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.1.0",
   "checks": [
     "Patient appointment reaches only selected doctor; physician draft persists and stays private; published encounter and task reach patient atomically",
     "Coordinator receives only own tasks and minimal information; contact, proposed time, patient rejection/reproposal and acceptance are distinct connected states",

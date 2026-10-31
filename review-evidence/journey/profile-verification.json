@@ -1,0 +1,12 @@
+{
+  "version": "5.1.0",
+  "checks": [
+    "Five-section personal profile works before any consultation, validates email/postcode, normalizes Persian digits and persists without writing clinical profile",
+    "Unsaved navigation can be canceled; external edits preserve typed text, stale save is rejected and reload recovers the new record; clinical payload ignored",
+    "Doctor sees current personal data and cannot impersonate a patient personal-profile write",
+    "Maryam has two current items and one past course with real source PDF links; shared fixture and document rows match; patient cannot change prescriptions",
+    "Physician can update the structured list; patient receives it after save/reload; edited row loses the obsolete document claim",
+    "Profile and medication list fit 320/390/768/1440px without horizontal overflow"
+  ],
+  "errors": []
+}

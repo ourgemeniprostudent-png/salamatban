@@ -25,6 +25,7 @@ function workflowWrite(record,command,fields={},file=null){
    pathCommandGuard(task,command);
    if(command==='medications'){need(doctor,'فقط پزشک پرونده می‌تواند فهرست دارو را ثبت کند.');r.medications=medicationRows(fields,r,actor,now);r.medicationReview={doctor:actor.id,at:now};r.profile??={};r.profile.medication=r.medications.filter(m=>['active','asNeeded'].includes(m.status)).map(m=>m.name+' · '+m.dose+' · '+m.instructions).join('؛ ')||'در آخرین مرور داروی جاری ثبت نشده است.';
    }else if(command==='memberProfile'){need(member,'فقط صاحب حساب می‌تواند اطلاعات شخصی خودش را تغییر دهد.');r.personal={...personalWrite(fields),updatedAt:now,updatedBy:actor.id,source:'ثبت صاحب حساب'};
+   }else if(command==='goalCheck'){need(member,'فقط صاحب حساب می‌تواند پیگیری هدف را ثبت کند.');const id=String(fields.goalId||'');need(['sleep','walk','meals'].includes(id),'هدف نامعتبر است.');const day=todayIR();const prior=r.goalChecks&&typeof r.goalChecks==='object'?r.goalChecks:{};const list=(Array.isArray(prior[id])?prior[id]:[]).filter(d=>validDate(d)&&d<=day);r.goalChecks={...prior,[id]:list.includes(day)?list.filter(d=>d!==day):[...list,day].slice(-180)};
    }else if(command==='setPath'){need(doctor&&task?.status==='requested'&&!task.path,'نوع مسیر فقط برای درخواست تازه و توسط پزشک قابل تعیین است.');task.path=newPath(fields.flowType);task.history.push({at:now,actor:actor.id,text:'نوع مسیر مشخص شد: '+PATH_TEMPLATES[fields.flowType].label});
    }else if(command==='pathStep'){pathApply(task,fields,actor,now,tx,r,file);
    }else if(command==='profile'){
